@@ -1,0 +1,172 @@
+\doxysection{mx\+\_\+spline Class Reference}
+\hypertarget{classmx__spline}{}\label{classmx__spline}\index{mx\_spline@{mx\_spline}}
+
+
+Inheritance diagram for mx\+\_\+spline\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__spline__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+spline\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classmx__spline__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__spline_ab832e6b56b2f070b58aec931bf377286}\label{classmx__spline_ab832e6b56b2f070b58aec931bf377286} 
+{\bfseries mx\+\_\+spline} (int \&err, bool do\+Copy, int inpoints, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \texorpdfstring{$\ast$}{*}points)
+\item 
+\Hypertarget{classmx__spline_a0e80bf9ee3932772517007aeaadbf60b}\label{classmx__spline_a0e80bf9ee3932772517007aeaadbf60b} 
+double {\bfseries dist2snap} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&snap\+Info=default\+Snap\+Info, double tolerance=GEOM\+\_\+\+SMALL) const
+\item 
+\Hypertarget{classmx__spline_aca6d4ed6b6a49a10f95bfd3d97d011bf}\label{classmx__spline_aca6d4ed6b6a49a10f95bfd3d97d011bf} 
+double {\bfseries dist} (\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__spline_a17acb2f612ea77935d5b6bda9854589c}\label{classmx__spline_a17acb2f612ea77935d5b6bda9854589c} 
+void {\bfseries copy} (int \&err, \mbox{\hyperlink{classmx__spline}{mx\+\_\+spline}} \&inpl, bool full\+Copy)
+\item 
+\Hypertarget{classmx__spline_a06d6d9ad0ce90376363a4761c14cb355}\label{classmx__spline_a06d6d9ad0ce90376363a4761c14cb355} 
+\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} {\bfseries bounding\+\_\+box} ()
+\item 
+void \mbox{\hyperlink{classmx__spline_acb7e29a67b4744364746b1ec3c19e9be}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classmx__spline_ab2ddfbcfe62010508c2f95413f56421c}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classmx__spline_a682985ffc9c540991689345de1cf995b}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__spline_a1e87c243b3dee548288edf642a5d857d}\label{classmx__spline_a1e87c243b3dee548288edf642a5d857d} 
+\mbox{\hyperlink{classmx__bezier}{mx\+\_\+bezier}} \texorpdfstring{$\ast$}{*} {\bfseries beziers}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__spline_a682985ffc9c540991689345de1cf995b}\label{classmx__spline_a682985ffc9c540991689345de1cf995b} 
+\index{mx\_spline@{mx\_spline}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_spline@{mx\_spline}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+spline\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__spline_acb7e29a67b4744364746b1ec3c19e9be}\label{classmx__spline_acb7e29a67b4744364746b1ec3c19e9be} 
+\index{mx\_spline@{mx\_spline}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_spline@{mx\_spline}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void mx\+\_\+spline\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__spline_ab2ddfbcfe62010508c2f95413f56421c}\label{classmx__spline_ab2ddfbcfe62010508c2f95413f56421c} 
+\index{mx\_spline@{mx\_spline}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_spline@{mx\_spline}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void mx\+\_\+spline\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/geometry.\+h\end{DoxyCompactItemize}

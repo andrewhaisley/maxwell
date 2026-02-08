@@ -1,0 +1,129 @@
+\doxysection{mx\+\_\+dg\+\_\+level\+\_\+draw\+\_\+iterator Class Reference}
+\hypertarget{classmx__dg__level__draw__iterator}{}\label{classmx__dg__level__draw__iterator}\index{mx\_dg\_level\_draw\_iterator@{mx\_dg\_level\_draw\_iterator}}
+
+
+Inheritance diagram for mx\+\_\+dg\+\_\+level\+\_\+draw\+\_\+iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classmx__dg__level__draw__iterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+dg\+\_\+level\+\_\+draw\+\_\+iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__dg__level__draw__iterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmx__dg__level__draw__iterator_a918849f93b8b5db13fb00e49bc204466}{process\+Function}} (int \&err, \mbox{\hyperlink{classmx__dg__quad__geom}{mx\+\_\+dg\+\_\+quad\+\_\+geom}} \&quad\+Geom, bool \&advance, bool \&done, bool skipped\+Some)
+\item 
+\Hypertarget{classmx__dg__level__draw__iterator_ae31c6b739393d5a720fd897118fa4aeb}\label{classmx__dg__level__draw__iterator_ae31c6b739393d5a720fd897118fa4aeb} 
+void {\bfseries set\+Style\+Device} (\mbox{\hyperlink{classmx__style__device}{mx\+\_\+style\+\_\+device}} \texorpdfstring{$\ast$}{*}id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__dg__level__iterator}{mx\+\_\+dg\+\_\+level\+\_\+iterator}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmx__dg__level__iterator_a5732bfd2d955c60f8c2c9c2bce51ac7e}{start}} (int \&err, \mbox{\hyperlink{classmx__diagram__area}{mx\+\_\+diagram\+\_\+area}} \texorpdfstring{$\ast$}{*}ida, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \texorpdfstring{$\ast$}{*}const ilevel\+Key=NULL, const \mbox{\hyperlink{classmx__dg__quad__key}{mx\+\_\+dg\+\_\+quad\+\_\+key}} \texorpdfstring{$\ast$}{*}const iquad\+Key=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__dg__iterator}{mx\+\_\+dg\+\_\+iterator}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+Area\+Of\+Interest} (const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&irect)
+\item 
+bool {\bfseries get\+Group\+Information} () const
+\item 
+void {\bfseries set\+Group\+Information} (bool igi)
+\item 
+void {\bfseries set\+Segment\+Get\+Type} (mx\+\_\+dg\+\_\+segment\+\_\+get\+\_\+t isgt)
+\item 
+void {\bfseries set\+Merge\+Geometries} (bool img)
+\item 
+bool {\bfseries get\+Quad\+Information} () const
+\item 
+void {\bfseries set\+Quad\+Information} (bool igi)
+\item 
+bool {\bfseries get\+Allow\+Inactive} () const
+\item 
+void {\bfseries set\+Allow\+Inactive} (bool igi)
+\item 
+void {\bfseries set\+Get\+Type} (mx\+\_\+dg\+\_\+qgeom\+\_\+get\+\_\+t igt)
+\item 
+mx\+\_\+dg\+\_\+qgeom\+\_\+get\+\_\+t {\bfseries get\+Get\+Type} ()
+\item 
+void {\bfseries process} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__dg__quad__geom}{mx\+\_\+dg\+\_\+quad\+\_\+geom}} \& {\bfseries get\+Quad\+Geom} ()
+\item 
+bool {\bfseries next\+Geometry} (int \&err, bool \&skipped\+Some)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__dg__iterator}{mx\+\_\+dg\+\_\+iterator}}}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classmx__dg__filter}{mx\+\_\+dg\+\_\+filter}} \texorpdfstring{$\ast$}{*}const {\bfseries get\+Filter} ()
+\item 
+virtual void {\bfseries end} (int \&err)
+\item 
+bool {\bfseries advance} (int \&err, bool doing\+Process, bool found, bool \&skipped\+Some)
+\item 
+bool {\bfseries intersects} (const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&extent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__dg__iterator}{mx\+\_\+dg\+\_\+iterator}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries use\+Filter}
+\item 
+\mbox{\hyperlink{classmx__dg__filter}{mx\+\_\+dg\+\_\+filter}} {\bfseries filter}
+\item 
+bool {\bfseries use\+Area\+Of\+Interest}
+\item 
+bool {\bfseries advance\+Item}
+\item 
+\mbox{\hyperlink{classmx__diagram__area}{mx\+\_\+diagram\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries da}
+\item 
+\mbox{\hyperlink{classmx__dg__level}{mx\+\_\+dg\+\_\+level}} \texorpdfstring{$\ast$}{*} {\bfseries current\+Level}
+\item 
+\mbox{\hyperlink{classmx__dg__quad}{mx\+\_\+dg\+\_\+quad}} \texorpdfstring{$\ast$}{*} {\bfseries current\+Quad}
+\item 
+\mbox{\hyperlink{classmx__dg__quad__key}{mx\+\_\+dg\+\_\+quad\+\_\+key}} {\bfseries current\+Quad\+Key}
+\item 
+\mbox{\hyperlink{classmx__dg__quad__geom}{mx\+\_\+dg\+\_\+quad\+\_\+geom}} {\bfseries quad\+Geom}
+\item 
+mx\+\_\+dg\+\_\+qgeom\+\_\+get\+\_\+t {\bfseries qgeom\+Get\+Type}
+\item 
+bool {\bfseries allow\+Inactive}
+\item 
+bool {\bfseries group\+Information}
+\item 
+bool {\bfseries quad\+Information}
+\item 
+bool {\bfseries single\+Level\+Iteration}
+\item 
+bool {\bfseries single\+Quad\+Iteration}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__dg__level__draw__iterator_a918849f93b8b5db13fb00e49bc204466}\label{classmx__dg__level__draw__iterator_a918849f93b8b5db13fb00e49bc204466} 
+\index{mx\_dg\_level\_draw\_iterator@{mx\_dg\_level\_draw\_iterator}!processFunction@{processFunction}}
+\index{processFunction@{processFunction}!mx\_dg\_level\_draw\_iterator@{mx\_dg\_level\_draw\_iterator}}
+\doxysubsubsection{\texorpdfstring{processFunction()}{processFunction()}}
+{\footnotesize\ttfamily void mx\+\_\+dg\+\_\+level\+\_\+draw\+\_\+iterator\+::process\+Function (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__dg__quad__geom}{mx\+\_\+dg\+\_\+quad\+\_\+geom}} \&}]{quad\+Geom,  }\item[{bool \&}]{advance,  }\item[{bool \&}]{done,  }\item[{bool}]{skipped\+Some }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__dg__iterator}{mx\+\_\+dg\+\_\+iterator}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+dg\+\_\+area.\+h\end{DoxyCompactItemize}

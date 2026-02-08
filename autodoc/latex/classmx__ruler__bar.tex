@@ -1,0 +1,154 @@
+\doxysection{mx\+\_\+ruler\+\_\+bar Class Reference}
+\hypertarget{classmx__ruler__bar}{}\label{classmx__ruler__bar}\index{mx\_ruler\_bar@{mx\_ruler\_bar}}
+
+
+Inheritance diagram for mx\+\_\+ruler\+\_\+bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classmx__ruler__bar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+ruler\+\_\+bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classmx__ruler__bar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ruler__bar_a8efb44500c576121b15e1a4af97dda57}\label{classmx__ruler__bar_a8efb44500c576121b15e1a4af97dda57} 
+{\bfseries mx\+\_\+ruler\+\_\+bar} (Widget parent, \mbox{\hyperlink{classmx__wp__toolbar}{mx\+\_\+wp\+\_\+toolbar}} \texorpdfstring{$\ast$}{*}notify)
+\item 
+\Hypertarget{classmx__ruler__bar_a6853021da6147ac038f399e8a20d4cf9}\label{classmx__ruler__bar_a6853021da6147ac038f399e8a20d4cf9} 
+Widget {\bfseries get\+\_\+widget} ()
+\item 
+\Hypertarget{classmx__ruler__bar_a6391eb9eaa751855a767f7a41fd0667e}\label{classmx__ruler__bar_a6391eb9eaa751855a767f7a41fd0667e} 
+void {\bfseries display} (int \&err, \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \texorpdfstring{$\ast$}{*}rulers\mbox{[}$\,$\mbox{]}, int num\+\_\+rulers, float resolution, mx\+\_\+unit\+\_\+e units, float paper\+\_\+width)
+\item 
+\Hypertarget{classmx__ruler__bar_a7d1d12b71e80b115ad1466a237bcc6ee}\label{classmx__ruler__bar_a7d1d12b71e80b115ad1466a237bcc6ee} 
+void {\bfseries display} (int \&err, float resolution, mx\+\_\+unit\+\_\+e units)
+\item 
+\Hypertarget{classmx__ruler__bar_a309244c4daaa458088b821bdd4d7362a}\label{classmx__ruler__bar_a309244c4daaa458088b821bdd4d7362a} 
+void {\bfseries set\+\_\+left\+\_\+origin} (int \&err, float l)
+\item 
+\Hypertarget{classmx__ruler__bar_a70730a0212d815620ba3b2d1b6b75ded}\label{classmx__ruler__bar_a70730a0212d815620ba3b2d1b6b75ded} 
+float {\bfseries get\+\_\+left\+\_\+origin} ()
+\item 
+\Hypertarget{classmx__ruler__bar_ac0127180388b1dcecc16206f7d6d8052}\label{classmx__ruler__bar_ac0127180388b1dcecc16206f7d6d8052} 
+\mbox{\hyperlink{classmx__xframe}{mx\+\_\+xframe}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+frame} ()
+\item 
+\Hypertarget{classmx__ruler__bar_a009ef25913dcc64d60f8137858449180}\label{classmx__ruler__bar_a009ef25913dcc64d60f8137858449180} 
+void {\bfseries set\+\_\+sensitive} (int \&err, bool b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__frame__target}{mx\+\_\+frame\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+frame\+\_\+target} (\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \& {\bfseries get\+Sheet\+Layout} ()
+\item 
+void {\bfseries set\+Sheet\+Layout} (\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+bool {\bfseries coord\+To\+Doc\+Coord} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+bool {\bfseries doc\+Coord\+To\+Coord} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Total\+Size} (int \&err)
+\item 
+void {\bfseries set\+Snap\+Tolerance} (double snap\+Tolerance)
+\item 
+double {\bfseries get\+Snap\+Tolerance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries set\+Next\+Target} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}inext\+Target, int target\+Id)
+\item 
+virtual void {\bfseries button\+Motion\+Start} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion\+End} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries external\+Selection} (int \&err, char \texorpdfstring{$\ast$}{*}sel)
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+External\+Selection} (int \&err)
+\item 
+virtual void {\bfseries button\+Release} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Double\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Triple\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Press} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Release} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries text\+Entry} (int \&err, \mbox{\hyperlink{classmx__text__event}{mx\+\_\+text\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries pre\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries special\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries post\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries pre\+Scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries post\+Scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll\+Drag} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries resize} (int \&err, \mbox{\hyperlink{classmx__resize__event}{mx\+\_\+resize\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries expose} (int \&err, \mbox{\hyperlink{classmx__expose__event}{mx\+\_\+expose\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries set\+Event} (int \&err, unsigned long int event\+Type, bool set\+On)
+\item 
+void {\bfseries set\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries add\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries clear\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+bool {\bfseries test\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+\mbox{\hyperlink{classmx__cb__in__propagate}{mx\+\_\+cb\+\_\+in\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+In\+Prop} (int offset)
+\item 
+\mbox{\hyperlink{classmx__cb__out__propagate}{mx\+\_\+cb\+\_\+out\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Out\+Prop} (int offset)
+\item 
+void {\bfseries set\+To\+Not\+Receive\+Events} (int id)
+\item 
+void {\bfseries set\+To\+Propagate\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}receiver, int receiver\+Id)
+\item 
+void {\bfseries set\+To\+Not\+Propagate\+Events} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}target)
+\item 
+void {\bfseries set\+To\+Receive\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}propagator, MX\+\_\+\+COORD\+\_\+\+CONVERSION\+\_\+\+FUNC func)
+\item 
+bool {\bfseries get\+Filter\+Motion} ()
+\item 
+void {\bfseries set\+Filter\+Motion} (bool ifilter\+Same\+Motion)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries get\+Last\+Motion} ()
+\item 
+void {\bfseries set\+Last\+Motion} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&ilast\+Motion\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries propagate\+Event} (int \&err, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}original\+Event, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}out\+Event)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+ruler\+\_\+bar.\+h\end{DoxyCompactItemize}

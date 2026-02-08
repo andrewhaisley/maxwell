@@ -1,0 +1,19 @@
+<map id="mx_frame_target" name="mx_frame_target">
+<area shape="rect" id="Node000001" title=" " alt="" coords="257,79,392,104"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__toolbar.html" title=" " alt="" coords="5,152,124,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,110,107,154,106,149,269,105"/>
+<area shape="rect" id="Node000004" href="$classmx__editor.html" title=" " alt="" coords="149,152,237,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="293,113,216,154,213,149,290,108"/>
+<area shape="rect" id="Node000007" href="$classmx__print__target.html" title=" " alt="" coords="261,152,388,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="327,118,327,152,322,152,322,118"/>
+<area shape="rect" id="Node000008" href="$classmx__ruler__bar.html" title=" " alt="" coords="412,152,520,177"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="361,108,444,149,442,154,358,112"/>
+<area shape="rect" id="Node000009" href="$classmx__wp__toolbar.html" title=" " alt="" coords="545,152,667,177"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="384,105,561,149,560,154,382,110"/>
+<area shape="rect" id="Node000002" href="$classmx__callback__target.html" title=" " alt="" coords="249,5,400,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,44,327,79,322,79,322,44"/>
+<area shape="rect" id="Node000005" href="$classmx__dg__editor.html" title=" " alt="" coords="69,225,180,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="174,189,138,227,134,223,170,185"/>
+<area shape="rect" id="Node000006" href="$classmx__wp__editor.html" title=" " alt="" coords="205,225,319,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="215,185,253,223,249,227,212,189"/>
+</map>

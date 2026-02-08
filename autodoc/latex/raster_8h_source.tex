@@ -1,0 +1,669 @@
+\doxysection{raster.\+h}
+\hypertarget{raster_8h_source}{}\label{raster_8h_source}\index{raster/raster.h@{raster/raster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <geometry.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <memory.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <mx\_colour.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ RAS\_VALUE\_SMALL\ 0.000001}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ RAS\_VALUE\_CSMALL\ 0.999999}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ RAST\_NUMPLANES\ 3}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ The\ pack\ type\ of\ the\ raster\ -\/\ this\ determines\ the\ type\ of}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ data\ the\ raster\ data\ is\ packed\ into\ into.\ Initially\ only\ the}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ two\ types\ bit\ and\ byte\ are\ used.\ Later\ developments\ may\ see}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ raster\ types\ integer\ and\ real\ etc.}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ RPACK\_BIT,}
+\DoxyCodeLine{00040\ \ \ \ \ RPACK\_BYTE,}
+\DoxyCodeLine{00041\ \ \ \ \ RPACK\_SHORT,}
+\DoxyCodeLine{00042\ \ \ \ \ RPACK\_INT}
+\DoxyCodeLine{00043\ \}\ RAST\_PACK;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Datatype\ describes\ the\ type\ if\ the\ data.\ e.g\ a\ raster\ dataset}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ can\ be\ binary,\ but\ this\ does\ not\ imply\ bit\ packed.}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ RDATA\_BINARY,}
+\DoxyCodeLine{00050\ \ \ \ \ RDATA\_GREYSCALE,}
+\DoxyCodeLine{00051\ \ \ \ \ RDATA\_COLOUR,}
+\DoxyCodeLine{00052\ \ \ \ \ RDATA\_RGB}
+\DoxyCodeLine{00053\ \}\ RAST\_DATA;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ RCACHE\_NONE,}
+\DoxyCodeLine{00057\ \ \ \ \ RCACHE\_TILE,}
+\DoxyCodeLine{00058\ \ \ \ \ RCACHE\_DICT,}
+\DoxyCodeLine{00059\ \ \ \ \ RCACHE\_DEFAULT}
+\DoxyCodeLine{00060\ \}\ RAST\_CACHE;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ COMP\_UNCOMPRESSED,}
+\DoxyCodeLine{00064\ \ \ \ \ COMP\_REMOVE,}
+\DoxyCodeLine{00065\ \ \ \ \ COMP\_PACKBITS,}
+\DoxyCodeLine{00066\ \ \ \ \ COMP\_ZCOMP,}
+\DoxyCodeLine{00067\ \ \ \ \ COMP\_NCOMPS}
+\DoxyCodeLine{00068\ \}\ COMP\_TYPE;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ void\ (*rasdecompFunc)(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytesCompressed,}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ int\ (*rascompFunc)(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ COMP\_TYPE\ defaultCompType(RAST\_PACK\ packType,}
+\DoxyCodeLine{00084\ \ \ \ \ RAST\_DATA\ dataType,}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ nplanes);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ RAST\_CACHE\ defaultCacheType(COMP\_TYPE\ compType,\ RAST\_CACHE\ cacheType);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ lookupConvert(\textcolor{keywordtype}{int}\ npixels,}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00091\ \ \ \ \ RAST\_PACK\ outpack,}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00093\ \ \ \ \ LUT\_VALUE*\ convert);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ copyBuffer(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferIn,}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ inc,}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ pixelBitSize,}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferOut,}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ outci);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{int}\ removeValueComp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ removeValueDecomp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytesCompressed,}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ rasterunPackbits(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytesCompressed,}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{int}\ rasterPackbits(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ rasterZuncomp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytesCompressed,}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{int}\ rasterZcomp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ uncompressed,}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ compressed,}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}*\ data);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ reverseBits(\textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ rasPack(\textcolor{keywordtype}{int}\ npackedPixels,}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ packed,}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ unpacked);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ rasUnpack(\textcolor{keywordtype}{int}\ npackedPixels,}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ packed,}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ unpacked);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ scaleDecompose(\textcolor{keywordtype}{double}\ scale1,}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{double}\ scale2,}
+\DoxyCodeLine{00156\ \ \ \ \ int32\&\ irscale,}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{double}\&\ rrscale);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{void}\ rasterFlip(\textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ value,}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferIn,}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferOut);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ rasterInvert(\textcolor{keywordtype}{int}\ nbytes,}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferIn,}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ bufferOut);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ Forward\ definition}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classraster}{raster}};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ *\ CLASS:\ rasterIterator}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ class\ type\ for\ iteratively\ retrieving}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ *\ tiles\ of\ data\ over\ an\ area.\ Normally\ the\ raster\ iterator}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ *\ on\ a\ raster\ will\ suffice.\ If\ a\ raster\ dataset\ needs\ to}}
+\DoxyCodeLine{00178\ \textcolor{comment}{\ *\ be\ iterated\ twice\ at\ the\ same\ time\ then\ this\ class\ can}}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ *\ be\ used\ to\ give\ an\ iterator\ outside\ the\ raster.\ Note\ that}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ *\ these\ cases\ the\ user\ must\ be\ careful\ not\ to\ delete\ the\ raster}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ *\ whilst\ the\ iterator\ is\ active.}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrasterIterator}{rasterIterator}}\ \{}
+\DoxyCodeLine{00185\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{classrasterIterator}{rasterIterator}}(\textcolor{keywordtype}{bool}\ ignoreUnknown\ =\ FALSE);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ Set\ up\ the\ iterator}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classraster}{raster}}*\ iraster,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ getRect);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ raster\ on\ the\ iterator}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classraster}{raster}}*\ getRaster()\ \{\ \textcolor{keywordflow}{return}\ thisRaster;\ \};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ next\ tile\ from\ the\ raster}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ Returns\ NULL\ at\ end\ of\ the\ iteration}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ next(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ currentPixels,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoords);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getIgnoreUnknown()\ \{\ \textcolor{keywordflow}{return}\ ignoreUnknown;\ \};}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setIgnoreUnknown(\textcolor{keywordtype}{bool}\ iignoreUnknown)\ \{\ ignoreUnknown\ =\ iignoreUnknown;\ \};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00203\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{//\ The\ attached\ raster}}
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ thisRaster;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ Count\ prameters}}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ currentTile;}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ startTile;}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ endTile;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{bool}\ ignoreUnknown;}
+\DoxyCodeLine{00212\ \};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ *\ CLASS:\ rascache}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ global\ rascache\ structure\ holds}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ *\ a\ variable\ number\ of\ raster\ tiles\ at\ a\ given}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ *\ time.\ The\ tiles\ are\ also\ held\ in\ a\ collection\ of}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *\ raster\ cache\ items\ held\ on\ the\ raster\ class.}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ *\ The\ raster\ cache\ items\ also\ live\ in\ a\ doubly}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ *\ linked\ list\ on\ the\ raster\ cache\ class.}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ *\ The\ procedure\ of\ getting\ a\ tile\ is\ therefore}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ *\ 1)\ look\ in\ the\ collection\ of\ the\ raster.\ If\ it\ is}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *\ \ \ \ there\ all\ well\ and\ good.\ Tell\ the\ raster\ cache\ to}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *\ \ \ \ move\ the\ item\ corresponging\ to\ the}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ *\ \ \ \ tile\ to\ the\ head\ of\ its\ list}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ *\ 2)\ If\ it\ isnt\ create\ a\ new\ piece\ of\ tile\ memory,\ fill}}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ *\ \ \ \ it\ with\ the\ correct\ data,\ and\ then\ tell\ the\ raster}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ *\ \ \ \ cache\ to\ add\ the\ tile\ on\ an\ item\ it\ to\ its\ list.}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ *\ 3)\ If\ the\ specified\ number\ of\ tiles\ is\ in\ the\ list,}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ *\ \ \ \ the\ item\ at\ the\ end\ of\ the\ cache\ must\ be\ dropped.}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *\ \ \ \ The\ item\ has\ the\ raster\ it\ has\ attached\ to,\ from}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ *\ \ \ \ which\ the\ callback\ which\ removes\ the\ item\ from\ the}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *\ \ \ \ raster\ cache\ can\ be\ removed.}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ *\ \ \ \ NOTE\ ::\ The\ raster\ cache\ is\ only\ used\ for\ those}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ *\ \ \ \ rasters\ based\ on\ externally\ held\ data\ .e.g.\ in\ a\ TIFF}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ *\ \ \ \ file.\ Rasters\ in\ the\ MAXWELL\ internal\ format\ have}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ *\ \ \ \ data\ cahced\ within\ the\ database.}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{comment}{//\ The\ list\ item\ structure}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ RASITEM\_LOCKED\ 1\ }\textcolor{comment}{//\ Should\ really\ be\ a\ count}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ RASITEM\_EDITED\ 2}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ RLOCK(item)\ ((item)-\/>flag\ |=\ RASITEM\_LOCKED)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ RUNLOCK(item)\ ((item)-\/>flag\ \&=\ \string~RASITEM\_LOCKED)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ RISLOCKED(item)\ (((item)-\/>flag\ \&\ RASITEM\_LOCKED)\ !=\ 0)}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ REDIT(item)\ ((item)-\/>flag\ |=\ RASITEM\_EDITED)}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ RUNEDIT(item)\ ((item)-\/>flag\ \&=\ \string~RASITEM\_EDITED)}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ RISEDITED(item)\ (((item)-\/>flag\ \&\ RASITEM\_EDITED)\ !=\ 0)}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrasterItem}{rasterItem}}\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ iraster;\ \textcolor{comment}{//\ The\ raster\ the\ item\ is\ attached\ to}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{int}\ itileIndex;\ \textcolor{comment}{//\ The\ tile\ within\ the\ raster}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ ibuffer;\ \textcolor{comment}{//\ The\ memory\ for\ the\ tile}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasterItem}}*\ next;\ \textcolor{comment}{//\ Linled\ list\ next}}
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasterItem}}*\ prev;\ \textcolor{comment}{//\ Linked\ list\ prev}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ flag;\ \textcolor{comment}{//\ Flags\ about\ the\ item}}
+\DoxyCodeLine{00266\ \}\ \mbox{\hyperlink{structrasterItem}{rasItem}};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{comment}{//\ The\ raster\ cache\ item.\ Only\ one\ of\ these\ items\ is\ likely\ to}}
+\DoxyCodeLine{00269\ \textcolor{comment}{//\ exist\ at\ a\ given\ time.}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrascache}{rascache}}\ \{}
+\DoxyCodeLine{00272\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00273\ \ \ \ \ \mbox{\hyperlink{classrascache}{rascache}}(int32\ size);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ tile\ to\ the\ list}}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classraster}{raster}}*\ rast,\ int32\ tileIndex,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,\ \mbox{\hyperlink{structrasterItem}{rasItem}}**\ index);}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{comment}{//\ Move\ the\ tile\ to\ the\ head\ of\ the\ list}}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\mbox{\hyperlink{structrasterItem}{rasItem}}*\ index);}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ Delete\ all\ tiles\ for\ a\ raster}}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ del(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classraster}{raster}}*\ rast);}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{int}\ error;}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00285\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00286\ \ \ \ \ int32\ initialSize;}
+\DoxyCodeLine{00287\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasItem}}*\ head;}
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasItem}}*\ tail;}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasItem}}*\ freeList;}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{void}\ splice(\mbox{\hyperlink{structrasterItem}{rasItem}}*\ thisRasItem);}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{void}\ getFromFreeList(\mbox{\hyperlink{structrasterItem}{rasItem}}**\ thisRasItem);}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{void}\ returnToFreeList(\mbox{\hyperlink{structrasterItem}{rasItem}}*\ thisRasItem);}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{void}\ newFreeList(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00294\ \};}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00297\ \textcolor{comment}{\ *\ CLASS:\ raster}}
+\DoxyCodeLine{00298\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00299\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ basic\ raster\ class.\ This\ class}}
+\DoxyCodeLine{00300\ \textcolor{comment}{\ *\ holds\ the\ parameters\ for\ a\ maxwell\ raster.\ The}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ *\ important\ virtual\ function\ is\ the\ call\ to\ get\ a}}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ *\ tile\ of\ data.}}
+\DoxyCodeLine{00303\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classraster}{raster}}\ \{}
+\DoxyCodeLine{00306\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{comment}{//\ The\ cache\ shared\ over\ all\ rasters}}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrascache}{rascache}}\ globalRascache;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//\ Error\ from\ constructor}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classraster}{\string~raster}}();}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{comment}{//\ The\ routine\ which\ gets\ a\ tile\ of\ data\ from\ the}}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{//\ underlying\ data\ -\/\ this\ may\ be\ a\ maxwell\ type\ raster}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ or\ a\ TIFF\ or\ JPEG\ file\ etc}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ tile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ getForEdit,}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ unknown,}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tilePos,}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasItem}}**\ item\ =\ NULL);}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{comment}{//\ This\ routine\ puts\ a\ tile\ of\ data}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordtype}{void}\ put(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data,}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ flush,}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tilePos);}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{comment}{//\ The\ virtual\ function\ returns\ the\ data\ with\ the}}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{comment}{//\ tile.\ The\ input\ paramater\ buffer\ can\ be\ passed\ as}}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{comment}{//\ non-\/null\ in\ which\ case\ this\ is\ the\ piece\ of\ memory}}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{//\ to\ be\ filled\ with\ the\ data\ -\/\ or\ it\ can\ be\ NULL\ in\ which}}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{//\ case\ it\ is\ assumed\ that\ the\ getTile\ function\ is\ performing\ its}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{//\ ownm\ memory\ management\ (as\ for\ a\ MAXWELL\ raster)\ .}}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ getForEdit,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ unknown,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ putTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{00349\ \ \ \ \ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00352\ \ \ \ \ \};}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ areaSize);}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ isize)\ \{\ \};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{void}\ copyData(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}\&\ dest,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ extent);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{comment}{//\ Get\ some\ data\ in\ a\ buffer\ attached\ to\ the\ raster}}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getBuffer(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ pixelCoords);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ cache\ of\ data}}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{void}\ createCache(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ RAST\_CACHE\ cacheType);}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{comment}{//\ Basic\ access\ routines}}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getSize()\ \{\ \textcolor{keywordflow}{return}\ size;\ \};}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getTileSize()\ \{\ \textcolor{keywordflow}{return}\ tileSize;\ \};}
+\DoxyCodeLine{00378\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getTotalSize();}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ tilePixels()\ \{\ \textcolor{keywordflow}{return}\ tileSize.x\ *\ tileSize.y;\ \};}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keyword}{inline}\ RAST\_PACK\ getPack()\ \{\ \textcolor{keywordflow}{return}\ pack;\ \};}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keyword}{inline}\ RAST\_DATA\ getData()\ \{\ \textcolor{keywordflow}{return}\ data;\ \};}
+\DoxyCodeLine{00382\ \ \ \ \ int32\ getPlanes(int32**\ isigbits\ =\ NULL);}
+\DoxyCodeLine{00383\ \ \ \ \ int32\ tileByteSize();}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ pixelByteSize();}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ pixelBitSize();}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keyword}{inline}\ int32*\ getSigbits()\ \{\ \textcolor{keywordflow}{return}\ sigbits;\ \};}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ getSigbits(\textcolor{keywordtype}{int}\ offset)\ \{\ \textcolor{keywordflow}{return}\ sigbits[offset];\ \};}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{bool}\ inTileRange(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ itile);}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ getColours(\mbox{\hyperlink{classmx__colour}{mx\_colour}}**\ colours);}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ getColours()\ \{\ \textcolor{keywordflow}{return}\ colours;\ \};}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ getNumColours()\ \{\ \textcolor{keywordflow}{return}\ numColours;\ \};}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getStoredMMsize()\ \{\ \textcolor{keywordflow}{return}\ storedMMsize;\ \};}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getHasStoredMMsize()\ \{\ \textcolor{keywordflow}{return}\ hasStoredMMsize;\ \};}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keyword}{inline}\ RAST\_CACHE\ getCacheType()\ \{\ \textcolor{keywordflow}{return}\ cacheType;\ \};}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{comment}{//\ Basic\ translation\ of\ tiles\ to\ pixels\ etc.}}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{void}\ pointToTile(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pixelCoord,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord);}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ tileToPixels(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ ipixelCoords);}
+\DoxyCodeLine{00398\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tileCoord(int32\ index);}
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getTiles();}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{int}\ totalTiles();}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{comment}{//\ Remove\ and\ tile\ from\ the\ dictionary}}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{void}\ removeTile(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,\ int32\ tileIndex,\ \textcolor{keywordtype}{bool}\ isEdited);}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{comment}{//\ Setting\ and\ using\ the\ iterator}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ setIterator(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ input);}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ next(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ currentPixels,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{comment}{//\ Get\ a\ tile\ index\ from\ its\ coordinates}}
+\DoxyCodeLine{00409\ \ \ \ \ int32\ tileIndex(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord);}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{void}\ copyBasics(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classraster}{raster}}\&\ base);}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{void}\ defaultMMsize();}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ areaSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pageSize,}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pixelResolution);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{int}\ sigbitsFromColours();}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{comment}{//\ Basic\ properties\ of\ the\ raster}}
+\DoxyCodeLine{00422\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ size;}
+\DoxyCodeLine{00423\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tileSize;}
+\DoxyCodeLine{00424\ \ \ \ \ RAST\_PACK\ pack;}
+\DoxyCodeLine{00425\ \ \ \ \ RAST\_DATA\ data;}
+\DoxyCodeLine{00426\ \ \ \ \ int32\ nplanes;}
+\DoxyCodeLine{00427\ \ \ \ \ int32\ sigbits[RAST\_NUMPLANES];}
+\DoxyCodeLine{00428\ \ \ \ \ int32\ numColours;}
+\DoxyCodeLine{00429\ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colours;}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{comment}{//\ stored\ MMsize}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasStoredMMsize;}
+\DoxyCodeLine{00433\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ storedMMsize;}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{comment}{//\ The\ collection\ of\ tiles\ indexed\ on\ tile\ id}}
+\DoxyCodeLine{00436\ \ \ \ \ RAST\_CACHE\ cacheType;}
+\DoxyCodeLine{00437\ \ \ \ \ std::map<int,\ rasItem\ *>\ tileDict;}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{comment}{//\ An\ internal\ file\ buffer\ to\ hand\ data\ back\ one\ tile\ of}}
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{comment}{//\ data\ -\/\ if\ only\ one\ tile\ of\ data\ is\ used\ for\ a\ raster,}}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{comment}{//\ this\ will\ be\ the\ one\ and\ only\ tile\ returned}}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ tileBuffer;}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{comment}{//\ An\ iterator\ to\ get\ all\ tiles\ over\ an\ area}}
+\DoxyCodeLine{00446\ \ \ \ \ \mbox{\hyperlink{classrasterIterator}{rasterIterator}}\ riterator;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{comment}{//\ A\ buffer\ to\ return\ data\ in}}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer;}
+\DoxyCodeLine{00450\ \ \ \ \ int32\ bufferSize;}
+\DoxyCodeLine{00451\ \};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00454\ \textcolor{comment}{\ *\ FUNCTION:\ raster::getPlanes}}
+\DoxyCodeLine{00455\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00456\ \textcolor{comment}{\ *\ DESCRIPTION:\ Return\ the\ number\ of\ planes\ in\ a}}
+\DoxyCodeLine{00457\ \textcolor{comment}{\ *\ raster\ -\/\ if\ required\ return\ the\ number\ of\ significant}}
+\DoxyCodeLine{00458\ \textcolor{comment}{\ *\ bits\ per\ plane}}
+\DoxyCodeLine{00459\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{keyword}{inline}\ int32\ raster::getPlanes(int32**\ isigbits)}
+\DoxyCodeLine{00462\ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordflow}{if}\ (isigbits\ !=\ NULL)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ *isigbits\ =\ sigbits;}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{return}\ nplanes;}
+\DoxyCodeLine{00466\ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00469\ \textcolor{comment}{\ *\ FUNCTION:\ raster::getColours}}
+\DoxyCodeLine{00470\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00471\ \textcolor{comment}{\ *\ DESCRIPTION:\ Return\ the\ number\ of\ colours\ for\ the}}
+\DoxyCodeLine{00472\ \textcolor{comment}{\ *\ raster\ -\/\ and\ the\ colours\ -\/\ only\ applicable\ for\ rasters}}
+\DoxyCodeLine{00473\ \textcolor{comment}{\ *\ with\ a\ CODE\_TYPE.}}
+\DoxyCodeLine{00474\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{keyword}{inline}\ int32\ raster::getColours(\mbox{\hyperlink{classmx__colour}{mx\_colour}}**\ icolour)}
+\DoxyCodeLine{00477\ \{}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{if}\ (icolour\ !=\ NULL)}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ *icolour\ =\ colours;}
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordflow}{return}\ numColours;}
+\DoxyCodeLine{00481\ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00484\ \textcolor{comment}{\ *\ FUNCTION:\ roundToSize}}
+\DoxyCodeLine{00485\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00486\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ quantisation\ to\ map\ points}}
+\DoxyCodeLine{00487\ \textcolor{comment}{\ *\ to\ tiles.}}
+\DoxyCodeLine{00488\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00489\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{keyword}{inline}\ int32\ roundToSize(int32\ in,\ int32\ size)}
+\DoxyCodeLine{00492\ \{}
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keywordflow}{if}\ (in\ >=\ 0)\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (in\ /\ size);}
+\DoxyCodeLine{00495\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/((-\/in\ -\/\ 1)\ /\ size);}
+\DoxyCodeLine{00497\ \ \ \ \ \}}
+\DoxyCodeLine{00498\ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00501\ \textcolor{comment}{\ *\ FUNCTION:\ raster::pointToTile}}
+\DoxyCodeLine{00502\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00503\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ tile\ a\ pixel\ resides\ in}}
+\DoxyCodeLine{00504\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00505\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ raster::pointToTile(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pixelCoord,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord)}
+\DoxyCodeLine{00508\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ rpoint(roundToSize(pixelCoord.x,\ tileSize.x),}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ roundToSize(pixelCoord.y,\ tileSize.y));}
+\DoxyCodeLine{00511\ \ \ \ \ tileCoord\ =\ rpoint;}
+\DoxyCodeLine{00512\ \}}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00515\ \textcolor{comment}{\ *\ FUNCTION:\ raster::tileToPixels}}
+\DoxyCodeLine{00516\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00517\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ pixel\ coordinates\ of\ the}}
+\DoxyCodeLine{00518\ \textcolor{comment}{\ *\ corners\ of\ a\ tile}}
+\DoxyCodeLine{00519\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ raster::tileToPixels(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord,}
+\DoxyCodeLine{00522\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ ipixelCoords)}
+\DoxyCodeLine{00523\ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ rec(tileCoord.x\ *\ tileSize.x,}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ tileCoord.y\ *\ tileSize.y,}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ (tileCoord.x\ +\ 1)\ *\ tileSize.x\ -\/\ 1,}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ (tileCoord.y\ +\ 1)\ *\ tileSize.y\ -\/\ 1);}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \ \ \ \ ipixelCoords\ =\ rec;}
+\DoxyCodeLine{00530\ \}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00533\ \textcolor{comment}{\ *\ FUNCTION:\ raster::setIterator}}
+\DoxyCodeLine{00534\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00535\ \textcolor{comment}{\ *\ DESCRIPTION:\ Setup\ a\ raster\ iteration\ of\ the}}
+\DoxyCodeLine{00536\ \textcolor{comment}{\ *\ tiles\ within\ an\ area}}
+\DoxyCodeLine{00537\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ raster::setIterator(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ pixelCoords)}
+\DoxyCodeLine{00540\ \{}
+\DoxyCodeLine{00541\ \ \ \ \ riterator.set(err,\ \textcolor{keyword}{this},\ pixelCoords);}
+\DoxyCodeLine{00542\ \}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00545\ \textcolor{comment}{\ *\ FUNCTION:\ raster::next}}
+\DoxyCodeLine{00546\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00547\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ next\ tile\ in\ an\ iteration}}
+\DoxyCodeLine{00548\ \textcolor{comment}{\ *\ Return\ the\ pixel\ coordinates\ of\ the\ corners\ of\ this}}
+\DoxyCodeLine{00549\ \textcolor{comment}{\ *\ tile.}}
+\DoxyCodeLine{00550\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00551\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ raster::next(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ currentPixels,}
+\DoxyCodeLine{00554\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoords)}
+\DoxyCodeLine{00555\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordflow}{return}\ riterator.next(err,\ currentPixels,\ tileCoords);}
+\DoxyCodeLine{00557\ \}}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00560\ \textcolor{comment}{\ *\ FUNCTION:\ raster::tileIndex}}
+\DoxyCodeLine{00561\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00562\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ next\ tile\ in\ an\ iteration}}
+\DoxyCodeLine{00563\ \textcolor{comment}{\ *\ Return\ the\ pixel\ coordinates\ of\ the\ corners\ of\ this}}
+\DoxyCodeLine{00564\ \textcolor{comment}{\ *\ tile.}}
+\DoxyCodeLine{00565\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00566\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \textcolor{keyword}{inline}\ int32\ raster::tileIndex(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileCoord)}
+\DoxyCodeLine{00569\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tiles\ =\ getTiles();}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordflow}{return}\ tileCoord.y\ *\ tiles.x\ +\ tileCoord.x;}
+\DoxyCodeLine{00572\ \}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00575\ \textcolor{comment}{\ *\ FUNCTION:\ raster::tileCoord}}
+\DoxyCodeLine{00576\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00577\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ next\ tile\ in\ an\ iteration}}
+\DoxyCodeLine{00578\ \textcolor{comment}{\ *\ Return\ the\ pixel\ coordinates\ of\ the\ corners\ of\ this}}
+\DoxyCodeLine{00579\ \textcolor{comment}{\ *\ tile.}}
+\DoxyCodeLine{00580\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00581\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ raster::tileCoord(int32\ index)}
+\DoxyCodeLine{00584\ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tileCoord;}
+\DoxyCodeLine{00586\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tiles\ =\ getTiles();}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ tileCoord.x\ =\ index\ \%\ tiles.x;}
+\DoxyCodeLine{00589\ \ \ \ \ tileCoord.y\ =\ index\ /\ tiles.x;}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordflow}{return}\ tileCoord;}
+\DoxyCodeLine{00592\ \}}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00595\ \textcolor{comment}{\ *\ FUNCTION:\ rasterBits}}
+\DoxyCodeLine{00596\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00597\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ number\ of\ bits\ in\ some\ pixels}}
+\DoxyCodeLine{00598\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00599\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00600\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ \textcolor{keywordtype}{int}\ rasterBits(RAST\_PACK\ packtype,\ int32\ npixels,\ int32\ nplanes);}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00605\ \textcolor{comment}{\ *\ FUNCTION:\ rasterBytes}}
+\DoxyCodeLine{00606\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00607\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ number\ of\ bytes\ in\ some\ pixels}}
+\DoxyCodeLine{00608\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00609\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00610\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00612\ \textcolor{keywordtype}{int}\ rasterBytes(RAST\_PACK\ packtype,\ int32\ npixels,\ int32\ nplanes);}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00615\ \textcolor{comment}{\ *\ FUNCTION:\ inTileRange}}
+\DoxyCodeLine{00616\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00617\ \textcolor{comment}{\ *\ DESCRIPTION:\ See\ if\ a\ tile\ coordinate\ is\ within}}
+\DoxyCodeLine{00618\ \textcolor{comment}{\ *\ range}}
+\DoxyCodeLine{00619\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00620\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ raster::inTileRange(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ itile)}
+\DoxyCodeLine{00623\ \{}
+\DoxyCodeLine{00624\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ pt\ =\ getTiles();}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordflow}{return}\ !((itile.x\ <\ 0)\ ||\ (itile.y\ <\ 0)\ ||\ (itile.x\ >=\ pt.x)\ ||\ (itile.y\ >=\ pt.y));}
+\DoxyCodeLine{00627\ \}}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00630\ \textcolor{comment}{\ *\ FUNCTION:\ raster::tileByteSize()}}
+\DoxyCodeLine{00631\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00632\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ tile\ byte\ size}}
+\DoxyCodeLine{00633\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00634\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00636\ \textcolor{keyword}{inline}\ int32\ raster::tileByteSize()}
+\DoxyCodeLine{00637\ \{}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordflow}{return}\ rasterBytes(pack,\ tilePixels(),\ nplanes);}
+\DoxyCodeLine{00639\ \}}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00642\ \textcolor{comment}{\ *\ FUNCTION:\ raster::pixelByteSize()}}
+\DoxyCodeLine{00643\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00644\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ pixel\ byte\ size}}
+\DoxyCodeLine{00645\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00646\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \textcolor{keyword}{inline}\ int32\ raster::pixelByteSize()}
+\DoxyCodeLine{00649\ \{}
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keywordflow}{return}\ rasterBytes(pack,\ 1,\ nplanes);}
+\DoxyCodeLine{00651\ \}}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00653\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00654\ \textcolor{comment}{\ *\ FUNCTION:\ raster::pixelBitSize()}}
+\DoxyCodeLine{00655\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00656\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ the\ pixel\ byte\ size}}
+\DoxyCodeLine{00657\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00658\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \textcolor{keyword}{inline}\ int32\ raster::pixelBitSize()}
+\DoxyCodeLine{00661\ \{}
+\DoxyCodeLine{00662\ \ \ \ \ \textcolor{keywordflow}{return}\ rasterBits(pack,\ 1,\ nplanes);}
+\DoxyCodeLine{00663\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,19 @@
+<map id="mx_painter" name="mx_painter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,128,219,153"/>
+<area shape="rect" id="Node000003" href="$classmx__area__painter.html" title=" " alt="" coords="285,79,417,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,122,302,102,304,107,232,127"/>
+<area shape="rect" id="Node000008" href="$classmx__document__painter.html" title=" " alt="" coords="267,128,435,153"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="232,138,266,138,266,143,232,143"/>
+<area shape="rect" id="Node000009" href="$classmx__sheet__painter.html" title=" " alt="" coords="281,177,420,203"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="232,155,304,175,302,180,230,160"/>
+<area shape="rect" id="Node000002" href="$classmx__rtti.html" title=" " alt="" coords="5,128,75,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,138,122,138,122,143,89,143"/>
+<area shape="rect" id="Node000004" href="$classmx__diagram__area__painter.html" title=" " alt="" coords="483,5,676,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="394,71,482,39,522,28,523,33,483,45,396,76"/>
+<area shape="rect" id="Node000005" href="$classmx__image__area__painter.html" title=" " alt="" coords="489,55,669,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="430,80,489,74,490,79,431,86"/>
+<area shape="rect" id="Node000006" href="$classmx__table__area__painter.html" title=" " alt="" coords="493,104,665,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="431,97,493,104,493,110,430,103"/>
+<area shape="rect" id="Node000007" href="$classmx__text__area__painter.html" title=" " alt="" coords="497,153,662,179"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="416,106,436,113,460,126,484,140,518,151,516,156,482,144,457,131,434,118,414,111"/>
+</map>

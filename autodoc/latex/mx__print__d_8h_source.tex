@@ -1,0 +1,149 @@
+\doxysection{mx\+\_\+print\+\_\+d.\+h}
+\hypertarget{mx__print__d_8h_source}{}\label{mx__print__d_8h_source}\index{ui/mx\_print\_d.h@{ui/mx\_print\_d.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_PRINT\_D}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_PRINT\_D}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_print\_d}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ An\ new\ document\ dialog.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_dialog.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}mx\_printcap.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}mx\_save\_d.h"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_PRINT\_MAX\_PAGES\ 100}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_MAX\_PRINTERS\ 50}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dialog}{mx\_dialog}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__printcap}{mx\_printcap}}\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classmx__print__d}{\string~mx\_print\_d}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}(Widget\ parent);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ which\ printer\ was\ selected}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{char}\ selected\_printer[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ if\ to\ file,\ this\ is\ the\ name}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{char}\ selected\_file[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ print\_all\_e,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ print\_range\_e,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ print\_current\_e,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ print\_list\_e}
+\DoxyCodeLine{00062\ \ \ \ \ \}\ mx\_print\_range\_t;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ what\ type\ of\ page\ selection}}
+\DoxyCodeLine{00065\ \ \ \ \ mx\_print\_range\_t\ range;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ for\ range\ selection,\ this\ is\ first\ an\ last\ inclusive}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ first\_page;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_page;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ for\ list\ selection,\ these\ are\ the\ numbers}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_pages;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ pages\_to\_print[MX\_PRINT\_MAX\_PAGES];}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ print\_both\_e,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ print\_odd\_e,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ print\_even\_e}
+\DoxyCodeLine{00079\ \ \ \ \ \}\ mx\_print\_parity\_t;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ whether\ to\ print\ odd,\ even\ or\ all}}
+\DoxyCodeLine{00082\ \ \ \ \ mx\_print\_parity\_t\ parity;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_copies;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ true\ -\/>\ print\ all\ page\ 1s\ together,\ all\ pages\ 2s\ etc}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ collate;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ true\ -\/>\ print\ to\ file}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ to\_file;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ printer\ resolution}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ x\_res;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ y\_res;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ true-\/>include\ font\ files\ in\ file/print\ job}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ include\_fonts;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ activate\_d(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_pages,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ default\_printer,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_x\_res,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_y\_res,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ options\_sensitive\ =\ TRUE);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ run(}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_pages,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ default\_printer,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_x\_res,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_y\_res,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ options\_sensitive\ =\ TRUE);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ Widget\ print\_button,\ cancel\_button;}
+\DoxyCodeLine{00114\ \ \ \ \ Widget\ print\_range\_radio,\ all\_button,\ current\_button;}
+\DoxyCodeLine{00115\ \ \ \ \ Widget\ range\_button,\ list\_button;}
+\DoxyCodeLine{00116\ \ \ \ \ Widget\ start\_text,\ end\_text,\ list\_text;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ Widget\ to\_file\_button,\ collate\_button,\ include\_fonts\_button;}
+\DoxyCodeLine{00119\ \ \ \ \ Widget\ parity\_radio,\ num\_copies\_text;}
+\DoxyCodeLine{00120\ \ \ \ \ Widget\ parity\_all\_button,\ parity\_odd\_button,\ parity\_even\_button;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ find\_options();}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_output\_file();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}*\ save\_d;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ bad\_copies\_d;}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ bad\_first\_page\_d;}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ bad\_last\_page\_d;}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ bad\_x\_res\_d;}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ bad\_y\_res\_d;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ fill\_list(Widget\ w);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ fill\_res\_list(Widget\ w);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_print\_list(\textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ Widget\ x\_res\_text,\ x\_res\_list;}
+\DoxyCodeLine{00139\ \ \ \ \ Widget\ y\_res\_text,\ y\_res\_list;}
+\DoxyCodeLine{00140\ \ \ \ \ Widget\ list;}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

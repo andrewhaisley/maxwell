@@ -1,0 +1,17 @@
+<map id="raster" name="raster">
+<area shape="rect" id="Node000001" title=" " alt="" coords="296,5,356,31"/>
+<area shape="rect" id="Node000002" href="$classmxraster.html" title=" " alt="" coords="5,79,87,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,33,87,82,86,77,282,28"/>
+<area shape="rect" id="Node000003" href="$classrasdib.html" title=" " alt="" coords="111,79,173,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,38,173,81,171,76,283,33"/>
+<area shape="rect" id="Node000004" href="$classrasjpeg.html" title=" " alt="" coords="197,79,268,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="302,41,250,81,246,76,299,37"/>
+<area shape="rect" id="Node000005" href="$classraspng.html" title=" " alt="" coords="293,79,359,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="329,44,329,79,323,79,323,44"/>
+<area shape="rect" id="Node000006" href="$classrastiff.html" title=" " alt="" coords="384,79,444,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="352,37,401,76,398,81,349,41"/>
+<area shape="rect" id="Node000007" href="$classrasxbm.html" title=" " alt="" coords="468,79,539,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="368,33,475,76,473,81,366,38"/>
+<area shape="rect" id="Node000008" href="$classtraster.html" title=" " alt="" coords="563,79,628,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="370,28,563,79,562,84,369,33"/>
+</map>

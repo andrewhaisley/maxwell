@@ -1,0 +1,73 @@
+\doxysection{mx\+\_\+valid\+\_\+d.\+h}
+\hypertarget{mx__valid__d_8h_source}{}\label{mx__valid__d_8h_source}\index{ui/mx\_valid\_d.h@{ui/mx\_valid\_d.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_valid\_d}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ Dialogs\ with\ some\ validation\ routines\ for\ fields}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_dialog.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_inform\_d.h>}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__valid__d}{mx\_valid\_d}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dialog}{mx\_dialog}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classmx__valid__d}{mx\_valid\_d}}(}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ Widget\ parent,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ do\_modal,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ resizable);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmx__valid__d}{\string~mx\_valid\_d}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ runs\ an\ inform\ dialog\ by\ its\ resource\ name\ -\/\ all\ dialogs}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ run\ like\ this\ are\ cleaned\ up\ automatically\ when\ the\ object\ is}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ is\ deleted}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ run\_inform(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ mx\_inform\_d\_t\ type);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ validate\_float(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ Widget\ w,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ validate\_int(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ Widget\ w,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00065\ \ \ \ \ std::map<std::string,\ mx\_inform\_d\ *>\ m\_inform\_dialogs;}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+
+\end{DoxyCode}

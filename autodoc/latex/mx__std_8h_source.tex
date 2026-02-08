@@ -1,0 +1,118 @@
+\doxysection{mx\+\_\+std.\+h}
+\hypertarget{mx__std_8h_source}{}\label{mx__std_8h_source}\index{shared/mx\_std.h@{shared/mx\_std.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_std.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ MX\_STD\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MX\_STD\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ uint32\_t\ uint32;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ int32\_t\ int32;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ int16\_t\ int16;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ uint16\_t\ uint16;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ uint8\_t\ uint8;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ int8\_t\ int8;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ LUT\_VALUE;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ latest\ gcc\ (2.7.2)\ doesn't\ need\ this}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ typedef\ int\ bool;}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifndef\ TRUE}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ TRUE\ (bool)1}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ FALSE\ (bool)0}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ MAYBE\ (bool)2}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ MX\_EFZ\ 0.000001}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MX\_FLOAT\_EQ(x,\ y)\ (fabs((x)\ -\/\ (y))\ <\ MX\_EFZ)}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MAX\_FONTS\ 512}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ this\ stuff\ taken\ from\ libc5\ headers\ -\/\ it\ doesn't\ exist\ in\ the\ glibc\ headers}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#ifndef\ M\_E}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ M\_E\ 2.7182818284590452354\ }\textcolor{comment}{/*\ e\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifndef\ M\_LOG2E}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ M\_LOG2E\ 1.4426950408889634074\ }\textcolor{comment}{/*\ log\ 2e\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#ifndef\ M\_LOG10E}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ M\_LOG10E\ 0.43429448190325182765\ }\textcolor{comment}{/*\ log\ 10e\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#ifndef\ M\_LN2}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ M\_LN2\ 0.69314718055994530942\ }\textcolor{comment}{/*\ log\ e2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifndef\ M\_LN10}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ M\_LN10\ 2.30258509299404568402\ }\textcolor{comment}{/*\ log\ e10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifndef\ M\_PI}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ M\_PI\ 3.14159265358979323846\ }\textcolor{comment}{/*\ pi\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifndef\ M\_PI\_2}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ M\_PI\_2\ 1.57079632679489661923\ }\textcolor{comment}{/*\ pi/2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifndef\ M\_1\_PI}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ M\_1\_PI\ 0.31830988618379067154\ }\textcolor{comment}{/*\ 1/pi\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#ifndef\ M\_PI\_4}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ M\_PI\_4\ 0.78539816339744830962\ }\textcolor{comment}{/*\ pi/4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifndef\ M\_2\_PI}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ M\_2\_PI\ 0.63661977236758134308\ }\textcolor{comment}{/*\ 2/pi\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#ifndef\ M\_2\_SQRTPI}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ M\_2\_SQRTPI\ 1.12837916709551257390\ }\textcolor{comment}{/*\ 2/sqrt(pi)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifndef\ M\_SQRT2}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ M\_SQRT2\ 1.41421356237309504880\ }\textcolor{comment}{/*\ sqrt(2)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#ifndef\ M\_SQRT1\_2}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ M\_SQRT1\_2\ 0.70710678118654752440\ }\textcolor{comment}{/*\ 1/sqrt(2)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#ifndef\ PI\ }\textcolor{comment}{/*\ as\ in\ stroustrup\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ PI\ M\_PI}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifndef\ PI2}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ PI2\ M\_PI\_2}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ define\ our\ own\ signal\ handler\ type,\ since\ its\ not\ consistent\ across\ systems}}
+\DoxyCodeLine{00110\ \textcolor{keyword}{typedef}\ void\ (*mx\_sighandler\_t)(int);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

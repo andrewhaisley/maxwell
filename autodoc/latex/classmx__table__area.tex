@@ -1,0 +1,709 @@
+\doxysection{mx\+\_\+table\+\_\+area Class Reference}
+\hypertarget{classmx__table__area}{}\label{classmx__table__area}\index{mx\_table\_area@{mx\_table\_area}}
+
+
+Inheritance diagram for mx\+\_\+table\+\_\+area\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__table__area__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+table\+\_\+area\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__table__area__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__table__area_a6ac17e1837cc7a1ceec1b413bc1701ba}\label{classmx__table__area_a6ac17e1837cc7a1ceec1b413bc1701ba} 
+enum {\bfseries mx\+\_\+table\+\_\+type\+\_\+t} \{ {\bfseries mx\+\_\+table\+\_\+start\+\_\+e}
+, {\bfseries mx\+\_\+table\+\_\+middle\+\_\+e}
+, {\bfseries mx\+\_\+table\+\_\+end\+\_\+e}
+, {\bfseries mx\+\_\+table\+\_\+whole\+\_\+e}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__table__area_abaec5938511138c75a4c38d94179394b}\label{classmx__table__area_abaec5938511138c75a4c38d94179394b} 
+{\bfseries mx\+\_\+table\+\_\+area} (uint32 docid, \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}s)
+\item 
+\Hypertarget{classmx__table__area_a2ef6e0001c5393cb53918a5f5eda2405}\label{classmx__table__area_a2ef6e0001c5393cb53918a5f5eda2405} 
+{\bfseries mx\+\_\+table\+\_\+area} (uint32 docid, uint32 oid)
+\item 
+\Hypertarget{classmx__table__area_a4fe26cf3b065244ee5550d107e7d82b3}\label{classmx__table__area_a4fe26cf3b065244ee5550d107e7d82b3} 
+{\bfseries mx\+\_\+table\+\_\+area} (const \mbox{\hyperlink{classmx__table__area}{mx\+\_\+table\+\_\+area}} \&a)
+\item 
+virtual \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__table__area_a0c9491c88d3f1365918513beba9d8e4f}{duplicate}} ()
+\item 
+\Hypertarget{classmx__table__area_ada59c1676a31cfc3556d979ae2713499}\label{classmx__table__area_ada59c1676a31cfc3556d979ae2713499} 
+void {\bfseries set\+\_\+num\+\_\+rows} (int \&err, int rows)
+\item 
+\Hypertarget{classmx__table__area_aefc117ee8a898743993521caab753050}\label{classmx__table__area_aefc117ee8a898743993521caab753050} 
+void {\bfseries set\+\_\+num\+\_\+columns} (int \&err, int columns)
+\item 
+\Hypertarget{classmx__table__area_a91e48748d6a7721f26f7e3e0b209b7ba}\label{classmx__table__area_a91e48748d6a7721f26f7e3e0b209b7ba} 
+int {\bfseries get\+\_\+num\+\_\+columns} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_a7d0bd33bd91f5f70d02bb5e2de4a5e54}\label{classmx__table__area_a7d0bd33bd91f5f70d02bb5e2de4a5e54} 
+int {\bfseries get\+\_\+num\+\_\+rows} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_abd2c1f13aaeedb5b569955da58b006fd}\label{classmx__table__area_abd2c1f13aaeedb5b569955da58b006fd} 
+void {\bfseries set\+\_\+column\+\_\+width} (int \&err, int column, float width)
+\item 
+\Hypertarget{classmx__table__area_a3bf7fadb5664a15039a6b0064bfad08d}\label{classmx__table__area_a3bf7fadb5664a15039a6b0064bfad08d} 
+float {\bfseries get\+\_\+column\+\_\+width} (int \&err, int column)
+\item 
+\Hypertarget{classmx__table__area_a859911712d6e6991d3b69277e9e9fc61}\label{classmx__table__area_a859911712d6e6991d3b69277e9e9fc61} 
+\mbox{\hyperlink{classmx__text__area}{mx\+\_\+text\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+cell} (int \&err, int row, int column)
+\item 
+\Hypertarget{classmx__table__area_a82d1593f00966687972e94e207330709}\label{classmx__table__area_a82d1593f00966687972e94e207330709} 
+void {\bfseries set\+\_\+cell} (int \&err, int row, int column, \mbox{\hyperlink{classmx__text__area}{mx\+\_\+text\+\_\+area}} \texorpdfstring{$\ast$}{*}cell)
+\item 
+\Hypertarget{classmx__table__area_abf59eeaf44e5312d5d54fd5ba03da2d6}\label{classmx__table__area_abf59eeaf44e5312d5d54fd5ba03da2d6} 
+void {\bfseries remove\+\_\+rows} (int \&err, int row, int n)
+\item 
+\Hypertarget{classmx__table__area_ad2a594a7f1523163f5cb311ff7766fff}\label{classmx__table__area_ad2a594a7f1523163f5cb311ff7766fff} 
+void {\bfseries remove\+\_\+columns} (int \&err, int column, int n)
+\item 
+\Hypertarget{classmx__table__area_af3b59dda4676e253f01a4b4880ef4424}\label{classmx__table__area_af3b59dda4676e253f01a4b4880ef4424} 
+void {\bfseries insert\+\_\+rows} (int \&err, int row, int n)
+\item 
+\Hypertarget{classmx__table__area_a5b901f727db21f5e72c6fd1fd6d1a318}\label{classmx__table__area_a5b901f727db21f5e72c6fd1fd6d1a318} 
+void {\bfseries insert\+\_\+columns} (int \&err, int column, int n)
+\item 
+\Hypertarget{classmx__table__area_a520b5a6fa08ad6375220787a1e46beb0}\label{classmx__table__area_a520b5a6fa08ad6375220787a1e46beb0} 
+void {\bfseries insert\+\_\+rows\+\_\+no\+\_\+reposition} (int \&err, int row, int n)
+\item 
+\Hypertarget{classmx__table__area_a76593facc52aa9819bc050491414cca0}\label{classmx__table__area_a76593facc52aa9819bc050491414cca0} 
+void {\bfseries remove\+\_\+rows\+\_\+no\+\_\+reposition} (int \&err, int row, int n)
+\item 
+\Hypertarget{classmx__table__area_a66aef35f6ff18f02e6942f7453bc7f8a}\label{classmx__table__area_a66aef35f6ff18f02e6942f7453bc7f8a} 
+void {\bfseries insert\+\_\+columns\+\_\+no\+\_\+reposition} (int \&err, int column, int n)
+\item 
+\Hypertarget{classmx__table__area_a009158bf104fd6a3dd861a94133dcb6f}\label{classmx__table__area_a009158bf104fd6a3dd861a94133dcb6f} 
+void {\bfseries remove\+\_\+columns\+\_\+no\+\_\+reposition} (int \&err, int column, int n)
+\item 
+\Hypertarget{classmx__table__area_a4c628abe7e2f3c28ae17c58116b552e6}\label{classmx__table__area_a4c628abe7e2f3c28ae17c58116b552e6} 
+void {\bfseries join\+\_\+para\+\_\+with\+\_\+next} (int \&err, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&p)
+\item 
+void \mbox{\hyperlink{classmx__table__area_a2112e25d32663c89230dd62c42d5cce9}{serialise\+\_\+attributes}} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__table__area_a20c1ddcd2df1dc4d2dd4672a0b3dafe7}{unserialise\+\_\+attributes}} (int \&err)
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_ac4a26e64b86418fbb78696822214a5a8}{uncache}} (int \&err)
+\item 
+virtual uint32 \mbox{\hyperlink{classmx__table__area_ace2a0b7155f122fc420229e6f9696669}{memory\+\_\+size}} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_a4b8d910916643373f1a5efe1953b19e0}\label{classmx__table__area_a4b8d910916643373f1a5efe1953b19e0} 
+void {\bfseries delete\+\_\+cells} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__table__area_adbd2fe578d0237c4befbb6fedf254ca8}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classmx__table__area_ab3e5ce9375597ebf4d31f20f7c83a3fd}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classmx__table__area_af19aead3de59b7431857490363624de5}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_ad0b63f8ce02a47dee583094ea6ed32b3}{move\+\_\+to\+\_\+document}} (int \&err, \mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}doc)
+\item 
+\Hypertarget{classmx__table__area_a39e8c589226e21fd0c59a29ac94fd60f}\label{classmx__table__area_a39e8c589226e21fd0c59a29ac94fd60f} 
+virtual bool {\bfseries is\+\_\+flowable} ()
+\item 
+\Hypertarget{classmx__table__area_a53430778ecac32d86dfce5a2fa8fa2ea}\label{classmx__table__area_a53430778ecac32d86dfce5a2fa8fa2ea} 
+virtual void {\bfseries reformat} (int \&err, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&start, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&end, bool \&height\+\_\+changed)
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_ad73c7a0a4ff7fcafbc96c13da0923bcc}{reformat}} (int \&err, bool \&height\+\_\+changed)
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_ab909cd985ff8af784199834e1e3a667f}{replace\+\_\+style}} (int \&err, \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}style\+\_\+to\+\_\+replace, \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}replacement\+\_\+style)
+\item 
+\Hypertarget{classmx__table__area_acec12dff1beef210030adaca03585907}\label{classmx__table__area_acec12dff1beef210030adaca03585907} 
+mx\+\_\+table\+\_\+type\+\_\+t {\bfseries get\+\_\+type} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_a6d98d2ac27700fc9d64d15943cc6a90f}\label{classmx__table__area_a6d98d2ac27700fc9d64d15943cc6a90f} 
+void {\bfseries set\+\_\+type} (int \&err, mx\+\_\+table\+\_\+type\+\_\+t t)
+\item 
+virtual \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__table__area_a7af97394bf6abd12981776587caeff69}{get\+\_\+style}} (int \&err, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__table__area_a8bba94ece891b46f0f79d10c8448433b}\label{classmx__table__area_a8bba94ece891b46f0f79d10c8448433b} 
+\mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries delete\+\_\+to\+\_\+left} (int \&err, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p, bool \&deleted\+\_\+paragraph)
+\item 
+\Hypertarget{classmx__table__area_a578d57523b4324cb3fcd316429ab3431}\label{classmx__table__area_a578d57523b4324cb3fcd316429ab3431} 
+void {\bfseries insert\+\_\+char} (int \&err, char c, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__table__area_a1cf7c86eda945f0aa259d009067439a8}\label{classmx__table__area_a1cf7c86eda945f0aa259d009067439a8} 
+void {\bfseries insert\+\_\+cw\+\_\+item} (int \&err, \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__table__area_a85d2b9e8e8b438de968a7475d7be0b7e}\label{classmx__table__area_a85d2b9e8e8b438de968a7475d7be0b7e} 
+void {\bfseries insert\+\_\+line\+\_\+break} (int \&err, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__table__area_a4d3f77cc86196dffd12c173d9fb2572a}\label{classmx__table__area_a4d3f77cc86196dffd12c173d9fb2572a} 
+void {\bfseries insert\+\_\+para\+\_\+break} (int \&err, \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__table__area_a103d17a5d9f8ff18d67d668e068b6209}\label{classmx__table__area_a103d17a5d9f8ff18d67d668e068b6209} 
+void {\bfseries get\+\_\+vertical\+\_\+border} (int \&err, int row, int column, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&border)
+\item 
+\Hypertarget{classmx__table__area_a67b47e0ae0bb1778e67212d87412bb3e}\label{classmx__table__area_a67b47e0ae0bb1778e67212d87412bb3e} 
+void {\bfseries get\+\_\+horizontal\+\_\+border} (int \&err, int row, int column, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&border)
+\item 
+\Hypertarget{classmx__table__area_a712d4d89ea2f59b92419123a6327d529}\label{classmx__table__area_a712d4d89ea2f59b92419123a6327d529} 
+void {\bfseries set\+\_\+vertical\+\_\+border} (int \&err, int row, int column, const \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&new\+\_\+border)
+\item 
+\Hypertarget{classmx__table__area_af319ed8c132c6e27e60bdc981098d4f2}\label{classmx__table__area_af319ed8c132c6e27e60bdc981098d4f2} 
+void {\bfseries set\+\_\+horizontal\+\_\+border} (int \&err, int row, int column, const \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&new\+\_\+border)
+\item 
+\Hypertarget{classmx__table__area_aa8ec789d7aeeb4909295ee38c7b26f3c}\label{classmx__table__area_aa8ec789d7aeeb4909295ee38c7b26f3c} 
+void {\bfseries get\+\_\+cell\+\_\+borders\+\_\+for\+\_\+selection} (int \&err, const \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&start, const \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&end, \mbox{\hyperlink{classmx__nlist}{mx\+\_\+nlist}} \&border\+\_\+array)
+\item 
+\Hypertarget{classmx__table__area_aa017780a926890e380de22bb383d223d}\label{classmx__table__area_aa017780a926890e380de22bb383d223d} 
+void {\bfseries apply\+\_\+border\+\_\+mod\+\_\+to\+\_\+selection} (int \&err, const \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&start, const \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&end, const \mbox{\hyperlink{classmx__border__style__mod}{mx\+\_\+border\+\_\+style\+\_\+mod}} \&mod)
+\item 
+\Hypertarget{classmx__table__area_ad0588ecc326207e9e8aac7c5c463ced1}\label{classmx__table__area_ad0588ecc326207e9e8aac7c5c463ced1} 
+void {\bfseries reposition\+\_\+cells} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_a114ea4d1819e9bb15e756c37d218e963}\label{classmx__table__area_a114ea4d1819e9bb15e756c37d218e963} 
+void {\bfseries recalculate\+\_\+outline} (int \&err)
+\item 
+\Hypertarget{classmx__table__area_af6518f18ebc2cb72c35fce8ab43e2551}\label{classmx__table__area_af6518f18ebc2cb72c35fce8ab43e2551} 
+int {\bfseries get\+\_\+break\+\_\+row\+\_\+for\+\_\+height} (int \&err, float f)
+\item 
+\Hypertarget{classmx__table__area_a72dec9712c6758b5f10f31066522e841}\label{classmx__table__area_a72dec9712c6758b5f10f31066522e841} 
+float {\bfseries get\+\_\+height\+\_\+from\+\_\+row} (int \&err, int row)
+\item 
+\Hypertarget{classmx__table__area_a913f734cf9d287c65c4b8e5193890626}\label{classmx__table__area_a913f734cf9d287c65c4b8e5193890626} 
+\mbox{\hyperlink{classmx__table__area}{mx\+\_\+table\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries repaginate\+\_\+split} (int \&err, int row\+\_\+num)
+\item 
+\Hypertarget{classmx__table__area_a07bc443c5be41d99aaf84cf50a4cfdd9}\label{classmx__table__area_a07bc443c5be41d99aaf84cf50a4cfdd9} 
+\mbox{\hyperlink{classmx__table__area}{mx\+\_\+table\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries normal\+\_\+split} (int \&err, const \mbox{\hyperlink{classmx__table__area__pos}{mx\+\_\+table\+\_\+area\+\_\+pos}} \&tap)
+\item 
+virtual bool \mbox{\hyperlink{classmx__table__area_a34b64e73782f54bf24128895a54921f9}{can\+\_\+join}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_ac193e9492a07e4e7023b14b040fb760a}{join}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{classmx__table__area_ae4b2f3ae9ef7e6597878b14be4cc6fc1}\label{classmx__table__area_ae4b2f3ae9ef7e6597878b14be4cc6fc1} 
+virtual void {\bfseries print\+\_\+debug} ()
+\item 
+virtual mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t \mbox{\hyperlink{classmx__table__area_a42817271f8c133e87152fe36a0042abc}{get\+\_\+mem\+\_\+state}} ()
+\item 
+virtual void \mbox{\hyperlink{classmx__table__area_a68dc5c667ef91d0dc82cf0db55f045b1}{set\+\_\+mem\+\_\+state}} (mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+area} (uint32 docid, \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}s, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+area} (uint32 docid, uint32 oid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+area} (\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \&a)
+\item 
+void {\bfseries delete\+\_\+links} (int \&err)
+\item 
+bool {\bfseries next\+\_\+chained\+\_\+area} (int \&err)
+\item 
+bool {\bfseries previous\+\_\+chained\+\_\+area} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+in\+\_\+chain} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries previous\+\_\+in\+\_\+chain} (int \&err)
+\item 
+void {\bfseries insert\+\_\+into\+\_\+chain} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}prev, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}next)
+\item 
+void {\bfseries remove\+\_\+from\+\_\+chain} (int \&err)
+\item 
+int {\bfseries number\+\_\+linked\+\_\+areas} (int \&err)
+\item 
+\mbox{\hyperlink{structmx__area__link__t}{mx\+\_\+area\+\_\+link\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries linked\+\_\+area} (int \&err, int index)
+\item 
+void {\bfseries link\+\_\+to\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}linked\+\_\+area, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} thispoint, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} otherpoint)
+\item 
+void {\bfseries unlink\+\_\+from\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}area)
+\item 
+const \mbox{\hyperlink{classmx__quadspline__t}{mx\+\_\+quadspline\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+outline\+\_\+readonly} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+\_\+origin} (int \&err)
+\item 
+float {\bfseries get\+\_\+rotation} (int \&err)
+\item 
+void {\bfseries set\+\_\+origin} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} o)
+\item 
+void {\bfseries set\+\_\+xorigin} (int \&err, float x)
+\item 
+void {\bfseries set\+\_\+yorigin} (int \&err, float y)
+\item 
+void {\bfseries set\+\_\+rotation} (int \&err, float rotation)
+\item 
+void {\bfseries set\+\_\+outline} (int \&err, const \mbox{\hyperlink{classmx__quadspline__t}{mx\+\_\+quadspline\+\_\+t}} \&pp)
+\item 
+void {\bfseries set\+\_\+outline} (int \&err, const \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&r)
+\item 
+void {\bfseries set\+\_\+outline} (int \&err, float width, float height)
+\item 
+virtual \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__area_a73b5ca460b6d3551cf9d8f94261bb2ac}{get\+\_\+owner\+\_\+object}} (int \&err)
+\item 
+virtual bool {\bfseries is\+\_\+flowable} () const
+\item 
+virtual bool {\bfseries is\+\_\+croppable} () const
+\item 
+virtual bool {\bfseries is\+\_\+scalable} () const
+\item 
+virtual void {\bfseries scale} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&new\+\_\+size)
+\item 
+virtual void {\bfseries crop} (int \&err, const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&r)
+\item 
+float {\bfseries get\+\_\+height} (int \&err)
+\item 
+float {\bfseries get\+\_\+width} (int \&err)
+\item 
+void {\bfseries set\+\_\+width} (int \&err, float w)
+\item 
+float {\bfseries width\+\_\+minus\+\_\+border} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} {\bfseries bounding\+\_\+box} (int \&err)
+\item 
+void {\bfseries set\+\_\+paragraph\+\_\+style} (\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries modify\+\_\+paragraph\+\_\+style} (\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \&new\+\_\+style)
+\item 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+paragraph\+\_\+style} ()
+\item 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+base\+\_\+paragraph\+\_\+style} ()
+\item 
+\mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+sheet} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+document} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+area\+\_\+style} ()
+\item 
+virtual void {\bfseries highlight\+\_\+from\+\_\+start\+\_\+of\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}end)
+\item 
+virtual void {\bfseries highlight\+\_\+whole\+\_\+area} (int \&err)
+\item 
+virtual void {\bfseries highlight\+\_\+in\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}start, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}end)
+\item 
+virtual void {\bfseries highlight\+\_\+to\+\_\+end\+\_\+of\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}start)
+\item 
+void {\bfseries set\+\_\+original\+\_\+size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&original\+\_\+size)
+\item 
+bool {\bfseries get\+\_\+original\+\_\+size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&original\+\_\+size)
+\item 
+void {\bfseries set\+\_\+top\+\_\+left\+\_\+crop} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&top\+\_\+left\+\_\+crop)
+\item 
+bool {\bfseries get\+\_\+top\+\_\+left\+\_\+crop} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&top\+\_\+left\+\_\+crop)
+\item 
+void {\bfseries set\+\_\+scale} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p)
+\item 
+bool {\bfseries get\+\_\+scale} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p)
+\item 
+void {\bfseries crop\+\_\+details} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&top\+\_\+left, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&total\+\_\+size)
+\item 
+virtual bool {\bfseries has\+\_\+page\+\_\+break\+\_\+before} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+paintable} (uint32 docid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+paintable} (uint32 docid, uint32 oid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+paintable} (const \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&o)
+\item 
+virtual void {\bfseries redraw} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&r)
+\item 
+\mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+painter} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (uint32 docid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (uint32 docid, uint32 oid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (const \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \&o)
+\item 
+int {\bfseries get\+\_\+db\+\_\+id} (int \&err)
+\item 
+virtual void {\bfseries move\+\_\+to\+\_\+document} (int \&err, int docid)
+\item 
+void {\bfseries add\+\_\+attribute} (int \&err, \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*}initial)
+\item 
+void {\bfseries delete\+\_\+attribute} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set} (int \&err, \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*}v)
+\item 
+\mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*} {\bfseries get} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+readonly} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries create\+\_\+blob} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries delete\+\_\+blob} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+uint32 {\bfseries get\+\_\+blob\+\_\+size} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set\+\_\+blob\+\_\+size} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 size)
+\item 
+void {\bfseries set\+\_\+blob\+\_\+data} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes, uint8 \texorpdfstring{$\ast$}{*}data)
+\item 
+void {\bfseries get\+\_\+blob\+\_\+data} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes, uint8 \texorpdfstring{$\ast$}{*}data)
+\item 
+void {\bfseries copy\+\_\+blob} (int \&err, bool create\+New, const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*}in\+Object, const char \texorpdfstring{$\ast$}{*}inname)
+\item 
+const uint8 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+blob\+\_\+readonly} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes)
+\item 
+void {\bfseries set\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 i)
+\item 
+void {\bfseries set\+\_\+id} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 id)
+\item 
+void {\bfseries set\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float i)
+\item 
+void {\bfseries set\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries set\+\_\+int\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+void {\bfseries set\+\_\+id\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+void {\bfseries set\+\_\+float\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+int32 {\bfseries get\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+float {\bfseries get\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+int32 {\bfseries get\+\_\+default\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 def)
+\item 
+uint32 {\bfseries get\+\_\+default\+\_\+id} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 def)
+\item 
+float {\bfseries get\+\_\+default\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float def)
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+default\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}def)
+\item 
+uint32 {\bfseries get\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, uint32 id)
+\item 
+void {\bfseries add\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 id)
+\item 
+void {\bfseries del\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+id\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const uint32 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+id\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+int32 {\bfseries get\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, int32 i)
+\item 
+void {\bfseries add\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 i)
+\item 
+void {\bfseries del\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+int\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const int32 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+int\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+float {\bfseries get\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, float f)
+\item 
+void {\bfseries add\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float f)
+\item 
+void {\bfseries del\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+float\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const float \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+float\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set\+\_\+owner\+\_\+object} (int \&err, \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*}o)
+\item 
+int {\bfseries get\+\_\+docid} () const
+\item 
+bool {\bfseries is\+\_\+controlled} () const
+\item 
+virtual void {\bfseries cc\+\_\+serialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries cc\+\_\+unserialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries cc\+\_\+uncache} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries error}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries base\+\_\+style}
+\item 
+\mbox{\hyperlink{classmx__paragraph__style__mod}{mx\+\_\+paragraph\+\_\+style\+\_\+mod}} \texorpdfstring{$\ast$}{*} {\bfseries style\+\_\+mod}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries painter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32 {\bfseries db\+\_\+id}
+\item 
+uint32 {\bfseries doc\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__table__area_a34b64e73782f54bf24128895a54921f9}\label{classmx__table__area_a34b64e73782f54bf24128895a54921f9} 
+\index{mx\_table\_area@{mx\_table\_area}!can\_join@{can\_join}}
+\index{can\_join@{can\_join}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{can\_join()}{can\_join()}}
+{\footnotesize\ttfamily virtual bool mx\+\_\+table\+\_\+area\+::can\+\_\+join (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_a0c9491c88d3f1365918513beba9d8e4f}\label{classmx__table__area_a0c9491c88d3f1365918513beba9d8e4f} 
+\index{mx\_table\_area@{mx\_table\_area}!duplicate@{duplicate}}
+\index{duplicate@{duplicate}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{duplicate()}{duplicate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} mx\+\_\+table\+\_\+area\+::duplicate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_a42817271f8c133e87152fe36a0042abc}\label{classmx__table__area_a42817271f8c133e87152fe36a0042abc} 
+\index{mx\_table\_area@{mx\_table\_area}!get\_mem\_state@{get\_mem\_state}}
+\index{get\_mem\_state@{get\_mem\_state}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{get\_mem\_state()}{get\_mem\_state()}}
+{\footnotesize\ttfamily virtual mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t mx\+\_\+table\+\_\+area\+::get\+\_\+mem\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+\Hypertarget{classmx__table__area_af19aead3de59b7431857490363624de5}\label{classmx__table__area_af19aead3de59b7431857490363624de5} 
+\index{mx\_table\_area@{mx\_table\_area}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+table\+\_\+area\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_a7af97394bf6abd12981776587caeff69}\label{classmx__table__area_a7af97394bf6abd12981776587caeff69} 
+\index{mx\_table\_area@{mx\_table\_area}!get\_style@{get\_style}}
+\index{get\_style@{get\_style}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{get\_style()}{get\_style()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} mx\+\_\+table\+\_\+area\+::get\+\_\+style (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_ac193e9492a07e4e7023b14b040fb760a}\label{classmx__table__area_ac193e9492a07e4e7023b14b040fb760a} 
+\index{mx\_table\_area@{mx\_table\_area}!join@{join}}
+\index{join@{join}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::join (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_ace2a0b7155f122fc420229e6f9696669}\label{classmx__table__area_ace2a0b7155f122fc420229e6f9696669} 
+\index{mx\_table\_area@{mx\_table\_area}!memory\_size@{memory\_size}}
+\index{memory\_size@{memory\_size}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{memory\_size()}{memory\_size()}}
+{\footnotesize\ttfamily virtual uint32 mx\+\_\+table\+\_\+area\+::memory\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+\Hypertarget{classmx__table__area_ad0b63f8ce02a47dee583094ea6ed32b3}\label{classmx__table__area_ad0b63f8ce02a47dee583094ea6ed32b3} 
+\index{mx\_table\_area@{mx\_table\_area}!move\_to\_document@{move\_to\_document}}
+\index{move\_to\_document@{move\_to\_document}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{move\_to\_document()}{move\_to\_document()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::move\+\_\+to\+\_\+document (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_ad73c7a0a4ff7fcafbc96c13da0923bcc}\label{classmx__table__area_ad73c7a0a4ff7fcafbc96c13da0923bcc} 
+\index{mx\_table\_area@{mx\_table\_area}!reformat@{reformat}}
+\index{reformat@{reformat}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{reformat()}{reformat()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::reformat (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{bool \&}]{height\+\_\+changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_ab909cd985ff8af784199834e1e3a667f}\label{classmx__table__area_ab909cd985ff8af784199834e1e3a667f} 
+\index{mx\_table\_area@{mx\_table\_area}!replace\_style@{replace\_style}}
+\index{replace\_style@{replace\_style}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{replace\_style()}{replace\_style()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::replace\+\_\+style (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}}]{style\+\_\+to\+\_\+replace,  }\item[{\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}}]{replacement\+\_\+style }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_adbd2fe578d0237c4befbb6fedf254ca8}\label{classmx__table__area_adbd2fe578d0237c4befbb6fedf254ca8} 
+\index{mx\_table\_area@{mx\_table\_area}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void mx\+\_\+table\+\_\+area\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_a2112e25d32663c89230dd62c42d5cce9}\label{classmx__table__area_a2112e25d32663c89230dd62c42d5cce9} 
+\index{mx\_table\_area@{mx\_table\_area}!serialise\_attributes@{serialise\_attributes}}
+\index{serialise\_attributes@{serialise\_attributes}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{serialise\_attributes()}{serialise\_attributes()}}
+{\footnotesize\ttfamily void mx\+\_\+table\+\_\+area\+::serialise\+\_\+attributes (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+\Hypertarget{classmx__table__area_a68dc5c667ef91d0dc82cf0db55f045b1}\label{classmx__table__area_a68dc5c667ef91d0dc82cf0db55f045b1} 
+\index{mx\_table\_area@{mx\_table\_area}!set\_mem\_state@{set\_mem\_state}}
+\index{set\_mem\_state@{set\_mem\_state}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{set\_mem\_state()}{set\_mem\_state()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::set\+\_\+mem\+\_\+state (\begin{DoxyParamCaption}\item[{mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+\Hypertarget{classmx__table__area_ac4a26e64b86418fbb78696822214a5a8}\label{classmx__table__area_ac4a26e64b86418fbb78696822214a5a8} 
+\index{mx\_table\_area@{mx\_table\_area}!uncache@{uncache}}
+\index{uncache@{uncache}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{uncache()}{uncache()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+table\+\_\+area\+::uncache (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+\Hypertarget{classmx__table__area_ab3e5ce9375597ebf4d31f20f7c83a3fd}\label{classmx__table__area_ab3e5ce9375597ebf4d31f20f7c83a3fd} 
+\index{mx\_table\_area@{mx\_table\_area}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void mx\+\_\+table\+\_\+area\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area}{mx\+\_\+area}}.
+
+\Hypertarget{classmx__table__area_a20c1ddcd2df1dc4d2dd4672a0b3dafe7}\label{classmx__table__area_a20c1ddcd2df1dc4d2dd4672a0b3dafe7} 
+\index{mx\_table\_area@{mx\_table\_area}!unserialise\_attributes@{unserialise\_attributes}}
+\index{unserialise\_attributes@{unserialise\_attributes}!mx\_table\_area@{mx\_table\_area}}
+\doxysubsubsection{\texorpdfstring{unserialise\_attributes()}{unserialise\_attributes()}}
+{\footnotesize\ttfamily void mx\+\_\+table\+\_\+area\+::unserialise\+\_\+attributes (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+table\+\_\+area.\+h\end{DoxyCompactItemize}

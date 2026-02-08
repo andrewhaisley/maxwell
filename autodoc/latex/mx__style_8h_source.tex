@@ -1,0 +1,70 @@
+\doxysection{mx\+\_\+style.\+h}
+\hypertarget{mx__style_8h_source}{}\label{mx__style_8h_source}\index{document/mx\_style.h@{document/mx\_style.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_STYLE\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_STYLE\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ styles\ of\ all\ sorts}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley/Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Styles\ for\ everything.\ Ranging\ from\ colours/fonts\ for\ characters}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ through\ to\ paragraph\ justification\ types......}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ mx\_gstyle\_unknown,}
+\DoxyCodeLine{00039\ \ \ \ \ mx\_gstyle\_point,}
+\DoxyCodeLine{00040\ \ \ \ \ mx\_gstyle\_dash,}
+\DoxyCodeLine{00041\ \ \ \ \ mx\_gstyle\_line,}
+\DoxyCodeLine{00042\ \ \ \ \ mx\_gstyle\_hatch,}
+\DoxyCodeLine{00043\ \ \ \ \ mx\_gstyle\_fill,}
+\DoxyCodeLine{00044\ \ \ \ \ mx\_gstyle\_border,}
+\DoxyCodeLine{00045\ \ \ \ \ mx\_gstyle\_area}
+\DoxyCodeLine{00046\ \}\ mx\_gstyle\_type\_t;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <mx\_area\_style.h>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <mx\_bd\_style.h>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <mx\_char\_style.h>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <mx\_colour.h>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <mx\_dash\_style.h>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <mx\_doc\_coord.h>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <mx\_doc\_rect.h>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <mx\_fill\_style.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <mx\_font.h>}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <mx\_hatch\_style.h>}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ <mx\_line\_style.h>}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ <mx\_para\_style.h>}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ <mx\_point\_style.h>}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ <mx\_ruler.h>}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ <mx\_spline.h>}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_STYLE\_H}}
+
+\end{DoxyCode}

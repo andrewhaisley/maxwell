@@ -1,0 +1,109 @@
+\doxysection{mx\+\_\+area\+\_\+layout Class Reference}
+\hypertarget{classmx__area__layout}{}\label{classmx__area__layout}\index{mx\_area\_layout@{mx\_area\_layout}}
+
+
+Inheritance diagram for mx\+\_\+area\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classmx__area__layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+area\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__area__layout__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classmx__area__layout_ad9ecdfe081204d61ca6a3c3a3081dbfc}{coord\+To\+Doc\+Coord}} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+bool \mbox{\hyperlink{classmx__area__layout_af933484c0257e10d83cf85c6184dc269}{doc\+Coord\+To\+Coord}} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+\_\+coord, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries add\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+virtual void {\bfseries change\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+virtual void {\bfseries remove\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets)
+\item 
+virtual void {\bfseries start\+Iterate\+Over\+Area} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&tlcoord, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&brcoord)
+\item 
+virtual bool {\bfseries next\+Over\+Area} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&output)
+\item 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} {\bfseries get\+Sheet\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Position} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Max\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Total\+Size} (int \&err)
+\item 
+MX\+\_\+\+SH\+\_\+\+LAY\+\_\+\+OFFSET {\bfseries check\+Coord\+On\+Sheet} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, int test\+Sheet, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+int {\bfseries get\+Number\+Sheets} ()
+\item 
+void {\bfseries set\+Snap\+Tolerance} (double isnap\+Tolerance)
+\item 
+double {\bfseries get\+Snap\+Tolerance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries check\+Range} (int \&err, int test\+Sheet)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries nsheets}
+\item 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*} {\bfseries sheet\+Sizes}
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries tl\+Iterate}
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries br\+Iterate}
+\item 
+int {\bfseries last\+Sheet\+Iterate}
+\item 
+double {\bfseries snap\+Tolerance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__area__layout_ad9ecdfe081204d61ca6a3c3a3081dbfc}\label{classmx__area__layout_ad9ecdfe081204d61ca6a3c3a3081dbfc} 
+\index{mx\_area\_layout@{mx\_area\_layout}!coordToDocCoord@{coordToDocCoord}}
+\index{coordToDocCoord@{coordToDocCoord}!mx\_area\_layout@{mx\_area\_layout}}
+\doxysubsubsection{\texorpdfstring{coordToDocCoord()}{coordToDocCoord()}}
+{\footnotesize\ttfamily bool mx\+\_\+area\+\_\+layout\+::coord\+To\+Doc\+Coord (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{coord,  }\item[{\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{doc\+Coord,  }\item[{MX\+\_\+\+COORD\+\_\+\+TYPE}]{coord\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+\Hypertarget{classmx__area__layout_af933484c0257e10d83cf85c6184dc269}\label{classmx__area__layout_af933484c0257e10d83cf85c6184dc269} 
+\index{mx\_area\_layout@{mx\_area\_layout}!docCoordToCoord@{docCoordToCoord}}
+\index{docCoordToCoord@{docCoordToCoord}!mx\_area\_layout@{mx\_area\_layout}}
+\doxysubsubsection{\texorpdfstring{docCoordToCoord()}{docCoordToCoord()}}
+{\footnotesize\ttfamily bool mx\+\_\+area\+\_\+layout\+::doc\+Coord\+To\+Coord (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{doc\+\_\+coord,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+alay.\+h\end{DoxyCompactItemize}

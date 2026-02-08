@@ -1,0 +1,14 @@
+<map id="mx_screen_device" name="mx_screen_device">
+<area shape="rect" id="Node000001" title=" " alt="" coords="106,152,249,177"/>
+<area shape="rect" id="Node000002" href="$classmx__device.html" title=" " alt="" coords="5,79,99,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,108,158,149,156,154,83,113"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="80,5,149,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,43,64,80,60,77,93,39"/>
+<area shape="rect" id="Node000006" href="$classmx__ui__object.html" title=" " alt="" coords="123,79,232,104"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="136,39,169,77,165,80,132,43"/>
+<area shape="rect" id="Node000004" href="$classmx__xcallback__target.html" title=" " alt="" coords="257,79,415,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="299,112,204,154,202,149,297,107"/>
+<area shape="rect" id="Node000005" href="$classmx__callback__target.html" title=" " alt="" coords="261,5,411,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="339,44,339,79,333,79,333,44"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="180,118,180,152,175,152,175,118"/>
+</map>

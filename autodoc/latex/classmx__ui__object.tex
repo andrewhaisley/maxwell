@@ -1,0 +1,96 @@
+\doxysection{mx\+\_\+ui\+\_\+object Class Reference}
+\hypertarget{classmx__ui__object}{}\label{classmx__ui__object}\index{mx\_ui\_object@{mx\_ui\_object}}
+
+
+Inheritance diagram for mx\+\_\+ui\+\_\+object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classmx__ui__object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+ui\+\_\+object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__ui__object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ui__object_a056735893245e27fb991078e5a2fd5c0}\label{classmx__ui__object_a056735893245e27fb991078e5a2fd5c0} 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+\Hypertarget{classmx__ui__object_a30b0cca0a541dc0d75c70198be15a9e9}\label{classmx__ui__object_a30b0cca0a541dc0d75c70198be15a9e9} 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+\Hypertarget{classmx__ui__object_abbd5c379f229f0d0080a4a372bd0fee7}\label{classmx__ui__object_abbd5c379f229f0d0080a4a372bd0fee7} 
+void {\bfseries manage} ()
+\item 
+\Hypertarget{classmx__ui__object_a7d9b1bdb3e0b173ede6db08acf7a4cd8}\label{classmx__ui__object_a7d9b1bdb3e0b173ede6db08acf7a4cd8} 
+void {\bfseries unmanage} ()
+\item 
+\Hypertarget{classmx__ui__object_ac620e18bf3d632d4757f37aa53474a2e}\label{classmx__ui__object_ac620e18bf3d632d4757f37aa53474a2e} 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+\Hypertarget{classmx__ui__object_abfdf0bdde97fcb4887b15dac982dbd1f}\label{classmx__ui__object_abfdf0bdde97fcb4887b15dac982dbd1f} 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+\Hypertarget{classmx__ui__object_aa9a27dca5403bf9d3754af6df3e3b085}\label{classmx__ui__object_aa9a27dca5403bf9d3754af6df3e3b085} 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+\Hypertarget{classmx__ui__object_a506c693d3870fb9c37e07b683a5a98cf}\label{classmx__ui__object_a506c693d3870fb9c37e07b683a5a98cf} 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+\Hypertarget{classmx__ui__object_a0fe5f468540a074faa6346d27352b668}\label{classmx__ui__object_a0fe5f468540a074faa6346d27352b668} 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+\Hypertarget{classmx__ui__object_a4d39beb8bc0459e5501146bc86729a04}\label{classmx__ui__object_a4d39beb8bc0459e5501146bc86729a04} 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+\Hypertarget{classmx__ui__object_afffe977da8270610f442c33ae19d9da8}\label{classmx__ui__object_afffe977da8270610f442c33ae19d9da8} 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+\Hypertarget{classmx__ui__object_ac358f8d8d5d453dc144ef3ad71dff874}\label{classmx__ui__object_ac358f8d8d5d453dc144ef3ad71dff874} 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+\Hypertarget{classmx__ui__object_a1dcb86fc9ca9e15c28840d4d5bede3ce}\label{classmx__ui__object_a1dcb86fc9ca9e15c28840d4d5bede3ce} 
+void {\bfseries bell} ()
+\item 
+\Hypertarget{classmx__ui__object_affb5b82ae01c7aed43e15da7502a5242}\label{classmx__ui__object_affb5b82ae01c7aed43e15da7502a5242} 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+\Hypertarget{classmx__ui__object_af5ef264c839cc4c917900ac63515beef}\label{classmx__ui__object_af5ef264c839cc4c917900ac63515beef} 
+void {\bfseries take\+\_\+focus} ()
+\item 
+\Hypertarget{classmx__ui__object_afea90457572acecd5035184fb90f36cd}\label{classmx__ui__object_afea90457572acecd5035184fb90f36cd} 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ui__object_a0b897a2b69ca584b1e3b4fc75a092660}\label{classmx__ui__object_a0b897a2b69ca584b1e3b4fc75a092660} 
+Widget {\bfseries widget}
+\item 
+\Hypertarget{classmx__ui__object_a20320343cf2339dac8a9e84d7dd6d627}\label{classmx__ui__object_a20320343cf2339dac8a9e84d7dd6d627} 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+ui\+\_\+object.\+h\end{DoxyCompactItemize}

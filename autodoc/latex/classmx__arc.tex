@@ -1,0 +1,306 @@
+\doxysection{mx\+\_\+arc Class Reference}
+\hypertarget{classmx__arc}{}\label{classmx__arc}\index{mx\_arc@{mx\_arc}}
+
+
+Inheritance diagram for mx\+\_\+arc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__arc__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+arc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__arc__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__arc_a1bc9503f0dd671eb042a9df6ccf0558d}\label{classmx__arc_a1bc9503f0dd671eb042a9df6ccf0558d} 
+{\bfseries mx\+\_\+arc} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&c, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&size, double start\+Ang, double end\+Ang, ARC\+\_\+\+TYPE arc\+Type=ARC\+\_\+\+ARC, bool is\+Area=FALSE, double angle=0)
+\item 
+\Hypertarget{classmx__arc_a3e2246d4aa039b8f179efe15bb53a2e6}\label{classmx__arc_a3e2246d4aa039b8f179efe15bb53a2e6} 
+\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} {\bfseries box} ()
+\item 
+\Hypertarget{classmx__arc_ae671592f091f167e200841887aad59f8}\label{classmx__arc_ae671592f091f167e200841887aad59f8} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries ac} (double angle) const
+\item 
+\Hypertarget{classmx__arc_a688576b1544994feb398f8aaec924168}\label{classmx__arc_a688576b1544994feb398f8aaec924168} 
+int {\bfseries number\+Components} ()
+\item 
+\Hypertarget{classmx__arc_a8da883b83fad7ef3c51d5a1833004fda}\label{classmx__arc_a8da883b83fad7ef3c51d5a1833004fda} 
+int {\bfseries whole\+Select\+Count} ()
+\item 
+\Hypertarget{classmx__arc_a3f3ff1ec5b1c3fef12560d937cd55548}\label{classmx__arc_a3f3ff1ec5b1c3fef12560d937cd55548} 
+bool {\bfseries merge\+Select\+Count} (int nselect\+Counts, int \texorpdfstring{$\ast$}{*}select\+Counts)
+\item 
+\Hypertarget{classmx__arc_a6b94f062eb07d99a5db87115490a8496}\label{classmx__arc_a6b94f062eb07d99a5db87115490a8496} 
+double {\bfseries dist2arc} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&snap\+Info, double tolerance) const
+\item 
+\Hypertarget{classmx__arc_aa83f432ca1d9e5a61e34945dbddcb6f7}\label{classmx__arc_aa83f432ca1d9e5a61e34945dbddcb6f7} 
+double {\bfseries dist2snap} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&snap\+Info=default\+Snap\+Info, double tolerance=GEOM\+\_\+\+SMALL) const
+\item 
+\Hypertarget{classmx__arc_a7293db4da710c1fcb094f49df4bbe9df}\label{classmx__arc_a7293db4da710c1fcb094f49df4bbe9df} 
+double {\bfseries dist} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_ab864d9a32f42dd92a38d75edcfd08aa9}\label{classmx__arc_ab864d9a32f42dd92a38d75edcfd08aa9} 
+double {\bfseries linear\+Factor} (double tolerance) const
+\item 
+\Hypertarget{classmx__arc_aa8e6f3e500728e619dd007acf96d24c2}\label{classmx__arc_aa8e6f3e500728e619dd007acf96d24c2} 
+bool {\bfseries is\+Full} () const
+\item 
+\Hypertarget{classmx__arc_a82238c6a97e402f13b01a34f1b60aa2d}\label{classmx__arc_a82238c6a97e402f13b01a34f1b60aa2d} 
+bool {\bfseries is\+Circle} () const
+\item 
+\Hypertarget{classmx__arc_a91404d94bfc864c4e3851e9154b9dd5b}\label{classmx__arc_a91404d94bfc864c4e3851e9154b9dd5b} 
+bool {\bfseries is\+Point} () const
+\item 
+\Hypertarget{classmx__arc_a4f8b55355b0a5583301794557f988560}\label{classmx__arc_a4f8b55355b0a5583301794557f988560} 
+void {\bfseries set\+Arc} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&c, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&size, double start\+Ang, double end\+Ang, ARC\+\_\+\+TYPE arc\+Type=ARC\+\_\+\+ARC, bool is\+Area=FALSE, double angle=0)
+\item 
+\Hypertarget{classmx__arc_adbccddec052eb61f53b44e1c4a13bf9d}\label{classmx__arc_adbccddec052eb61f53b44e1c4a13bf9d} 
+double {\bfseries point\+To\+Dist} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_af817922c0257eaf51f9965b5e35f67b7}\label{classmx__arc_af817922c0257eaf51f9965b5e35f67b7} 
+double {\bfseries point\+To\+Angle} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_a7d39505a0fd538e2810366bdacd4060c}\label{classmx__arc_a7d39505a0fd538e2810366bdacd4060c} 
+int {\bfseries quadrant} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_a94bed8754d9912eca0081993e0d9d68d}\label{classmx__arc_a94bed8754d9912eca0081993e0d9d68d} 
+double {\bfseries dist\+Arc} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_a9ec12e7b75e7d15c2670ff7ce210e8c8}\label{classmx__arc_a9ec12e7b75e7d15c2670ff7ce210e8c8} 
+double {\bfseries dist\+Sector} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_ab33c157bae836070c6b7526bf9ce7bac}\label{classmx__arc_ab33c157bae836070c6b7526bf9ce7bac} 
+bool {\bfseries in\+Area} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, double snap\+Tolerance, ARC\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}nearness\+Type) const
+\item 
+\Hypertarget{classmx__arc_aa887cd6bff6504e55eae3cb73ce3d8a8}\label{classmx__arc_aa887cd6bff6504e55eae3cb73ce3d8a8} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries unnormalised\+Point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_a89d4414dcf7b8db106f56b7756d488f5}\label{classmx__arc_a89d4414dcf7b8db106f56b7756d488f5} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries normalised\+Point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+\Hypertarget{classmx__arc_a4f4e0ff07d76d3a7bdaffe67f1752930}\label{classmx__arc_a4f4e0ff07d76d3a7bdaffe67f1752930} 
+\mbox{\hyperlink{classmx__arc}{mx\+\_\+arc}} {\bfseries normalised\+Arc} () const
+\item 
+\Hypertarget{classmx__arc_a27dc0e8c1cc5b4e6e0a4ff1bed9a6dd7}\label{classmx__arc_a27dc0e8c1cc5b4e6e0a4ff1bed9a6dd7} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries tangent} (double angle)
+\item 
+\Hypertarget{classmx__arc_a918815dbe1d7703d5831d8c48d9e529a}\label{classmx__arc_a918815dbe1d7703d5831d8c48d9e529a} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries normal} (double angle)
+\item 
+void \mbox{\hyperlink{classmx__arc_ae605a657fb69aa08376ba6f095e095a2}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classmx__arc_a7489d73cd4bfa29c4b76b1e19be8f05e}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classmx__arc_a6010d6eead0802e9c536d80b17562512}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+\Hypertarget{classmx__arc_a264f716693e3b892db741550ee21a241}\label{classmx__arc_a264f716693e3b892db741550ee21a241} 
+bool {\bfseries nearest\+Point\+In\+Quad} (int iquad, bool quick\+Abort\+Test, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&in\+Point, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&out\+Point, double \&dist\+Val) const
+\item 
+\Hypertarget{classmx__arc_a76512fbaafa829984212e428984c21f1}\label{classmx__arc_a76512fbaafa829984212e428984c21f1} 
+bool {\bfseries point\+Ellipse} () const
+\item 
+\Hypertarget{classmx__arc_a8867aeac41419ae09869778a5f18ab5b}\label{classmx__arc_a8867aeac41419ae09869778a5f18ab5b} 
+bool {\bfseries x\+Line} () const
+\item 
+\Hypertarget{classmx__arc_a15415547df20a37d59a0d4f06c22cde4}\label{classmx__arc_a15415547df20a37d59a0d4f06c22cde4} 
+bool {\bfseries y\+Line} () const
+\item 
+\Hypertarget{classmx__arc_aec599ab2e2966f8565b4df8432f64fb4}\label{classmx__arc_aec599ab2e2966f8565b4df8432f64fb4} 
+bool {\bfseries is\+Degenerate} () const
+\item 
+\Hypertarget{classmx__arc_a848d048dc225f3c87d0a25382f132f3d}\label{classmx__arc_a848d048dc225f3c87d0a25382f132f3d} 
+void {\bfseries arc\+To\+Polypoint} (double tolerance, bool do\+Append, \mbox{\hyperlink{classmx__polypoint}{mx\+\_\+polypoint}} \&pline) const
+\item 
+\Hypertarget{classmx__arc_a64878ef82ff95aebef171aea6dee7e7e}\label{classmx__arc_a64878ef82ff95aebef171aea6dee7e7e} 
+void {\bfseries arc\+To\+Bounding\+Polypoint} (double tolerance, \mbox{\hyperlink{classmx__polypoint}{mx\+\_\+polypoint}} \&pline) const
+\item 
+\Hypertarget{classmx__arc_ab3d65e01c6bf8701d0b0c4527722307b}\label{classmx__arc_ab3d65e01c6bf8701d0b0c4527722307b} 
+void {\bfseries arc\+To\+Quadrants} (bool \texorpdfstring{$\ast$}{*}quad) const
+\item 
+\Hypertarget{classmx__arc_a9558b1d638a963e1f8a078901e5aa4aa}\label{classmx__arc_a9558b1d638a963e1f8a078901e5aa4aa} 
+int {\bfseries components} (bool \texorpdfstring{$\ast$}{*}has\+Chord=NULL, bool \texorpdfstring{$\ast$}{*}has\+Spans=NULL, int \texorpdfstring{$\ast$}{*}whole\+Arc\+Type=NULL) const
+\item 
+\Hypertarget{classmx__arc_a4d73ae4f5a3832946dd9f91fc936a26d}\label{classmx__arc_a4d73ae4f5a3832946dd9f91fc936a26d} 
+const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \& {\bfseries gc} () const
+\item 
+\Hypertarget{classmx__arc_a5d6f8c1ccc801180f8b29e879c1d1573}\label{classmx__arc_a5d6f8c1ccc801180f8b29e879c1d1573} 
+const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \& {\bfseries gs} () const
+\item 
+\Hypertarget{classmx__arc_ae32b6580ac38d9eef9628707c1c7b05a}\label{classmx__arc_ae32b6580ac38d9eef9628707c1c7b05a} 
+const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \& {\bfseries gsap} () const
+\item 
+\Hypertarget{classmx__arc_a21500093f4aaa6dcef0c3170086214e9}\label{classmx__arc_a21500093f4aaa6dcef0c3170086214e9} 
+const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \& {\bfseries geap} () const
+\item 
+\Hypertarget{classmx__arc_a0fee79bff8fe259f42f1e78cbb9b3173}\label{classmx__arc_a0fee79bff8fe259f42f1e78cbb9b3173} 
+double {\bfseries gsa} () const
+\item 
+\Hypertarget{classmx__arc_a663ec4ae86327bd09abc3057f645ec88}\label{classmx__arc_a663ec4ae86327bd09abc3057f645ec88} 
+double {\bfseries gea} () const
+\item 
+\Hypertarget{classmx__arc_a9b41a0d0bfb73d9f74946d8c8a3a54fc}\label{classmx__arc_a9b41a0d0bfb73d9f74946d8c8a3a54fc} 
+double {\bfseries ga} () const
+\item 
+\Hypertarget{classmx__arc_a8b50a6b1a034c7c9dcf20cbe1e65ec4f}\label{classmx__arc_a8b50a6b1a034c7c9dcf20cbe1e65ec4f} 
+\mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} {\bfseries gan} () const
+\item 
+\Hypertarget{classmx__arc_a0c1b8bf1b5ead3fe4c99bde5fd036e74}\label{classmx__arc_a0c1b8bf1b5ead3fe4c99bde5fd036e74} 
+void {\bfseries sc} (\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&ic)
+\item 
+\Hypertarget{classmx__arc_a58ea921d03460dc918c4a1d7a756ee1d}\label{classmx__arc_a58ea921d03460dc918c4a1d7a756ee1d} 
+void {\bfseries ss} (\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&is)
+\item 
+\Hypertarget{classmx__arc_a47aa52e901f7ca3b6ef717b219d88890}\label{classmx__arc_a47aa52e901f7ca3b6ef717b219d88890} 
+void {\bfseries ssa} (double isa)
+\item 
+\Hypertarget{classmx__arc_acec1ca6541b3076da6f5486eb15de21a}\label{classmx__arc_acec1ca6541b3076da6f5486eb15de21a} 
+void {\bfseries sea} (double iea)
+\item 
+\Hypertarget{classmx__arc_ab40493ae744d22aede315d696dce6444}\label{classmx__arc_ab40493ae744d22aede315d696dce6444} 
+void {\bfseries saa} (double iaa)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__arc_a54dfaa426e5a10c9826d529bb46a73b2}\label{classmx__arc_a54dfaa426e5a10c9826d529bb46a73b2} 
+ARC\+\_\+\+TYPE {\bfseries arc\+Type}
+\item 
+\Hypertarget{classmx__arc_add24799e37c9f7d5f41c1cf037b51b02}\label{classmx__arc_add24799e37c9f7d5f41c1cf037b51b02} 
+bool {\bfseries is\+Area}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__arc_a90f75b63a63410146262a0dab421cd34}\label{classmx__arc_a90f75b63a63410146262a0dab421cd34} 
+static double {\bfseries cfactor}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__arc_a6010d6eead0802e9c536d80b17562512}\label{classmx__arc_a6010d6eead0802e9c536d80b17562512} 
+\index{mx\_arc@{mx\_arc}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_arc@{mx\_arc}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+arc\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__arc_ae605a657fb69aa08376ba6f095e095a2}\label{classmx__arc_ae605a657fb69aa08376ba6f095e095a2} 
+\index{mx\_arc@{mx\_arc}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_arc@{mx\_arc}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void mx\+\_\+arc\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__arc_a7489d73cd4bfa29c4b76b1e19be8f05e}\label{classmx__arc_a7489d73cd4bfa29c4b76b1e19be8f05e} 
+\index{mx\_arc@{mx\_arc}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_arc@{mx\_arc}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void mx\+\_\+arc\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/geometry.\+h\end{DoxyCompactItemize}

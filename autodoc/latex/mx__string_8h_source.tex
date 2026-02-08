@@ -1,0 +1,105 @@
+\doxysection{mx\+\_\+string.\+h}
+\hypertarget{mx__string_8h_source}{}\label{mx__string_8h_source}\index{shared/mx\_string.h@{shared/mx\_string.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_string}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ MX\_STRING\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MX\_STRING\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ mx\_strncpy(\textcolor{keywordtype}{char}*\ dest,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src,\ \textcolor{keywordtype}{size\_t}\ max);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{char}*\ mx\_string\_copy(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00035\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ s\ \ \ \ the\ string\ to\ copy}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ ACTION\ \ :\ copies\ the\ string\ allocating\ new\ memory}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ copy\ on\ success,\ NULL\ otherwise}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ mx\_char\_string\_to\_uint16(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s1,\ uint16*\ s2);}
+\DoxyCodeLine{00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ s1}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ \ \ OUT\ -\/\ s2}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ ACTION\ :\ turns\ an\ 8\ bit\ string\ into\ a\ 16\ bit\ one}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{bool}\ mx\_is\_blank(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ s}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ ACTION\ :\ returns\ TRUE\ if\ there\ are\ any\ non-\/whitespace\ characters\ in}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ :\ the\ string}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{char}\ mx\_last\_nonspace(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00065\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ s}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ ACTION\ :\ returns\ the\ last\ non-\/space\ character\ in\ a\ string\ or\ '\ '\ if\ there}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ :\ are\ non}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ uint16\ mx\_strlen(\textcolor{keyword}{const}\ uint16*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00075\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ string}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ ACTION\ :\ strlen\ for\ 16\ bit\ strings}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{bool}\ mx\_str\_find(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ haystack,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ needle,\ \textcolor{keywordtype}{int}\&\ start,\ \textcolor{keywordtype}{bool}\ match\_case\ =\ TRUE);}
+\DoxyCodeLine{00084\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ haystack,\ needle}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ \ \ OUT\ -\/\ start}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ match\_case}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *\ ACTION\ \ :\ tries\ to\ find\ the\ needle\ in\ the\ haystack.\ Sets\ start\ to\ the\ start\ of\ the}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :\ find\ if\ it\ does.}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ RETURNS\ :\ TRUE\ if\ the\ thing\ was\ found,\ FALSE\ otherwise}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ std::vector<std::string>\ split(std::string\ s,\ \textcolor{keywordtype}{char}\ sep);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

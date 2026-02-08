@@ -1,0 +1,151 @@
+\doxysection{mx\+\_\+editor.\+h}
+\hypertarget{mx__editor_8h_source}{}\label{mx__editor_8h_source}\index{edit/mx\_editor.h@{edit/mx\_editor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_EDITOR}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_EDITOR}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_editor}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ The\ mx\_editor\ class\ provides\ very\ basic\ behaviour\ that\ all\ editors\ will}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ need.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_dialog\_man.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_ftarget.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ forward\ declarations}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__app}{mx\_app}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__print__device}{mx\_print\_device}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__window}{mx\_window}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__editor}{mx\_editor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ MX\_RTTI(mx\_editor\_class\_e)}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ creates\ a\ window\ with\ toolbars\ and\ the\ like\ and\ manages\ it}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmx__editor}{mx\_editor}}(\mbox{\hyperlink{classmx__app}{mx\_app}}\&\ owner,\ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}*\ layout);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__editor}{\string~mx\_editor}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ called\ by\ the\ editors\ window\ when\ the\ user\ selects\ the\ close\ option}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ on\ the\ window\ menu\ -\/\ can\ also\ be\ used\ to\ force\ an\ immediate\ exit\ when}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ the\ whole\ app\ is\ closing\ down.}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ window\_is\_closing();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ de-\/iconise,\ bring\ to\ the\ front\ etc}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ activate();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ must\ be\ overidden\ by\ derived\ class\ as\ that\ will\ hold\ ont\ a\ derived}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ class\ of\ mx\_document\ which\ we\ don't\ know\ about\ here.\ The\ reason\ for}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ this\ routine\ is\ to\ allow\ common\ document\ handling\ code\ (printing,}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ etc)\ to\ sit\ in\ the\ editor\ rather\ than\ get\ duplicated\ all\ over\ the\ shot.}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ get\_document()\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ must\ be\ overriden\ to\ open\ a\ document\ of\ the\ appropriate\ class\ for\ the}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ edit\ derived\ class.}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ open\_derived\_doc\_class(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{bool}\ recover)\ =\ 0;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ opens\ a\ document\ with\ all\ the\ appropriate\ dialogs\ if\ things\ go\ wrong.}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ uses\ open\_derived\_doc\_class.\ Returns\ NULL\ if\ the\ document\ couldn't\ be}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ opened.\ If\ there\ was\ an\ unexpected\ error,\ err\ is\ set\ also.}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ open\_document(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ this\ is\ called\ by\ the\ application\ instance\ when\ the\ user\ configuration}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ is\ changed.\ The\ default\ is\ to\ do\ nothing,\ but\ you\ may\ need\ to\ do\ a}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ for\ example\ if\ the\ unit\ type\ changes.}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ config\_changed();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ derived\ class\ must\ handle\ file\ exporting}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ file\_export(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ file\_name,\ mx\_file\_type\_t\ type)\ =\ 0;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ these\ are\ needed\ by\ most\ editor\ sub-\/classes\ -\/\ you\ don't\ have\ to\ use\ them}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ if\ you\ want\ to\ do\ things\ differently.}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ file\_new(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ file\_close(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ file\_force\_close(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ file\_save(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ file\_save\_as(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ help\_support(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ tools\_options(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ file\_print(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ page\_number,\ \mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}}*\ frame);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ file\_print\_one\_copy(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}}*\ frame);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ called\ by\ the\ app\ to\ tell\ the\ editor\ to\ relock\ any}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ files\ it\ has\ open}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ relock();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__window}{mx\_window}}*\ window;}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classmx__app}{mx\_app}}*\ app;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}}\ dialog\_man;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ read\ the\ user\ config\ information}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_config();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ these\ are\ read\ from\ the\ user\ config\ file}}
+\DoxyCodeLine{00114\ \ \ \ \ mx\_unit\_e\ current\_units;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{char}*\ current\_printer\_name;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{char}*\ current\_page\_size;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{char}*\ current\_envelope\_size;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{char}*\ current\_language;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_printer\_x\_res;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_printer\_y\_res;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{float}\ current\_zoom;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ routines\ for\ printing}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ print\_page(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i,\ \mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}}*\ print\_frame);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_print\_device\_size(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}}*\ print\_frame);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ send\_print\_preamble(}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__print__device}{mx\_print\_device}}*\ dev,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_pages,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_copies,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ include\_fonts);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ send\_print\_postamble(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__print__device}{mx\_print\_device}}*\ dev);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ print\_copies(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{char}*\ printer,\ \textcolor{keywordtype}{int}\ num\_copies);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_pages\_to\_print(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}*\ d);}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{int}\ modify\_for\_parity(\mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}*\ d,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ print\_range(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end,\ \mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}*\ d,\ \mbox{\hyperlink{classmx__print__frame}{mx\_print\_frame}}*\ print\_frame);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\mbox{\hyperlink{classmx__app}{mx\_app}}\&\ a);}
+\DoxyCodeLine{00143\ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_EDITOR}}
+
+\end{DoxyCode}

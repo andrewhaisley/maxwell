@@ -1,0 +1,18 @@
+<map id="gmx_spline" name="gmx_spline">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,463,119,488"/>
+<area shape="rect" id="Node000002" href="$classmx__geom.html" title=" " alt="" coords="5,221,92,246"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,260,72,462,66,463,48,260"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="52,80,224,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,116,96,131,69,179,54,221,49,219,64,177,92,128,107,112"/>
+<area shape="rect" id="Node000005" href="$classmx__spline.html" title=" " alt="" coords="87,375,176,400"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="140,119,134,374,129,374,135,119"/>
+<area shape="rect" id="Node000006" href="$classmx__bezier.html" title=" " alt="" coords="150,287,241,312"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="147,118,195,286,190,287,142,119"/>
+<area shape="rect" id="Node000007" href="$classmx__point.html" title=" " alt="" coords="201,155,283,180"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="167,111,227,152,224,157,164,115"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="103,5,173,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="141,45,141,80,135,80,135,45"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="117,413,81,464,76,461,113,410"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="181,325,142,376,138,373,176,321"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="236,194,202,287,197,285,231,192"/>
+</map>

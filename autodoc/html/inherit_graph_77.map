@@ -1,0 +1,17 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classraster.html" title=" " alt="" coords="5,153,65,179"/>
+<area shape="rect" id="Node000001" href="$classmxraster.html" title=" " alt="" coords="113,5,195,31"/>
+<area shape="poly" id="edge244_Node000000_Node000001" title=" " alt="" coords="45,140,72,91,90,64,111,40,126,29,129,33,115,44,95,68,77,94,50,142"/>
+<area shape="rect" id="Node000002" href="$classrasdib.html" title=" " alt="" coords="123,55,185,80"/>
+<area shape="poly" id="edge245_Node000000_Node000002" title=" " alt="" coords="56,141,112,89,128,78,131,82,115,93,59,145"/>
+<area shape="rect" id="Node000003" href="$classrasjpeg.html" title=" " alt="" coords="119,104,189,129"/>
+<area shape="poly" id="edge246_Node000000_Node000003" title=" " alt="" coords="77,146,122,127,124,132,79,151"/>
+<area shape="rect" id="Node000004" href="$classraspng.html" title=" " alt="" coords="121,153,187,179"/>
+<area shape="poly" id="edge247_Node000000_Node000004" title=" " alt="" coords="79,163,121,163,121,169,79,169"/>
+<area shape="rect" id="Node000005" href="$classrastiff.html" title=" " alt="" coords="124,203,184,228"/>
+<area shape="poly" id="edge248_Node000000_Node000005" title=" " alt="" coords="79,181,125,201,123,206,77,186"/>
+<area shape="rect" id="Node000006" href="$classrasxbm.html" title=" " alt="" coords="119,252,189,277"/>
+<area shape="poly" id="edge249_Node000000_Node000006" title=" " alt="" coords="60,186,115,237,133,250,130,254,112,241,56,190"/>
+<area shape="rect" id="Node000007" href="$classtraster.html" title=" " alt="" coords="121,301,187,327"/>
+<area shape="poly" id="edge250_Node000000_Node000007" title=" " alt="" coords="50,190,77,237,115,287,131,299,127,303,111,291,73,240,46,192"/>
+</map>

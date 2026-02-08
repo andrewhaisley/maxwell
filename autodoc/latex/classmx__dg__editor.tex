@@ -1,0 +1,387 @@
+\doxysection{mx\+\_\+dg\+\_\+editor Class Reference}
+\hypertarget{classmx__dg__editor}{}\label{classmx__dg__editor}\index{mx\_dg\_editor@{mx\_dg\_editor}}
+
+
+Inheritance diagram for mx\+\_\+dg\+\_\+editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classmx__dg__editor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+dg\+\_\+editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__dg__editor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__dg__editor_a66abc51b0b0edb6be9899d300917de62}\label{classmx__dg__editor_a66abc51b0b0edb6be9899d300917de62} 
+{\bfseries mx\+\_\+dg\+\_\+editor} (int \&err, \mbox{\hyperlink{classmx__app}{mx\+\_\+app}} \&a, \mbox{\hyperlink{classmx__diagram__area}{mx\+\_\+diagram\+\_\+area}} \texorpdfstring{$\ast$}{*}dgarea)
+\item 
+\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__dg__editor_aef227c283593be252847611e903be488}{get\+\_\+document}} ()
+\item 
+\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__dg__editor_ad3d833b99138ab7203edb6c617184602}{open\+\_\+derived\+\_\+doc\+\_\+class}} (int \&err, char \texorpdfstring{$\ast$}{*}name, bool recover)
+\item 
+void \mbox{\hyperlink{classmx__dg__editor_a436f561494bcb6067c73930c2d07df9e}{file\+\_\+export}} (int \&err, char \texorpdfstring{$\ast$}{*}file\+\_\+name, mx\+\_\+file\+\_\+type\+\_\+t type)
+\item 
+\Hypertarget{classmx__dg__editor_a2966b6dcf9d3293ad856f20fe8a8dbe0}\label{classmx__dg__editor_a2966b6dcf9d3293ad856f20fe8a8dbe0} 
+void {\bfseries set\+Mouse\+Motion} (int \&err, bool set\+On)
+\item 
+void \mbox{\hyperlink{classmx__dg__editor_a85b3ebf47524bccac40807be8ca52b35}{draw}} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+void \mbox{\hyperlink{classmx__dg__editor_a9750ee10b0eb852c3b8358125b4850b2}{pre\+Scroll}} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+void \mbox{\hyperlink{classmx__dg__editor_a6add82f5c8ebb90ff16f8d64866c646c}{post\+Scroll}} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__dg__editor_a424cda0916e8696713dd1ec983767ca7}\label{classmx__dg__editor_a424cda0916e8696713dd1ec983767ca7} 
+\mbox{\hyperlink{classmx__dg__state}{mx\+\_\+dg\+\_\+state}} \texorpdfstring{$\ast$}{*} {\bfseries push\+State} (int \&err, MX\+\_\+\+DGT\+\_\+\+STATE new\+State\+Type)
+\item 
+\Hypertarget{classmx__dg__editor_ab818d766c3a976aea3312eb6f83ead62}\label{classmx__dg__editor_ab818d766c3a976aea3312eb6f83ead62} 
+void {\bfseries push\+State} (int \&err, \mbox{\hyperlink{classmx__dg__state}{mx\+\_\+dg\+\_\+state}} \texorpdfstring{$\ast$}{*}new\+State)
+\item 
+\Hypertarget{classmx__dg__editor_ae61e3043a608a995cc14061b6db56b3e}\label{classmx__dg__editor_ae61e3043a608a995cc14061b6db56b3e} 
+\mbox{\hyperlink{classmx__dg__state}{mx\+\_\+dg\+\_\+state}} \texorpdfstring{$\ast$}{*} {\bfseries pop\+State} (int \&err)
+\item 
+\Hypertarget{classmx__dg__editor_a32d267e1395a1ea2cb12542f53794de8}\label{classmx__dg__editor_a32d267e1395a1ea2cb12542f53794de8} 
+\mbox{\hyperlink{classmx__dg__state}{mx\+\_\+dg\+\_\+state}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Current\+State} ()
+\item 
+\Hypertarget{classmx__dg__editor_a2067f6281ca37669384ccc8030a35009}\label{classmx__dg__editor_a2067f6281ca37669384ccc8030a35009} 
+uint32 {\bfseries add\+Highlighted} (int \&err, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}geom)
+\item 
+\Hypertarget{classmx__dg__editor_a3b2f644cc401ca7160f0c4a7075bbc8c}\label{classmx__dg__editor_a3b2f644cc401ca7160f0c4a7075bbc8c} 
+void {\bfseries del\+Highlighted} (int \&err, uint32 hash\+Key=MX\+\_\+\+DG\+\_\+\+ALL\+\_\+\+HIGHLIGHT\+\_\+\+KEY)
+\item 
+\Hypertarget{classmx__dg__editor_a6b4c77b927e9fac2f48b2e0397288f1c}\label{classmx__dg__editor_a6b4c77b927e9fac2f48b2e0397288f1c} 
+void {\bfseries draw\+Highlighted} (int \&err, uint32 hash\+Key=MX\+\_\+\+DG\+\_\+\+ALL\+\_\+\+HIGHLIGHT\+\_\+\+KEY)
+\item 
+\Hypertarget{classmx__dg__editor_a96b16f7cf5570e9e79188414637162d4}\label{classmx__dg__editor_a96b16f7cf5570e9e79188414637162d4} 
+\mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Highlighted} (int \&err, uint32 hash\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_aae3612da2f7a3f4d6029a09f13218339}\label{classmx__dg__editor_aae3612da2f7a3f4d6029a09f13218339} 
+uint32 {\bfseries add\+Selected} (int \&err, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&level\+Key, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}geom)
+\item 
+\Hypertarget{classmx__dg__editor_a3cbd0e0f0a7c6c48bff12432d14be2eb}\label{classmx__dg__editor_a3cbd0e0f0a7c6c48bff12432d14be2eb} 
+bool {\bfseries test\+Selected\+Hit} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&test\+Point)
+\item 
+\Hypertarget{classmx__dg__editor_ae5f2dea9242bc28d579571c721f6f06b}\label{classmx__dg__editor_ae5f2dea9242bc28d579571c721f6f06b} 
+bool {\bfseries del\+Selected} (int \&err, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&level\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_a3a64271836560d8d367efb404c7c82ed}\label{classmx__dg__editor_a3a64271836560d8d367efb404c7c82ed} 
+bool {\bfseries del\+Selected} (int \&err, uint32 hash\+Key=MX\+\_\+\+DG\+\_\+\+ALL\+\_\+\+SELECTED\+\_\+\+KEY, uint32 save\+From\+Delete=MX\+\_\+\+DG\+\_\+\+ALL\+\_\+\+SELECTED\+\_\+\+KEY)
+\item 
+\Hypertarget{classmx__dg__editor_a110054f6b37962e99ad39ec0eb25aec1}\label{classmx__dg__editor_a110054f6b37962e99ad39ec0eb25aec1} 
+void {\bfseries draw\+Selected} (int \&err, uint32 hash\+Key=MX\+\_\+\+DG\+\_\+\+ALL\+\_\+\+HIGHLIGHT\+\_\+\+KEY, \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \texorpdfstring{$\ast$}{*}region\+Of\+Interest=nullptr)
+\item 
+\Hypertarget{classmx__dg__editor_a5ce4383032a597849c5e1be35c7e479e}\label{classmx__dg__editor_a5ce4383032a597849c5e1be35c7e479e} 
+void {\bfseries draw\+Selected\+Geom} (int \&err, \mbox{\hyperlink{classmx__dg__selected}{mx\+\_\+dg\+\_\+selected}} \texorpdfstring{$\ast$}{*}selection, \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \texorpdfstring{$\ast$}{*}region\+Of\+Interest=nullptr)
+\item 
+\Hypertarget{classmx__dg__editor_a19c51203dbc79863a9e1fc7299df071e}\label{classmx__dg__editor_a19c51203dbc79863a9e1fc7299df071e} 
+\mbox{\hyperlink{classmx__dg__selected}{mx\+\_\+dg\+\_\+selected}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Selected} (int \&err, uint32 hash\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_af38f5a92b8a741be50263b1f384f6e61}\label{classmx__dg__editor_af38f5a92b8a741be50263b1f384f6e61} 
+\mbox{\hyperlink{classmx__dg__selected}{mx\+\_\+dg\+\_\+selected}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Selected} (int \&err, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&level\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_a37adf9a57088c9431e4f017d83ec7ed5}\label{classmx__dg__editor_a37adf9a57088c9431e4f017d83ec7ed5} 
+\mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Selected\+Geom} (int \&err, uint32 hash\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_a863b14dd7bfaad8f8fb26ab148475e2f}\label{classmx__dg__editor_a863b14dd7bfaad8f8fb26ab148475e2f} 
+\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Device} ()
+\item 
+\Hypertarget{classmx__dg__editor_a1a3f6823ee6f0c5a036e4e3d63617299}\label{classmx__dg__editor_a1a3f6823ee6f0c5a036e4e3d63617299} 
+void {\bfseries add\+Geometry} (int \&err, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \&geom)
+\item 
+\Hypertarget{classmx__dg__editor_a1d2377f8e9a834f3fab6b3c8bd5f012b}\label{classmx__dg__editor_a1d2377f8e9a834f3fab6b3c8bd5f012b} 
+\mbox{\hyperlink{classmx__dg__grid}{mx\+\_\+dg\+\_\+grid}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Grid} ()
+\item 
+\Hypertarget{classmx__dg__editor_ab521b4a7b93abff34be7109a127098fe}\label{classmx__dg__editor_ab521b4a7b93abff34be7109a127098fe} 
+void {\bfseries toggle\+Grid} (int \&err)
+\item 
+\Hypertarget{classmx__dg__editor_a1e5dd4dce4d7d33a5763b33256f4264e}\label{classmx__dg__editor_a1e5dd4dce4d7d33a5763b33256f4264e} 
+void {\bfseries bell} ()
+\item 
+\Hypertarget{classmx__dg__editor_a35d8f30f31fcd63840420a88c12a463c}\label{classmx__dg__editor_a35d8f30f31fcd63840420a88c12a463c} 
+\mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Last\+Geometry} ()
+\item 
+\Hypertarget{classmx__dg__editor_acd75d069d935402ea65b8763fe392c46}\label{classmx__dg__editor_acd75d069d935402ea65b8763fe392c46} 
+double {\bfseries get\+Snap\+Distance} () const
+\item 
+\Hypertarget{classmx__dg__editor_a84042ebaf9cd74a70e030afdf0721390}\label{classmx__dg__editor_a84042ebaf9cd74a70e030afdf0721390} 
+void {\bfseries set\+Snap\+Distance} (double s)
+\item 
+\Hypertarget{classmx__dg__editor_a687c23e78a7548b6394d92cc8fce8b8e}\label{classmx__dg__editor_a687c23e78a7548b6394d92cc8fce8b8e} 
+\mbox{\hyperlink{classmx__diagram__area}{mx\+\_\+diagram\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Area} () const
+\item 
+\Hypertarget{classmx__dg__editor_af22898dfea5a669012efb744bfe12115}\label{classmx__dg__editor_af22898dfea5a669012efb744bfe12115} 
+void {\bfseries undo} (int \&err)
+\item 
+\Hypertarget{classmx__dg__editor_ab90f2d276017f37706474848170d71f5}\label{classmx__dg__editor_ab90f2d276017f37706474848170d71f5} 
+void {\bfseries redo} (int \&err)
+\item 
+\Hypertarget{classmx__dg__editor_a62de7c8cc65dfeefdaaabf4da517eddd}\label{classmx__dg__editor_a62de7c8cc65dfeefdaaabf4da517eddd} 
+void {\bfseries refresh} (int \&err, const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&ibox)
+\item 
+\Hypertarget{classmx__dg__editor_acbf045adfda27057629698b965f3568f}\label{classmx__dg__editor_acbf045adfda27057629698b965f3568f} 
+void {\bfseries delete\+Geometry} (int \&err, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&level\+Key, \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&next\+Level\+Key, \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&prev\+Level\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_a3a832fcc442e6b3ffd2dea34aea4a4eb}\label{classmx__dg__editor_a3a832fcc442e6b3ffd2dea34aea4a4eb} 
+void {\bfseries undelete\+Geometry} (int \&err, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&level\+Key, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&next\+Level\+Key, const \mbox{\hyperlink{classmx__dg__level__key}{mx\+\_\+dg\+\_\+level\+\_\+key}} \&prev\+Level\+Key)
+\item 
+\Hypertarget{classmx__dg__editor_a6e6a19e2576b8f538f186272b324800b}\label{classmx__dg__editor_a6e6a19e2576b8f538f186272b324800b} 
+int {\bfseries number\+Selected} (int \&err)
+\item 
+\Hypertarget{classmx__dg__editor_ab015695dae0fd596febb5faee0f13ba1}\label{classmx__dg__editor_ab015695dae0fd596febb5faee0f13ba1} 
+void {\bfseries create\+Group} (int \&err, \mbox{\hyperlink{classmx__dg__group__key}{mx\+\_\+dg\+\_\+group\+\_\+key}} \&group\+Key)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+editor} (\mbox{\hyperlink{classmx__app}{mx\+\_\+app}} \&owner, \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+virtual void {\bfseries window\+\_\+is\+\_\+closing} ()
+\item 
+virtual void {\bfseries activate} ()
+\item 
+\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} {\bfseries open\+\_\+document} (int \&err, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\item 
+virtual void {\bfseries config\+\_\+changed} ()
+\item 
+virtual void {\bfseries file\+\_\+new} (int \&err)
+\item 
+virtual bool {\bfseries file\+\_\+close} (int \&err)
+\item 
+virtual bool {\bfseries file\+\_\+force\+\_\+close} (int \&err)
+\item 
+virtual void {\bfseries file\+\_\+save} (int \&err)
+\item 
+virtual void {\bfseries file\+\_\+save\+\_\+as} (int \&err)
+\item 
+virtual void {\bfseries help\+\_\+support} (int \&err)
+\item 
+virtual void {\bfseries tools\+\_\+options} (int \&err)
+\item 
+void {\bfseries file\+\_\+print} (int \&err, int page\+\_\+number, \mbox{\hyperlink{classmx__print__frame}{mx\+\_\+print\+\_\+frame}} \texorpdfstring{$\ast$}{*}frame)
+\item 
+void {\bfseries file\+\_\+print\+\_\+one\+\_\+copy} (int \&err, \mbox{\hyperlink{classmx__print__frame}{mx\+\_\+print\+\_\+frame}} \texorpdfstring{$\ast$}{*}frame)
+\item 
+virtual void {\bfseries relock} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__frame__target}{mx\+\_\+frame\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+frame\+\_\+target} (\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \& {\bfseries get\+Sheet\+Layout} ()
+\item 
+void {\bfseries set\+Sheet\+Layout} (\mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+bool {\bfseries coord\+To\+Doc\+Coord} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+bool {\bfseries doc\+Coord\+To\+Coord} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Total\+Size} (int \&err)
+\item 
+void {\bfseries set\+Snap\+Tolerance} (double snap\+Tolerance)
+\item 
+double {\bfseries get\+Snap\+Tolerance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries set\+Next\+Target} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}inext\+Target, int target\+Id)
+\item 
+virtual void {\bfseries button\+Motion\+Start} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion\+End} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries external\+Selection} (int \&err, char \texorpdfstring{$\ast$}{*}sel)
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+External\+Selection} (int \&err)
+\item 
+virtual void {\bfseries button\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Release} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Double\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Triple\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Press} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Release} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries text\+Entry} (int \&err, \mbox{\hyperlink{classmx__text__event}{mx\+\_\+text\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries pre\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries special\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries post\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll\+Drag} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries resize} (int \&err, \mbox{\hyperlink{classmx__resize__event}{mx\+\_\+resize\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries expose} (int \&err, \mbox{\hyperlink{classmx__expose__event}{mx\+\_\+expose\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries set\+Event} (int \&err, unsigned long int event\+Type, bool set\+On)
+\item 
+void {\bfseries set\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries add\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries clear\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+bool {\bfseries test\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+\mbox{\hyperlink{classmx__cb__in__propagate}{mx\+\_\+cb\+\_\+in\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+In\+Prop} (int offset)
+\item 
+\mbox{\hyperlink{classmx__cb__out__propagate}{mx\+\_\+cb\+\_\+out\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Out\+Prop} (int offset)
+\item 
+void {\bfseries set\+To\+Not\+Receive\+Events} (int id)
+\item 
+void {\bfseries set\+To\+Propagate\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}receiver, int receiver\+Id)
+\item 
+void {\bfseries set\+To\+Not\+Propagate\+Events} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}target)
+\item 
+void {\bfseries set\+To\+Receive\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}propagator, MX\+\_\+\+COORD\+\_\+\+CONVERSION\+\_\+\+FUNC func)
+\item 
+bool {\bfseries get\+Filter\+Motion} ()
+\item 
+void {\bfseries set\+Filter\+Motion} (bool ifilter\+Same\+Motion)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries get\+Last\+Motion} ()
+\item 
+void {\bfseries set\+Last\+Motion} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&ilast\+Motion\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries read\+\_\+config} ()
+\item 
+virtual void {\bfseries print\+\_\+page} (int \&err, int i, \mbox{\hyperlink{classmx__print__frame}{mx\+\_\+print\+\_\+frame}} \texorpdfstring{$\ast$}{*}print\+\_\+frame)
+\item 
+void {\bfseries set\+\_\+print\+\_\+device\+\_\+size} (int \&err, \mbox{\hyperlink{classmx__print__frame}{mx\+\_\+print\+\_\+frame}} \texorpdfstring{$\ast$}{*}print\+\_\+frame)
+\item 
+void {\bfseries send\+\_\+print\+\_\+preamble} (int \&err, \mbox{\hyperlink{classmx__print__device}{mx\+\_\+print\+\_\+device}} \texorpdfstring{$\ast$}{*}dev, int num\+\_\+pages, int num\+\_\+copies, bool include\+\_\+fonts)
+\item 
+void {\bfseries send\+\_\+print\+\_\+postamble} (int \&err, \mbox{\hyperlink{classmx__print__device}{mx\+\_\+print\+\_\+device}} \texorpdfstring{$\ast$}{*}dev)
+\item 
+void {\bfseries print\+\_\+copies} (int \&err, char \texorpdfstring{$\ast$}{*}name, char \texorpdfstring{$\ast$}{*}printer, int num\+\_\+copies)
+\item 
+int {\bfseries get\+\_\+num\+\_\+pages\+\_\+to\+\_\+print} (int \&err, \mbox{\hyperlink{classmx__print__d}{mx\+\_\+print\+\_\+d}} \texorpdfstring{$\ast$}{*}d)
+\item 
+int {\bfseries modify\+\_\+for\+\_\+parity} (\mbox{\hyperlink{classmx__print__d}{mx\+\_\+print\+\_\+d}} \texorpdfstring{$\ast$}{*}d, int start, int end)
+\item 
+void {\bfseries print\+\_\+range} (int \&err, int start, int end, \mbox{\hyperlink{classmx__print__d}{mx\+\_\+print\+\_\+d}} \texorpdfstring{$\ast$}{*}d, \mbox{\hyperlink{classmx__print__frame}{mx\+\_\+print\+\_\+frame}} \texorpdfstring{$\ast$}{*}print\+\_\+frame)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries propagate\+Event} (int \&err, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}original\+Event, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}out\+Event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*} {\bfseries window}
+\item 
+\mbox{\hyperlink{classmx__app}{mx\+\_\+app}} \texorpdfstring{$\ast$}{*} {\bfseries app}
+\item 
+\mbox{\hyperlink{classmx__dialog__manager}{mx\+\_\+dialog\+\_\+manager}} {\bfseries dialog\+\_\+man}
+\item 
+mx\+\_\+unit\+\_\+e {\bfseries current\+\_\+units}
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries current\+\_\+printer\+\_\+name}
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries current\+\_\+page\+\_\+size}
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries current\+\_\+envelope\+\_\+size}
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries current\+\_\+language}
+\item 
+int {\bfseries current\+\_\+printer\+\_\+x\+\_\+res}
+\item 
+int {\bfseries current\+\_\+printer\+\_\+y\+\_\+res}
+\item 
+float {\bfseries current\+\_\+zoom}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__dg__editor_a85b3ebf47524bccac40807be8ca52b35}\label{classmx__dg__editor_a85b3ebf47524bccac40807be8ca52b35} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!draw@{draw}}
+\index{draw@{draw}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void mx\+\_\+dg\+\_\+editor\+::draw (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}.
+
+\Hypertarget{classmx__dg__editor_a436f561494bcb6067c73930c2d07df9e}\label{classmx__dg__editor_a436f561494bcb6067c73930c2d07df9e} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!file\_export@{file\_export}}
+\index{file\_export@{file\_export}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{file\_export()}{file\_export()}}
+{\footnotesize\ttfamily void mx\+\_\+dg\+\_\+editor\+::file\+\_\+export (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{mx\+\_\+file\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}.
+
+\Hypertarget{classmx__dg__editor_aef227c283593be252847611e903be488}\label{classmx__dg__editor_aef227c283593be252847611e903be488} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!get\_document@{get\_document}}
+\index{get\_document@{get\_document}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{get\_document()}{get\_document()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} mx\+\_\+dg\+\_\+editor\+::get\+\_\+document (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}.
+
+\Hypertarget{classmx__dg__editor_ad3d833b99138ab7203edb6c617184602}\label{classmx__dg__editor_ad3d833b99138ab7203edb6c617184602} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!open\_derived\_doc\_class@{open\_derived\_doc\_class}}
+\index{open\_derived\_doc\_class@{open\_derived\_doc\_class}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{open\_derived\_doc\_class()}{open\_derived\_doc\_class()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*} mx\+\_\+dg\+\_\+editor\+::open\+\_\+derived\+\_\+doc\+\_\+class (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{bool}]{recover }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__editor}{mx\+\_\+editor}}.
+
+\Hypertarget{classmx__dg__editor_a6add82f5c8ebb90ff16f8d64866c646c}\label{classmx__dg__editor_a6add82f5c8ebb90ff16f8d64866c646c} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!postScroll@{postScroll}}
+\index{postScroll@{postScroll}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{postScroll()}{postScroll()}}
+{\footnotesize\ttfamily void mx\+\_\+dg\+\_\+editor\+::post\+Scroll (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}.
+
+\Hypertarget{classmx__dg__editor_a9750ee10b0eb852c3b8358125b4850b2}\label{classmx__dg__editor_a9750ee10b0eb852c3b8358125b4850b2} 
+\index{mx\_dg\_editor@{mx\_dg\_editor}!preScroll@{preScroll}}
+\index{preScroll@{preScroll}!mx\_dg\_editor@{mx\_dg\_editor}}
+\doxysubsubsection{\texorpdfstring{preScroll()}{preScroll()}}
+{\footnotesize\ttfamily void mx\+\_\+dg\+\_\+editor\+::pre\+Scroll (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dgedit/mx\+\_\+dg\+\_\+editor.\+h\end{DoxyCompactItemize}

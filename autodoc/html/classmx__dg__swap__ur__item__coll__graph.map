@@ -1,0 +1,16 @@
+<map id="mx_dg_swap_ur_item" name="mx_dg_swap_ur_item">
+<area shape="rect" id="Node000001" title=" " alt="" coords="138,317,302,343"/>
+<area shape="rect" id="Node000002" href="$classmx__dg__geom__ur__item.html" title=" " alt="" coords="137,243,303,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,282,223,317,217,317,217,282"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__ur__item.html" title=" " alt="" coords="5,155,128,180"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,185,200,240,198,245,98,189"/>
+<area shape="rect" id="Node000004" href="$classmx__dg__level__key.html" title=" " alt="" coords="153,155,287,180"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="223,194,223,242,217,242,217,194"/>
+<area shape="rect" id="Node000005" href="$classmx__serialisable__object.html" title=" " alt="" coords="201,80,373,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="269,118,233,156,229,153,265,114"/>
+<area shape="rect" id="Node000007" href="$classmx__geom.html" title=" " alt="" coords="311,155,398,180"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="309,114,346,153,342,156,305,118"/>
+<area shape="rect" id="Node000006" href="$classmx__rtti.html" title=" " alt="" coords="252,5,321,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="289,45,289,80,284,80,284,45"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="331,190,288,221,245,245,243,240,285,216,328,186"/>
+</map>

@@ -1,0 +1,290 @@
+\doxysection{gmx\+\_\+arc Class Reference}
+\hypertarget{classgmx__arc}{}\label{classgmx__arc}\index{gmx\_arc@{gmx\_arc}}
+
+
+Inheritance diagram for gmx\+\_\+arc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classgmx__arc__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gmx\+\_\+arc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classgmx__arc__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgmx__arc_aa2f5d6aaa205c945ab7162903d6149ea}\label{classgmx__arc_aa2f5d6aaa205c945ab7162903d6149ea} 
+{\bfseries gmx\+\_\+arc} (const \mbox{\hyperlink{classmx__arc}{mx\+\_\+arc}} \&ia)
+\item 
+\Hypertarget{classgmx__arc_aa49e1b530ea7e742c350a4a47626bf00}\label{classgmx__arc_aa49e1b530ea7e742c350a4a47626bf00} 
+{\bfseries gmx\+\_\+arc} (const \mbox{\hyperlink{classgmx__arc}{gmx\+\_\+arc}} \&ia)
+\item 
+int \mbox{\hyperlink{classgmx__arc_a077a6f98b0622593ee439d7a17d35b4f}{dimension}} ()
+\item 
+\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \mbox{\hyperlink{classgmx__arc_aeb8ad3c4412f23c68398320e0ffb0d5e}{box}} (int \&err)
+\item 
+double \mbox{\hyperlink{classgmx__arc_aa96b244e3cb8e09575bdf080f4c674f7}{dist2snap}} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&snap\+Info=default\+Snap\+Info, double tolerance=GEOM\+\_\+\+SMALL) const
+\item 
+virtual GEOM\+\_\+\+INTERSECT\+\_\+\+TYPE \mbox{\hyperlink{classgmx__arc_aac4642dc3eb99a266ff51fca4ff06d66}{intersect\+Box}} (int \&err, \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&r, double tolerance=GEOM\+\_\+\+SMALL)
+\item 
+void \mbox{\hyperlink{classgmx__arc_aef4c1bffa66eef01c695c5de3069d057}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classgmx__arc_a641e4ed593fdc056b7e6cd4ba476b451}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classgmx__arc_a7c36eda6c7b6a055216cb3d81f969967}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+int \mbox{\hyperlink{classgmx__arc_a16d5abc3c0e01849038a39a42b72d874}{whole\+Select\+Count}} ()
+\item 
+bool \mbox{\hyperlink{classgmx__arc_a7d564b351513b58e6156e170cbf91ef6}{merge\+Select\+Count}} (int nselect\+Counts, int \texorpdfstring{$\ast$}{*}select\+Counts)
+\item 
+\mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgmx__arc_a78c319313490e8761555a9acd88b26fd}{duplicate}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries get\+Details} (int32 \&s, int32 \&c)
+\item 
+void {\bfseries set\+Details} (int32 s, int32 c)
+\item 
+virtual bool {\bfseries store\+Box} ()
+\item 
+double {\bfseries dist} (\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+MX\+\_\+\+GEOM\+\_\+\+TYPE {\bfseries get\+Type} ()
+\item 
+virtual bool {\bfseries is\+Segmentable} ()
+\item 
+virtual int {\bfseries segment} (int \&err, int32 max\+Size, int32 segment\+Id, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}split\+Geometry)
+\item 
+virtual int {\bfseries fuse} (int \&err, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}rest\+Geometry, bool is\+First)
+\item 
+virtual bool {\bfseries require\+All\+Segments} ()
+\item 
+virtual bool {\bfseries join\+End\+Segments} ()
+\item 
+virtual bool {\bfseries is\+Closed} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgmx__arc_ad9e08f4909fde320a249b0cd9541dcf6}\label{classgmx__arc_ad9e08f4909fde320a249b0cd9541dcf6} 
+\mbox{\hyperlink{classmx__arc}{mx\+\_\+arc}} {\bfseries a}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+MX\+\_\+\+GEOM\+\_\+\+TYPE {\bfseries type}
+\item 
+int32 {\bfseries style\+Id}
+\item 
+int32 {\bfseries colour\+Id}
+\item 
+int {\bfseries select\+Count}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+static double {\bfseries fac1}
+\item 
+static double {\bfseries fac2}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgmx__arc_aeb8ad3c4412f23c68398320e0ffb0d5e}\label{classgmx__arc_aeb8ad3c4412f23c68398320e0ffb0d5e} 
+\index{gmx\_arc@{gmx\_arc}!box@{box}}
+\index{box@{box}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{box()}{box()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} gmx\+\_\+arc\+::box (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a077a6f98b0622593ee439d7a17d35b4f}\label{classgmx__arc_a077a6f98b0622593ee439d7a17d35b4f} 
+\index{gmx\_arc@{gmx\_arc}!dimension@{dimension}}
+\index{dimension@{dimension}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{dimension()}{dimension()}}
+{\footnotesize\ttfamily int gmx\+\_\+arc\+::dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_aa96b244e3cb8e09575bdf080f4c674f7}\label{classgmx__arc_aa96b244e3cb8e09575bdf080f4c674f7} 
+\index{gmx\_arc@{gmx\_arc}!dist2snap@{dist2snap}}
+\index{dist2snap@{dist2snap}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{dist2snap()}{dist2snap()}}
+{\footnotesize\ttfamily double gmx\+\_\+arc\+::dist2snap (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{p,  }\item[{\mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&}]{snap\+Info = {\ttfamily defaultSnapInfo},  }\item[{double}]{tolerance = {\ttfamily GEOM\+\_\+SMALL} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a78c319313490e8761555a9acd88b26fd}\label{classgmx__arc_a78c319313490e8761555a9acd88b26fd} 
+\index{gmx\_arc@{gmx\_arc}!duplicate@{duplicate}}
+\index{duplicate@{duplicate}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{duplicate()}{duplicate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} gmx\+\_\+arc\+::duplicate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a7c36eda6c7b6a055216cb3d81f969967}\label{classgmx__arc_a7c36eda6c7b6a055216cb3d81f969967} 
+\index{gmx\_arc@{gmx\_arc}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 gmx\+\_\+arc\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_aac4642dc3eb99a266ff51fca4ff06d66}\label{classgmx__arc_aac4642dc3eb99a266ff51fca4ff06d66} 
+\index{gmx\_arc@{gmx\_arc}!intersectBox@{intersectBox}}
+\index{intersectBox@{intersectBox}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{intersectBox()}{intersectBox()}}
+{\footnotesize\ttfamily virtual GEOM\+\_\+\+INTERSECT\+\_\+\+TYPE gmx\+\_\+arc\+::intersect\+Box (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&}]{r,  }\item[{double}]{tolerance = {\ttfamily GEOM\+\_\+SMALL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a7d564b351513b58e6156e170cbf91ef6}\label{classgmx__arc_a7d564b351513b58e6156e170cbf91ef6} 
+\index{gmx\_arc@{gmx\_arc}!mergeSelectCount@{mergeSelectCount}}
+\index{mergeSelectCount@{mergeSelectCount}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{mergeSelectCount()}{mergeSelectCount()}}
+{\footnotesize\ttfamily bool gmx\+\_\+arc\+::merge\+Select\+Count (\begin{DoxyParamCaption}\item[{int}]{nselect\+Counts,  }\item[{int \texorpdfstring{$\ast$}{*}}]{select\+Counts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_aef4c1bffa66eef01c695c5de3069d057}\label{classgmx__arc_aef4c1bffa66eef01c695c5de3069d057} 
+\index{gmx\_arc@{gmx\_arc}!serialise@{serialise}}
+\index{serialise@{serialise}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void gmx\+\_\+arc\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a641e4ed593fdc056b7e6cd4ba476b451}\label{classgmx__arc_a641e4ed593fdc056b7e6cd4ba476b451} 
+\index{gmx\_arc@{gmx\_arc}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void gmx\+\_\+arc\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__arc_a16d5abc3c0e01849038a39a42b72d874}\label{classgmx__arc_a16d5abc3c0e01849038a39a42b72d874} 
+\index{gmx\_arc@{gmx\_arc}!wholeSelectCount@{wholeSelectCount}}
+\index{wholeSelectCount@{wholeSelectCount}!gmx\_arc@{gmx\_arc}}
+\doxysubsubsection{\texorpdfstring{wholeSelectCount()}{wholeSelectCount()}}
+{\footnotesize\ttfamily int gmx\+\_\+arc\+::whole\+Select\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/geometry.\+h\end{DoxyCompactItemize}

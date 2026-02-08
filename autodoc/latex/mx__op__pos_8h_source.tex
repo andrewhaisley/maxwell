@@ -1,0 +1,100 @@
+\doxysection{mx\+\_\+op\+\_\+pos.\+h}
+\hypertarget{mx__op__pos_8h_source}{}\label{mx__op__pos_8h_source}\index{document/mx\_op\_pos.h@{document/mx\_op\_pos.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_opaque\_area\_pos}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_OPAQUE\_AREA\_POS\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_OPAQUE\_AREA\_POS\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_area\_pos.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_doc\_rect.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_position.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__opaque__area__pos}{mx\_opaque\_area\_pos}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ MX\_RTTI(mx\_opaque\_area\_pos\_class\_e)}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classmx__opaque__area__pos}{mx\_opaque\_area\_pos}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__opaque__area__pos}{\string~mx\_opaque\_area\_pos}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__opaque__area__pos}{mx\_opaque\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ up(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ down(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ left(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ right(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ move\ to\ the\ end\ of\ the\ area}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ area);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ moveto\ the\ start}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ area);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ moveto\ a\ point}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ moveto(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ next\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ prev\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}*\ duplicate();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_start()\ \{\ \textcolor{keywordflow}{return}\ is\_left;\ \};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_start\_line()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_start\_para()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a)\ \{\ \textcolor{keywordflow}{return}\ !is\_left;\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ position(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ compare\ logical\ positions}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_same\_para\_as(\mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ can\ only\ be\ to\ the\ left\ or\ right\ of\ the\ area}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_left;}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

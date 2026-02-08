@@ -1,0 +1,150 @@
+\doxysection{mx\+\_\+new\+\_\+d Class Reference}
+\hypertarget{classmx__new__d}{}\label{classmx__new__d}\index{mx\_new\_d@{mx\_new\_d}}
+
+
+Inheritance diagram for mx\+\_\+new\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__new__d__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+new\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__new__d__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__new__d_ad0b05331e1f383ed602f9132911ec2a7}\label{classmx__new__d_ad0b05331e1f383ed602f9132911ec2a7} 
+{\bfseries mx\+\_\+new\+\_\+d} (Widget parent, const char \texorpdfstring{$\ast$}{*}template\+\_\+dir)
+\item 
+virtual void \mbox{\hyperlink{classmx__new__d_ab8a2ae1fed5b83c46c86ea4487a5478f}{activate}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+dialog} (const char \texorpdfstring{$\ast$}{*}name, Widget parent, bool do\+Modal=FALSE, bool resizable=FALSE)
+\item 
+void {\bfseries centre} ()
+\item 
+bool {\bfseries is\+\_\+active} ()
+\item 
+virtual void {\bfseries deactivate} ()
+\item 
+int {\bfseries run\+\_\+modal} ()
+\item 
+int {\bfseries run} ()
+\item 
+void {\bfseries set\+\_\+title} (char \texorpdfstring{$\ast$}{*}title)
+\item 
+Xm\+Toggle\+Button\+State {\bfseries Xm\+Toggle\+Button\+Get\+Value} (Widget w)
+\item 
+bool {\bfseries traverse\+\_\+widget\+\_\+tree} (Widget w, char \texorpdfstring{$\ast$}{*}mnemonic, XKey\+Event \texorpdfstring{$\ast$}{*}key\+\_\+event)
+\item 
+bool {\bfseries handle\+\_\+acc} (Widget w, XEvent \texorpdfstring{$\ast$}{*}event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+void {\bfseries manage} ()
+\item 
+void {\bfseries unmanage} ()
+\item 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+void {\bfseries bell} ()
+\item 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+void {\bfseries take\+\_\+focus} ()
+\item 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__new__d_a36a88b8da6a15fd393d6252a7cfbbbbd}\label{classmx__new__d_a36a88b8da6a15fd393d6252a7cfbbbbd} 
+char {\bfseries template\+\_\+name} \mbox{[}MAX\+\_\+\+PATH\+\_\+\+LEN\mbox{]}
+\item 
+\Hypertarget{classmx__new__d_adcb29925ae86d8989d24df41565e5071}\label{classmx__new__d_adcb29925ae86d8989d24df41565e5071} 
+Widget {\bfseries new\+\_\+button}
+\item 
+\Hypertarget{classmx__new__d_a8aad4702d7bcf380d9a9dba9a1b26070}\label{classmx__new__d_a8aad4702d7bcf380d9a9dba9a1b26070} 
+Widget {\bfseries cancel\+\_\+button}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+mx\+\_\+dialog\+\_\+result\+\_\+t {\bfseries modal\+\_\+result}
+\item 
+Widget {\bfseries dialog}
+\item 
+Widget {\bfseries dialog\+\_\+parent}
+\item 
+Widget {\bfseries pane}
+\item 
+Widget {\bfseries control\+\_\+area}
+\item 
+Widget {\bfseries action\+\_\+area}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries widget}
+\item 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__new__d_ab8a2ae1fed5b83c46c86ea4487a5478f}\label{classmx__new__d_ab8a2ae1fed5b83c46c86ea4487a5478f} 
+\index{mx\_new\_d@{mx\_new\_d}!activate@{activate}}
+\index{activate@{activate}!mx\_new\_d@{mx\_new\_d}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+new\+\_\+d\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+new\+\_\+d.\+h\end{DoxyCompactItemize}

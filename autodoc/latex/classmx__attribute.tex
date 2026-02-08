@@ -1,0 +1,105 @@
+\doxysection{mx\+\_\+attribute Class Reference}
+\hypertarget{classmx__attribute}{}\label{classmx__attribute}\index{mx\_attribute@{mx\_attribute}}
+
+
+Inheritance diagram for mx\+\_\+attribute\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__attribute__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+attribute\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classmx__attribute__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__attribute_a6a5420a0569ea00cf9167061800924c6}\label{classmx__attribute_a6a5420a0569ea00cf9167061800924c6} 
+uint32 {\bfseries size} (int \&err)
+\item 
+\Hypertarget{classmx__attribute_a52f93e8bd06459e426ab94f5abbef967}\label{classmx__attribute_a52f93e8bd06459e426ab94f5abbef967} 
+{\bfseries mx\+\_\+attribute} (const char \texorpdfstring{$\ast$}{*}name, mx\+\_\+attribute\+\_\+type type)
+\item 
+\Hypertarget{classmx__attribute_a811d1df9504b8e501cd8126b0be5b9e4}\label{classmx__attribute_a811d1df9504b8e501cd8126b0be5b9e4} 
+{\bfseries mx\+\_\+attribute} (const char \texorpdfstring{$\ast$}{*}name, mx\+\_\+attribute\+\_\+type type, \mbox{\hyperlink{unionmx__attribute__value}{mx\+\_\+attribute\+\_\+value}} v, int length)
+\item 
+\Hypertarget{classmx__attribute_a115f8fad304e842d25cf202298ec030b}\label{classmx__attribute_a115f8fad304e842d25cf202298ec030b} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \&old)
+\item 
+\Hypertarget{classmx__attribute_ab99337cd165015258ac31ebb39f92d12}\label{classmx__attribute_ab99337cd165015258ac31ebb39f92d12} 
+void {\bfseries set\+\_\+name} (int \&err, char \texorpdfstring{$\ast$}{*}name)
+\item 
+\Hypertarget{classmx__attribute_a4edd98465c6da335b245dad6395131de}\label{classmx__attribute_a4edd98465c6da335b245dad6395131de} 
+void {\bfseries set\+\_\+value} (int \&err, \mbox{\hyperlink{unionmx__attribute__value}{mx\+\_\+attribute\+\_\+value}} v, mx\+\_\+attribute\+\_\+type type, int length)
+\item 
+\Hypertarget{classmx__attribute_ab653f107e04d6a8ed6c15e1f6e96242d}\label{classmx__attribute_ab653f107e04d6a8ed6c15e1f6e96242d} 
+void {\bfseries free\+\_\+value} ()
+\item 
+virtual void \mbox{\hyperlink{classmx__attribute_a858ee2ee22d0c18e9b7aaf2981854777}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buf)
+\item 
+virtual void \mbox{\hyperlink{classmx__attribute_a05aba73b1912ab82381eb3de5e8d354f}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buf)
+\item 
+virtual uint32 \mbox{\hyperlink{classmx__attribute_a2e54dd19f7427b0ec5cde86db8af4cea}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__attribute_a446f018e0836dffa2e670a7bdca027fb}\label{classmx__attribute_a446f018e0836dffa2e670a7bdca027fb} 
+char {\bfseries name} \mbox{[}MX\+\_\+\+ATTRIBUTE\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
+\item 
+\Hypertarget{classmx__attribute_a6be85bfa3d9a49f681620ee807fbd430}\label{classmx__attribute_a6be85bfa3d9a49f681620ee807fbd430} 
+mx\+\_\+attribute\+\_\+type {\bfseries type}
+\item 
+\Hypertarget{classmx__attribute_a1c86a7cd229be325294cb10b3af36046}\label{classmx__attribute_a1c86a7cd229be325294cb10b3af36046} 
+\mbox{\hyperlink{unionmx__attribute__value}{mx\+\_\+attribute\+\_\+value}} {\bfseries value}
+\item 
+\Hypertarget{classmx__attribute_a52a431948b35b4ce564856e794a7407d}\label{classmx__attribute_a52a431948b35b4ce564856e794a7407d} 
+uint32 {\bfseries length}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__attribute_a2e54dd19f7427b0ec5cde86db8af4cea}\label{classmx__attribute_a2e54dd19f7427b0ec5cde86db8af4cea} 
+\index{mx\_attribute@{mx\_attribute}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_attribute@{mx\_attribute}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily virtual uint32 mx\+\_\+attribute\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__attribute_a858ee2ee22d0c18e9b7aaf2981854777}\label{classmx__attribute_a858ee2ee22d0c18e9b7aaf2981854777} 
+\index{mx\_attribute@{mx\_attribute}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_attribute@{mx\_attribute}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+attribute\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__attribute_a05aba73b1912ab82381eb3de5e8d354f}\label{classmx__attribute_a05aba73b1912ab82381eb3de5e8d354f} 
+\index{mx\_attribute@{mx\_attribute}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_attribute@{mx\_attribute}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+attribute\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+db/mx\+\_\+attribute.\+h\end{DoxyCompactItemize}

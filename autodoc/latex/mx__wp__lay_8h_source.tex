@@ -1,0 +1,110 @@
+\doxysection{mx\+\_\+wp\+\_\+lay.\+h}
+\hypertarget{mx__wp__lay_8h_source}{}\label{mx__wp__lay_8h_source}\index{view/mx\_wp\_lay.h@{view/mx\_wp\_lay.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_WP\_LAY\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_WP\_LAY\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_wp\_lay.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_wp\_lay.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_sh\_lay.h"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ CLASS:\ mx\_wp\_layout}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basically\ an\ array\ of\ sheet\ sizes}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ with\ their\ positions\ maintained\ as\ the\ sum\ of\ the}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ previous\ sizes\ in\ the\ y\ direction\ and\ the\ maximum}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ size\ in\ the\ x\ direction.\ Calculation}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ of\ postions\ is\ delayed\ until\ such\ time\ as}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ positions\ are\ required.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ Sheets\ are\ indexed\ in\ an\ array\ using\ the\ standard\ C}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ indexing\ -\/\ i.e.\ 0\ is\ the\ index\ of\ the\ first\ sheet\ in}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ the\ array}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__layout}{mx\_wp\_layout}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}\ \{}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classmx__wp__layout}{mx\_wp\_layout}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ change\ the\ sizes\ or\ positions\ of\ an\ existing\ sheet}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ changeSheets(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startSheet,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nSheets,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}*\ isheetSizes);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ remove\ a\ range\ of\ sheets}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ removeSheets(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startSheet,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nSheets);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ cumulative\ coordinate\ to\ a\ doc\ coord}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ This\ is\ virtual\ as\ the\ conversion\ is\ much\ simpler}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ coordToDocCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ doc\ coord\ to\ a\ cumulative\ coord}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ docCoordToCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ doc\_coord,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ iteration\ function}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ nextOverArea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__rect__t}{mx\_doc\_rect\_t}}\&\ output);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getClipToX()\ \{\ \textcolor{keywordflow}{return}\ clipToX;\ \};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setClipToX(\textcolor{keywordtype}{bool}\ icl)\ \{\ clipToX\ =\ icl;\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ the\ most\ advanced\ sheet\ in\ the\ array\ with\ a\ valid}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ cumulative\ total}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ lastPositionValidSheet;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ update\ the\ valid\ cumulative\ total\ marker\ to\ validSheet}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ updateSheetPositions(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ validSheet);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ flag\ to\ see\ if\ iteration\ should\ return\ sheets\ not\ in}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ the\ x\ direction}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ clipToX;}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

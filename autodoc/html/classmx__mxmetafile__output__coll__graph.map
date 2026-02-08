@@ -1,0 +1,32 @@
+<map id="mx_mxmetafile_output" name="mx_mxmetafile_output">
+<area shape="rect" id="Node000001" title=" " alt="" coords="952,173,1127,199"/>
+<area shape="rect" id="Node000002" href="$classmx__metafile__output.html" title=" " alt="" coords="675,83,828,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="842,102,886,110,929,122,980,146,1021,171,1018,176,978,151,927,127,885,115,841,107"/>
+<area shape="rect" id="Node000003" href="$classmx__metafile__reader.html" title=" " alt="" coords="133,241,287,267"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,236,320,230,371,223,417,221,496,221,532,219,569,211,607,194,649,167,658,156,660,144,663,131,673,117,691,106,694,110,676,121,668,133,666,145,662,158,652,171,610,199,570,216,533,224,496,227,417,226,372,228,320,235,290,241"/>
+<area shape="rect" id="Node000011" href="$classmx__stretchDIBits.html" title=" " alt="" coords="684,275,819,300"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="301,249,464,251,558,256,651,265,696,272,695,277,650,270,558,261,464,257,301,255"/>
+<area shape="rect" id="Node000012" href="$classmx__bitmapinfo.html" title=" " alt="" coords="400,276,521,301"/>
+<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="301,264,400,278,399,283,300,269"/>
+<area shape="rect" id="Node000013" href="$classmx__metafile__colour.html" title=" " alt="" coords="385,325,536,351"/>
+<area shape="poly" id="edge17_Node000013_Node000003" title=" " alt="" coords="261,269,386,311,421,323,419,328,384,317,259,274"/>
+<area shape="rect" id="Node000004" href="$classmx__point.html" title=" " alt="" coords="419,73,502,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="516,88,560,91,675,93,675,99,560,97,515,94"/>
+<area shape="rect" id="Node000005" href="$classmx__serialisable__object.html" title=" " alt="" coords="124,83,296,108"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="310,89,419,85,419,90,310,94"/>
+<area shape="rect" id="Node000007" href="$classmx__rect.html" title=" " alt="" coords="423,23,498,48"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="277,77,423,41,424,47,278,82"/>
+<area shape="rect" id="Node000010" href="$classmx__colour.html" title=" " alt="" coords="560,133,651,159"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="310,105,560,138,559,143,309,111"/>
+<area shape="rect" id="Node000006" href="$classmx__rtti.html" title=" " alt="" coords="5,83,75,108"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="88,93,124,93,124,98,88,98"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="512,38,578,48,651,62,714,80,712,85,650,67,577,53,511,44"/>
+<area shape="rect" id="Node000008" href="$classmx__angle.html" title=" " alt="" coords="167,5,253,31"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="267,19,423,30,423,35,267,25"/>
+<area shape="rect" id="Node000009" href="$classmx__ipoint.html" title=" " alt="" coords="708,132,795,157"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="809,150,952,171,951,176,808,155"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="625,168,647,192,676,210,719,224,764,230,810,232,855,228,938,214,1002,196,1003,201,939,219,856,234,810,237,764,236,718,229,674,215,644,196,621,172"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="832,279,880,271,927,257,981,228,1022,197,1025,201,984,232,929,262,881,276,833,285"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="535,286,684,285,684,290,535,291"/>
+<area shape="poly" id="edge16_Node000011_Node000013" title=" " alt="" coords="549,322,650,305,688,297,689,303,651,310,550,327"/>
+</map>

@@ -1,0 +1,83 @@
+\doxysection{mx\+\_\+ta\+\_\+buff.\+h}
+\hypertarget{mx__ta__buff_8h_source}{}\label{mx__ta__buff_8h_source}\index{edit/mx\_ta\_buff.h@{edit/mx\_ta\_buff.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_table\_buffer}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_TABLE\_BUFFER\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_TABLE\_BUFFER\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}mx\_buffer.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_text\_area.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__area}{mx\_table\_area}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__area__pos}{mx\_table\_area\_pos}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__buffer}{mx\_table\_buffer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__buffer}{mx\_buffer}}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ MX\_RTTI(mx\_table\_buffer\_class\_e)}
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classmx__table__buffer}{mx\_table\_buffer}}(\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*);}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classmx__table__buffer}{mx\_table\_buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__table__buffer}{mx\_table\_buffer}}\&);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__table__buffer}{\string~mx\_table\_buffer}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ cut(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}\&\ a,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__table__area__pos}{mx\_table\_area\_pos}}\&\ p1,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__table__area__pos}{mx\_table\_area\_pos}}\&\ p2,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ mx\_edit\_op\ cut\_or\_copy);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}\&\ a,\ \mbox{\hyperlink{classmx__table__area__pos}{mx\_table\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_rows;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_columns;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_old\_contents();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ cut\_cells(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}\&\ a,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ top\_row,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ top\_column,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bottom\_row,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bottom\_column,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ mx\_edit\_op\ cut\_or\_copy);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}**\ areas;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

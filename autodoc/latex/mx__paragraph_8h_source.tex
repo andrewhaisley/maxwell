@@ -1,0 +1,480 @@
+\doxysection{mx\+\_\+paragraph.\+h}
+\hypertarget{mx__paragraph_8h_source}{}\label{mx__paragraph_8h_source}\index{document/mx\_paragraph.h@{document/mx\_paragraph.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_PARAGRAPH\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_PARAGRAPH\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_paragraph}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Paragraphs\ of\ text\ for\ use\ in\ an\ area.\ These\ objects\ are\ stored}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ as\ attributes\ of\ areas\ they\ belong\ to\ (i.e.\ they\ do\ not\ inherit}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ from\ mx\_db\_object).\ If\ you\ modify\ one\ of\ these,\ the\ appropriate}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ attributes\ will\ be\ updated\ for\ you\ and\ committed\ when\ you\ commit}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ the\ changes\ to\ the\ document.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_nlist.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_style.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__word}{mx\_word}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__nlist}{mx\_nlist}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__space__word}{mx\_space\_word}};}
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__break__word}{mx\_break\_word}};}
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ MX\_RTTI(mx\_paragraph\_class\_e)}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__area__painter}{mx\_text\_area\_painter}};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__buffer}{mx\_text\_buffer}};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ unfortunately,\ paragraphs\ sometimes\ get\ split\ and\ need\ to\ be\ rejoined}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ later\ -\/\ the\ type\ of\ the\ paragraph\ indicates\ whether\ the\ thing\ is\ stand}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ alone\ or\ part\ of\ a\ bigger\ paragraph}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ mx\_paragraph\_type\_t\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ mx\_paragraph\_start\_e\ =\ 32,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ mx\_paragraph\_middle\_e,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ mx\_paragraph\_end\_e,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ mx\_paragraph\_whole\_e}
+\DoxyCodeLine{00075\ \ \ \ \ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}(\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}\&\ para);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__paragraph}{\string~mx\_paragraph}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ set\ the\ width\ -\/\ this\ is\ the\ space\ the\ paragraph\ sits\ it\ -\/\ the}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ formatting\ width\ is\ smaller\ by\ the\ size\ of\ the\ left\ and\ right}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ indents\ \&\ any\ space\ taken\ up\ by\ the\ border}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_width(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_format\_width();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ retrieve\ word\ by\ line\ and\ word\ index}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ retrieve\ word\ by\ position\ -\/\ letter\ index\ is\ ignored}}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ delete\ word\ by\ line\ and\ word\ index}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Return\ a\ pointer\ to\ a\ word\ and\ remove\ it\ from\ the\ list,\ but}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ don't\ delete\ it.}}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ remove\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ remove\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ insert\ new\ word\ by\ position\ -\/\ when\ you\ have\ finished\ inserting\ words,\ you}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ must\ call\ reformat\_styles().\ This\ is\ a\ bit\ clunky,\ but\ reformat\ styles}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ is\ a\ relatively\ slow\ procedure\ so\ it\ makes\ sense\ to\ use\ it\ for\ a\ whole}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ batch\ of\ changes\ at\ the\ same\ time.\ If\ you\ know\ that\ your\ word\ didn't}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ contain\ any\ style\ changes,\ you\ don't\ need\ to\ call\ reformat\_styles().}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ after\ insertion,\ the\ paragraph\ position\ is\ left\ pointing\ at\ the\ location}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ into\ which\ the\ next\ thing\ to\ be\ inserted\ will\ go}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ a\_word,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ style\ mod}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ after\ insertion,\ the\ paragraph\ position\ is\ left\ pointing\ at\ the\ location}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ into\ which\ the\ next\ thing\ to\ be\ inserted\ will\ go}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_mod(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ m,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ character\ -\/\ may\ be\ a\ space/tab\ as\ well\ as\ non-\/white}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ space}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ complex\ word\ item\ into\ the\ paragraph.\ The\ item\ is\ NOT\ copied,}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ so\ do\ not\ delete\ it.}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_cw\_item(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ insert\ the\ contents\ of\ the\ string\ into\ the\ paragraph.\ If\ an\ unknown}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ character\ (<=13)\ is\ found,\ the\ method\ returns,\ leaving\ the\ string}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ pointing\ to\ the\ unknown\ character.}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_ascii\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\&\ \textcolor{keywordtype}{string},\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ append\ word\ to\ end\ of\ paragraph,\ not\ copied,\ so\ don't\ delete\ it}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ append\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ a\_word);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ append\ a\ style\ change\ -\/\ copy\ is\ made\ of\ the\ mod,\ so\ you}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ can\ deleted\#\ your\ own\ afterwards}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ append\_mod(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ a\_mod);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00141\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_lines();}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_words(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00145\ \ \ \ \ uint32\ total\_num\_words();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ format\ in\ a\ given\ range\ -\/\ the\ y\ positions\ of\ things\ following\ the}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ range\ may\ also\ be\ changed.\ Height\ changed\ flag\ is\ set\ if\ the\ overall}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ height\ of\ the\ paragraph\ was\ changed\ by\ the\ reformat}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ Note\ that\ the\ end\ position\ is\ only\ really\ a\ hint\ -\/\ if\ changes\ within}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ the\ range\ force\ following\ lines\ to\ change,\ it\ will\ be\ ignored.\ However,}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ reformatting\ will\ always\ proceed\ at\ least\ as\ far\ as\ the\ end\ position.}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat(}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ start,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ end,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ do\ the\ whole\ paragraph}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ rebuild\ the\ style\ list\ and\ pointers\ from\ words\ -\/\ this\ is\ needed\ after}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ a\ style\ change\ has\ been\ applied.\ It\ is\ called\ automatically\ when\ you\ set\ or}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ modify\ the\ base\ paragraph\ style}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ removes\ any\ style\ mods\ which\ do\ not\ affect\ the\ style\ for\ this}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ paragraph\ style}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ minimise\_style\_mods(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ set\ the\ revert\_to\_default\ flag\ on\ all\ style\ mods\ which\ indicate\ a}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ change\ back\ to\ the\ current\ default\ style.\ Clear\ the\ flag\ on\ all\ others.}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_style\_mod\_revert\_flags(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ change\ the\ base\ paragraph\ style\ -\/\ a\ handle\ is\ kept\ to\ this\ so\ it}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ must\ hang\ around\ (it\ ought\ to\ be\ one\ of\ the\ styles\ from\ the\ document}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ style\ list)}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_paragraph\_style(\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ modify\ the\ paragraph\ style.\ This\ routine\ takes\ the\ difference\ between\ the}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ supplied\ style\ and\ the\ base\ style\ so\ that\ changes\ in\ the\ base\ style}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ are\ handled\ correctly}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ modify\_paragraph\_style(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ new\_style);}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ modify\_paragraph\_style(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}}\&\ difference);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ get\ a\ pointer\ to\ the\ style\ actually\ used\ by\ the\ paragraph}}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_paragraph\_style();}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{//\ get\ a\ pointer\ to\ the\ base\ style\ used\ by\ the\ paragraph}}
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_base\_paragraph\_style();}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ get\ the\ calculated\ height\ for\ the\ paragraph\ -\/\ only\ valid\ after\ a}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ reformatting}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height();}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ if\ the\ paragraph\ only\ contains\ a\ pargraph\ break\ word\ this\ returns\ TRUE}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_empty(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//\ adjust\ the\ y\ positions\ of\ all\ the\ lines\ from\ and\ including\ this\ one}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}\ adjust\_line\_ypositions(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ from\_line);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ mx\_paragraph\_type\_t\ get\_type();}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_type(mx\_paragraph\_type\_t\ t);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_document(\mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ get\ the\ style\ at\ a\ given\ position\ within\ the\ paragraph\ -\/\ this\ is}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ not\ a\ copy,\ so\ if\ you\ need\ one\ you'll\ have\ to\ make\ it\ yourself.}}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ get\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ get\ the\ style\ mod\ at\ a\ given\ position\ within\ the\ paragraph\ -\/\ this\ is}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{//\ not\ a\ copy,\ so\ if\ you\ need\ one\ you'll\ have\ to\ make\ it\ yourself.}}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}*\ get\_style\_mod(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ split\ into\ two\ paragraphs\ at\ the\ given\ position}}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ split\ into\ two\ paragraphs\ at\ the\ given\ line\ index}}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ join\ another\ paragraph\ onto\ the\ end\ -\/\ the\ contents\ of\ the\ second}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{comment}{//\ paragraph\ are\ cleaned\ up\ and\ deleted\ so\ there\ is\ no\ need\ to\ do\ it}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ explicitly}}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\ join(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ para);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//\ join\ the\ words\ at\ the\ given\ location\ if\ possible\ -\/\ used\ after\ a\ cut\ or}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//\ paste\ to\ join\ bits\ of\ words\ together.\ It\ would\ be\ neater\ to\ do\ this\ as}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ part\ of\ a\ reformat,\ but\ this\ is\ a\ lot\ quicker\ since\ you\ know\ exactly}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ where\ the\ join\ will\ be\ after\ after\ a\ cut\ or\ paste.}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ any\ joining\ was\ done,\ FALSE\ otherwise}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{bool}\ join\_words(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//\ find\ the\ y\ coordinate\ of\ a\ given\ line\ index}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{float}\ line\_ypos(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{comment}{//\ delete\ the\ 'thing'\ immediately\ behind\ the\ given\ position.\ A\ thing}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ will\ most\ likely\ be\ a\ single\ letter.\ p\ will\ come\ out\ set\ to\ the}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ appropriate\ position\ -\/\ deleting\ from\ the\ start\ gives\ a\ position\ range}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ error}}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ delete\_to\_left(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}*\ p);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ line\ break}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_line\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\ get\ the\ number\ of\ non\ space\ words\ in\ a\ given\ line,\ from\ (and\ including)}}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ a\ given\ word\_index}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_non\_space\_words(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index\ =\ 0);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ move\ this\ paragraph\ to\ another\ document.\ Moves\ any\ underlying\ database}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ objects\ to\ the\ new\ document\ database}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ get\ the\ line\ number\ to\ break\ the\ paragraph\ at\ to\ make\ it\ no\ greater}}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ than\ the\ given\ height.\ If\ that\ is\ not\ possible,\ returns\ the\ best\ it}}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//\ can.}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_break\_line\_for\_height(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height\_from\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_num);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//\ did\ the\ height\ change\ as\ a\ result\ of\ the\ last\ reformat}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_height\_changed();}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ what\ range\ of\ the\ paragraph\ was\ affected\ by\ the\ last\ reformat,\ either\ in}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ terms\ of\ the\ line\ numbers\ of\ the\ area\ that\ those\ lines\ cover.\ These}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ methods\ are\ only\ valid\ immediately\ after\ a\ reformat}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_range(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\&\ upper\_line,\ \textcolor{keywordtype}{int}\&\ lower\_line);}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_range(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\&\ upper\_pos,\ \textcolor{keywordtype}{float}\&\ lower\_pos);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ get\ the\ highlight\ height\ for\ a\ given\ line\ in\ a\ paragraph}}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{void}\ highlight\_height\_for\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ height,\ \textcolor{keywordtype}{float}\&\ descender);}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ metrics\_for\_line(}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ ascender,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ descender,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ spacing);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{comment}{//\ methods\ for\ doing\ things\ which\ do\ not\ change\ whether\ to\ insert\ to}}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ the\ left\ or\ right\ of\ a\ mod.}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_space(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_tab(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ a\_word,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_mod(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ m,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_insert\_ascii\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\&\ \textcolor{keywordtype}{string},\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ aka\_get\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}*\ aka\_get\_style\_mod(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ pp);}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ mx\_db\_mem\_state\_t\ get\_mem\_state();}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_mem\_state(mx\_db\_mem\_state\_t\ s);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{comment}{//\ if\ you\ want\ to\ convert\ an\ ascii\ string\ into\ words,\ call\ this}}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ repeatedly.\ The\ pointer\ to\ the\ string\ gets\ modified\ to\ point\ at\ the\ next}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{comment}{//\ characters\ to\ be\ processed}}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_word\_from\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\&\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ there\ is\ a\ long\ word\ break\ just\ before\ the\ paragraph}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{comment}{//\ break\ and\ if\ the\ paragraph\ type\ is\ start\ or\ middle.}}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_split\_long\_word\_at\_end(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ set\ the\ page\ number\ for\ this\ paragraph.\ Takes\ effect\ on\ the\ next\ reformat}}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_page\_number(uint32\ page\_num);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{comment}{//\ owning\ document}}
+\DoxyCodeLine{00308\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{comment}{//\ recalculate\ the\ height\ value}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{void}\ recalculate\_height(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{//\ this\ points\ to\ one\ of\ the\ named\ styles\ stored\ on\ the\ document}}
+\DoxyCodeLine{00314\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ style;}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{//\ apply\ this\ to\ the\ named\ style\ to\ get\ the\ actual\ style\ to\ use,\ if\ NULL\ it}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ means\ that\ there\ is\ no\ mod}}
+\DoxyCodeLine{00318\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}}*\ style\_mod;}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{comment}{//\ get\ the\ actual\ paragraph\ style\ to\ use\ from\ the\ base\ style\ and\ the\ style\ mod}}
+\DoxyCodeLine{00321\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ get\_style\_to\_use();}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//\ lines\ of\ words\ held\ in\ an\ n-\/list}}
+\DoxyCodeLine{00324\ \ \ \ \ \mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\ words;}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ overflow\ flag\ to\ TRUE\ iff\ the\ effect\ of\ reformatting\ the}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{comment}{//\ line\ will\ change\ things\ in\ following\ lines.}}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_left\_justify(}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index,}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{//\ used\ by\ the\ centred\ and\ right\ justified\ routines\ since\ they\ are}}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{//\ practically\ the\ same,\ with\ the\ exception\ of\ the\ amount\ of\ the\ gap\ that}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{//\ each\ word\ is\ moved\ by.}}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_justify(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index,\ \textcolor{keywordtype}{bool}\&\ overflow,\ \textcolor{keywordtype}{float}\ gap\_adjust);}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_right\_justify(}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index,}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_centre\_justify(}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index,}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_full\_justify(}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index,}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordtype}{float}\ left\_justify\_space\_width(}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__space__word}{mx\_space\_word}}*\ word,}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_left\_justify\_overflow(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ word,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordtype}{bool}\ left\_justify\_underflow(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{float}\ descender\_for\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordtype}{float}\ ascender\_for\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{float}\ height\_for\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordtype}{float}\ left\_indent\_to\_text();}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{void}\ space\_to\_centre\_dp\_tabify(}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ x,}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ tab\_position,}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ item\_index,}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordtype}{void}\ space\_to\_centre\_tabify(}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ x,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ tab\_position,}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ item\_index,}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordtype}{void}\ space\_to\_right\_tabify(}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ x,}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ tab\_position,}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ item\_index,}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{float}\ left\_justify\_tab\_width(}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x,}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__space__word}{mx\_space\_word}}*\ word,}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ item\_index,}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\_index,}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_and\_split\_long\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index,\ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ split\_long\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ word,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_line\_left\_justify\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__break__word}{mx\_break\_word}}*\ word,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index,\ \textcolor{keywordtype}{bool}\&\ overflow);}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{void}\ recalculate\_format\_width();}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_line\_start\_pos(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{int}\ word\_index);}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_left\_border\_width();}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{float}\ figure\_ypos\_for\_line(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index,\ \textcolor{keywordtype}{bool}\&\ moved);}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_line\_ypos(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keywordtype}{float}\ pos,\ \textcolor{keywordtype}{bool}\&\ moved);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{comment}{//\ saves\ the\ positions\ of\ words\ on\ the\ given\ line\ in\ the\ given\ list}}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{void}\ save\_word\_positions(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line,\ std::vector<float>\&\ list);}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{comment}{//\ compares\ words\ positions\ of\ the\ words\ on\ a\ line\ with\ those\ in\ the\ list}}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{comment}{//\ (which\ is\ assumed\ to\ be\ generated\ by\ save\_word\_positions())}}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{bool}\ word\_positions\_changed(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line,\ std::vector<float>\&\ list);}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ reformat\ range\ so\ that\ it\ includes\ the\ given\ line}}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_reformat\_range(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{comment}{//\ split\ word\ at\ position\ if\ its\ in\ the\ middle\ of\ a\ word}}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{void}\ split\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{comment}{//\ fix\ any\ style\ mods\ for\ this\ paragraph\ if\ the\ base\ style\ has\ changed}}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{void}\ fix\_styles\_for\_base\_style\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ new\_base\_cs);}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{comment}{//\ the\ width\ of\ the\ containing\ thing\ (area)}}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{float}\ width;}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{comment}{//\ the\ width\ available\ for\ reformatting\ into}}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{float}\ format\_width;}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{comment}{//\ calculated\ by\ the\ paragraph\ itself.\ Includes\ any\ space\ before}}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{comment}{//\ or\ after\ and\ the\ space\ taken\ up\ by\ the\ border\ (if\ any)}}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{comment}{//\ a\ list\ of\ pointers\ to\ character\ styles\ -\/\ these\ are\ pointed\ to\ by\ the\ style}}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{comment}{//\ pointers\ for\ individual\ words}}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{comment}{//\ this\ list\ is\ only\ ever\ added\ to.\ it\ is\ cleared\ up\ when\ either\ when\ a}}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{comment}{//\ style\ reformat\ happens\ or\ when\ the\ paragraph\ is\ deleted.\ This\ is\ not}}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{comment}{//\ entirely\ memory\ efficient\ but\ it\ isn't\ all\ that\ bad\ either.}}
+\DoxyCodeLine{00438\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ styles;}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ mx\_paragraph\_type\_t\ type;}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_words();}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_styles();}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ any\ joining\ was\ done,\ FALSE\ otherwise}}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordtype}{bool}\ join\_words(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p2);}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{comment}{//\ makes\ sure\ that\ any\ style\ mods\ at\ the\ end\ of\ the\ word\ at\ the\ first}}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{comment}{//\ position\ are\ shifted\ to\ the\ start\ of\ the\ word\ at\ the\ second\ position.\ If}}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{comment}{//\ the\ first\ word\ only\ contains\ a\ mod\ and\ is\ made\ empty\ and\ deleted,\ the}}
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{comment}{//\ method\ returns\ TRUE,\ else\ FALSE.}}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordtype}{bool}\ fix\_trailing\_style\_mods(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p1,}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}\&\ p2);}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{comment}{//\ remove\ all\ blank\ lines\ from\ this\ line\ on}}
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_blank\_lines(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ line\_index);}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{comment}{//\ delete\ the\ end\ of\ paragraph\ break\ word}}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_paragraph\_break(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{comment}{//\ reposition\ the\ lines\ in\ the\ y\ direction}}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{void}\ reposition\_lines(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{comment}{//\ check\ for\ special\ case\ of\ trailing\ paragraph\ break\ after}}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{comment}{//\ a\ hard\ line\ break}}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordtype}{void}\ check\_trailing\_para\_break(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{bool}\ height\_changed;}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{int}\ reformat\_upper,\ reformat\_lower;}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ mx\_db\_mem\_state\_t\ mem\_state;}
+\DoxyCodeLine{00472\ \};}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

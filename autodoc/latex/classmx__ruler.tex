@@ -1,0 +1,197 @@
+\doxysection{mx\+\_\+ruler Class Reference}
+\hypertarget{classmx__ruler}{}\label{classmx__ruler}\index{mx\_ruler@{mx\_ruler}}
+
+
+Inheritance diagram for mx\+\_\+ruler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__ruler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+ruler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classmx__ruler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ruler_a5cebefa4bdb22b2dcb74ecd4b415131f}\label{classmx__ruler_a5cebefa4bdb22b2dcb74ecd4b415131f} 
+{\bfseries mx\+\_\+ruler} (const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&rvalue)
+\item 
+\Hypertarget{classmx__ruler_a427cfbfbe0debb4a62fa8e3cc23051b0}\label{classmx__ruler_a427cfbfbe0debb4a62fa8e3cc23051b0} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&rvalue)
+\item 
+\Hypertarget{classmx__ruler_abe78036cc9bc67d1a192a6daf32fed7e}\label{classmx__ruler_abe78036cc9bc67d1a192a6daf32fed7e} 
+void {\bfseries add\+\_\+tab} (int \&err, \mbox{\hyperlink{classmx__tabstop}{mx\+\_\+tabstop}} \&tab)
+\item 
+\Hypertarget{classmx__ruler_a738e638ff4a3822a8eb89addba244a51}\label{classmx__ruler_a738e638ff4a3822a8eb89addba244a51} 
+void {\bfseries remove\+\_\+tab} (int \&err, float position)
+\item 
+\Hypertarget{classmx__ruler_a5ca7d2c97752fbba13cec62b29709049}\label{classmx__ruler_a5ca7d2c97752fbba13cec62b29709049} 
+void {\bfseries remove\+\_\+tab\+\_\+tolerance} (int \&err, float position, float t)
+\item 
+\Hypertarget{classmx__ruler_a9547719d697364fdb07c0544768a8624}\label{classmx__ruler_a9547719d697364fdb07c0544768a8624} 
+void {\bfseries get\+\_\+left\+\_\+tab} (int \&err, float position, \mbox{\hyperlink{classmx__tabstop}{mx\+\_\+tabstop}} \&result) const
+\item 
+\Hypertarget{classmx__ruler_a11698a164ffc9fd9bb0a180f16798860}\label{classmx__ruler_a11698a164ffc9fd9bb0a180f16798860} 
+void {\bfseries get\+\_\+right\+\_\+tab} (int \&err, float position, \mbox{\hyperlink{classmx__tabstop}{mx\+\_\+tabstop}} \&result) const
+\item 
+\Hypertarget{classmx__ruler_a923aaffa5d2ed22eb95aa51debb6b1fa}\label{classmx__ruler_a923aaffa5d2ed22eb95aa51debb6b1fa} 
+\mbox{\hyperlink{classmx__tabstop}{mx\+\_\+tabstop}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+nearest\+\_\+tab} (float position) const
+\item 
+\Hypertarget{classmx__ruler_a1a460341ae5664387dab2a2953321ef8}\label{classmx__ruler_a1a460341ae5664387dab2a2953321ef8} 
+int {\bfseries get\+\_\+num\+\_\+user\+\_\+tabs} ()
+\item 
+\Hypertarget{classmx__ruler_a8d11b55094d320368027251bfc87d305}\label{classmx__ruler_a8d11b55094d320368027251bfc87d305} 
+void {\bfseries clear\+\_\+user\+\_\+tabs} ()
+\item 
+\Hypertarget{classmx__ruler_a203c9475891236dc8cb866b8642c2d24}\label{classmx__ruler_a203c9475891236dc8cb866b8642c2d24} 
+float {\bfseries rightmost\+\_\+user\+\_\+tab} (int \&err)
+\item 
+uint32 \mbox{\hyperlink{classmx__ruler_a62e7516e34483948d99a5fa4a8277024}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+\Hypertarget{classmx__ruler_a1dd33b7229375667c8c8c2bf26e08079}\label{classmx__ruler_a1dd33b7229375667c8c8c2bf26e08079} 
+void {\bfseries serialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+\Hypertarget{classmx__ruler_a3fd90d5d42953b9655018058ef134237}\label{classmx__ruler_a3fd90d5d42953b9655018058ef134237} 
+void {\bfseries unserialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries serialise} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual void {\bfseries unserialise} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ruler_a77ed69320b91da437fdea668c034150d}\label{classmx__ruler_a77ed69320b91da437fdea668c034150d} 
+float {\bfseries default\+\_\+tabstop\+\_\+space}
+\item 
+\Hypertarget{classmx__ruler_a9c98ce62fc19faf283cc3a4a98dc1345}\label{classmx__ruler_a9c98ce62fc19faf283cc3a4a98dc1345} 
+float {\bfseries left\+\_\+indent}
+\item 
+\Hypertarget{classmx__ruler_a31dbcf762ad281eb4044a4e114f34c2a}\label{classmx__ruler_a31dbcf762ad281eb4044a4e114f34c2a} 
+float {\bfseries right\+\_\+indent}
+\item 
+\Hypertarget{classmx__ruler_a6274d07c47286928f8c4d50d2588818b}\label{classmx__ruler_a6274d07c47286928f8c4d50d2588818b} 
+float {\bfseries first\+\_\+line\+\_\+indent}
+\item 
+\Hypertarget{classmx__ruler_a183822b1a20c0fca29f9698b217b8991}\label{classmx__ruler_a183822b1a20c0fca29f9698b217b8991} 
+\mbox{\hyperlink{classmx__list}{mx\+\_\+list}} {\bfseries user\+\_\+tabs}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__ruler_a1baa28d7c78b1a1571ee68293253918f}\label{classmx__ruler_a1baa28d7c78b1a1571ee68293253918f} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&r1, const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&r2)
+\item 
+\Hypertarget{classmx__ruler_a0adfdafe1579d74a1c81b98452bcf73d}\label{classmx__ruler_a0adfdafe1579d74a1c81b98452bcf73d} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&r1, const \mbox{\hyperlink{classmx__ruler}{mx\+\_\+ruler}} \&r2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__ruler_a62e7516e34483948d99a5fa4a8277024}\label{classmx__ruler_a62e7516e34483948d99a5fa4a8277024} 
+\index{mx\_ruler@{mx\_ruler}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_ruler@{mx\_ruler}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+ruler\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+ruler.\+h\end{DoxyCompactItemize}

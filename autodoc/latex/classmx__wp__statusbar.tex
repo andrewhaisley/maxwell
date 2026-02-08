@@ -1,0 +1,119 @@
+\doxysection{mx\+\_\+wp\+\_\+statusbar Class Reference}
+\hypertarget{classmx__wp__statusbar}{}\label{classmx__wp__statusbar}\index{mx\_wp\_statusbar@{mx\_wp\_statusbar}}
+
+
+Inheritance diagram for mx\+\_\+wp\+\_\+statusbar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classmx__wp__statusbar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+wp\+\_\+statusbar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classmx__wp__statusbar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__wp__statusbar_a1351d23f47a5876b2a3cb080ca879d6e}\label{classmx__wp__statusbar_a1351d23f47a5876b2a3cb080ca879d6e} 
+{\bfseries mx\+\_\+wp\+\_\+statusbar} (\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window)
+\item 
+\Hypertarget{classmx__wp__statusbar_a825866b215161e0918dbaf404a95d52e}\label{classmx__wp__statusbar_a825866b215161e0918dbaf404a95d52e} 
+virtual void {\bfseries update\+\_\+b} (const char \texorpdfstring{$\ast$}{*}message, bool hide\+\_\+other)
+\item 
+\Hypertarget{classmx__wp__statusbar_aa2e46d5b3542869dccc9bb48e10450ae}\label{classmx__wp__statusbar_aa2e46d5b3542869dccc9bb48e10450ae} 
+void {\bfseries update\+\_\+b} (int \&err, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&position, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, mx\+\_\+unit\+\_\+e u, bool hide\+\_\+other, float zoom=100.\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__statusbar}{mx\+\_\+statusbar}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+statusbar} (\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window)
+\item 
+virtual void {\bfseries update} (const char \texorpdfstring{$\ast$}{*}message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__bar}{mx\+\_\+bar}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+bar} (\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+{\bfseries mx\+\_\+bar} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window)
+\item 
+{\bfseries mx\+\_\+bar} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window, Widget\+Class c)
+\item 
+\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+window} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+void {\bfseries manage} ()
+\item 
+void {\bfseries unmanage} ()
+\item 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+void {\bfseries bell} ()
+\item 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+void {\bfseries take\+\_\+focus} ()
+\item 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__statusbar}{mx\+\_\+statusbar}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries message\+\_\+label}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__bar}{mx\+\_\+bar}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries widget}
+\item 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+wp\+\_\+stsbar.\+h\end{DoxyCompactItemize}

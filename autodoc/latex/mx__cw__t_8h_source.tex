@@ -1,0 +1,182 @@
+\doxysection{mx\+\_\+cw\+\_\+t.\+h}
+\hypertarget{mx__cw__t_8h_source}{}\label{mx__cw__t_8h_source}\index{document/mx\_cw\_t.h@{document/mx\_cw\_t.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_CW\_T\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_CW\_T\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_cw\_t}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Items\ of\ different\ sorts\ in\ a\ complex\ word.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}mx\_field\_w.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_char\_style.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ used\ by\ the\ undo\ stuff\ only}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_CW\_T\_PARA\_BREAK\_CHAR\ 10}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_CW\_T\_LINE\_BREAK\_CHAR\ 11}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ MX\_CW\_T\_TAB\_CHAR\ 12}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MX\_CW\_T\_SPACE\_CHAR\ 13}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ deep\_copy()\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ modify\ the\ given\ character\ style\ if\ this\ item\ is\ a\ style\ mod.\ By\ default}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ this\ does\ nothing}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ mod\_style(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ of\ this\ item\ with\ a\ given\ character\ style.}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s)\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ get\ the\ spacing/ascender/descender\ of\ this\ item\ with\ a\ given\ character}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ style.\ By\ default\ returns\ value\ determined\ by\ the\ style}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ spacing(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ ascender(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ descender(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ the\ size\ of\ this\ thing\ potentially\ changes\ the\ line}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ height\ of\ the\ complex\ word\ that\ contains\ these\ items.\ Returns\ FALSE\ by}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ default\ and\ TRUE\ for\ area\ items\ and\ style\ change\ items}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ line\_difference();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ move\ this\ word\ item\ to\ another\ document.\ Moves\ any\ underlying\ database}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ objects\ to\ the\ new\ document\ database}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc)\ \{\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ sets\ this\ items\ page\ number}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_page\_number(uint32\ num)\ \{\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)\ =\ 0;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid)\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__character__cw__t}{mx\_character\_cw\_t}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ MX\_RTTI(mx\_character\_cw\_t\_class\_e);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__character__cw__t}{mx\_character\_cw\_t}}(\textcolor{keywordtype}{char}\ nc\ =\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ deep\_copy();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ of\ this\ item\ with\ a\ given\ character\ style.}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__style__mod__cw__t}{mx\_style\_mod\_cw\_t}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ MX\_RTTI(mx\_style\_mod\_cw\_t\_class\_e);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__style__mod__cw__t}{mx\_style\_mod\_cw\_t}}()\ \{\ \};}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classmx__style__mod__cw__t}{mx\_style\_mod\_cw\_t}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ nm);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ deep\_copy();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ this\ modifies\ the\ character\ style}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ mod\_style(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ line\_difference();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ of\ this\ item\ with\ a\ given\ character\ style.}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ this\ actually\ modifies\ the\ character\ style}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\ m;}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__field__word__cw__t}{mx\_field\_word\_cw\_t}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ MX\_RTTI(mx\_field\_word\_cw\_t\_class\_e);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{classmx__field__word__cw__t}{mx\_field\_word\_cw\_t}}()\ \{\ \};}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classmx__field__word__cw__t}{mx\_field\_word\_cw\_t}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}\&\ nw);}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ deep\_copy();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ of\ this\ item\ with\ a\ given\ character\ style.}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ sets\ this\ items\ page\ number}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_page\_number(uint32\ num)\ \{\ w.set\_page\_number(num);\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}\ w;}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area__cw__t}{mx\_area\_cw\_t}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ MX\_RTTI(mx\_area\_cw\_t\_class\_e);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ simply\ uses\ the\ area\ pointer}}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{classmx__area__cw__t}{mx\_area\_cw\_t}}(\mbox{\hyperlink{classmx__area}{mx\_area}}*\ na\ =\ NULL);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ destructor}}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{classmx__area__cw__t}{\string~mx\_area\_cw\_t}}();}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ of\ this\ item\ with\ a\ given\ character\ style.}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ get\ the\ height/ascender/descender\ of\ this\ item\ with\ a\ given\ character}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ style.\ By\ default\ returns\ value\ determined\ by\ the\ style}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ height(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ ascender(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ descender(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ line\_difference();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ deep\_copy();}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid);}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a;}
+\DoxyCodeLine{00174\ \};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_CW\_T\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,539 @@
+\doxysection{mx\+\_\+error\+\_\+codes.\+h}
+\hypertarget{mx__error__codes_8h_source}{}\label{mx__error__codes_8h_source}\index{shared/mx\_error\_codes.h@{shared/mx\_error\_codes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_error\_codes}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ MX\_ERROR\_CODES\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_CODES\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*\ all\ routines\ can\ return\ these\ four.\ MX\_ERROR\_TRACEBACK\ doesn't\ need}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ to\ be\ handled\ explicitly\ by\ the\ calling\ routine,\ MX\_ERROR\_CHECK}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ deals\ with\ it.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_OK\ 0}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_TRACEBACK\ 1}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_UNDEFINED\ 1000000}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_ASSERTION\_FAILED\ 1000001}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_NOT\_IMPLEMENTED\ 1000002}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ general\ errors\ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{/*\ MX\ DB\ client\ errors\ */}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_COULDNT\_CONNECT\ 3}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_NO\_SUCH\_SERVER\_HOST\ 4}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_AUTHENTICATION\_FAILURE\ 5}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_TOO\_MANY\_USERS\ 6}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CANT\_OPEN\_DOC\ 7}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_NOT\_CONNECTED\ 8}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_NOT\_LOGGED\_IN\ 9}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_FILE\_LOCKED\ 10}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_FILE\_ALREADY\_OPEN\ 11}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ MX\_DB\_OBJECT\ class\ errors\ */}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_LOST\_CONNECTION\ 100}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_OUT\_OF\_DISK\_SPACE\ 101}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_NO\_SUCH\_ATTRIBUTE\ 102}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_NO\_SUCH\_BLOB\ 103}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_BLOB\_INDEX\_RANGE\ 104}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_BLOB\_SLICE\_SIZE\ 105}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ MX\_DB\_ATTRIBUTE\_NAME\_TOO\_LONG\ 150}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ MX\_DB\_ATTRIBUTE\_TOO\_BIG\ 151}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/*\ MX\_DOCUMENT\ class\ errors\ */}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_SHEET\_INDEX\ 200}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_TOO\_MANY\_SHEETS\ 201}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_STYLE\_INDEX\_RANGE\ 202}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*\ MX\_SHEET\ class\ errors\ */}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_AREA\_INDEX\ 300}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_NO\_SUCH\_AREA\ 301}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_TEXT\_AREAS\ 302}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_PAGE\_AREAS\ 303}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_IMAGE\_AREAS\ 304}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_DIAGRAM\_AREAS\ 305}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_GRAPH\_AREAS\ 306}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOO\_MANY\_TABLE\_AREAS\ 307}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_BAD\_AREA\_CLASS\ 308}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{/*\ MX\ DB\ CLIENT\ CACHE\ */}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_NO\_SPACE\ 400}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_OID\ 401}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_ATTR\_TOO\_BIG\ 402}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_FUCKED\ 403}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_ATTR\ 404}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_BLOB\ 405}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_DUPLICATE\_ATTR\ 406}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_DUPLICATE\_BLOB\ 407}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_DOC\ 408}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/*\ MX\_DISK\_HEAP\ */}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ MX\_DISK\_HEAP\_CANT\_OPEN\ 500}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ MX\_DISK\_HEAP\_DISK\_FULL\ 501}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ MX\_DISK\_HEAP\_FILE\_ERROR\ 502}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ MX\_DISK\_HEAP\_FULL\ 503}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{/*\ MX\_HASH\ */}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ MX\_HASH\_DUPLICATE\ 600}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ MX\_HASH\_NOT\_FOUND\ 601}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*\ MX\_CONFIG\ */}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ MX\_CONFIG\_CANT\_OPEN\ 700}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ MX\_CONFIG\_NO\_SUCH\_NAME\ 701}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ MX\_CONFIG\_IO\_ERROR\ 702}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{/*\ MX\_FILE\ */}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EEXIST\ 800}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EISDIR\ 801}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ETXTBSY\ 802}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EFAULT\ 804}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EACCES\ 805}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENAMETOOLONG\ 806}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENOENT\ 807}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENOTDIR\ 808}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EMFILE\ 809}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENFILE\ 810}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENOMEM\ 811}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ MX\_FILE\_EROFS\ 812}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ELOOP\ 813}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ MX\_FILE\_ENOSPC\ 814}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ MX\_FILE\_SEGMENT\_RANGE\ 815}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ MX\_FILE\_UNKNOWN\ 816}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ MX\_FILE\_NO\_SUCH\_ENTRY\ 817}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ MX\_FILE\_NO\_SUCH\_ATTR\ 818}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ MX\_FILE\_NO\_SUCH\_BLOB\ 819}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ MX\_FILE\_NO\_SUCH\_OID\ 820}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ MX\_FILE\_CANT\_GET\_PWD\ 821}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ MX\_FILE\_CANT\_GET\_GRP\ 822}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ MX\_FILE\_NEEDS\_RECOVER\ 823}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ MX\_FILE\_UNRECOVERABLE\ 824}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ MX\_FILE\_UNIMPORTABLE\ 825}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{comment}{/*\ MX\_BLOCK\ */}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_NOT\_MX\_FILE\ 900}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_FILE\_ERROR\ 901}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_NO\_SUCH\_BLOCK\ 902}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_CHAIN\_ERROR\ 903}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_OUT\_OF\_BLOCKS\ 904}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_CONCURRENT\_ACCESS\ 905}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{/*\ MX\_AREA\ */}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ MX\_AREA\_NO\_CHAIN\ 1000}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ MX\_AREA\_LINK\_INDEX\ 1001}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ MX\_AREA\_NOT\_LINKED\ 1002}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ MX\_AREA\_TOO\_MANY\_COORDS\ 1003}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{/*\ MX\_WP\_TOOLBAR\ */}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ MX\_WP\_TOOLBAR\_NO\_SUCH\_MENU\_ITEM\ 1100}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{comment}{/*\ MX\_WP\_MENUBAR\ */}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ MX\_WP\_MENUBAR\_NO\_SUCH\_MENU\_ITEM\ 1200}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{comment}{/*\ MX\_TABLE\_AREA\ class\ errors\ */}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ MX\_TABLE\_AREA\_ROW\_INDEX\ 1400}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ MX\_TABLE\_AREA\_COLUMN\_INDEX\ 1401}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{/*\ MX\_APP\ */}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ MX\_APP\_ALREADY\_OPEN\ 1500}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{/*\ MX\_ATTRIBUTE\ */}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ MX\_ATTRIBUTE\_BAD\_TYPE\ 1600}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{comment}{/*\ MX\_UNIT\ */}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ MX\_UNIT\_INVALID\_TYPE\ 1700}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ MX\_UNIT\_INVALID\_STRING\ 1701}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*\ MX\_PAINTABLE\_OBJECT\ class\ errors\ */}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ MX\_PAINTABLE\_OBJECT\_NO\_PAINTER\ 1800}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{comment}{/*\ MX\_NLIST\ class\ errors\ */}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ MX\_NLIST\_ROW\_RANGE\ 1900}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ MX\_NLIST\_NITEMS\_RANGE\ 1901}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{comment}{/*\ ITERATOR\ */}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ MX\_ITERATOR\_NO\_COLLECTION\ 10000}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ MX\_ITERATOR\_NULL\_START\_VALUE\ 10001}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{comment}{/*\ JPEG\ */}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_NO\_JPEG\_FILE\ 10002}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_INTERNAL\_JPEG\_ERROR\ 10003}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{comment}{/*\ RASTER\ */}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ MX\_TILE\_DICT\_ERROR\ 10004}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_NULL\_RASTER\ 10005}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ MX\_COMPRESS\_ERROR\_RASTER\ 10006}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{/*\ TIFF\ */}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_TIFF\_ORIENTATION\ 10006}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_TIFF\_PLANARCONFIG\ 10007}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ MX\_TIFF\_NO\_TAG\ 10008}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_INTERNAL\_TIFF\_ERROR\ 10009}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_TIFF\_READ\ 10010}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ MX\_TIFF\_OPEN\_FAILED\ 10011}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{comment}{/*\ PNG\ errors\ */}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_NO\_PNG\_FILE\ 10040}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_INTERNAL\_PNG\_ERROR\ 10041}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{comment}{/*\ XBM\ errors\ */}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_NO\_XBM\_FILE\ 10045}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_INTERNAL\_XBM\_ERROR\ 10046}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{comment}{/*\ RTF\ */}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ MX\_INTERNAL\_RTF\_ERROR\ 10012}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_RTF\_BUFFER\_OVERFLOW\ 10013}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_RTF\_FILE\_ERROR\ 10014}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{/*\ IMPORTER\ errors\ */}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ MX\_IMPORTER\_BAD\_FILE\_TYPE\ 10015}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{/*\ USER\ errors\ */}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ MX\_USER\_CANCEL\ 10016}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{comment}{/*\ Transfrom\ raster\ errors\ */}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ MX\_RASTER\_USED\ 10017}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ MX\_RASTER\_NOT\_EDITABLE\ 10018}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{comment}{/*\ RESOURCE\ ERROR\ */}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ MX\_NO\_XTRESOURCE\_DATABASE\ 10020}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{comment}{/*\ HELP\ FILE\ ERRORS\ */}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ MX\_NULL\_HELP\_DIRECTORY\ 10025}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ MX\_NULL\_HELP\_FONTINFO\ 10026}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ MX\_FILE\_LINK\_TOO\_LONG\ 10027}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ MX\_LINK\_FORMAT\_ERROR\ 10028}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ MX\_HELP\_BUFFER\_TOO\_SMALL\ 10029}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ MX\_UNSPECIFIED\_HELP\_PIXMAP\ 10030}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ MX\_NO\_XRESOURCE\_HELP\_FONT\ 10031}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#define\ MX\_NO\_XRESOURCE\_HELP\_WINDOW\ 10032}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ MX\_NO\_XRESOURCE\_HELP\_PIXMAP\ 10033}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{comment}{/*\ MX\_LIST\ */}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ MX\_LIST\_EMPTY\ 15000}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ MX\_LIST\_INDEX\ 15001}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ MX\_LIST\_NO\_SUCH\_POINTER\ 15002}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{comment}{/*\ MX\_FONT\ */}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ MX\_FONT\_STYLE\_NOT\_AVAILABLE\ 15500}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ MX\_XFT\_FAILED\ 15501}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{comment}{/*\ MX\_FONT\_METRICS\ */}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ MX\_FM\_UNINITIALISED\ 15600}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ MX\_FREETYPE\_INIT\_FAILED\ 15601}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ MX\_FM\_OUT\_OF\_RANGE\ 15602}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{comment}{//\#define\ MX\_FM\_NO\_EEXEC\ 15601}}
+\DoxyCodeLine{00258\ \textcolor{comment}{//\#define\ MX\_FM\_NO\_FAMILY\_NAME\ 15602}}
+\DoxyCodeLine{00259\ \textcolor{comment}{//\#define\ MX\_FM\_NO\_FULL\_NAME\ 15603}}
+\DoxyCodeLine{00260\ \textcolor{comment}{//\#define\ MX\_FM\_NO\_STYLE\ 15604}}
+\DoxyCodeLine{00261\ \textcolor{comment}{//\#define\ MX\_FM\_NO\_BOUNDING\_BOX\ 15605}}
+\DoxyCodeLine{00262\ \textcolor{comment}{//\#define\ MX\_FM\_BAD\_FONT\_ENCRYPTION\ 15606}}
+\DoxyCodeLine{00263\ \textcolor{comment}{//\#define\ MX\_FM\_BAD\_CHARSTRING\ 15607}}
+\DoxyCodeLine{00264\ \textcolor{comment}{//\#define\ MX\_FM\_INVALID\_MFM\_FILE\ 15609}}
+\DoxyCodeLine{00265\ \textcolor{comment}{//\#define\ MX\_FM\_BAD\_INFO\ 15610}}
+\DoxyCodeLine{00266\ \textcolor{comment}{//\#define\ MX\_FM\_DECRYPT\_ERROR\ 15611}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{comment}{/*\ MX\_FONT\_METRICS\_STORE\ */}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ MX\_FMS\_BAD\_FONTSDIR\_FILE\ 15700}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{comment}{/*\ MX\_DEVICE\ */}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ MX\_DEVICE\_CANT\_LOAD\_X\_FONT\ 16001}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ MX\_DEVICE\_NO\_WINDOW\ 16002}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ MX\_PS\_FILE\_ERROR\ 16003}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ MX\_SCROLL\_SIZE\_CHANGE\ 16004}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ MX\_TOO\_MANY\_PROPAGATE\ 16005}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{comment}{/*\ MX\_SHEET\_LAYOUT\ */}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ MX\_SH\_LAY\_SHEET\_RANGE\_ERROR\ 16100}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{comment}{/*\ MX\_TEXT\_AREA\ */}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ MX\_PARAGRAPH\_INDEX\ 16500}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ MX\_TEXT\_AREA\_INVALID\_SPLIT\_POS\ 16501}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \textcolor{comment}{/*\ MX\_WORD\ */}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ MX\_WORD\_CHAR\_INDEX\_RANGE\ 16600}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ MX\_WORD\_NOT\_CHARACTER\_NEXT\ 16601}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#define\ MX\_WORD\_NOT\_MOD\_NEXT\ 16602}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ MX\_WORD\_NO\_STYLE\_SET\ 16603}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ MX\_WORD\_OP\_NOT\_AVAILABLE\_ON\_SUBCLASS\ 16604}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ MX\_WORD\_CANT\_SPLIT\_WORD\ 16605}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{comment}{/*\ MX\_STYLE\ */}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#define\ MX\_DUPLICATE\_TABSTOP\ 16700}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#define\ MX\_NO\_SUCH\_TABSTOP\ 16701}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{comment}{/*\ MX\_GSTLYE\ */}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#define\ MX\_NULL\_GSTYLE\_NAME\ 17000}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{comment}{/*\ QUADING\ AND\ LEVEL\ */}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ MX\_INVALID\_LEVEL\ 18000}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{comment}{/*\ X\ errors\ */}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ MX\_XDASHES\_FAILED\ 19000}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#define\ MX\_XNPOINTS\_FAILED\ 19001}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{comment}{/*\ PARAGRAPH\ errors\ */}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ MX\_PARAGRAPH\_BAD\_WORD\_TYPE\ 20000}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{comment}{/*\ GEOMETRY\ errors\ */}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ MX\_SPLINE\_TOO\_FEW\_POINTS\ 21000}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{comment}{/*\ POSITION\ errors\ */}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#define\ MX\_POSITION\_RANGE\_ERROR\ 22000}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{/*\ buffer\ class\ errors\ */}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ MX\_TABLE\_BUFFER\_SINGLE\_CELL\ 23000}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ MX\_TABLE\_BUFFER\_NOT\_BIG\_ENOUGH\ 23001}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#define\ MX\_WP\_BUFFER\_BAD\_CLASS\ 23002}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{comment}{/*\ CURSOR\ class\ errors\ */}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#define\ MX\_CURSOR\_NO\_SELECTION\ 23003}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#define\ MX\_CURSOR\_CANT\_SPLIT\_TABLE\ 23004}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \textcolor{comment}{/*\ OLE\ file\ errors\ */}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ MX\_OLE\_BAD\_MODE\ 24000}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#define\ MX\_OLE\_FAILED\_TO\_READ\_BIGBLOCK\ 24001}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#define\ MX\_OLE\_INDEX\_RANGE\ 24002}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#define\ MX\_OLE\_NOT\_OLE\_FILE\ 24003}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#define\ MX\_OLE\_ROOT\_BLOCK\_RANGE\ 24004}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#define\ MX\_OLE\_STREAM\_EOF\ 24005}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#define\ MX\_OLE\_STREAM\_NOT\_FOUND\ 24006}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{comment}{/*\ MS\ WORD\ file\ errors\ */}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#define\ MX\_WORD\_COMPLEX\ 25000}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#define\ MX\_WORD\_ENCRYPTED\ 25001}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \textcolor{comment}{/*\ Diagram\ editor\ errors\ */}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#define\ MX\_DG\_TOO\_MANY\_LEVELS\ 26000}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#define\ MX\_NO\_GEOM\_BOX\ 26001}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ MX\_DG\_STATE\_ERROR\ 26002}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \textcolor{comment}{/*\ \ Metafile\ errors\ */}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_METAFILE\_DATA\_ERROR\ 27000}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_METAFILE\_FILE\_ERROR\ 27001}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_METAFILE\_BUFFER\_ERROR\ 27002}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_METAFILE\_PARAM\_ERROR\ 27003}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_FIRST\ 0}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_LAST\ 0xfffffff}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ MX\_ERROR\_TEXTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\ \ \ \ \{\ \{\ MX\_ERROR\_OK,\ "{}NO\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_TRACEBACK,\ "{}TRACEBACK"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_UNDEFINED,\ "{}UNDEFINED\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_ASSERTION\_FAILED,\ "{}AN\ ASSERTION\ FAILED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_HASH\_DUPLICATE,\ "{}HASH\ TABLE\ DUPLICATE\ KEY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_HASH\_NOT\_FOUND,\ "{}HASH\ TABLE\ ENTRY\ NOT\ FOUND"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_COULDNT\_CONNECT,\ "{}FAILED\ TO\ CONNECT\ TO\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_NO\_SUCH\_SERVER\_HOST,\ "{}COULDNT\ RESOLVE\ SERVER\ HOST\ NAME"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_AUTHENTICATION\_FAILURE,\ "{}AUTHENTICATION\ FAILURE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_TOO\_MANY\_USERS,\ "{}TOO\ MANY\ USERS\ LOGGED\ ON"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CANT\_OPEN\_DOC,\ "{}CANT\ OPEN\ DOCUMENT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_NOT\_CONNECTED,\ "{}NOT\ LOGGED\ IN\ TO\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_NOT\_LOGGED\_IN,\ "{}NOT\ LOGGED\ IN\ TO\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_LOST\_CONNECTION,\ "{}LOST\ CONNECTION\ TO\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_OUT\_OF\_DISK\_SPACE,\ "{}OUT\ OF\ DISK\ SPACE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_NO\_SUCH\_ATTRIBUTE,\ "{}NO\ SUCH\ ATTRIBUTE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_NO\_SUCH\_BLOB,\ "{}NO\ SUCH\ BLOB"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_BLOB\_INDEX\_RANGE,\ "{}BLOB\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_OBJECT\_BLOB\_SLICE\_SIZE,\ "{}BLOB\ SLICE\ TO\ BIG\ TO\ READ"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_NO\_SPACE,\ "{}CACHE\ FULL"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_OID,\ "{}UNKNOWN\ OBJECT\ ID"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_OID,\ "{}UNKNOWN\ DOC\ ID"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_FUCKED,\ "{}FATAL\ UNSPECIFIED\ CLIENT\ CACHE\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_ATTR,\ "{}NO\ SUCH\ ATTRIBUTE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_NO\_SUCH\_BLOB,\ "{}NO\ SUCH\ BLOB"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_DUPLICATE\_ATTR,\ "{}DUPLICATED\ ATTRIBUTE\ NAME"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_DUPLICATE\_BLOB,\ "{}DUPLICATED\ BLOB\ NAME"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_CACHE\_ATTR\_TOO\_BIG,\ "{}ATTRIBUTE\ TOO\ BIG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_FILE\_LOCKED,\ "{}FILE\ LOCKED\ BY\ SOMEONE\ ELSE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_CLIENT\_FILE\_ALREADY\_OPEN,\ "{}FILE\ ALREADY\ OPENED\ BY\ YOU"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_ATTRIBUTE\_NAME\_TOO\_LONG,\ "{}ATTRIBUTE\ NAME\ TOO\ LONG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DB\_ATTRIBUTE\_TOO\_BIG,\ "{}ATTRIBUTE\ IS\ TOO\ BIG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DOCUMENT\_SHEET\_INDEX,\ "{}SHEET\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DOCUMENT\_TOO\_MANY\_SHEETS,\ "{}TOO\ MANY\ SHEETS"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DOCUMENT\_STYLE\_INDEX\_RANGE,\ "{}STYLE\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_AREA\_INDEX,\ "{}AREA\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_TEXT\_AREAS,\ "{}TOO\ MANY\ TEXT\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_TABLE\_AREAS,\ "{}TOO\ MANY\ TABLE\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_PAGE\_AREAS,\ "{}TOO\ MANY\ PAGE\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_IMAGE\_AREAS,\ "{}TOO\ MANY\ IMAGE\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_DIAGRAM\_AREAS,\ "{}TOO\ MANY\ DIAGRAM\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_TOO\_MANY\_GRAPH\_AREAS,\ "{}TOO\ MANY\ GRAPH\ AREAS\ IN\ ONE\ SHEET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_NO\_SUCH\_AREA,\ "{}NO\ SUCH\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SHEET\_BAD\_AREA\_CLASS,\ "{}BAD\ CLASS\ OF\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EEXIST,\ "{}PATHNAME\ ALREADY\ EXISTS"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EISDIR,\ "{}PATHNAME\ IS\ A\ DIRECTORY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ETXTBSY,\ "{}EXECUTABLE\ IS\ BUSY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EFAULT,\ "{}PATH\ POINTS\ OUTSIDE\ ADDRESS\ SPACE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EACCES,\ "{}ACCESS\ DENIED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENAMETOOLONG,\ "{}PATHNAME\ TOO\ LONG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENOENT,\ "{}DIRECTORY\ MISSING"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENOTDIR,\ "{}DIRECTORY\ IS\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EMFILE,\ "{}MAXIMUM\ NUMBER\ OF\ FILES\ OPEN"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENFILE,\ "{}SYSTEM\ MAXIMUM\ OF\ FILES\ OPEN"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENOMEM,\ "{}NO\ KERNEL\ MEMORY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_EROFS,\ "{}WRITE\ PERMISSION\ DENIED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ELOOP,\ "{}SYMBOLIC\ LINK\ GIVES\ LOOP"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_ENOSPC,\ "{}OUT\ OF\ DISK\ SPACE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_SEGMENT\_RANGE,\ "{}SEGMENT\ NUMBER\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_UNKNOWN,\ "{}UNKNOWN\ FILE\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_NO\_SUCH\_ENTRY,\ "{}ENTRY\ NOT\ FOUND"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_NO\_SUCH\_ATTR,\ "{}NO\ SUCH\ ATTRIBUTE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_NO\_SUCH\_BLOB,\ "{}NO\ SUCH\ BLOB"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_NO\_SUCH\_OID,\ "{}NO\ SUCH\ OBJECT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_CANT\_GET\_PWD,\ "{}CANT\ GET\ PASSWORD\ INFO"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_CANT\_GET\_GRP,\ "{}CANT\ GET\ GROUP\ INFO"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_NEEDS\_RECOVER,\ "{}FILE\ IS\ DAMAGED\ -\/\ OPEN\ WITH\ RECOVER\ FLAG\ TRUE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_UNRECOVERABLE,\ "{}FILE\ CANT\ BE\ RECOVERED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_UNIMPORTABLE,\ "{}FILE\ TYPE\ IS\ NOT\ IMPORTABLE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_NOT\_MX\_FILE,\ "{}NOT\ A\ MAXWELL\ DOCUMENT\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_FILE\_ERROR,\ "{}FILE\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_NO\_SUCH\_BLOCK,\ "{}BLOCK\ OUT\ OF\ RANGE\ IN\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_CHAIN\_ERROR,\ "{}FREE\ BLOCK\ WASNT\ FREE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_OUT\_OF\_BLOCKS,\ "{}NO\ UNLOCKED\ BLOCKS\ LEFT\ IN\ CACHE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_BLOCK\_CONCURRENT\_ACCESS,\ "{}A\ CONCURRENT\ UPDATE\ HAS\ OCCURRED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ITERATOR\_NO\_COLLECTION,\ "{}ITERATOR\ HAS\ NO\ COLLECTION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ITERATOR\_NULL\_START\_VALUE,\ "{}ITERATOR\ GIVEN\ NULL\ START\ VALUE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_LIST\_EMPTY,\ "{}LIST\ IS\ EMPTY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_LIST\_INDEX,\ "{}LIST\ INDEX\ OUT\ OF\ BOUNDS"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_LIST\_NO\_SUCH\_POINTER,\ "{}NO\ SUCH\ POINTER\ IN\ LIST"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_AREA\_NO\_CHAIN,\ "{}NO\ MORE\ AREAS\ IN\ CHAIN"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_AREA\_LINK\_INDEX,\ "{}LINK\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_AREA\_NOT\_LINKED,\ "{}NOT\ LINKED\ TO\ THAT\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_AREA\_TOO\_MANY\_COORDS,\ "{}TOO\ MANY\ COORDINATES\ IN\ AREA\ OUTLINE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FONT\_STYLE\_NOT\_AVAILABLE,\ "{}STYLE\ IS\ NOT\ AVAILABLE\ FOR\ THIS\ FONT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_XFT\_FAILED,\ "{}XFT\ LIBRARY\ FAILURE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FM\_UNINITIALISED,\ "{}FONT\ METRICS\ OBJECT\ IS\ UNINITIALISED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FREETYPE\_INIT\_FAILED,\ "{}FAILED\ TO\ INITIIALISE\ FREETYPE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FM\_OUT\_OF\_RANGE,\ "{}CHARACTER\ INDEX\ FOR\ METRICS\ IS\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DEVICE\_CANT\_LOAD\_X\_FONT,\ "{}CANT\ LOAD\ X\ FONT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DEVICE\_NO\_WINDOW,\ "{}X\ WINDOW\ HAS\ NOT\ BEEN\ CREATED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_PS\_FILE\_ERROR,\ "{}FILE\ ERROR\ CREATING\ POSTSCRIPT\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SCROLL\_SIZE\_CHANGE,\ "{}CANNOT\ FORCE\ SIZE\ CHANGE\ ON\ SCROLLABLE\ FRAME"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TOO\_MANY\_PROPAGATE,\ "{}TOO\ MANY\ TARGETS\ FOR\ PROPAGATION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SH\_LAY\_SHEET\_RANGE\_ERROR,\ "{}SHEET\ LAYOUT\ NUMBER\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_PARAGRAPH\_INDEX,\ "{}PARAGRAPH\ INDEX\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TEXT\_AREA\_INVALID\_SPLIT\_POS,\ "{}INVALID\ SPLIT\ POSITION\ FOR\ A\ TEXT\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DUPLICATE\_TABSTOP,\ "{}ATTEMPT\ TO\ DUPLICATE\ A\ TABSTOP"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_SUCH\_TABSTOP,\ "{}NO\ TABSTOP\ AT\ THIS\ POSITION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_NO\_JPEG\_FILE,\ "{}JPEG\ FILE\ CANNOT\ BE\ OPENED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_INTERNAL\_JPEG\_ERROR,\ "{}ERROR\ IN\ PROCESSING\ JPEG\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TILE\_DICT\_ERROR,\ "{}INTERNAL\ RASTER\ CACHE\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_NULL\_RASTER,\ "{}NULL\ RASTER\ COPIED\ OR\ ATTACHED\ TO\ ITERATOR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_COMPRESS\_ERROR\_RASTER,\ "{}ERROR\ COMPRESSING/DECOMPRESSING\ RASTER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_TIFF\_ORIENTATION,\ "{}CANNOT\ PROCESS\ TIFF\ FILE\ WITH\ THIS\ ORIENTATION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_TIFF\_PLANARCONFIG,\ "{}CANNOT\ PROCESS\ TIFF\ FILE\ WITH\ THIS\ PLANARCONFIG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TIFF\_NO\_TAG,\ "{}TAG\ CANNOT\ BE\ FOUND\ IN\ TIFF\ TILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_INTERNAL\_TIFF\_ERROR,\ "{}INTERNAL\ ERROR\ IN\ TIFF\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_TIFF\_READ,\ "{}INTERNAL\ ERROR\ IN\ READING\ TIFF\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TIFF\_OPEN\_FAILED,\ "{}FAILED\ TO\ OPEN\ TIFF\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_INTERNAL\_RTF\_ERROR,\ "{}INTERNAL\ ERROR\ IN\ READING\ RTF\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_RTF\_BUFFER\_OVERFLOW,\ "{}RTF\ BUFFER\ TOO\ SMALL"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_RTF\_FILE\_ERROR,\ "{}ERROR\ READING\ RTF\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_IMPORTER\_BAD\_FILE\_TYPE,\ "{}BAD\ FILE\ TYPE\ FOR\ IMPORTER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_USER\_CANCEL,\ "{}USER\ CANCELLED\ OPERATION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_XTRESOURCE\_DATABASE,\ "{}CANNOT\ GET\ THE\ X\ RESOURCE\ DATABASE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_HELP\_BUFFER\_TOO\_SMALL,\ "{}BUFFER\ TO\ HOLD\ HELP\ INFO\ IS\ TOO\ SMALL"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NULL\_HELP\_DIRECTORY,\ "{}DIRECTORY\ FOR\ HELP\ FILES\ NOT\ DEFINED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_FILE\_LINK\_TOO\_LONG,\ "{}FILELINK\ NAME\ TOO\ LONG"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_LINK\_FORMAT\_ERROR,\ "{}HELP\ LINK\ FORMAT\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NULL\_HELP\_FONTINFO,\ "{}FONT\ FOR\ HELP\ FILES\ NOT\ DEFINED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_UNSPECIFIED\_HELP\_PIXMAP,\ "{}PIXMAP\ FOR\ HELP\ FILES\ NOT\ DEFINED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_XRESOURCE\_HELP\_WINDOW,\ "{}NO\ X\ RESORUCE\ DEFINITION\ OF\ HELP\ WINDOW"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_XRESOURCE\_HELP\_FONT,\ "{}NO\ X\ RESORUCE\ DEFINITION\ OF\ HELP\ FONT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_XRESOURCE\_HELP\_PIXMAP,\ "{}NO\ X\ RESORUCE\ DEFINITION\ OF\ HELP\ PIXMAP"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_RASTER\_USED,\ "{}THE\ RASTER\ HAS\ ALREADY\ BEEN\ USED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_RASTER\_NOT\_EDITABLE,\ "{}THE\ RASTER\ CANNOT\ BE\ EDITED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WP\_TOOLBAR\_NO\_SUCH\_MENU\_ITEM,\ "{}NO\ SUCH\ TOOLBAR\ ENTRY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WP\_MENUBAR\_NO\_SUCH\_MENU\_ITEM,\ "{}NO\ SUCH\ MENUBAR\ ENTRY"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_NO\_PNG\_FILE,\ "{}FAILED\ TO\ OPEN\ PNG\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_INTERNAL\_PNG\_ERROR,\ "{}INTERNAL\ ERROR\ READING\ PNG\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_NO\_XBM\_FILE,\ "{}FAILED\ TO\ OPEN\ X\ BITMAP\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_INTERNAL\_XBM\_ERROR,\ "{}INTERNAL\ ERROR\ READING\ X\ BITMAP\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_INVALID\_LEVEL,\ "{}INVALID\ DIAGRAM\ AREA\ LEVEL"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NULL\_GSTYLE\_NAME,\ "{}NO\ NAME\ SPECIFIED\ FOR\ GRAPHICS\ STYLE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_XDASHES\_FAILED,\ "{}DASHES\ TO\ LONG\ FOR\ X\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_XNPOINTS\_FAILED,\ "{}TOO\ MANY\ XPOINTS\ FOR\ X\ SERVER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TABLE\_AREA\_ROW\_INDEX,\ "{}ROW\ INDEX\ OUT\ OF\ RANGE\ IN\ TABLE\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TABLE\_AREA\_COLUMN\_INDEX,\ "{}COLUMN\ INDEX\ OUT\ OF\ RANGE\ IN\ TABLE\ AREA"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_APP\_ALREADY\_OPEN,\ "{}DOCUMENT\ ALREADY\ OPEN"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ATTRIBUTE\_BAD\_TYPE,\ "{}BAD\ TYPE\ FOR\ ATTRIBUTE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_UNIT\_INVALID\_TYPE,\ "{}UNRECOGNISED\ UNIT\ TYPE\ IN\ STRING"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_UNIT\_INVALID\_STRING,\ "{}INVALID\ UNIT\ STRING"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_PAINTABLE\_OBJECT\_NO\_PAINTER,\ "{}NO\ PAINTER\ SET\ UP\ ON\ PAINTABLE\ OBJECT"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NLIST\_ROW\_RANGE,\ "{}ROW\ OUT\ OF\ RANGE\ IN\ NLIST"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NLIST\_NITEMS\_RANGE,\ "{}NOT\ ENOUGHT\ ITEMS\ IN\ ROW"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_CHAR\_INDEX\_RANGE,\ "{}INDEX\ FOR\ WORD\ LETTER\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_NOT\_CHARACTER\_NEXT,\ "{}NEXT\ ITEM\ IN\ COMPLEX\ WORD\ IS\ NOT\ CHARACTER"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_NOT\_MOD\_NEXT,\ "{}NEXT\ ITEM\ IN\ COMPLEX\ WORD\ IS\ NOT\ STYLE\ MOD"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_NO\_STYLE\_SET,\ "{}WORD\ HAS\ NO\ STYLE\ SET"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_OP\_NOT\_AVAILABLE\_ON\_SUBCLASS,\ "{}OPERATION\ NOT\ AVAILABLE\ ON\ THIS\ SUBLCASS\ OF\ WORD"{}\ \},\ \(\backslash\)}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_CANT\_SPLIT\_WORD,\ "{}CANT\ SPLIT\ WORD\ OF\ THIS\ CLASS"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_PARAGRAPH\_BAD\_WORD\_TYPE,\ "{}BAD\ WORD\ TYPE\ FOUND\ WHILST\ UNSERIALISING\ PARAGRAPH"{}\ \},\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_SPLINE\_TOO\_FEW\_POINTS,\ "{}TOO\ FEW\ POINTS\ GIVEN\ TO\ SPLINE\ CONSTRUCTOR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_POSITION\_RANGE\_ERROR,\ "{}POSITION\ OUT\ OF\ RANGE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TABLE\_BUFFER\_SINGLE\_CELL,\ "{}CAN'T\ CUT\ LESS\ THAN\ SINGLE\ CELL"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_TABLE\_BUFFER\_NOT\_BIG\_ENOUGH,\ "{}TABLE\ ISN'T\ BIG\ ENOUGH\ TO\ TAKE\ PASTE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WP\_BUFFER\_BAD\_CLASS,\ "{}BAD\ CLASS\ PASSED\ INTO\ MEMBER\ FUNCTION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_CURSOR\_CANT\_SPLIT\_TABLE,\ "{}CAN\ ONLY\ INSERT\ PARAGRAPHS\ INTO\ A\ TABLE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_CURSOR\_NO\_SELECTION,\ "{}NO\ SELECTION"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_NOT\_IMPLEMENTED,\ "{}FUNCTION\ NOT\ (YET)\ IMPLEMENTED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_BAD\_MODE,\ "{}OLE\ FILE\ OPEN\ MODE\ BAD\ -\/\ MUST\ BE\ r\ OR\ w"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_FAILED\_TO\_READ\_BIGBLOCK,\ "{}FAILED\ TO\ READ\ AN\ OLE\ FILE\ BLOCK"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_INDEX\_RANGE,\ "{}TRIED\ TO\ READ\ OUTSIDE\ OF\ STREAM\ SIZE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_NOT\_OLE\_FILE,\ "{}NOT\ AN\ OLE\ FILE"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_ROOT\_BLOCK\_RANGE,\ "{}ASKED\ FOR\ BLOCK\ OUT\ OF\ RANGE\ OF\ CHAIN"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_STREAM\_EOF,\ "{}EOF\ FOR\ STREAM"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_OLE\_STREAM\_NOT\_FOUND,\ "{}NAMED\ STREAM\ NOT\ FOUND"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_COMPLEX,\ "{}FILE\ IS\ QUICKSAVED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_WORD\_ENCRYPTED,\ "{}FILE\ IS\ ENCRYPTED"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DG\_TOO\_MANY\_LEVELS,\ "{}DIAGRAM\ HAS\ TOO\ MANY\ LEVELS"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_NO\_GEOM\_BOX,\ "{}GEOMETRY\ HAS\ NO\ BOX"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_DG\_STATE\_ERROR,\ "{}INCONSISTENT\ STATE\ IN\ DIAGRAM\ EDITOR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_METAFILE\_DATA\_ERROR,\ "{}METAFILE\ DATA\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_METAFILE\_FILE\_ERROR,\ "{}METAFILE\ FILE\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_METAFILE\_BUFFER\_ERROR,\ "{}METAFILE\ BUFFER\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_METAFILE\_PARAM\_ERROR,\ "{}METAFILE\ PARAM\ ERROR"{}\ \},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ MX\_ERROR\_LAST,\ "{}"{}\ \}\ \}}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

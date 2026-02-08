@@ -1,0 +1,90 @@
+\doxysection{mx\+\_\+list Class Reference}
+\hypertarget{classmx__list}{}\label{classmx__list}\index{mx\_list@{mx\_list}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__list_aa15915ec3773dbdf593939a1e10d8ef7}\label{classmx__list_aa15915ec3773dbdf593939a1e10d8ef7} 
+{\bfseries mx\+\_\+list} (const \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&list)
+\item 
+\Hypertarget{classmx__list_ac04e6f144c0bab7ae8cca8417c2a3690}\label{classmx__list_ac04e6f144c0bab7ae8cca8417c2a3690} 
+\mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \& {\bfseries operator=} (const \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&rvalue)
+\item 
+\Hypertarget{classmx__list_a88c3b98ea1efe87958f328b50002142c}\label{classmx__list_a88c3b98ea1efe87958f328b50002142c} 
+\mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \& {\bfseries equate} (const \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&rvalue)
+\item 
+\Hypertarget{classmx__list_a80b4ac78d9ba87fa3bbe06c6021e7eb4}\label{classmx__list_a80b4ac78d9ba87fa3bbe06c6021e7eb4} 
+int32 {\bfseries get\+\_\+num\+\_\+items} () const
+\item 
+\Hypertarget{classmx__list_ae5190936416e1551c701c69563cbc0af}\label{classmx__list_ae5190936416e1551c701c69563cbc0af} 
+void \texorpdfstring{$\ast$}{*} {\bfseries get} (int \&err, int32 index) const
+\item 
+\Hypertarget{classmx__list_adfc112a0ed0db851dfd95c2987f402f2}\label{classmx__list_adfc112a0ed0db851dfd95c2987f402f2} 
+void \texorpdfstring{$\ast$}{*} {\bfseries last} ()
+\item 
+\Hypertarget{classmx__list_a7efc435d5ccaf5a5cc552bf7dc6462b7}\label{classmx__list_a7efc435d5ccaf5a5cc552bf7dc6462b7} 
+void {\bfseries insert} (int \&err, int32 index, void \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__list_a5a642a49853811900d359641d3094623}\label{classmx__list_a5a642a49853811900d359641d3094623} 
+void {\bfseries prepend} (void \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__list_adf63011fd5ba386b53e310e205b0030b}\label{classmx__list_adf63011fd5ba386b53e310e205b0030b} 
+void {\bfseries append} (void \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__list_ac216a0986fdbd0eb9cde80a53205c494}\label{classmx__list_ac216a0986fdbd0eb9cde80a53205c494} 
+void \texorpdfstring{$\ast$}{*} {\bfseries overwrite} (int \&err, int32 index, void \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__list_a547e10b23898e0ed09967947d4ba7259}\label{classmx__list_a547e10b23898e0ed09967947d4ba7259} 
+void \texorpdfstring{$\ast$}{*} {\bfseries remove} (int \&err, int32 index)
+\item 
+\Hypertarget{classmx__list_abb43e68ede585e5eec8093297d070a3c}\label{classmx__list_abb43e68ede585e5eec8093297d070a3c} 
+void \texorpdfstring{$\ast$}{*} {\bfseries find\+\_\+smallest} (int \&err, int(\texorpdfstring{$\ast$}{*}comp\+\_\+func)(void \texorpdfstring{$\ast$}{*}one, void \texorpdfstring{$\ast$}{*}two))
+\item 
+\Hypertarget{classmx__list_a8393518354e5f75b9bc4aeb651b3d829}\label{classmx__list_a8393518354e5f75b9bc4aeb651b3d829} 
+void \texorpdfstring{$\ast$}{*} {\bfseries find\+\_\+largest} (int \&err, int(\texorpdfstring{$\ast$}{*}comp\+\_\+func)(void \texorpdfstring{$\ast$}{*}one, void \texorpdfstring{$\ast$}{*}two))
+\item 
+\Hypertarget{classmx__list_aa8c2bf54782ee204fce9451a9202f558}\label{classmx__list_aa8c2bf54782ee204fce9451a9202f558} 
+int32 {\bfseries find\+\_\+smallest\+\_\+index} (int \&err, int(\texorpdfstring{$\ast$}{*}comp\+\_\+func)(void \texorpdfstring{$\ast$}{*}one, void \texorpdfstring{$\ast$}{*}two))
+\item 
+\Hypertarget{classmx__list_a455326d496f021664fef4a5de11f8bde}\label{classmx__list_a455326d496f021664fef4a5de11f8bde} 
+int32 {\bfseries find\+\_\+largest\+\_\+index} (int \&err, int(\texorpdfstring{$\ast$}{*}comp\+\_\+func)(void \texorpdfstring{$\ast$}{*}one, void \texorpdfstring{$\ast$}{*}two))
+\item 
+\Hypertarget{classmx__list_af59ccc2253049440260285703669954e}\label{classmx__list_af59ccc2253049440260285703669954e} 
+int32 {\bfseries find\+\_\+index} (int \&err, void \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__list_ae6e8be901dd331fc084b277b0dd9f163}\label{classmx__list_ae6e8be901dd331fc084b277b0dd9f163} 
+void {\bfseries iterate} (int \&err, void(\texorpdfstring{$\ast$}{*}iter\+\_\+func)(int \&err, uint32 index, void \texorpdfstring{$\ast$}{*}item))
+\item 
+\Hypertarget{classmx__list_aab8de94d6092b42afe49a23f89c03edc}\label{classmx__list_aab8de94d6092b42afe49a23f89c03edc} 
+void {\bfseries iterate\+\_\+start} ()
+\item 
+\Hypertarget{classmx__list_a00b5080efd7e186862a6a147811e15a3}\label{classmx__list_a00b5080efd7e186862a6a147811e15a3} 
+void \texorpdfstring{$\ast$}{*} {\bfseries iterate\+\_\+next} ()
+\item 
+\Hypertarget{classmx__list_a630ec686c23b1754cdbc9191e6b1a2a7}\label{classmx__list_a630ec686c23b1754cdbc9191e6b1a2a7} 
+void \texorpdfstring{$\ast$}{*} {\bfseries iterate\+\_\+next\+\_\+no\+\_\+increment} ()
+\item 
+\Hypertarget{classmx__list_aab00b887243842c2130e57805de48de4}\label{classmx__list_aab00b887243842c2130e57805de48de4} 
+bool {\bfseries iterate\+\_\+more} ()
+\item 
+\Hypertarget{classmx__list_a5c823e2a5d7596de50916d62f9fbc68b}\label{classmx__list_a5c823e2a5d7596de50916d62f9fbc68b} 
+void {\bfseries move\+\_\+items\+\_\+out\+\_\+end} (int \&err, int n, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&other)
+\item 
+\Hypertarget{classmx__list_a24752d72cd10440613f646670ca266e1}\label{classmx__list_a24752d72cd10440613f646670ca266e1} 
+void {\bfseries move\+\_\+items\+\_\+in\+\_\+end} (int \&err, int n, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&other)
+\item 
+\Hypertarget{classmx__list_a4101d5380b15ce29c748eaff8c1586b8}\label{classmx__list_a4101d5380b15ce29c748eaff8c1586b8} 
+void {\bfseries move\+\_\+items\+\_\+out\+\_\+start} (int \&err, int n, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&other)
+\item 
+\Hypertarget{classmx__list_a241cb69291e463c081b24c65297ceb1c}\label{classmx__list_a241cb69291e463c081b24c65297ceb1c} 
+void {\bfseries move\+\_\+items\+\_\+in\+\_\+start} (int \&err, int n, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&other)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+collection/mx\+\_\+list.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,105 @@
+\doxysection{mx\+\_\+sheet\+\_\+layout Class Reference}
+\hypertarget{classmx__sheet__layout}{}\label{classmx__sheet__layout}\index{mx\_sheet\_layout@{mx\_sheet\_layout}}
+
+
+Inheritance diagram for mx\+\_\+sheet\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__sheet__layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+sheet\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__sheet__layout__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__sheet__layout_a8f8a393708ef15b1434a6d6361c34745}\label{classmx__sheet__layout_a8f8a393708ef15b1434a6d6361c34745} 
+virtual void {\bfseries add\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+\Hypertarget{classmx__sheet__layout_a04f65cb8859a5b164ee8dde07c6ce116}\label{classmx__sheet__layout_a04f65cb8859a5b164ee8dde07c6ce116} 
+virtual void {\bfseries change\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+\Hypertarget{classmx__sheet__layout_abdd36e93f542f740035e95d213103c9f}\label{classmx__sheet__layout_abdd36e93f542f740035e95d213103c9f} 
+virtual void {\bfseries remove\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets)
+\item 
+\Hypertarget{classmx__sheet__layout_ae8abafd912d3d24129e0461fd20dd682}\label{classmx__sheet__layout_ae8abafd912d3d24129e0461fd20dd682} 
+virtual bool {\bfseries coord\+To\+Doc\+Coord} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)=0
+\item 
+\Hypertarget{classmx__sheet__layout_a131e45bf091ecc80c409eec3abb06d74}\label{classmx__sheet__layout_a131e45bf091ecc80c409eec3abb06d74} 
+virtual bool {\bfseries doc\+Coord\+To\+Coord} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+\_\+coord, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord)=0
+\item 
+\Hypertarget{classmx__sheet__layout_a0399035e2b1749dc1b95240cc144556a}\label{classmx__sheet__layout_a0399035e2b1749dc1b95240cc144556a} 
+virtual void {\bfseries start\+Iterate\+Over\+Area} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&tlcoord, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&brcoord)
+\item 
+\Hypertarget{classmx__sheet__layout_a3e72ad403cf6ed15afcd4e80c93ff9ce}\label{classmx__sheet__layout_a3e72ad403cf6ed15afcd4e80c93ff9ce} 
+virtual bool {\bfseries next\+Over\+Area} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&output)
+\item 
+\Hypertarget{classmx__sheet__layout_a2957e8594525eb812e7aacc3f0447b5e}\label{classmx__sheet__layout_a2957e8594525eb812e7aacc3f0447b5e} 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} {\bfseries get\+Sheet\+Size} (int \&err, int test\+Sheet)
+\item 
+\Hypertarget{classmx__sheet__layout_ac415b36d0b2c94f2d66320a287d0bde3}\label{classmx__sheet__layout_ac415b36d0b2c94f2d66320a287d0bde3} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Size} (int \&err, int test\+Sheet)
+\item 
+\Hypertarget{classmx__sheet__layout_a52a5897e99fc29879af5b9621ca45d8c}\label{classmx__sheet__layout_a52a5897e99fc29879af5b9621ca45d8c} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Position} (int \&err, int test\+Sheet)
+\item 
+\Hypertarget{classmx__sheet__layout_a948c0d009f1aa521ece947707fdc9949}\label{classmx__sheet__layout_a948c0d009f1aa521ece947707fdc9949} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Max\+Size} (int \&err, int test\+Sheet)
+\item 
+\Hypertarget{classmx__sheet__layout_a543330423852b96db2b3e6bcf66cfe36}\label{classmx__sheet__layout_a543330423852b96db2b3e6bcf66cfe36} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Total\+Size} (int \&err)
+\item 
+\Hypertarget{classmx__sheet__layout_aa816143f4aab4103a652b5d41470557d}\label{classmx__sheet__layout_aa816143f4aab4103a652b5d41470557d} 
+MX\+\_\+\+SH\+\_\+\+LAY\+\_\+\+OFFSET {\bfseries check\+Coord\+On\+Sheet} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, int test\+Sheet, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+\Hypertarget{classmx__sheet__layout_a29c19fbb9f7d807ef17dfa02b049a864}\label{classmx__sheet__layout_a29c19fbb9f7d807ef17dfa02b049a864} 
+int {\bfseries get\+Number\+Sheets} ()
+\item 
+\Hypertarget{classmx__sheet__layout_a6b028953e8864945a473668a6cf54c11}\label{classmx__sheet__layout_a6b028953e8864945a473668a6cf54c11} 
+void {\bfseries set\+Snap\+Tolerance} (double isnap\+Tolerance)
+\item 
+\Hypertarget{classmx__sheet__layout_a638d05a581da6833da5521c3a05b241e}\label{classmx__sheet__layout_a638d05a581da6833da5521c3a05b241e} 
+double {\bfseries get\+Snap\+Tolerance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__sheet__layout_a3c7f98cfa2e608cb2b5dfc248270f3cb}\label{classmx__sheet__layout_a3c7f98cfa2e608cb2b5dfc248270f3cb} 
+void {\bfseries check\+Range} (int \&err, int test\+Sheet)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__sheet__layout_afb8ae924bb44729d13bc851a5b2c035c}\label{classmx__sheet__layout_afb8ae924bb44729d13bc851a5b2c035c} 
+int {\bfseries nsheets}
+\item 
+\Hypertarget{classmx__sheet__layout_a583f54e79f96d0bd19d732fb6ba411e9}\label{classmx__sheet__layout_a583f54e79f96d0bd19d732fb6ba411e9} 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*} {\bfseries sheet\+Sizes}
+\item 
+\Hypertarget{classmx__sheet__layout_a11e167070ff96e5ca80a770665ca387d}\label{classmx__sheet__layout_a11e167070ff96e5ca80a770665ca387d} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries tl\+Iterate}
+\item 
+\Hypertarget{classmx__sheet__layout_ab34996e2045525c9d0e26156284a5307}\label{classmx__sheet__layout_ab34996e2045525c9d0e26156284a5307} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries br\+Iterate}
+\item 
+\Hypertarget{classmx__sheet__layout_a9cd3cd0fdec06ec08638a7330311ab54}\label{classmx__sheet__layout_a9cd3cd0fdec06ec08638a7330311ab54} 
+int {\bfseries last\+Sheet\+Iterate}
+\item 
+\Hypertarget{classmx__sheet__layout_ad328f43790c3a11aafa886505978c997}\label{classmx__sheet__layout_ad328f43790c3a11aafa886505978c997} 
+double {\bfseries snap\+Tolerance}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+sh\+\_\+lay.\+h\end{DoxyCompactItemize}

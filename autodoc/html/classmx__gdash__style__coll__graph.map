@@ -1,0 +1,14 @@
+<map id="mx_gdash_style" name="mx_gdash_style">
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,243,155,268"/>
+<area shape="rect" id="Node000002" href="$classmx__geomstyle.html" title=" " alt="" coords="32,155,151,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,193,88,242,82,242,80,193"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="102,193,100,242,95,242,97,193"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,80,177,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,119,87,154,82,154,80,119"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="103,119,101,154,96,154,97,119"/>
+<area shape="rect" id="Node000005" href="$classmx__dash__style.html" title=" " alt="" coords="175,155,295,180"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="128,109,213,152,211,157,126,114"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,45,94,80,89,80,89,45"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="206,189,112,245,110,240,203,185"/>
+</map>

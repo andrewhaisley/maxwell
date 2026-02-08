@@ -1,0 +1,520 @@
+\doxysection{mx\+\_\+event.\+h}
+\hypertarget{mx__event_8h_source}{}\label{mx__event_8h_source}\index{view/mx\_event.h@{view/mx\_event.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_EVENT\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_EVENT\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_event.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Module\ mx\_event.h}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_doc\_coord.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__device}{mx\_device}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ base\ events\ handled\ in\ maxwell\ applications}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ MX\_SCROLL\_OFFSET\_TL,}
+\DoxyCodeLine{00045\ \ \ \ \ MX\_SCROLL\_OFFSET\_T,}
+\DoxyCodeLine{00046\ \ \ \ \ MX\_SCROLL\_OFFSET\_TR,}
+\DoxyCodeLine{00047\ \ \ \ \ MX\_SCROLL\_OFFSET\_L,}
+\DoxyCodeLine{00048\ \ \ \ \ MX\_SCROLL\_OFFSET\_C,}
+\DoxyCodeLine{00049\ \ \ \ \ MX\_SCROLL\_OFFSET\_R,}
+\DoxyCodeLine{00050\ \ \ \ \ MX\_SCROLL\_OFFSET\_BL,}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_SCROLL\_OFFSET\_B,}
+\DoxyCodeLine{00052\ \ \ \ \ MX\_SCROLL\_OFFSET\_BR}
+\DoxyCodeLine{00053\ \}\ MX\_SCROLL\_OFFSET;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_NO\_EVENT\ =\ 0;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_PRESS\ =\ 1\ <<\ 1;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_RELEASE\ =\ 1\ <<\ 2;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_MOTION\_START\ =\ 1\ <<\ 3;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_MOTION\ =\ 1\ <<\ 4;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_MOTION\_END\ =\ 1\ <<\ 5;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_DOUBLE\_BUTTON\_PRESS\ =\ 1\ <<\ 6;}
+\DoxyCodeLine{00062\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_TRIPLE\_BUTTON\_PRESS\ =\ 1\ <<\ 7;}
+\DoxyCodeLine{00063\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_KEY\_PRESS\ =\ 1\ <<\ 8;}
+\DoxyCodeLine{00064\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_KEY\_RELEASE\ =\ 1\ <<\ 9;}
+\DoxyCodeLine{00065\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_PREDRAW\ =\ 1\ <<\ 10;}
+\DoxyCodeLine{00066\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_DRAW\ =\ 1\ <<\ 11;}
+\DoxyCodeLine{00067\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_POSTDRAW\ =\ 1\ <<\ 12;}
+\DoxyCodeLine{00068\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_PRESCROLL\ =\ 1\ <<\ 13;}
+\DoxyCodeLine{00069\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_SCROLL\ =\ 1\ <<\ 14;}
+\DoxyCodeLine{00070\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_POSTSCROLL\ =\ 1\ <<\ 15;}
+\DoxyCodeLine{00071\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_SCROLLDRAG\ =\ 1\ <<\ 16;}
+\DoxyCodeLine{00072\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_RESIZE\ =\ 1\ <<\ 17;}
+\DoxyCodeLine{00073\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_EXPOSE\ =\ 1\ <<\ 18;}
+\DoxyCodeLine{00074\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_TEXT\ =\ 1\ <<\ 19;}
+\DoxyCodeLine{00075\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_MOUSE\_MOTION\ =\ 1\ <<\ 20;}
+\DoxyCodeLine{00076\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_SPECIAL\_DRAW\ =\ 1\ <<\ 21;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ composite\ events}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ button\ motion\ events}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_MOTIONS\ =\ MX\_EVENT\_BUTTON\_MOTION\_START\ |\ MX\_EVENT\_BUTTON\_MOTION\ |\ MX\_EVENT\_BUTTON\_MOTION\_END;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ button\ press\ events}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_BUTTON\_PRESSES\ =\ MX\_EVENT\_BUTTON\_PRESS\ |\ MX\_EVENT\_DOUBLE\_BUTTON\_PRESS\ |\ MX\_EVENT\_TRIPLE\_BUTTON\_PRESS;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ the\ standard\ events\ one\ would\ expect\ from\ an\ editor}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_STANDARD\ =\ MX\_EVENT\_BUTTON\_PRESSES\ |\ MX\_EVENT\_BUTTON\_RELEASE\ |\ MX\_EVENT\_BUTTON\_MOTIONS\ |\ MX\_EVENT\_KEY\_PRESS\ |\ MX\_EVENT\_TEXT\ |\ MX\_EVENT\_DRAW\ |\ MX\_EVENT\_SPECIAL\_DRAW;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ the\ standard\ events\ for\ a\ screen\ type\ device}}
+\DoxyCodeLine{00090\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_XEVENTS\ =\ MX\_EVENT\_STANDARD\ |\ MX\_EVENT\_EXPOSE\ |\ MX\_EVENT\_MOUSE\_MOTION\ |\ MX\_EVENT\_RESIZE;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ all\ scrolling\ events}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_ALL\_SCROLL\ =\ MX\_EVENT\_PRESCROLL\ |\ MX\_EVENT\_SCROLL\ |\ MX\_EVENT\_POSTSCROLL\ |\ MX\_EVENT\_SCROLLDRAG\ |\ MX\_EVENT\_BUTTON\_MOTION\ |\ MX\_EVENT\_RESIZE;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ the\ standard\ events\ for\ a\ frame\ with\ scrolling}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ MX\_EVENT\_SFRAME\ =\ MX\_EVENT\_STANDARD\ |\ MX\_EVENT\_ALL\_SCROLL;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *\ CLASS:\ mx\_event}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ base\ class\ of\ events\ which\ Maxwell}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ handles.}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00111\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ allow\ for\ a\ degree\ of\ multiplexing\ of\ events\ which\ may}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ be\ very\ useful\ in\ the\ future}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ Event\ propagation\ is\ done\ by\ the\ destination\ target}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ setting\ itself\ as\ the\ target\ on\ for\ events\ generated\ on\ the}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ source.\ When\ it\ does\ this\ it\ tells\ the\ source\ its\ id\ for\ the}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ source\ (sourceId)\ and\ the\ source\ returns\ its\ id\ for\ the}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ destiantion\ (destId).\ (i.e.\ sourceId\ is\ the\ destinations}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ identifier\ for\ the\ source\ and\ destId\ is\ the\ sources\ identifier}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ for\ the\ destination}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ some\ events\ dont\ need\ convertion}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00137\ \ \ \ \ \};}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ MX\_EVENT\_NO\_EVENT;\ \};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getSourceId()\ \{\ \textcolor{keywordflow}{return}\ sourceId;\ \};}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSourceId(\textcolor{keywordtype}{int}\ isourceId)\ \{\ sourceId\ =\ isourceId;\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00144\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ the\ id\ of\ the\ source\ -\/\ passed\ to\ the\ target\ when\ it\ set\ up\ the}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ link}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ sourceId;}
+\DoxyCodeLine{00148\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ *\ CLASS:\ mx\_button\_event}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ button\ event\ in\ Maxwell}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00159\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getButtonNumber()\ \{\ \textcolor{keywordflow}{return}\ buttonNumber;\ \};}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ eventType;\ \};}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getNclicks()\ \{\ \textcolor{keywordflow}{return}\ nclicks;\ \};}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getShift()\ \{\ \textcolor{keywordflow}{return}\ shiftDown;\ \};}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getControl()\ \{\ \textcolor{keywordflow}{return}\ controlDown;\ \};}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getCoord()\ \{\ \textcolor{keywordflow}{return}\ coord;\ \};}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getStartCoord()\ \{\ \textcolor{keywordflow}{return}\ startCoord;\ \};}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getInRange()\ \{\ \textcolor{keywordflow}{return}\ coordInRange;\ \};}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getStartInRange()\ \{\ \textcolor{keywordflow}{return}\ startCoordInRange;\ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setButtonNumber(\textcolor{keywordtype}{int}\ ibuttonNumber)\ \{\ buttonNumber\ =\ ibuttonNumber;\ \};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setType(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ ieventType)\ \{\ eventType\ =\ ieventType;\ \};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setNclicks(\textcolor{keywordtype}{int}\ inclicks)\ \{\ nclicks\ =\ inclicks;\ \};}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setShift(\textcolor{keywordtype}{int}\ ishiftDown)\ \{\ shiftDown\ =\ ishiftDown;\ \};}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setControl(\textcolor{keywordtype}{int}\ icontrolDown)\ \{\ controlDown\ =\ icontrolDown;\ \};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setCoord(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ icoord)\ \{\ coord\ =\ icoord;\ \};}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setStartCoord(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ istartCoord)\ \{\ startCoord\ =\ istartCoord;\ \};}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setInRange(\textcolor{keywordtype}{bool}\ iinRange)\ \{\ coordInRange\ =\ iinRange;\ \};}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setStartInRange(\textcolor{keywordtype}{bool}\ iinRange)\ \{\ startCoordInRange\ =\ iinRange;\ \};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ event\ type}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ eventType;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ button\ Number}}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{int}\ buttonNumber;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ clicks}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{int}\ nclicks;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{//\ true\ if\ the\ shift\ key\ is\ down}}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{bool}\ shiftDown;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ true\ if\ the\ control\ key\ is\ down}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlDown;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ where\ the\ event\ occured}}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ coord;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ for\ a\ motion\ event\ where\ motion\ started}}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ startCoord;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ test\ whether\ the\ event\ is\ within\ range}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{bool}\ coordInRange;}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{bool}\ startCoordInRange;}
+\DoxyCodeLine{00219\ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ *\ CLASS:\ mx\_key\_event}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ key\ event\ in\ Maxwell}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00230\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}();}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ getKeyName()\ \{\ \textcolor{keywordflow}{return}\ keyName;\ \};}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}*\ getString()\ \{\ \textcolor{keywordflow}{return}\ string;\ \};}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getTotalStringSize()\ \{\ \textcolor{keywordflow}{return}\ 128;\ \};}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getStringSize()\ \{\ \textcolor{keywordflow}{return}\ nstring;\ \};}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getShift()\ \{\ \textcolor{keywordflow}{return}\ shiftDown;\ \};}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getControl()\ \{\ \textcolor{keywordflow}{return}\ controlDown;\ \};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ release\ ?\ MX\_EVENT\_KEY\_RELEASE\ :\ MX\_EVENT\_KEY\_PRESS;\ \};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setKeyName(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ikeyName)\ \{\ keyName\ =\ ikeyName;\ \};}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setStringSize(\textcolor{keywordtype}{int}\ instring)\ \{\ nstring\ =\ instring;\ \};}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setShift(\textcolor{keywordtype}{int}\ ishiftDown)\ \{\ shiftDown\ =\ ishiftDown;\ \};}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setControl(\textcolor{keywordtype}{int}\ icontrolDown)\ \{\ controlDown\ =\ icontrolDown;\ \};}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setRelease(\textcolor{keywordtype}{int}\ irelease)\ \{\ release\ =\ irelease;\ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{comment}{//\ is\ the\ event\ an\ arrow\ key\ press}}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_arrow();}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ is\ the\ event\ a\ return\ key\ press}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_return();}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ press\ or\ release}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{bool}\ release;}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{comment}{//\ modifier\ keys\ -\/\ for\ key\ events}}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{bool}\ shiftDown;}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlDown;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ key\ press\ event\ information}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ keyName;}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//\ might\ be\ more\ than\ one\ for\ a\ particular\ keysym}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ nstring;}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keywordtype}{string}[128];}
+\DoxyCodeLine{00276\ \};}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ *\ CLASS:\ mx\_text\_event}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ text\ event\ in\ Maxwell}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00284\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00287\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}()\ \{\ text\ =\ NULL;\ \};}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)}
+\DoxyCodeLine{00290\ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ text\ =\ NULL;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ setText(str);}
+\DoxyCodeLine{00293\ \ \ \ \ \};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__text__event}{\string~mx\_text\_event}}()\ \{\ \textcolor{keyword}{delete}[]\ text;\ \};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}\&\ te);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ MX\_EVENT\_TEXT;\ \};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ getText()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ text;\ \};}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{void}\ setText(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{char}*\ text;}
+\DoxyCodeLine{00314\ \};}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00317\ \textcolor{comment}{\ *\ CLASS:\ mx\_expose\_event}}
+\DoxyCodeLine{00318\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00319\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ expose\ event\ in\ Maxwell}}
+\DoxyCodeLine{00320\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00321\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00325\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00326\ \ \ \ \ \mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}()\ \{\ \};}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ idevice)\ \{\ device\ =\ idevice;\ \};}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setRect(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ itl,}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ibr)}
+\DoxyCodeLine{00332\ \ \ \ \ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ tl\ =\ itl;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ br\ =\ ibr;}
+\DoxyCodeLine{00335\ \ \ \ \ \};}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getTL()\ \{\ \textcolor{keywordflow}{return}\ tl;\ \};}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getBR()\ \{\ \textcolor{keywordflow}{return}\ br;\ \};}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getCount()\ \{\ \textcolor{keywordflow}{return}\ count;\ \};}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setCount(\textcolor{keywordtype}{int}\ icount)\ \{\ count\ =\ icount;\ \};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ MX\_EVENT\_EXPOSE;\ \};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ getDevice()\ \{\ \textcolor{keywordflow}{return}\ device;\ \};}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setDevice(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ idevice)\ \{\ device\ =\ idevice;\ \};}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{comment}{//\ the\ device\ exposed}}
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ device;}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ tl;}
+\DoxyCodeLine{00359\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ br;}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00361\ \};}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00364\ \textcolor{comment}{\ *\ CLASS:\ mx\_draw\_event}}
+\DoxyCodeLine{00365\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00366\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ draw\ event\ in\ Maxwell}}
+\DoxyCodeLine{00367\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00368\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00369\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00372\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00373\ \ \ \ \ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}()\ \{\ \};}
+\DoxyCodeLine{00374\ \ \ \ \ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ device)\ \{\ setDevice(device);\ \};}
+\DoxyCodeLine{00375\ \ \ \ \ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}(\mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}\&\ event);}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setRect(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ itl,}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ibr)}
+\DoxyCodeLine{00379\ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ tl\ =\ itl;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ br\ =\ ibr;}
+\DoxyCodeLine{00382\ \ \ \ \ \};}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getTL()\ \{\ \textcolor{keywordflow}{return}\ tl;\ \};}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getBR()\ \{\ \textcolor{keywordflow}{return}\ br;\ \};}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTL(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ itl)\ \{\ tl\ =\ itl;\ \};}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setBR(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ibr)\ \{\ br\ =\ ibr;\ \};}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ eventType;\ \};}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setType(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ itype)\ \{\ eventType\ =\ itype;\ \};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ getDevice()\ \{\ \textcolor{keywordflow}{return}\ device;\ \};}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setDevice(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ idevice)\ \{\ device\ =\ idevice;\ \};}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getCount()\ \{\ \textcolor{keywordflow}{return}\ count;\ \};}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setCount(\textcolor{keywordtype}{int}\ icount)\ \{\ count\ =\ icount;\ \};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{comment}{//\ whether\ this\ is\ pre\ draw,\ a\ draw\ or\ a\ post\ draw\ event}}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ eventType;}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{comment}{//\ the\ device\ on\ which\ to\ draw}}
+\DoxyCodeLine{00411\ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ device;}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ tl;}
+\DoxyCodeLine{00414\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ br;}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00417\ \};}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ *\ CLASS:\ mx\_scroll\_event}}
+\DoxyCodeLine{00421\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00422\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ scroll\ event\ in\ Maxwell}}
+\DoxyCodeLine{00423\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00425\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00428\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00429\ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}();}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ eventType;\ \};}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setType(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ ieventType)\ \{\ eventType\ =\ ieventType;\ \};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setIsVertical(\textcolor{keywordtype}{bool}\ iisVertical)\ \{\ isVertical\ =\ iisVertical;\ \};}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTLvalue(\textcolor{keywordtype}{double}\ tlValue)\ \{\ topLeftValue\ =\ tlValue;\ \};}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setNewTopLeft(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ntl)\ \{\ newTopLeft\ =\ ntl;\ \};}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setOldTopLeft(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ otl)\ \{\ oldTopLeft\ =\ otl;\ \};}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setUseScrollPosition(\textcolor{keywordtype}{bool}\ iusp)\ \{\ useScrollPosition\ =\ iusp;\ \};}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setScrollPosition(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ sp)\ \{\ scrollPosition\ =\ sp;\ \};}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSameX(\textcolor{keywordtype}{bool}\ isameX)\ \{\ sameX\ =\ isameX;\ \};}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSameY(\textcolor{keywordtype}{bool}\ isameY)\ \{\ sameY\ =\ isameY;\ \};}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setOffset(MX\_SCROLL\_OFFSET\ ioffset)\ \{\ offset\ =\ ioffset;\ \};}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getNewTopLeft()\ \{\ \textcolor{keywordflow}{return}\ newTopLeft;\ \};}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getOldTopLeft()\ \{\ \textcolor{keywordflow}{return}\ oldTopLeft;\ \};}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getUseScrollPosition()\ \{\ \textcolor{keywordflow}{return}\ useScrollPosition;\ \};}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getScrollPosition()\ \{\ \textcolor{keywordflow}{return}\ scrollPosition;\ \};}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getSameX()\ \{\ \textcolor{keywordflow}{return}\ sameX;\ \};}
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getSameY()\ \{\ \textcolor{keywordflow}{return}\ sameY;\ \};}
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getIsVertical()\ \{\ \textcolor{keywordflow}{return}\ isVertical;\ \};}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getTLvalue()\ \{\ \textcolor{keywordflow}{return}\ topLeftValue;\ \};}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{inline}\ MX\_SCROLL\_OFFSET\ getOffset()\ \{\ \textcolor{keywordflow}{return}\ offset;\ \};}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ eventType;}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{bool}\ isVertical;}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordtype}{double}\ topLeftValue;}
+\DoxyCodeLine{00465\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ newTopLeft;}
+\DoxyCodeLine{00466\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ oldTopLeft;}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{bool}\ useScrollPosition;}
+\DoxyCodeLine{00469\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ scrollPosition;}
+\DoxyCodeLine{00470\ \ \ \ \ MX\_SCROLL\_OFFSET\ offset;}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX;}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY;}
+\DoxyCodeLine{00473\ \};}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00476\ \textcolor{comment}{\ *\ CLASS:\ mx\_resize\_event}}
+\DoxyCodeLine{00477\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00478\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ resize\ event\ in\ Maxwell}}
+\DoxyCodeLine{00479\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00480\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00481\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__event}{mx\_event}}\ \{}
+\DoxyCodeLine{00484\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00485\ \ \ \ \ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}()\ \{\ \};}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setRect(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ itl,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ibr)}
+\DoxyCodeLine{00489\ \ \ \ \ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ tl\ =\ itl;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ br\ =\ ibr;}
+\DoxyCodeLine{00492\ \ \ \ \ \};}
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getTL()\ \{\ \textcolor{keywordflow}{return}\ tl;\ \};}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getBR()\ \{\ \textcolor{keywordflow}{return}\ br;\ \};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTL(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ itl)\ \{\ tl\ =\ itl;\ \};}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setBR(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ibr)\ \{\ br\ =\ ibr;\ \};}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \textcolor{keywordtype}{void}\ convert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget,}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ outEvent);}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ getType()\ \{\ \textcolor{keywordflow}{return}\ MX\_EVENT\_RESIZE;\ \};}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keywordtype}{void}\ propagate(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ destinationTarget);}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00510\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ tl;}
+\DoxyCodeLine{00511\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ br;}
+\DoxyCodeLine{00512\ \};}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

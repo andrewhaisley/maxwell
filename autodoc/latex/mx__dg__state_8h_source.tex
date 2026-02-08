@@ -1,0 +1,565 @@
+\doxysection{mx\+\_\+dg\+\_\+state.\+h}
+\hypertarget{mx__dg__state_8h_source}{}\label{mx__dg__state_8h_source}\index{dgedit/mx\_dg\_state.h@{dgedit/mx\_dg\_state.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_DG\_STATE}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_DG\_STATE}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_dg\_state.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Module\ mx\_dg\_state.h}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ Revision\ 1.1\ \ 1996/10/06\ 13:15:45\ \ andrew}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Initial\ revision}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}mx\_dg\_editor.h"{}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_state}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{\string~mx\_dg\_state}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ clearState();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setNextState(\mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ istate)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ nextState\ =\ istate;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (istate\ !=\ NULL)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ nextState-\/>previousState\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setType(MX\_DGT\_STATE\ itype)\ \{\ type\ =\ itype;\ \};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{inline}\ MX\_DGT\_STATE\ getType()\ \{\ \textcolor{keywordflow}{return}\ type;\ \};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ getEditor()\ \{\ \textcolor{keywordflow}{return}\ editor;\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ textEntry(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}\&\ event);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ default\ -\/\ no\ actions\ -\/\ these\ propagate\ events\ back}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonRelease(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionStart(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ keyPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\&\ event);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ default\ real\ actions\ -\/\ e.g.\ point\ entry\ is\ often\ the}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ same\ for\ different\ states}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ ibuttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ ibuttonRelease(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ ibuttonMotionStart(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ ibuttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ ibuttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ getStateData(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ inState);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setActive(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ inState)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ propagatedUp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ inState);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom)\ \{\ *geom\ =\ NULL;\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf)}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00109\ \ \ \ \ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSpan(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__span}{gmx\_span}}*\ sp)}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00114\ \ \ \ \ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processRect(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}*\ rt)}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00119\ \ \ \ \ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processPolypoint(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}*\ pp)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00124\ \ \ \ \ \};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processArc(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}*\ a)}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00129\ \ \ \ \ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ getNextState()\ \{\ \textcolor{keywordflow}{return}\ nextState;\ \};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ getPreviousState()\ \{\ \textcolor{keywordflow}{return}\ previousState;\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ endState(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ collapseStates(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor;}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ nextState;}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ previousState;}
+\DoxyCodeLine{00143\ \ \ \ \ MX\_DGT\_STATE\ type;}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_top\_state}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__top__state}{mx\_dg\_top\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00155\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{classmx__dg__top__state}{mx\_dg\_top\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ textEntry(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__event}{mx\_text\_event}}\&\ event);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ setActive(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ inState);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ propagatedUp(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ inState);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ keyPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\&\ event);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ processArc(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}*\ sp);}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ processSpan(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__span}{gmx\_span}}*\ sp);}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ processRect(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}*\ rt);}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ processPolypoint(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,\ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}*\ pp);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00176\ \};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_point\_state}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__point__state}{mx\_dg\_point\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00187\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{classmx__dg__point__state}{mx\_dg\_point\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event)}
+\DoxyCodeLine{00191\ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ buttonAction(err,\ event);}
+\DoxyCodeLine{00193\ \ \ \ \ \};}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonRelease(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event)}
+\DoxyCodeLine{00195\ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ buttonAction(err,\ event);}
+\DoxyCodeLine{00197\ \ \ \ \ \};}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionStart(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event)}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ buttonAction(err,\ event);}
+\DoxyCodeLine{00201\ \ \ \ \ \};}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event)}
+\DoxyCodeLine{00204\ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ buttonAction(err,\ event);}
+\DoxyCodeLine{00206\ \ \ \ \ \};}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event)}
+\DoxyCodeLine{00209\ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ buttonAction(err,\ event);}
+\DoxyCodeLine{00211\ \ \ \ \ \};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonAction(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{bool}\ pointFound;}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}\ p;}
+\DoxyCodeLine{00220\ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_span\_state}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__span__state}{mx\_dg\_span\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00231\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{classmx__dg__span__state}{mx\_dg\_span\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ npoints;}
+\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}\ ispan;}
+\DoxyCodeLine{00251\ \ \ \ \ uint32\ highlightedId;}
+\DoxyCodeLine{00252\ \};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_snap\_state}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__snap__state}{mx\_dg\_snap\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00263\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{classmx__dg__snap__state}{mx\_dg\_snap\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{int}\ npoints;}
+\DoxyCodeLine{00280\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}\ ispan;}
+\DoxyCodeLine{00281\ \ \ \ \ uint32\ highlightedId;}
+\DoxyCodeLine{00282\ \};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_rect\_state}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__rect__state}{mx\_dg\_rect\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00293\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00294\ \ \ \ \ \mbox{\hyperlink{classmx__dg__rect__state}{mx\_dg\_rect\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{int}\ npoints;}
+\DoxyCodeLine{00312\ \ \ \ \ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}\ irect;}
+\DoxyCodeLine{00313\ \ \ \ \ uint32\ highlightedId;}
+\DoxyCodeLine{00314\ \};}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00317\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_arc\_state}}
+\DoxyCodeLine{00318\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00319\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00320\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00321\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__arc__state}{mx\_dg\_arc\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00325\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00326\ \ \ \ \ \mbox{\hyperlink{classmx__dg__arc__state}{mx\_dg\_arc\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{void}\ processArc(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}*\ a);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{int}\ npoints;}
+\DoxyCodeLine{00344\ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}\ iarc;}
+\DoxyCodeLine{00345\ \ \ \ \ uint32\ highlightedId;}
+\DoxyCodeLine{00346\ \};}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_farc\_state}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00352\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00353\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00354\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__farc__state}{mx\_dg\_farc\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__arc__state}{mx\_dg\_arc\_state}}\ \{}
+\DoxyCodeLine{00357\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00358\ \ \ \ \ \mbox{\hyperlink{classmx__dg__farc__state}{mx\_dg\_farc\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setBoxState(\textcolor{keywordtype}{bool}\ ibx)\ \{\ boxState\ =\ ibx;\ \};}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pointToSize(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ =\ 0;}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{bool}\ boxState;}
+\DoxyCodeLine{00371\ \};}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_fcircle\_state}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__fcircle__state}{mx\_dg\_fcircle\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__farc__state}{mx\_dg\_farc\_state}}\ \{}
+\DoxyCodeLine{00382\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00383\ \ \ \ \ \mbox{\hyperlink{classmx__dg__fcircle__state}{mx\_dg\_fcircle\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00386\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pointToSize(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00387\ \};}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00390\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_fellipse\_state}}
+\DoxyCodeLine{00391\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00392\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00393\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00394\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00395\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__fellipse__state}{mx\_dg\_fellipse\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__farc__state}{mx\_dg\_farc\_state}}\ \{}
+\DoxyCodeLine{00398\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{classmx__dg__fellipse__state}{mx\_dg\_fellipse\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00402\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pointToSize(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00403\ \};}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00406\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_parc\_state}}
+\DoxyCodeLine{00407\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00408\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00409\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00410\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00411\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__parc__state}{mx\_dg\_parc\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__arc__state}{mx\_dg\_arc\_state}}\ \{}
+\DoxyCodeLine{00414\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00415\ \ \ \ \ \mbox{\hyperlink{classmx__dg__parc__state}{mx\_dg\_parc\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{void}\ processArc(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}*\ arc);}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ pointToAngle(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ =\ 0;}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00433\ \textcolor{comment}{\ \ \ \ \ \ npoints\ =\ 0\ nothing\ doing}}
+\DoxyCodeLine{00434\ \textcolor{comment}{\ \ \ \ \ \ npoints\ =\ 1\ got\ arc}}
+\DoxyCodeLine{00435\ \textcolor{comment}{\ \ \ \ \ \ npoints\ =\ 2\ got\ start\ point}}
+\DoxyCodeLine{00436\ \textcolor{comment}{\ \ \ \ \ \ npoints\ =\ 3\ finished}}
+\DoxyCodeLine{00437\ \textcolor{comment}{\ \ \ \ \ \ */}}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{double}\ startAng;}
+\DoxyCodeLine{00439\ \};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00442\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_pcircle\_state}}
+\DoxyCodeLine{00443\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00444\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00445\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00446\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00447\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__pcircle__state}{mx\_dg\_pcircle\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__parc__state}{mx\_dg\_parc\_state}}\ \{}
+\DoxyCodeLine{00450\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00451\ \ \ \ \ \mbox{\hyperlink{classmx__dg__pcircle__state}{mx\_dg\_pcircle\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordtype}{double}\ pointToAngle(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00455\ \};}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00458\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_pellipse\_state}}
+\DoxyCodeLine{00459\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00461\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00462\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00463\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__pellipse__state}{mx\_dg\_pellipse\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__parc__state}{mx\_dg\_parc\_state}}\ \{}
+\DoxyCodeLine{00466\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00467\ \ \ \ \ \mbox{\hyperlink{classmx__dg__pellipse__state}{mx\_dg\_pellipse\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordtype}{double}\ pointToAngle(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00471\ \};}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00474\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_polypoint\_state}}
+\DoxyCodeLine{00475\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00476\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00477\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00478\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00479\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__polypoint__state}{mx\_dg\_polypoint\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00482\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00483\ \ \ \ \ \mbox{\hyperlink{classmx__dg__polypoint__state}{mx\_dg\_polypoint\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonPress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonDoublePress(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keywordtype}{void}\ keyPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\&\ event);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keywordtype}{void}\ returnGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom);}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00504\ \ \ \ \ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}\ ipp;}
+\DoxyCodeLine{00505\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}\ tempSpan;}
+\DoxyCodeLine{00506\ \ \ \ \ uint32\ highlightedId;}
+\DoxyCodeLine{00507\ \ \ \ \ uint32\ spanHighlightedId;}
+\DoxyCodeLine{00508\ \};}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00511\ \textcolor{comment}{\ *\ CLASS:\ mx\_dg\_select\_state}}
+\DoxyCodeLine{00512\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00513\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ idea\ of\ an\ editor\ state\ is\ that}}
+\DoxyCodeLine{00514\ \textcolor{comment}{\ *\ a\ state\ would}}
+\DoxyCodeLine{00515\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00516\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__select__state}{mx\_dg\_select\_state}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}\ \{}
+\DoxyCodeLine{00519\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00520\ \ \ \ \ \mbox{\hyperlink{classmx__dg__select__state}{mx\_dg\_select\_state}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonRelease(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionStart(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keywordtype}{void}\ buttonMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ event);}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{void}\ keyPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\&\ event);}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{keywordtype}{void}\ processPoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keywordtype}{void}\ processRelease(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \ \ \ \textcolor{keywordtype}{void}\ processMotionStart(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keywordtype}{void}\ processMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordtype}{void}\ processMotionEnd(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__event}{mx\_event}}*\ event,}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}*\ pf);}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keywordtype}{void}\ tidyState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00556\ \ \ \ \ \mbox{\hyperlink{classmx__dg__select__iterator}{mx\_dg\_select\_iterator}}\ iterator;}
+\DoxyCodeLine{00557\ \};}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

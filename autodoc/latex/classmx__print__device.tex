@@ -1,0 +1,729 @@
+\doxysection{mx\+\_\+print\+\_\+device Class Reference}
+\hypertarget{classmx__print__device}{}\label{classmx__print__device}\index{mx\_print\_device@{mx\_print\_device}}
+
+
+Inheritance diagram for mx\+\_\+print\+\_\+device\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__print__device__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+print\+\_\+device\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__print__device__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__print__device_aa25601ae1c25640e39bad56bb26d78d7}\label{classmx__print__device_aa25601ae1c25640e39bad56bb26d78d7} 
+{\bfseries mx\+\_\+print\+\_\+device} (int \&err, \mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \&device\+Frame, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&device\+Size, double device\+Resolution)
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \mbox{\hyperlink{classmx__print__device_a8932b808a7abe7c9fc88f434d9618fb7}{get\+Device\+Pixel\+Size}} ()
+\item 
+void \mbox{\hyperlink{classmx__print__device_aada5f36bb2e19f52209be088753e4d42}{push\+Clip\+Rect}} (int \&err, const \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&coords, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a4fa898c4c2d06daa50a7db55f338d987}{pop\+Clip\+Mask}} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__print__device_af77a0e8b308f6c40370735dfa975085b}{push\+Clip\+Polypoint}} (int \&err, const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&pp, bool do\+Intersect)
+\item 
+\Hypertarget{classmx__print__device_a943eeda5b87417ed293af5efc8b1b3b7}\label{classmx__print__device_a943eeda5b87417ed293af5efc8b1b3b7} 
+virtual void {\bfseries pclip\+Arc} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+\Hypertarget{classmx__print__device_a4a199d4ae1c9d687e712b2d3e8d628b3}\label{classmx__print__device_a4a199d4ae1c9d687e712b2d3e8d628b3} 
+virtual void {\bfseries pclip\+Sector} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+\Hypertarget{classmx__print__device_a77a036a58f3e431183f91c883a3cff76}\label{classmx__print__device_a77a036a58f3e431183f91c883a3cff76} 
+void {\bfseries set\+Rect} (int \&err, const \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&rect, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&start\+Point, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool \&do\+Transform, const char \texorpdfstring{$\ast$}{*}save\+Name)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a3e5647bb48106bfdc00b185b6fac509b}{pfill\+Rect}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&top\+Left, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&bottom\+Right, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a34b3b7deae0f3b37cf7653985a827ad0}{pxor\+Rect}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&top\+Left, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&bottom\+Right)
+\item 
+\Hypertarget{classmx__print__device_acd2964b0ea22f11d29839c67c3ac8982}\label{classmx__print__device_acd2964b0ea22f11d29839c67c3ac8982} 
+void {\bfseries pdraw\+Arc} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+\Hypertarget{classmx__print__device_a6a2108bf9ad7fb646c6466beedb4c2bc}\label{classmx__print__device_a6a2108bf9ad7fb646c6466beedb4c2bc} 
+void {\bfseries pfill\+Arc} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+\Hypertarget{classmx__print__device_ad1408197b58b61664764629a66eeb2cc}\label{classmx__print__device_ad1408197b58b61664764629a66eeb2cc} 
+void {\bfseries pdraw\+Chord} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+\Hypertarget{classmx__print__device_a10b8c1182f1e4dd8b35f93d1523b7c8d}\label{classmx__print__device_a10b8c1182f1e4dd8b35f93d1523b7c8d} 
+void {\bfseries pdraw\+Sector} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+\Hypertarget{classmx__print__device_a5e9759e1a348a1ca5a9ce25c27ac182e}\label{classmx__print__device_a5e9759e1a348a1ca5a9ce25c27ac182e} 
+void {\bfseries pfill\+Sector} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a6736edf43fe6fffd86cc9a11f29966de}{pdraw\+Line}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&start, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&end)
+\item 
+\Hypertarget{classmx__print__device_af43b7114c70b2abfcb3e6a96f5d1526c}\label{classmx__print__device_af43b7114c70b2abfcb3e6a96f5d1526c} 
+void {\bfseries poper\+Rect} (int \&err, const \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&rect, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, const char \texorpdfstring{$\ast$}{*}op)
+\item 
+void \mbox{\hyperlink{classmx__print__device_afdf89ff1294e45d08d32a4afe65163d5}{pdraw\+Rect}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&top\+Left, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&bottom\+Right, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a75c9aabf9d5764a5836734d619fa1840}{pdraw\+Points}} (int \&err, const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&pp)
+\item 
+void \mbox{\hyperlink{classmx__print__device_af47a3cf6d7b2977fabadf69fc130667d}{pdraw\+Segments}} (int \&err, const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&pp, bool lines\+Coincident)
+\item 
+void \mbox{\hyperlink{classmx__print__device_abf38ed2bf227af48532a00f8108531a1}{pdraw\+Polypoint}} (int \&err, const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&pp)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a0a5d42da8cbbfef1f1a6c0dbb5e41946}{pfill\+Polypoint}} (int \&err, const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&pp)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a5cba105749fab8f61b90887c7b4ffe17}{pdraw\+Circle}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, int radius)
+\item 
+void \mbox{\hyperlink{classmx__print__device_ad259edf73ccfd332850a781c8aaa4dcb}{pfill\+Circle}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, int radius)
+\item 
+int \mbox{\hyperlink{classmx__print__device_ab873103105a2f7724b495a34970bca03}{pdraw\+Text}} (int \&err, const char \texorpdfstring{$\ast$}{*}s, uint32 s\+\_\+len, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} pos, const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&char\+Style)
+\item 
+virtual void \mbox{\hyperlink{classmx__print__device_a612fb63ec53f80b1bfba7b9c48fcd703}{pdraw\+Text\+Line}} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&pos, const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&init\+\_\+char\+\_\+style, const \mbox{\hyperlink{structmx__text__item}{mx\+\_\+text\+\_\+item}} \texorpdfstring{$\ast$}{*}text\+\_\+items, uint32 num\+\_\+items)
+\item 
+uint32 \mbox{\hyperlink{classmx__print__device_a7c8252c0b99a90191647ac5bbe299a25}{pget\+Char\+Width}} (int \&err, char c, const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&cs)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a1d697519d3c1245fe5e53370e0d72d32}{pdraw\+Tile}} (int \&err, MX\+\_\+\+DEVICE\+\_\+\+RASTER tile\+Type, int nsigbits, int nunpacked\+Bits, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Size, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&top\+Left, void \texorpdfstring{$\ast$}{*}tile, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \texorpdfstring{$\ast$}{*}clip\+Rect=NULL)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a69b212f86c70f4b51e157a2363417b61}{output\+Image\+Header}} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&top\+Left\+Offset, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&real\+Size, MX\+\_\+\+DEVICE\+\_\+\+RASTER device\+Type, int nbits, int nplanes, int ncolours, \mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}colours, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&image\+Size, bool clip\+Set)
+\item 
+void \mbox{\hyperlink{classmx__print__device_aa2ec096ae7387c67c1a24fa40b8598a2}{output\+Image\+Trailer}} (int \&err, bool clip\+Set)
+\item 
+void \mbox{\hyperlink{classmx__print__device_acc4cdb7a579238870bb27ae7f5234857}{set\+Shift\+Origin}} (\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&wanted\+Shift\+Origin, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&got\+Shift\+Origin, bool do\+Shift)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a49dba0f50b04973d07d1c2e40cb50772}{make\+Gap}} (int \&err, bool doX, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&frame\+Start\+Point, double frame\+Gap\+Size)
+\item 
+void \mbox{\hyperlink{classmx__print__device_aec25031263e09cf1a80ff7098729eb1a}{close\+Gap}} (int \&err, bool doX, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&frame\+Start\+Point, double frame\+Gap\+Size)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a641c5ba2c7784f45df2923d98e06829c}{shift}} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__print__device_ae079caaaa9973588e78109d8ed332086}{refresh}} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \texorpdfstring{$\ast$}{*}top\+Left=NULL, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \texorpdfstring{$\ast$}{*}bottom\+Right=NULL)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a7aedf4ff25937a0e70fe3edec97e190c}{set\+Default\+Line\+Style}} (int \&err, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&s)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a61eb9c89419f8beeaa38f6d52960bba2}{set\+Default\+Fill\+Style}} (int \&err, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \&s)
+\item 
+void \mbox{\hyperlink{classmx__print__device_ab640723a7f0694cf631ccc11418002b0}{register\+Colour}} (\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}colour, LUT\+\_\+\+VALUE \texorpdfstring{$\ast$}{*}pixel)
+\item 
+void \mbox{\hyperlink{classmx__print__device_af5734f1acb39deb07d0b27dae1d816a5}{set\+Foreground\+Colour}} (int \&err, LUT\+\_\+\+VALUE pixel)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a84fe579744a69fdad937a127afc83370}{set\+Background\+Colour}} (int \&err, LUT\+\_\+\+VALUE pixel)
+\item 
+void \mbox{\hyperlink{classmx__print__device_aefd518d2918cb8332f7d45c57ee9fc9b}{set\+Foreground\+Colour}} (int \&err, \mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \&c)
+\item 
+void \mbox{\hyperlink{classmx__print__device_a4abe678c5a7acf5af28b99b54dc1cca7}{set\+Background\+Colour}} (int \&err, \mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \&c)
+\item 
+\Hypertarget{classmx__print__device_a396240a57c8fd54072725ea43f0b2437}\label{classmx__print__device_a396240a57c8fd54072725ea43f0b2437} 
+void {\bfseries set\+Output\+File} (int \&err, FILE \texorpdfstring{$\ast$}{*}f)
+\item 
+\Hypertarget{classmx__print__device_a7c5dda6f9884ba11210cb869490fad85}\label{classmx__print__device_a7c5dda6f9884ba11210cb869490fad85} 
+void {\bfseries send\+Preamble} (int \&err, int num\+Pages, int num\+Copies, const char \texorpdfstring{$\ast$}{*}paper\+Type, float page\+Width, float page\+Height, const char \texorpdfstring{$\ast$}{*}title, bool include\+Fonts)
+\item 
+\Hypertarget{classmx__print__device_ae059ed90be919025ac40a78876f59369}\label{classmx__print__device_ae059ed90be919025ac40a78876f59369} 
+void {\bfseries send\+Postamble} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_a53e3bd820adc1aa5a87b64b9a4e8300e}\label{classmx__print__device_a53e3bd820adc1aa5a87b64b9a4e8300e} 
+void {\bfseries start\+Page} (int \&err, int n, float page\+\_\+width, float page\+\_\+height, bool is\+\_\+landscape)
+\item 
+\Hypertarget{classmx__print__device_a608fd96cd78437ee69debab2a4823fa9}\label{classmx__print__device_a608fd96cd78437ee69debab2a4823fa9} 
+void {\bfseries end\+Page} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_aa998c4d336f852a4fce6b8e1ec82f3c7}\label{classmx__print__device_aa998c4d336f852a4fce6b8e1ec82f3c7} 
+void {\bfseries send\+Procset} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_a823715b86a2ee6bd4e56e5275b92179a}\label{classmx__print__device_a823715b86a2ee6bd4e56e5275b92179a} 
+void {\bfseries set\+Font} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_a82ad1690035cf67031495702ee3932bd}\label{classmx__print__device_a82ad1690035cf67031495702ee3932bd} 
+void {\bfseries set\+Colour} (int \&err, const \mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \&c)
+\item 
+\Hypertarget{classmx__print__device_ac627a51e354ea9b4633bb06fe508206c}\label{classmx__print__device_ac627a51e354ea9b4633bb06fe508206c} 
+void {\bfseries send\+Fonts} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_a5faad4664384508f5199dbb462dea6fb}\label{classmx__print__device_a5faad4664384508f5199dbb462dea6fb} 
+void {\bfseries send\+Font\+Encodings} (int \&err)
+\item 
+\Hypertarget{classmx__print__device_a501c92f188a3f921b42d23cf27e6c25e}\label{classmx__print__device_a501c92f188a3f921b42d23cf27e6c25e} 
+void {\bfseries send\+Font\+Resource\+List} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__print__device_ad9a401b3bf1d61a37c845238c113fadb}{set\+Xor}} (int \&err, bool set\+On)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+device} (\mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \&iframe)
+\item 
+double {\bfseries get\+Screen\+Resolution} ()
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+MMsize} ()
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Frame\+Size} ()
+\item 
+void {\bfseries push\+Clip\+Rect} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&bottom\+Right, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+void {\bfseries push\+Clip\+Polypoint} (int \&err, \mbox{\hyperlink{classmx__doc__polypoint}{mx\+\_\+doc\+\_\+polypoint}} \&pp, bool do\+Intersect)
+\item 
+void {\bfseries push\+Clip\+Arc} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, bool do\+Intersect)
+\item 
+virtual void {\bfseries pclip\+Arc} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+void {\bfseries push\+Clip\+Sector} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, bool do\+Intersect)
+\item 
+virtual void {\bfseries pclip\+Sector} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, bool do\+Intersect)
+\item 
+virtual void {\bfseries fill\+Rect} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&bottom\+Left, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \texorpdfstring{$\ast$}{*}fill\+Style=NULL)
+\item 
+virtual void {\bfseries xor\+Rect} (int \&err, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&bottom\+Left)
+\item 
+virtual void {\bfseries draw\+Line} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&start, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&end, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Rect} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&bottom\+Left, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries pdraw\+Arc} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+virtual void {\bfseries pfill\+Arc} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+virtual void {\bfseries pdraw\+Chord} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+virtual void {\bfseries pdraw\+Sector} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+virtual void {\bfseries pfill\+Sector} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&centre, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&size, bool is\+Full, double start\+Ang, double end\+Ang, const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&angle)
+\item 
+virtual void {\bfseries draw\+Arc} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries fill\+Arc} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \texorpdfstring{$\ast$}{*}fill\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Chord} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Sector} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries fill\+Sector} (int \&err, \mbox{\hyperlink{classmx__doc__arc}{mx\+\_\+doc\+\_\+arc}} \&a, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \texorpdfstring{$\ast$}{*}fill\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Circle} (int \&err, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&centre, float radius, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries fill\+Circle} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&centre, float radius, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \texorpdfstring{$\ast$}{*}fill\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Polypoint} (int \&err, \mbox{\hyperlink{classmx__doc__polypoint}{mx\+\_\+doc\+\_\+polypoint}} \&pp, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+void {\bfseries draw\+Points} (int \&err, \mbox{\hyperlink{classmx__doc__polypoint}{mx\+\_\+doc\+\_\+polypoint}} \&pp)
+\item 
+void {\bfseries draw\+Segments} (int \&err, \mbox{\hyperlink{classmx__doc__polypoint}{mx\+\_\+doc\+\_\+polypoint}} \&pp, bool lines\+Coincident, \mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \texorpdfstring{$\ast$}{*}line\+Style=NULL)
+\item 
+virtual void {\bfseries fill\+Polypoint} (int \&err, \mbox{\hyperlink{classmx__doc__polypoint}{mx\+\_\+doc\+\_\+polypoint}} \&pp, \mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \texorpdfstring{$\ast$}{*}fill\+Style=NULL)
+\item 
+virtual void {\bfseries draw\+Text} (int \&err, const char \texorpdfstring{$\ast$}{*}s, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&pos, const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&char\+Style)
+\item 
+virtual void {\bfseries draw\+Text} (int \&err, const char \texorpdfstring{$\ast$}{*}s, uint32 s\+\_\+len, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&pos, const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&char\+Style)
+\item 
+virtual void {\bfseries draw\+Text\+Line} (int \&err, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&pos, \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&init\+\_\+char\+\_\+style, const \mbox{\hyperlink{structmx__text__item}{mx\+\_\+text\+\_\+item}} \texorpdfstring{$\ast$}{*}text\+\_\+items, uint32 num\+\_\+items)
+\item 
+virtual void {\bfseries draw\+Tile} (int \&err, MX\+\_\+\+DEVICE\+\_\+\+RASTER tile\+Type, int nsigbits, int nunpacked\+Bits, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Size, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, void \texorpdfstring{$\ast$}{*}tile, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \texorpdfstring{$\ast$}{*}clip\+Rect=NULL)
+\item 
+virtual void {\bfseries xor\+Resize\+Handles} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&top\+Left, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&bottom\+Right, double handle\+Width)
+\item 
+virtual void {\bfseries pxor\+Resize\+Handles} (int \&err, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&top\+Left, const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&bottom\+Right, uint32 handle\+Width)
+\item 
+virtual float {\bfseries get\+Char\+Width} (int \&err, char c, \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&cs)
+\item 
+virtual int {\bfseries depth} ()
+\item 
+double {\bfseries dev2frame} (double dev\+Length)
+\item 
+double {\bfseries frame2dev} (double frame\+Length)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries dev2frame} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&dev\+Point)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries frame2dev} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&frame\+Point)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries frame\+Target2dev} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&frame\+Target\+Coord)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries dev2frame\+Target} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&dev\+Coord)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries pixel\+Snap\+Frame} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&position)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries pixel\+Snap\+Frame\+Target} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&position)
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries pixel\+Snap} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&position)
+\item 
+virtual void {\bfseries set\+Draw\+To\+Window\+Only} (bool idraw\+To\+Window\+Only)
+\item 
+\mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Frame} ()
+\item 
+bool {\bfseries get\+RGB} ()
+\item 
+bool {\bfseries get\+LUT} ()
+\item 
+bool {\bfseries get\+Bit} ()
+\item 
+double {\bfseries frame\+Resolution} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries set\+Next\+Target} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}inext\+Target, int target\+Id)
+\item 
+virtual void {\bfseries button\+Motion\+Start} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Motion\+End} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries external\+Selection} (int \&err, char \texorpdfstring{$\ast$}{*}sel)
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+External\+Selection} (int \&err)
+\item 
+virtual void {\bfseries button\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Release} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Double\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries button\+Triple\+Press} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Press} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries key\+Release} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries text\+Entry} (int \&err, \mbox{\hyperlink{classmx__text__event}{mx\+\_\+text\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries pre\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries special\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries post\+Draw} (int \&err, \mbox{\hyperlink{classmx__draw__event}{mx\+\_\+draw\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries pre\+Scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries post\+Scroll} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries scroll\+Drag} (int \&err, \mbox{\hyperlink{classmx__scroll__event}{mx\+\_\+scroll\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries resize} (int \&err, \mbox{\hyperlink{classmx__resize__event}{mx\+\_\+resize\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries expose} (int \&err, \mbox{\hyperlink{classmx__expose__event}{mx\+\_\+expose\+\_\+event}} \&event)
+\item 
+virtual void {\bfseries set\+Event} (int \&err, unsigned long int event\+Type, bool set\+On)
+\item 
+void {\bfseries set\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries add\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+void {\bfseries clear\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+bool {\bfseries test\+Process\+Mask} (unsigned long int new\+Mask)
+\item 
+\mbox{\hyperlink{classmx__cb__in__propagate}{mx\+\_\+cb\+\_\+in\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+In\+Prop} (int offset)
+\item 
+\mbox{\hyperlink{classmx__cb__out__propagate}{mx\+\_\+cb\+\_\+out\+\_\+propagate}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Out\+Prop} (int offset)
+\item 
+void {\bfseries set\+To\+Not\+Receive\+Events} (int id)
+\item 
+void {\bfseries set\+To\+Propagate\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}receiver, int receiver\+Id)
+\item 
+void {\bfseries set\+To\+Not\+Propagate\+Events} (\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}target)
+\item 
+void {\bfseries set\+To\+Receive\+Events} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}propagator, MX\+\_\+\+COORD\+\_\+\+CONVERSION\+\_\+\+FUNC func)
+\item 
+bool {\bfseries get\+Filter\+Motion} ()
+\item 
+void {\bfseries set\+Filter\+Motion} (bool ifilter\+Same\+Motion)
+\item 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries get\+Last\+Motion} ()
+\item 
+void {\bfseries set\+Last\+Motion} (const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&ilast\+Motion\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+Screen\+Resolution} (double ires)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries propagate\+Event} (int \&err, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}original\+Event, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}out\+Event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries does\+RGB}
+\item 
+bool {\bfseries does\+LUT}
+\item 
+bool {\bfseries does\+Bit}
+\item 
+bool {\bfseries draws\+Chord}
+\item 
+bool {\bfseries draws\+Sector}
+\item 
+bool {\bfseries fills\+Sector}
+\item 
+bool {\bfseries draws\+Beziers}
+\item 
+bool {\bfseries fills\+Beziers}
+\item 
+bool {\bfseries closes\+Lines\+Without\+Last\+Point}
+\item 
+bool {\bfseries clips\+Arc}
+\item 
+bool {\bfseries clips\+Sector}
+\item 
+bool {\bfseries does\+Rotate}
+\item 
+bool {\bfseries does\+Affine}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__print__device_aec25031263e09cf1a80ff7098729eb1a}\label{classmx__print__device_aec25031263e09cf1a80ff7098729eb1a} 
+\index{mx\_print\_device@{mx\_print\_device}!closeGap@{closeGap}}
+\index{closeGap@{closeGap}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{closeGap()}{closeGap()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::close\+Gap (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{bool}]{doX,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{frame\+Start\+Point,  }\item[{double}]{frame\+Gap\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a8932b808a7abe7c9fc88f434d9618fb7}\label{classmx__print__device_a8932b808a7abe7c9fc88f434d9618fb7} 
+\index{mx\_print\_device@{mx\_print\_device}!getDevicePixelSize@{getDevicePixelSize}}
+\index{getDevicePixelSize@{getDevicePixelSize}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{getDevicePixelSize()}{getDevicePixelSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} mx\+\_\+print\+\_\+device\+::get\+Device\+Pixel\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a49dba0f50b04973d07d1c2e40cb50772}\label{classmx__print__device_a49dba0f50b04973d07d1c2e40cb50772} 
+\index{mx\_print\_device@{mx\_print\_device}!makeGap@{makeGap}}
+\index{makeGap@{makeGap}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{makeGap()}{makeGap()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::make\+Gap (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{bool}]{doX,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{frame\+Start\+Point,  }\item[{double}]{frame\+Gap\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a69b212f86c70f4b51e157a2363417b61}\label{classmx__print__device_a69b212f86c70f4b51e157a2363417b61} 
+\index{mx\_print\_device@{mx\_print\_device}!outputImageHeader@{outputImageHeader}}
+\index{outputImageHeader@{outputImageHeader}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{outputImageHeader()}{outputImageHeader()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::output\+Image\+Header (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{top\+Left\+Offset,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{real\+Size,  }\item[{MX\+\_\+\+DEVICE\+\_\+\+RASTER}]{device\+Type,  }\item[{int}]{nbits,  }\item[{int}]{nplanes,  }\item[{int}]{ncolours,  }\item[{\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}}]{colours,  }\item[{\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{image\+Size,  }\item[{bool}]{clip\+Set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_aa2ec096ae7387c67c1a24fa40b8598a2}\label{classmx__print__device_aa2ec096ae7387c67c1a24fa40b8598a2} 
+\index{mx\_print\_device@{mx\_print\_device}!outputImageTrailer@{outputImageTrailer}}
+\index{outputImageTrailer@{outputImageTrailer}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{outputImageTrailer()}{outputImageTrailer()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::output\+Image\+Trailer (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{bool}]{clip\+Set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a5cba105749fab8f61b90887c7b4ffe17}\label{classmx__print__device_a5cba105749fab8f61b90887c7b4ffe17} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawCircle@{pdrawCircle}}
+\index{pdrawCircle@{pdrawCircle}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawCircle()}{pdrawCircle()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Circle (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{centre,  }\item[{int}]{radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a6736edf43fe6fffd86cc9a11f29966de}\label{classmx__print__device_a6736edf43fe6fffd86cc9a11f29966de} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawLine@{pdrawLine}}
+\index{pdrawLine@{pdrawLine}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawLine()}{pdrawLine()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Line (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{start,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a75c9aabf9d5764a5836734d619fa1840}\label{classmx__print__device_a75c9aabf9d5764a5836734d619fa1840} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawPoints@{pdrawPoints}}
+\index{pdrawPoints@{pdrawPoints}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawPoints()}{pdrawPoints()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Points (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&}]{pp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_abf38ed2bf227af48532a00f8108531a1}\label{classmx__print__device_abf38ed2bf227af48532a00f8108531a1} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawPolypoint@{pdrawPolypoint}}
+\index{pdrawPolypoint@{pdrawPolypoint}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawPolypoint()}{pdrawPolypoint()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Polypoint (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&}]{pp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_afdf89ff1294e45d08d32a4afe65163d5}\label{classmx__print__device_afdf89ff1294e45d08d32a4afe65163d5} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawRect@{pdrawRect}}
+\index{pdrawRect@{pdrawRect}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawRect()}{pdrawRect()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Rect (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{top\+Left,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{bottom\+Right,  }\item[{const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_af47a3cf6d7b2977fabadf69fc130667d}\label{classmx__print__device_af47a3cf6d7b2977fabadf69fc130667d} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawSegments@{pdrawSegments}}
+\index{pdrawSegments@{pdrawSegments}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawSegments()}{pdrawSegments()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Segments (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&}]{pp,  }\item[{bool}]{lines\+Coincident }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_ab873103105a2f7724b495a34970bca03}\label{classmx__print__device_ab873103105a2f7724b495a34970bca03} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawText@{pdrawText}}
+\index{pdrawText@{pdrawText}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawText()}{pdrawText()}}
+{\footnotesize\ttfamily int mx\+\_\+print\+\_\+device\+::pdraw\+Text (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s,  }\item[{uint32}]{s\+\_\+len,  }\item[{\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}}}]{pos,  }\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{char\+Style }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a612fb63ec53f80b1bfba7b9c48fcd703}\label{classmx__print__device_a612fb63ec53f80b1bfba7b9c48fcd703} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawTextLine@{pdrawTextLine}}
+\index{pdrawTextLine@{pdrawTextLine}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawTextLine()}{pdrawTextLine()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+print\+\_\+device\+::pdraw\+Text\+Line (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{pos,  }\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{init\+\_\+char\+\_\+style,  }\item[{const \mbox{\hyperlink{structmx__text__item}{mx\+\_\+text\+\_\+item}} \texorpdfstring{$\ast$}{*}}]{text\+\_\+items,  }\item[{uint32}]{num\+\_\+items }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a1d697519d3c1245fe5e53370e0d72d32}\label{classmx__print__device_a1d697519d3c1245fe5e53370e0d72d32} 
+\index{mx\_print\_device@{mx\_print\_device}!pdrawTile@{pdrawTile}}
+\index{pdrawTile@{pdrawTile}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pdrawTile()}{pdrawTile()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pdraw\+Tile (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{MX\+\_\+\+DEVICE\+\_\+\+RASTER}]{tile\+Type,  }\item[{int}]{nsigbits,  }\item[{int}]{nunpacked\+Bits,  }\item[{\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{tile\+Size,  }\item[{\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{top\+Left,  }\item[{void \texorpdfstring{$\ast$}{*}}]{tile,  }\item[{\mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \texorpdfstring{$\ast$}{*}}]{clip\+Rect = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_ad259edf73ccfd332850a781c8aaa4dcb}\label{classmx__print__device_ad259edf73ccfd332850a781c8aaa4dcb} 
+\index{mx\_print\_device@{mx\_print\_device}!pfillCircle@{pfillCircle}}
+\index{pfillCircle@{pfillCircle}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pfillCircle()}{pfillCircle()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pfill\+Circle (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{centre,  }\item[{int}]{radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a0a5d42da8cbbfef1f1a6c0dbb5e41946}\label{classmx__print__device_a0a5d42da8cbbfef1f1a6c0dbb5e41946} 
+\index{mx\_print\_device@{mx\_print\_device}!pfillPolypoint@{pfillPolypoint}}
+\index{pfillPolypoint@{pfillPolypoint}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pfillPolypoint()}{pfillPolypoint()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pfill\+Polypoint (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&}]{pp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a3e5647bb48106bfdc00b185b6fac509b}\label{classmx__print__device_a3e5647bb48106bfdc00b185b6fac509b} 
+\index{mx\_print\_device@{mx\_print\_device}!pfillRect@{pfillRect}}
+\index{pfillRect@{pfillRect}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pfillRect()}{pfillRect()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pfill\+Rect (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{top\+Left,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{bottom\+Right,  }\item[{const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a7c8252c0b99a90191647ac5bbe299a25}\label{classmx__print__device_a7c8252c0b99a90191647ac5bbe299a25} 
+\index{mx\_print\_device@{mx\_print\_device}!pgetCharWidth@{pgetCharWidth}}
+\index{pgetCharWidth@{pgetCharWidth}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pgetCharWidth()}{pgetCharWidth()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+print\+\_\+device\+::pget\+Char\+Width (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{char}]{c,  }\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{cs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a4fa898c4c2d06daa50a7db55f338d987}\label{classmx__print__device_a4fa898c4c2d06daa50a7db55f338d987} 
+\index{mx\_print\_device@{mx\_print\_device}!popClipMask@{popClipMask}}
+\index{popClipMask@{popClipMask}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{popClipMask()}{popClipMask()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pop\+Clip\+Mask (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_af77a0e8b308f6c40370735dfa975085b}\label{classmx__print__device_af77a0e8b308f6c40370735dfa975085b} 
+\index{mx\_print\_device@{mx\_print\_device}!pushClipPolypoint@{pushClipPolypoint}}
+\index{pushClipPolypoint@{pushClipPolypoint}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pushClipPolypoint()}{pushClipPolypoint()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::push\+Clip\+Polypoint (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipolypoint}{mx\+\_\+ipolypoint}} \&}]{pp,  }\item[{bool}]{do\+Intersect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_aada5f36bb2e19f52209be088753e4d42}\label{classmx__print__device_aada5f36bb2e19f52209be088753e4d42} 
+\index{mx\_print\_device@{mx\_print\_device}!pushClipRect@{pushClipRect}}
+\index{pushClipRect@{pushClipRect}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pushClipRect()}{pushClipRect()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::push\+Clip\+Rect (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&}]{coords,  }\item[{const \mbox{\hyperlink{classmx__angle}{mx\+\_\+angle}} \&}]{angle,  }\item[{bool}]{do\+Intersect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a34b3b7deae0f3b37cf7653985a827ad0}\label{classmx__print__device_a34b3b7deae0f3b37cf7653985a827ad0} 
+\index{mx\_print\_device@{mx\_print\_device}!pxorRect@{pxorRect}}
+\index{pxorRect@{pxorRect}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{pxorRect()}{pxorRect()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::pxor\+Rect (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{top\+Left,  }\item[{const \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{bottom\+Right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_ae079caaaa9973588e78109d8ed332086}\label{classmx__print__device_ae079caaaa9973588e78109d8ed332086} 
+\index{mx\_print\_device@{mx\_print\_device}!refresh@{refresh}}
+\index{refresh@{refresh}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::refresh (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \texorpdfstring{$\ast$}{*}}]{top\+Left = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \texorpdfstring{$\ast$}{*}}]{bottom\+Right = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_ab640723a7f0694cf631ccc11418002b0}\label{classmx__print__device_ab640723a7f0694cf631ccc11418002b0} 
+\index{mx\_print\_device@{mx\_print\_device}!registerColour@{registerColour}}
+\index{registerColour@{registerColour}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{registerColour()}{registerColour()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::register\+Colour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}}]{colour,  }\item[{LUT\+\_\+\+VALUE \texorpdfstring{$\ast$}{*}}]{pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a84fe579744a69fdad937a127afc83370}\label{classmx__print__device_a84fe579744a69fdad937a127afc83370} 
+\index{mx\_print\_device@{mx\_print\_device}!setBackgroundColour@{setBackgroundColour}}
+\index{setBackgroundColour@{setBackgroundColour}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setBackgroundColour()}{setBackgroundColour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Background\+Colour (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{LUT\+\_\+\+VALUE}]{pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a4abe678c5a7acf5af28b99b54dc1cca7}\label{classmx__print__device_a4abe678c5a7acf5af28b99b54dc1cca7} 
+\index{mx\_print\_device@{mx\_print\_device}!setBackgroundColour@{setBackgroundColour}}
+\index{setBackgroundColour@{setBackgroundColour}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setBackgroundColour()}{setBackgroundColour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Background\+Colour (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a61eb9c89419f8beeaa38f6d52960bba2}\label{classmx__print__device_a61eb9c89419f8beeaa38f6d52960bba2} 
+\index{mx\_print\_device@{mx\_print\_device}!setDefaultFillStyle@{setDefaultFillStyle}}
+\index{setDefaultFillStyle@{setDefaultFillStyle}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setDefaultFillStyle()}{setDefaultFillStyle()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Default\+Fill\+Style (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__fill__style}{mx\+\_\+fill\+\_\+style}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a7aedf4ff25937a0e70fe3edec97e190c}\label{classmx__print__device_a7aedf4ff25937a0e70fe3edec97e190c} 
+\index{mx\_print\_device@{mx\_print\_device}!setDefaultLineStyle@{setDefaultLineStyle}}
+\index{setDefaultLineStyle@{setDefaultLineStyle}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setDefaultLineStyle()}{setDefaultLineStyle()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Default\+Line\+Style (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__line__style}{mx\+\_\+line\+\_\+style}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_af5734f1acb39deb07d0b27dae1d816a5}\label{classmx__print__device_af5734f1acb39deb07d0b27dae1d816a5} 
+\index{mx\_print\_device@{mx\_print\_device}!setForegroundColour@{setForegroundColour}}
+\index{setForegroundColour@{setForegroundColour}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setForegroundColour()}{setForegroundColour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Foreground\+Colour (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{LUT\+\_\+\+VALUE}]{pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_aefd518d2918cb8332f7d45c57ee9fc9b}\label{classmx__print__device_aefd518d2918cb8332f7d45c57ee9fc9b} 
+\index{mx\_print\_device@{mx\_print\_device}!setForegroundColour@{setForegroundColour}}
+\index{setForegroundColour@{setForegroundColour}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setForegroundColour()}{setForegroundColour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Foreground\+Colour (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_acc4cdb7a579238870bb27ae7f5234857}\label{classmx__print__device_acc4cdb7a579238870bb27ae7f5234857} 
+\index{mx\_print\_device@{mx\_print\_device}!setShiftOrigin@{setShiftOrigin}}
+\index{setShiftOrigin@{setShiftOrigin}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setShiftOrigin()}{setShiftOrigin()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Shift\+Origin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{wanted\+Shift\+Origin,  }\item[{\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{got\+Shift\+Origin,  }\item[{bool}]{do\+Shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_ad9a401b3bf1d61a37c845238c113fadb}\label{classmx__print__device_ad9a401b3bf1d61a37c845238c113fadb} 
+\index{mx\_print\_device@{mx\_print\_device}!setXor@{setXor}}
+\index{setXor@{setXor}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{setXor()}{setXor()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::set\+Xor (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{bool}]{set\+On }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+\Hypertarget{classmx__print__device_a641c5ba2c7784f45df2923d98e06829c}\label{classmx__print__device_a641c5ba2c7784f45df2923d98e06829c} 
+\index{mx\_print\_device@{mx\_print\_device}!shift@{shift}}
+\index{shift@{shift}!mx\_print\_device@{mx\_print\_device}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily void mx\+\_\+print\+\_\+device\+::shift (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__device}{mx\+\_\+device}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+pr\+\_\+device.\+h\end{DoxyCompactItemize}

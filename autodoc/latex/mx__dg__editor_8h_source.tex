@@ -1,0 +1,429 @@
+\doxysection{mx\+\_\+dg\+\_\+editor.\+h}
+\hypertarget{mx__dg__editor_8h_source}{}\label{mx__dg__editor_8h_source}\index{dgedit/mx\_dg\_editor.h@{dgedit/mx\_dg\_editor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_dg\_editor}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ \ The\ mx\_dg\_editor\ class\ provides\ a\ diagram\ editing\ interface\ on}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \ a\ diagram\ area}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_editor.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_dg\_area.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_painter.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ forward\ declarations}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__menubar}{mx\_dg\_menubar}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__toolbar}{mx\_dg\_toolbar}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__statusbar}{mx\_statusbar}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__scrollable__frame}{mx\_scrollable\_frame}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area__layout}{mx\_area\_layout}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ MX\_DGT\_NONE,}
+\DoxyCodeLine{00055\ \ \ \ \ MX\_DGT\_TOP,}
+\DoxyCodeLine{00056\ \ \ \ \ MX\_DGT\_SPAN,}
+\DoxyCodeLine{00057\ \ \ \ \ MX\_DGT\_ARC,}
+\DoxyCodeLine{00058\ \ \ \ \ MX\_DGT\_FULL\_CIRCLE,}
+\DoxyCodeLine{00059\ \ \ \ \ MX\_DGT\_FULL\_ELLIPSE,}
+\DoxyCodeLine{00060\ \ \ \ \ MX\_DGT\_PARTIAL\_CIRCLE,}
+\DoxyCodeLine{00061\ \ \ \ \ MX\_DGT\_PARTIAL\_ELLIPSE,}
+\DoxyCodeLine{00062\ \ \ \ \ MX\_DGT\_POINT,}
+\DoxyCodeLine{00063\ \ \ \ \ MX\_DGT\_POLYPOINT,}
+\DoxyCodeLine{00064\ \ \ \ \ MX\_DGT\_RECT,}
+\DoxyCodeLine{00065\ \ \ \ \ MX\_DGT\_SNAP,}
+\DoxyCodeLine{00066\ \ \ \ \ MX\_DGT\_SELECT,}
+\DoxyCodeLine{00067\ \ \ \ \ MX\_DGT\_LAST}
+\DoxyCodeLine{00068\ \}\ MX\_DGT\_STATE;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ MX\_DG\_UPDATE\ "{}UPDATE"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ MX\_DG\_QUIT\ "{}QUIT"{}}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ MX\_DG\_RETURN\ "{}RETURN"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ MX\_DG\_UNDO\ "{}UNDO"{}}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ MX\_DG\_REDO\ "{}REDO"{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ MX\_DG\_CUT\ "{}CUT"{}}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ MX\_DG\_PASTE\ "{}PASTE"{}}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ MX\_DG\_SELECT\_ALL\ "{}SELECT\_ALL"{}}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ MX\_DG\_ROTATE\ "{}ROTATE"{}}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ MX\_DG\_SCALE\ "{}SCALE"{}}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ MX\_DG\_UP\_LEVEL\ "{}UP\_LEVEL"{}}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ MX\_DG\_DOWN\_LEVEL\ "{}DOWN\_LEVEL"{}}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ MX\_DG\_CHOOSE\_LEVEL\ "{}CHOOSE\_LEVEL"{}}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ MX\_DG\_CURRENT\_LEVEL\ "{}CURRENT\_LEVEL"{}}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ MX\_DG\_LINE\_STYLE\ "{}LINE\_STYLE"{}}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ MX\_DG\_AREA\_STYLE\ "{}AREA\_STYLE"{}}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ MX\_DG\_TEXT\_STYLE\ "{}TEXT\_STYLE"{}}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ MX\_DG\_COLOUR\_STYLE\ "{}COLOUR\_STYLE"{}}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ MX\_DG\_GRID\ "{}GRID"{}}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ MX\_DG\_SNAP\ "{}SNAP"{}}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ MX\_DG\_GUIDE\ "{}GUIDE"{}}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ MX\_DG\_SPAN\ "{}SPAN"{}}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ MX\_DG\_ARC\ "{}ARC"{}}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ MX\_DG\_PLINE\ "{}PLINE"{}}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ MX\_DG\_RECT\ "{}RECT"{}}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ MX\_DG\_SELECT\ "{}SELECT"{}}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ MX\_DG\_ALIGN\ "{}ALIGN"{}}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ MX\_DG\_FLIP\ "{}FLIP"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ MX\_DG\_GROUP\ "{}GROUP"{}}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ MX\_DG\_UNGROUP\ "{}UNGROUP"{}}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ MX\_DG\_NO\_HIGHLIGHT\_KEY\ 0}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ MX\_DG\_ALL\_HIGHLIGHT\_KEY\ ((uint32)\ -\/\ 1)}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ MX\_DG\_ALL\_SELECTED\_KEY\ ((uint32)\ -\/\ 1)}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__select__iterator}{mx\_dg\_select\_iterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__iterator}{mx\_dg\_iterator}}\ \{}
+\DoxyCodeLine{00107\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__dg__select__iterator}{mx\_dg\_select\_iterator}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ processFunction(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__quad__geom}{mx\_dg\_quad\_geom}}\&\ quadGeom,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ advance,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ done,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ skippedSome);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ processFunctionWGM(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__dg__quad__geom}{mx\_dg\_quad\_geom}}\&\ quadGeom);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTolerance(\textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ snapInfo.setTolerance(tolerance);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ resetSnapInfo()\ \{\ snapInfo.setCount(MX\_GEOM\_SNAP\_NONE);\ \};}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ip)\ \{\ testPoint\ =\ ip;\ \};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWholeGeometryMode(\textcolor{keywordtype}{bool}\ im)\ \{\ wholeGeometryMode\ =\ im;\ \};}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getWholeGeometryMode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ wholeGeometryMode;\ \};}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setAdditiveMode(\textcolor{keywordtype}{bool}\ im)\ \{\ additiveMode\ =\ im;\ \};}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getAdditiveMode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ additiveMode;\ \};}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSnapping(\textcolor{keywordtype}{bool}\ is)\ \{\ snapInfo.setMode(is);\ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor;}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\ snapInfo;}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ testPoint;}
+\DoxyCodeLine{00137\ \ \ \ \ uint32\ lastSelectedId;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ wholeGeometryMode;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ additiveMode;}
+\DoxyCodeLine{00140\ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__grid}{mx\_dg\_grid}}\ \{}
+\DoxyCodeLine{00143\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{classmx__dg__grid}{mx\_dg\_grid}}();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isActive()\ \{\ \textcolor{keywordflow}{return}\ active;\ \};}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getSize()\ \{\ \textcolor{keywordflow}{return}\ size;\ \};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getAnchor()\ \{\ \textcolor{keywordflow}{return}\ anchor;\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ toggleActive()\ \{\ active\ =\ !active;\ \};}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setActive(\textcolor{keywordtype}{bool}\ iactive)\ \{\ active\ =\ iactive;\ \};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSize(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ip)\ \{\ size\ =\ ip;\ \};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setAnchor(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ip)\ \{\ anchor\ =\ ip;\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ snapPoint(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ inpoint);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ drawRect,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ device);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ active;}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ size;}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ anchor;}
+\DoxyCodeLine{00164\ \};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}}\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}}(\mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey);}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{classmx__dg__selected}{\string~mx\_dg\_selected}}();}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ getGeom()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ geom;\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{inline}\ uint32\ getSelectedId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ selectedId;\ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSelectedId(uint32\ \textcolor{keywordtype}{id})\ \{\ selectedId\ =\ id;\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getStyleId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ storedStyleId;\ \};}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getColourId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ storedColourId;\ \};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ null\_selection\ =\ -\/1;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ all\_selection\ =\ -\/2;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ addSelectCount(\mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ selectCount,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ allGone);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}*\ regionOfInterest,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__style__device}{mx\_style\_device}}*\ device);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{bool}\ isActive;}
+\DoxyCodeLine{00196\ \ \ \ \ uint32\ selectedId;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ addSelections;}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{int}\ nselectCounts;}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{int}\ storedStyleId;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{int}\ storedColourId;}
+\DoxyCodeLine{00202\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}\ \{}
+\DoxyCodeLine{00205\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}()\ \{\ \};}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__dg__ur__item}{\string~mx\_dg\_ur\_item}}()\ \{\ \};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ =\ 0;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ =\ 0;}
+\DoxyCodeLine{00212\ \};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__geom__ur__item}{mx\_dg\_geom\_ur\_item}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}\ \{}
+\DoxyCodeLine{00215\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{classmx__dg__geom__ur__item}{mx\_dg\_geom\_ur\_item}}()\ \{\ replaceGeom\ =\ \textcolor{keyword}{nullptr};\ \};}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{classmx__dg__geom__ur__item}{\string~mx\_dg\_geom\_ur\_item}}()\ \{\ \textcolor{keyword}{delete}\ replaceGeom;\ \};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\ getLevelKey()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ levelKey;\ \};}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setLevelKey(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ ik)\ \{\ levelKey\ =\ ik;\ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\ levelKey;}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ replaceGeom;}
+\DoxyCodeLine{00225\ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__swap__ur__item}{mx\_dg\_swap\_ur\_item}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__geom__ur__item}{mx\_dg\_geom\_ur\_item}}\ \{}
+\DoxyCodeLine{00228\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ \{\ \};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ \{\ \};}
+\DoxyCodeLine{00231\ \};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__add__ur__item}{mx\_dg\_add\_ur\_item}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__geom__ur__item}{mx\_dg\_geom\_ur\_item}}\ \{}
+\DoxyCodeLine{00234\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed);}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\ prevKey;}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\ nextKey;}
+\DoxyCodeLine{00241\ \};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__delete__ur__item}{mx\_dg\_delete\_ur\_item}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dg__geom__ur__item}{mx\_dg\_geom\_ur\_item}}\ \{}
+\DoxyCodeLine{00244\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ \{\ \};}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ ed)\ \{\ \};}
+\DoxyCodeLine{00247\ \};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__undo__action}{mx\_dg\_undo\_action}}\ \{}
+\DoxyCodeLine{00250\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00251\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo__action}{mx\_dg\_undo\_action}}();}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo__action}{\string~mx\_dg\_undo\_action}}();}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{void}\ addUndoItem(\mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}*\ uitem);}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isClear()\ \{\ \textcolor{keywordflow}{return}\ nundos\ ==\ 0;\ \};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setAreaOfInterest(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r)\ \{\ areaOfInterest\ =\ r;\ \};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{int}\ nallocUndos;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{int}\ nundos;}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}**\ undoItems;}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ areaOfInterest;}
+\DoxyCodeLine{00269\ \};}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__undo}{mx\_dg\_undo}}\ \{}
+\DoxyCodeLine{00272\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00273\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo}{mx\_dg\_undo}}(\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor,}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxLevels);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo}{\string~mx\_dg\_undo}}();}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ startTransaction();}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{void}\ addUndoItem(\mbox{\hyperlink{classmx__dg__ur__item}{mx\_dg\_ur\_item}}*\ uitem);}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setAreaOfInterest(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r)}
+\DoxyCodeLine{00285\ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ actions[currentAction].setAreaOfInterest(r);}
+\DoxyCodeLine{00287\ \ \ \ \ \};}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}*\ editor;}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{int}\ currentAction;}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{int}\ maxLevels;}
+\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo__action}{mx\_dg\_undo\_action}}*\ actions;}
+\DoxyCodeLine{00294\ \};}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__editor}{mx\_editor}}\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{comment}{//\ MX\_RTTI(mx\_dg\_editor\_class\_e)}}
+\DoxyCodeLine{00298\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__dg__editor}{\string~mx\_dg\_editor}}();}
+\DoxyCodeLine{00300\ \ \ \ \ \mbox{\hyperlink{classmx__dg__editor}{mx\_dg\_editor}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__app}{mx\_app}}\&\ a,}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ dgarea);}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//\ get\ a\ pointer\ to\ the\ current\ document}}
+\DoxyCodeLine{00304\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ get\_document()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ open\_derived\_doc\_class(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{bool}\ recover)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \};}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{void}\ file\_export(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ file\_name,\ mx\_file\_type\_t\ type)\ \{\ \};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{void}\ setMouseMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ setOn);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{void}\ preScroll(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ event);}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{void}\ postScroll(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ event);}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ pushState(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ MX\_DGT\_STATE\ newStateType);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{void}\ pushState(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ newState);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ popState(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ getCurrentState()\ \{\ \textcolor{keywordflow}{return}\ currentState;\ \};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//\ add\ an\ item\ to\ the\ temporarily\ highlighted\ list}}
+\DoxyCodeLine{00327\ \ \ \ \ uint32\ addHighlighted(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom);}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{comment}{//\ remove\ an\ item\ to\ the\ temporarily\ highlighted\ list}}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{void}\ delHighlighted(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey\ =\ MX\_DG\_ALL\_HIGHLIGHT\_KEY);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{void}\ drawHighlighted(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey\ =\ MX\_DG\_ALL\_HIGHLIGHT\_KEY);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ getHighlighted(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{//\ selected\ list}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ uint32\ addSelected(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{bool}\ testSelectedHit(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ testPoint);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordtype}{bool}\ delSelected(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{bool}\ delSelected(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey\ =\ MX\_DG\_ALL\_SELECTED\_KEY,\ uint32\ saveFromDelete\ =\ MX\_DG\_ALL\_SELECTED\_KEY);}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{void}\ drawSelected(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey\ =\ MX\_DG\_ALL\_HIGHLIGHT\_KEY,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}*\ regionOfInterest\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{void}\ drawSelectedGeom(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}}*\ selection,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}*\ regionOfInterest\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}}*\ getSelected(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey);}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ \mbox{\hyperlink{classmx__dg__selected}{mx\_dg\_selected}}*\ getSelected(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ getSelectedGeom(\textcolor{keywordtype}{int}\&\ err,\ uint32\ hashKey);}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ getDevice();}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{void}\ addGeometry(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\&\ geom);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__dg__grid}{mx\_dg\_grid}}*\ getGrid()\ \{\ \textcolor{keywordflow}{return}\ \&grid;\ \};}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{void}\ toggleGrid(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{void}\ bell();}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ getLastGeometry()\ \{\ \textcolor{keywordflow}{return}\ lastGeometry;\ \};}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getSnapDistance()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ snapDistance;\ \};}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSnapDistance(\textcolor{keywordtype}{double}\ s)\ \{\ snapDistance\ =\ s;\ \};}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ getArea()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ area;\ \};}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ undo(\textcolor{keywordtype}{int}\&\ err)\ \{\ undoInfo.undo(err);\ \};}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ redo(\textcolor{keywordtype}{int}\&\ err)\ \{\ undoInfo.redo(err);\ \};}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{void}\ refresh(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ ibox);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteGeometry(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey,\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ nextLevelKey,\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ prevLevelKey);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordtype}{void}\ undeleteGeometry(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ levelKey,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ nextLevelKey,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__dg__level__key}{mx\_dg\_level\_key}}\&\ prevLevelKey);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{int}\ numberSelected(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ createGroup(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__dg__group__key}{mx\_dg\_group\_key}}\&\ groupKey);}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00387\ \ \ \ \ \mbox{\hyperlink{classmx__area__layout}{mx\_area\_layout}}*\ layout;}
+\DoxyCodeLine{00388\ \ \ \ \ \mbox{\hyperlink{classmx__dg__menubar}{mx\_dg\_menubar}}*\ menu;}
+\DoxyCodeLine{00389\ \ \ \ \ \mbox{\hyperlink{classmx__dg__toolbar}{mx\_dg\_toolbar}}*\ toolbar;}
+\DoxyCodeLine{00390\ \ \ \ \ \mbox{\hyperlink{classmx__statusbar}{mx\_statusbar}}*\ statusbar;}
+\DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{classmx__scrollable__frame}{mx\_scrollable\_frame}}*\ frame;}
+\DoxyCodeLine{00392\ \ \ \ \ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ area;}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{comment}{//\ create\ the\ frame}}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{void}\ create\_frame(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{comment}{//\ set\ frame\ target\ parameters}}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ setup\_frame\_target\_params();}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{classmx__area__layout}{mx\_area\_layout}}\&\ set\_sheet\_layout(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ dgarea);}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{void}\ addStandardStyles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \mbox{\hyperlink{classmx__dg__grid}{mx\_dg\_grid}}\ grid;}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ topState;}
+\DoxyCodeLine{00407\ \ \ \ \ \mbox{\hyperlink{classmx__dg__state}{mx\_dg\_state}}*\ currentState;}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \ \ uint32\ lastHashKey;}
+\DoxyCodeLine{00410\ \ \ \ \ std::map<int,\ mx\_geom\ *>\ m\_tempHighlighted;}
+\DoxyCodeLine{00411\ \ \ \ \ std::map<int,\ mx\_dg\_selected\ *>\ m\_selected;}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ int32\ currentColourId;}
+\DoxyCodeLine{00414\ \ \ \ \ int32\ currentLineStyleId;}
+\DoxyCodeLine{00415\ \ \ \ \ int32\ currentAreaStyleId;}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{int}\ currentLevel;}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ lastGeometry;}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{double}\ snapDistance;}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \mbox{\hyperlink{classmx__dg__undo}{mx\_dg\_undo}}\ undoInfo;}
+\DoxyCodeLine{00423\ \};}
+
+\end{DoxyCode}

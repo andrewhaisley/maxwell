@@ -1,0 +1,250 @@
+\doxysection{mx\+\_\+sh\+\_\+lay.\+h}
+\hypertarget{mx__sh__lay_8h_source}{}\label{mx__sh__lay_8h_source}\index{view/mx\_sh\_lay.h@{view/mx\_sh\_lay.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_SH\_LAY\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_SH\_LAY\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_sh\_lay.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_sh\_lay.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <geometry.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_doc\_coord.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_doc\_rect.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ CLASS:\ mx\_sheet\_size}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ DESCRIPTION:\ The\ size\ and\ position\ of\ a}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ sheet\ in\ a\ document\ (i.e.\ a\ set\ of\ sheets).}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ In\ a\ WP\ application\ the\ y\ position\ is\ the\ offset\ of}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ the\ top\ left\ hand\ corner\ of\ the\ corner\ and\ is\ the}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ sum\ of\ the\ sizes\ of\ the\ previous\ sheets.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ The\ x\ position\ in\ a\ WP\ application\ is\ taken\ to\ be\ the}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ maximum\ sheet\ x\ size\ up\ to\ this\ sheet}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ In\ more\ complex\ arrangements\ of\ sheets\ the\ meanings}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ of\ size\ and\ position\ could\ be\ different}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}\ \{}
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}()\ \{\ \};}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}\&\ other);}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ isz);}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ sheetSize,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ sheetPosition);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ipos)\ \{\ position\ =\ ipos;\ \};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setMaxSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ imaxsz)\ \{\ maxSize\ =\ imaxsz;\ \};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ isz)\ \{\ size\ =\ isz;\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getSize()\ \{\ \textcolor{keywordflow}{return}\ size;\ \};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getPosition()\ \{\ \textcolor{keywordflow}{return}\ position;\ \};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getMaxSize()\ \{\ \textcolor{keywordflow}{return}\ maxSize;\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}\&\ other);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00075\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ the\ size\ of\ sheet}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ size;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ the\ position\ of\ the\ sheet}}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ position;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ the\ maximum\ dimension\ up\ to\ this\ sheet}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ that\ is\ the\ total\ size\ of\ the\ document\ if\ this\ is\ the}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ last\ sheet}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ maxSize;}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_TL,}
+\DoxyCodeLine{00088\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_T,}
+\DoxyCodeLine{00089\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_TR,}
+\DoxyCodeLine{00090\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_L,}
+\DoxyCodeLine{00091\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_C,}
+\DoxyCodeLine{00092\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_R,}
+\DoxyCodeLine{00093\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_BL,}
+\DoxyCodeLine{00094\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_B,}
+\DoxyCodeLine{00095\ \ \ \ \ MX\_SH\_LAY\_OFFSET\_BR}
+\DoxyCodeLine{00096\ \}\ MX\_SH\_LAY\_OFFSET;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *\ CLASS:\ mx\_sheet\_layout}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basically\ an\ array\ of\ sheet\ sizes}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *\ with\ their\ positions\ maintained.\ Calculation}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *\ of\ postions\ is\ delayed\ until\ such\ time\ as}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *\ positions\ are\ required.}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ Sheets\ are\ indexed\ in\ an\ array\ using\ the\ standard\ C}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *\ indexing\ -\/\ i.e.\ 0\ is\ the\ index\ of\ the\ first\ sheet\ in}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *\ the\ array}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *\ For\ WP\ classes\ the\ document\ is\ composed\ of\ a\ series\ of}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *\ sheets\ and\ maintaining\ their\ position\ is\ a\ case\ of\ adding\ the}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ *\ cumulative\ sizes\ of\ the\ sheets}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ *\ For\ more\ complex\ types\ of\ documents\ one\ could\ see\ this}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ class\ being\ more\ complex\ -\/\ e.g.\ the\ sheets\ would\ not\ just}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ be\ displayed\ as\ a\ simple\ array\ but\ may\ have\ a\ more\ complex}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ *\ arrangement.}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ *\ This\ class\ is\ used\ to\ convert\ from\ coordinates\ in\ the\ multi}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ *\ sheet\ format\ to\ coordinates\ within\ the\ sheet\ format.\ It\ is}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ *\ therefore\ a\ very\ important\ class\ in\ the\ communication\ between}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ *\ the\ editor\ and\ the\ frame,\ and\ via\ the\ frame\ to\ the\ display\ device.}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}\ \{}
+\DoxyCodeLine{00126\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}();}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__sheet__layout}{\string~mx\_sheet\_layout}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ the\ next\ three\ routines\ manipulate\ sheets\ -\/\ the}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ functions\ on\ the\ base\ class\ adjust\ the\ memory}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ correctly.\ addSheets\ uses\ changeSheets\ to\ adjust}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ values\ so\ hopefully\ most\ derived\ classes\ will\ not}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ need\ to\ provide\ a\ virtual\ addSheets\ but\ just\ provide}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ a\ changeSheets}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ add\ a\ new\ sheet\ to\ the\ document\ size}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ addSheets(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startSheet,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nSheets,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}*\ isheetSizes);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ change\ the\ sizes\ or\ positions\ of\ an\ existing\ sheet}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ changeSheets(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startSheet,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nSheets,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}*\ isheetSizes);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ remove\ a\ range\ of\ sheets}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ removeSheets(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startSheet,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nSheets);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ coordinate\ in\ the\ set\ of\ sheets\ to\ a\ doc\ coord}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ coordToDocCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ doc\ coord\ to\ a\ cumulative\ coord}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ docCoordToCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ doc\_coord,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ routine\ to\ initialise\ iterationover\ areas}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ startIterateOverArea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ tlcoord,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ brcoord);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ nextOverArea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__rect__t}{mx\_doc\_rect\_t}}\&\ output);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ get\ the\ postion\ and\ size\ of\ the\ document\ up\ to\ a\ sheet}}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}\ getSheetSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testSheet);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ get\ the\ size\ of\ the\ sheet}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testSheet);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ get\ the\ position\ of\ the\ sheet}}
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getPosition(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testSheet);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ get\ the\ maximum\ size\ for\ the\ sheet}}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getMaxSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testSheet);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ get\ the\ total\ size\ of\ the\ document}}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getTotalSize(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ check\ if\ a\ coordinate\ is\ on\ a\ sheet}}
+\DoxyCodeLine{00195\ \ \ \ \ MX\_SH\_LAY\_OFFSET\ checkCoordOnSheet(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testSheet,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ get\ the\ number\ of\ sheets\ in\ the\ document\ -\/\ dont\ return\ dud\ last}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ sheet}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getNumberSheets()\ \{\ \textcolor{keywordflow}{return}\ (nsheets\ -\/\ 1);\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSnapTolerance(\textcolor{keywordtype}{double}\ isnapTolerance)\ \{\ snapTolerance\ =\ isnapTolerance;\ \};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getSnapTolerance()\ \{\ \textcolor{keywordflow}{return}\ snapTolerance;\ \};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ active\ sheets\ in\ the\ array}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ we\ actually\ store\ (n+1)\ sheets\ to\ have\ an\ empty}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ last\ sheet\ whichhold\ the\ cumulative\ size\ of\ the\ whole\ document}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ therefore\ when\ the\ document\ has\ n\ sheets\ nsheets\ is\ (n+1)}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ nsheets;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ the\ actual\ sheet\ sizes}}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}*\ sheetSizes;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ checkRange(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ testSheet);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ variables\ for\ sheet\ iteration}}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ tlIterate;}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ brIterate;}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{int}\ lastSheetIterate;}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ tolearance\ for\ snapping\ to\ corners}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{double}\ snapTolerance;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{static}\ MX\_SH\_LAY\_OFFSET\ documentOffsets[3][3];}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ the\ sizes\ of\ the\ sheets\ in\ the\ document}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ the\ total\ number\ of\ sheets\ allocated\ in\ the\ array}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{int}\ nallocSheets;}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ update\ the\ sheet\ positions\ to\ be\ valid.\ This\ routine\ may}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{comment}{//\ move\ sheets\ according\ to\ some\ rules}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ updateSheetPositions(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ validSheet)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{void}\ newSheetMemory(\textcolor{keywordtype}{int}\ addNewSheets);}
+\DoxyCodeLine{00242\ \};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

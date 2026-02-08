@@ -1,0 +1,252 @@
+\doxysection{mx\+\_\+db\+\_\+object.\+h}
+\hypertarget{mx__db__object_8h_source}{}\label{mx__db__object_8h_source}\index{db/mx\_db\_object.h@{db/mx\_db\_object.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_db\_object}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ mx\_db\_object\ provides\ database\ access\ functions\ for\ documents}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ and\ all\ objects\ contained\ within\ documents.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ NOTES:}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Things\ are\ arranged\ so\ that\ you\ only\ need\ worry\ about\ your\ local}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ memory\ management.\ Any\ objects/values\ that\ you\ pass\ into\ this}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ object\ get\ copied\ (if\ necessary)\ and\ any\ that\ come\ out\ are}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ stand-\/alone\ copies.\ As\ long\ as\ you\ delete\ your\ own\ objects}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ and\ any\ that\ you\ get\ back\ as\ a\ result\ of\ calling\ methods\ on\ this}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ object\ you'll\ be\ fine.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ There\ are\ also\ methods\ that\ return\ read-\/only\ copies\ of\ things\ -\/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ you\ should\ use\ these\ when\ accessing\ large\ attributes\ that}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ you\ don't\ want\ to\ modify\ (e.g.\ drawing\ a\ raster)\ as\ they\ don't}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ do\ any\ copying.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifndef\ MX\_DB\_OBJECT\_H}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_H}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <mx\_attribute.h>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <mx\_file.h>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_MAX\_READONLY\_BLOB\_SIZE\ 32768}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_OWNER\_ID\ "{}ownerid"{}}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ mx\_on\_disk\_e,}
+\DoxyCodeLine{00061\ \ \ \ \ mx\_in\_mem\_e,}
+\DoxyCodeLine{00062\ \ \ \ \ mx\_in\_mem\_and\_modified\_e}
+\DoxyCodeLine{00063\ \}\ mx\_db\_mem\_state\_t;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ MX\_RTTI(mx\_db\_object\_class\_e)}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}(uint32\ docid,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ constructor\ for\ when\ the\ oid\ is\ known}}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}(uint32\ docid,\ uint32\ oid,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ copy\ constructor\ -\/\ assigns\ new\ db\ id\ and\ resets\ serialisation\ flags}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ etc}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\&\ o);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_db\_id(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ destructor}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__db__object}{\string~mx\_db\_object}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ error;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ move\ an\ object\ into\ another\ document\ -\/\ needed\ by\ cutting\ and\ pasting}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ operation\ -\/\ this\ moves\ the\ underlying\ blobs\ and\ attributes\ and\ nothing}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ else.\ If\ you\ need\ to\ do\ anything\ more\ complex\ (which\ you\ probably\ won't)}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ you\ will\ have\ to\ override\ this.}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ before\ calling\ this,\ you\ must\ make\ sure\ that\ all\ the\ attributes\ and}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ blobs\ that\ form\ part\ of\ the\ object\ are\ in\ the\ cache\ (calling\ unserialise}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ attributes\ should\ do\ it).}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ docid);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ these\ routines\ are\ needed\ by\ the\ cache\ -\/\ but\ are\ NOT}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ compulsory\ as\ such.\ You\ only\ need\ to\ worry\ about\ these}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ if\ your\ object\ holds\ a\ lot\ of\ stuff\ in\ memory\ rather\ than}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ reading\ it\ from\ the\ DB\ when\ it\ needs\ it}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ how\ much\ real\ memory\ are\ you\ using?}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ memory\_size(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0L;}
+\DoxyCodeLine{00105\ \ \ \ \ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ add\ a\ new\ attribute}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ this\ routine\ makes\ a\ copy\ of\ the\ attribute\ object.}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_attribute(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ initial);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ delete\ an\ attribute\ -\/\ use\ carefully!\ (don't\ delete}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ id\ and\ id\_array\ attributes\ unless\ you\ are\ doing}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ it\ from\ within\ a\ method\ in\ document,\ sheet\ or\ area.}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_attribute(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ set\ an\ attribute\ value}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ This\ makes\ a\ copy\ of\ the\ attribute\ so,\ if\ you\ change}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ the\ value\ in\ your\ local\ copy,\ call\ this\ again.}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ v);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ get\ an\ attribute\ :\ this\ returns\ a\ copy\ of\ the}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ attribute\ so\ make\ sure\ you\ delete\ it\ when}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ you've\ finished\ with\ it}}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ get(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ get\ a\ read\ only\ attribute\ :\ this\ returns\ a}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ pointer\ to\ the\ object\ stored\ in\ the\ db\ client}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ -\/\ so\ you\ can't\ change\ it.\ This\ pointer\ is\ only}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ guaranteed\ to\ be\ valid\ until\ the\ next\ database}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ access.}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ get\_readonly(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ this\ gets\ called\ by\ the\ client\ cache\ when\ it\ wants}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ to\ commit\ the\ data.\ This\ method\ should\ serialise}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ you\ complex\ attributes\ and\ store\ them\ in\ a\ blob.\ It\ needn't}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ free\ any\ memory\ -\/\ you\ will\ be\ asked\ expliclity\ to\ do\ that}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ should\ the\ cache\ require\ it.}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ called\ to\ get\ the\ attributes\ in\ from\ disk}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ free\ any\ memory\ you\ are\ using.\ The\ object\ will\ have\ already\ been}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ asked\ to\ serialise\ itself\ when\ this\ is\ called.}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ uncache(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ BLOB\ handling}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ create\_blob(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_blob(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ uint32\ get\_blob\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_blob\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ size);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_blob\_data(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ start\_index,\ uint32\ n\_bytes,\ uint8*\ data);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_blob\_data(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ start\_index,\ uint32\ n\_bytes,\ uint8*\ data);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ convenience\ routine\ for\ copying\ blob\ data}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ copy\_blob(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ createNew,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ inObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ inname);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ returns\ a\ read\ only\ pointer\ to\ the\ data\ for\ a\ blob}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ stored\ in\ the\ db\ client.\ This\ pointer\ is\ only\ guaranteed}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ to\ be\ valid\ until\ the\ next\ database\ access.\ Also,\ if}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ you\ ask\ to\ read\ too\ many\ bytes,\ the\ call\ may\ return\ an}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ error\ because\ it\ can't\ get\ them\ all\ into\ memory\ at\ once.}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ maximum\ size\ is\ define\ above\ MX\_DB\_MAX\_READONLY\_BLOB\_SIZE}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{const}\ uint8*\ get\_blob\_readonly(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ start\_index,\ uint32\ n\_bytes);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ some\ convenience\ functions}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_int(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ i);}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_id(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_float(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ i);}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_int\_array(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32*\ a,\ \textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_id\_array(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32*\ a,\ \textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_float\_array(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}*\ a,\ \textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ int32\ get\_int(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_float(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ if\ the\ attribute\ doesn't\ exist,\ get\ a\ default\ value}}
+\DoxyCodeLine{00185\ \ \ \ \ int32\ get\_default\_int(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ def);}
+\DoxyCodeLine{00186\ \ \ \ \ uint32\ get\_default\_id(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ def);}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_default\_float(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ def);}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_default\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ def);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ manipulating\ arrays\ of\ object\ ids}}
+\DoxyCodeLine{00191\ \ \ \ \ uint32\ get\_id\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_id\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index,\ uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_id\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ del\_id\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00195\ \ \ \ \ int32\ get\_id\_array\_length(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{const}\ uint32*\ get\_id\_array\_ro(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ manipulating\ arrays\ of\ ints}}
+\DoxyCodeLine{00199\ \ \ \ \ int32\ get\_int\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_int\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index,\ int32\ i);}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_int\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ i);}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ del\_int\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00203\ \ \ \ \ int32\ get\_int\_array\_length(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{const}\ int32*\ get\_int\_array\_ro(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ manipulating\ arrays\ of\ floats}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_float\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_float\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index,\ \textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_float\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ del\_float\_array\_item(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ int32\ index);}
+\DoxyCodeLine{00211\ \ \ \ \ int32\ get\_float\_array\_length(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ get\_float\_array\_ro(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ get\ owning\ object\ -\/\ may\ be\ null}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ get\_owner\_object(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ set\ owning\ object}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_owner\_object(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ o);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{//\ get\ document\ id}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_docid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ get\ the\ objects\ memory\ state}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{virtual}\ mx\_db\_mem\_state\_t\ get\_mem\_state();}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//\ set\ the\ objects\ memory\ state}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_mem\_state(mx\_db\_mem\_state\_t\ s);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ is\ the\ object\ controlled\ by\ another\ one?}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_controlled()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ these\ should\ only\ be\ called\ by\ the\ cache}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cc\_serialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cc\_unserialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ cc\_uncache(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00238\ \ \ \ \ uint32\ db\_id;\ \textcolor{comment}{//\ object\ id}}
+\DoxyCodeLine{00239\ \ \ \ \ uint32\ doc\_id;\ \textcolor{comment}{//\ document\ id}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00242\ \ \ \ \ mx\_db\_mem\_state\_t\ mem\_state;}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlled;}
+\DoxyCodeLine{00244\ \};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

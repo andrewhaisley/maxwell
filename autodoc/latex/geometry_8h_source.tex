@@ -1,0 +1,2264 @@
+\doxysection{geometry.\+h}
+\hypertarget{geometry_8h_source}{}\label{geometry_8h_source}\index{geometry/geometry.h@{geometry/geometry.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ geometry.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ geometry\ descriptions}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ mx\_geom.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_GEOM\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_GEOM\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*\ Forward\ definition\ */}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__point}{mx\_point}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rect}{mx\_rect}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__irect}{mx\_irect}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__affine}{mx\_affine}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rotation}{mx\_rotation}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__geom}{mx\_geom}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__angle}{mx\_angle}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ GABS(x)\ ((x)\ >\ 0\ ?\ (x)\ :\ -\/(x))}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ GMAX(x,\ y)\ ((x)\ >\ (y)\ ?\ (x)\ :\ (y))}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ GMIN(x,\ y)\ ((x)\ <\ (y)\ ?\ (x)\ :\ (y))}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ GNINT(x)\ ((x)\ >\ 0\ ?\ ((x)\ +\ 0.5)\ :\ ((x)\ -\/\ 0.5))}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ GEOM\_SMALL\ 0.000001}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ PITWO\ (2\ *\ PI)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ PITHREE\ (3\ *\ PI)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ PIFOUR\ (4\ *\ PI)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ RADTODEG\ (180.0\ /\ PI)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ DEGTORAD\ (PI\ /\ 180.0)}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ MX\_COORD\_TL,}
+\DoxyCodeLine{00069\ \ \ \ \ MX\_COORD\_BR,}
+\DoxyCodeLine{00070\ \ \ \ \ MX\_COORD\_TR,}
+\DoxyCodeLine{00071\ \ \ \ \ MX\_COORD\_BL,}
+\DoxyCodeLine{00072\ \ \ \ \ MX\_COORD\_C}
+\DoxyCodeLine{00073\ \}\ MX\_COORD\_TYPE;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ GEOM\_INTERSECT\_NONE,}
+\DoxyCodeLine{00077\ \ \ \ \ GEOM\_INTERSECT\_POINT,}
+\DoxyCodeLine{00078\ \ \ \ \ GEOM\_INTERSECT\_LINE,}
+\DoxyCodeLine{00079\ \ \ \ \ GEOM\_INTERSECT\_AREA,}
+\DoxyCodeLine{00080\ \ \ \ \ GEOM\_INTERSECT\_CONTAINED}
+\DoxyCodeLine{00081\ \}\ GEOM\_INTERSECT\_TYPE;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ ARC\_ARC\ =\ 1,}
+\DoxyCodeLine{00085\ \ \ \ \ ARC\_CHORD,}
+\DoxyCodeLine{00086\ \ \ \ \ ARC\_SECTOR,}
+\DoxyCodeLine{00087\ \ \ \ \ ARC\_NONE}
+\DoxyCodeLine{00088\ \}\ ARC\_TYPE;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ POLY\_LINE\ =\ 1,}
+\DoxyCodeLine{00092\ \ \ \ \ POLY\_POINT,}
+\DoxyCodeLine{00093\ \ \ \ \ POLY\_SEGMENT,}
+\DoxyCodeLine{00094\ \ \ \ \ POLY\_CSEGMENT}
+\DoxyCodeLine{00095\ \}\ POLYPOINT\_TYPE;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ MX\_GEOM\_SNAP\_NONE\ 0}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\ defaultSnapInfo;}
+\DoxyCodeLine{00100\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ defaultAngle;}
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ defaultPoint;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *\ CLASS:\ mx\_ipoint}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ point\ with\ integer\ coordinates}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *\ This\ class\ exists\ oon\ its\ own\ as\ a\ lightweight}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *\ class\ (no\ virtual\ functions)}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *\ The\ coordinates\ are\ considered\ in\ the\ Maxwell\ coordinate}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *\ system\ e.g.\ (0,0)\ is\ the\ top\ left,\ (1,1)\ to\ the\ bottom}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ *\ right}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ \{}
+\DoxyCodeLine{00116\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ int32\ x;}
+\DoxyCodeLine{00118\ \ \ \ \ int32\ y;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Constructors\ -\/\ including\ one\ from\ an}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ mx\_ipoint\ which\ allows\ point\ and\ mx\_ipoint\ to}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ be\ automatically\ converted}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}();}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(int32\ x,\ int32\ y);}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ convert();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ Basic\ operators}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p)}
+\DoxyCodeLine{00133\ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ x\ +=\ p.x;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ y\ +=\ p.y;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00137\ \ \ \ \ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ operator-\/()}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ ip(-\/x,\ -\/y);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ip;}
+\DoxyCodeLine{00143\ \ \ \ \ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ pt(this-\/>x\ +\ p2.x,\ this-\/>y\ +\ p2.y);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00149\ \ \ \ \ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ pt(x\ -\/\ p2.x,\ y\ -\/\ p2.y);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00156\ \ \ \ \ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p)}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ x\ -\/=\ p.x;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ y\ -\/=\ p.y;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00163\ \ \ \ \ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ operator*=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ double\ temp\ ;}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ \ \ \ \ \ \ \ temp\ =\ x*f\ ;}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ \ \ \ \ x\ \ \ \ =\ (int32)\ GNINT(temp)\ ;}}
+\DoxyCodeLine{00171\ \textcolor{comment}{}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ \ \ \ \ \ \ \ temp\ =\ y*f\ ;}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ \ \ \ \ \ \ \ y\ \ \ \ =\ (int32)\ GNINT(temp)\ ;}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00176\ \ \ \ \ \};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ operator/=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ temp;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ temp\ =\ x\ /\ f;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ x\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ temp\ =\ y\ /\ f;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ y\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00189\ \ \ \ \ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)}
+\DoxyCodeLine{00192\ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (p1.x\ ==\ p2.x)\ \&\&\ (p1.y\ ==\ p2.y);}
+\DoxyCodeLine{00194\ \ \ \ \ \};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (p1.x\ !=\ p2.x)\ ||\ (p1.y\ !=\ p2.y);}
+\DoxyCodeLine{00199\ \ \ \ \ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator*(\textcolor{keywordtype}{double}\ f);}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator/(\textcolor{keywordtype}{double}\ f);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ operator*(\textcolor{keywordtype}{int}\ s);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ go\ from\ (x,y)\ to\ (-\/y,x)\ i.e.}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ perpendicular}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ flip()}
+\DoxyCodeLine{00210\ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ p(-\/y,\ x);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00213\ \ \ \ \ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ distance\ from\ this\ point\ to}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ another\ point}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ Two\ metrics\ are\ used\ -\/\ \ the\ normal}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ euclidean\ and\ the\ quicker\ modulus\ (L1)\ metric}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{double}\ dist(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{double}\ dist1(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00223\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00224\ \};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ MX\_POINT\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00228\ \ \ \ \ MX\_POINT\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00229\ \ \ \ \ MX\_POINT\_SNAP\_WHOLE}
+\DoxyCodeLine{00230\ \}\ MX\_POINT\_SNAP;}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ *\ CLASS:\ mx\_point}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ point\ with\ double\ coordinates}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *\ This\ class\ exists\ oon\ its\ own\ as\ a\ lightweight}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *\ class\ (no\ virtual\ functions)}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ *\ The\ coordinates\ are\ considered\ in\ the\ Maxwell\ coordinate}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ *\ system\ e.g.\ (0,0)\ is\ the\ top\ left,\ (1,1)\ to\ the\ bottom}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ *\ right}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__point}{mx\_point}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00246\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{double}\ x;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{double}\ y;}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ Constructors\ -\/\ including\ one\ from\ an}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{comment}{//\ mx\_ipoint\ which\ allows\ mx\_point\ and\ mx\_ipoint\ to}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ be\ automatically\ converted}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}();}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ ip);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ Basic\ operators}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ rotate(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rotation}{mx\_rotation}}\&\ rotation)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ affine(\mbox{\hyperlink{classmx__affine}{mx\_affine}}\&\ aff);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)}
+\DoxyCodeLine{00264\ \ \ \ \ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ x\ +=\ p.x;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ y\ +=\ p.y;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00268\ \ \ \ \ \};}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)}
+\DoxyCodeLine{00270\ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ x\ -\/=\ p.x;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ y\ -\/=\ p.y;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00274\ \ \ \ \ \};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ MX\_POINT\_SNAP\_WHOLE;\ \};}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{//\ inline\ friend\ mx\_point\ operator-\/(const\ mx\_point\ p1,\ const\ mx\_point\ p2)}}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ mx\_point\ res\ =\ p1;}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{comment}{//\ res.x\ -\/=\ p2.x;}}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{comment}{//\ res.y\ -\/=\ p2.y;}}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{comment}{//\ return\ res;}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ operator*=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00290\ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ x\ *=\ f;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ y\ *=\ f;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00294\ \ \ \ \ \};}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ operator/=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00296\ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ x\ /=\ f;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ y\ /=\ f;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00300\ \ \ \ \ \};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator-\/()}
+\DoxyCodeLine{00303\ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pt(-\/x,\ -\/y);}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00306\ \ \ \ \ \};}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00308\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pt(x\ +\ p2.x,\ y\ +\ p2.y);}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00311\ \ \ \ \ \};}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00314\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pt(x\ -\/\ p2.x,\ y\ -\/\ p2.y);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00317\ \ \ \ \ \};}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,\ \textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00320\ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pt(p.x\ *\ f,\ p.y\ *\ f);}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00323\ \ \ \ \ \};}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,\ \textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00326\ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ pt(p.x\ /\ f,\ p.y\ /\ f);}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pt;}
+\DoxyCodeLine{00329\ \ \ \ \ \};}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00332\ \ \ \ \ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>x\ *\ p2.x)\ +\ (this-\/>y\ *\ p2.y);}
+\DoxyCodeLine{00334\ \ \ \ \ \};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ operator\string^(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00337\ \ \ \ \ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>x\ *\ p2.y)\ -\/\ (this-\/>y\ *\ p2.x);}
+\DoxyCodeLine{00339\ \ \ \ \ \};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00342\ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (MX\_FLOAT\_EQ(p1.x,\ p2.x)\ \&\&\ MX\_FLOAT\_EQ(p1.y,\ p2.y));}
+\DoxyCodeLine{00344\ \ \ \ \ \};}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00347\ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (!MX\_FLOAT\_EQ(p1.x,\ p2.x)\ ||\ !MX\_FLOAT\_EQ(p1.y,\ p2.y));}
+\DoxyCodeLine{00349\ \ \ \ \ \};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>y\ >\ p2.y)\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>y\ ==\ p2.y)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>x\ >\ p2.x)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{00361\ \ \ \ \ \};}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00364\ \ \ \ \ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ p2)}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this}\ >\ p2);}
+\DoxyCodeLine{00369\ \ \ \ \ \};}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00372\ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>y\ <\ p2.y)\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>y\ ==\ p2.y)\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>x\ <\ p2.x)\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{00381\ \ \ \ \ \};}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00384\ \ \ \ \ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ p2)}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this}\ <\ p2);}
+\DoxyCodeLine{00389\ \ \ \ \ \};}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ spanpoint(\mbox{\hyperlink{classmx__point}{mx\_point}}\ p2,\ \textcolor{keywordtype}{double}\ fac)}
+\DoxyCodeLine{00392\ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p\ =\ (*this);}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p3\ =\ p2\ *\ fac;}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ p\ *=\ (1.0\ -\/\ fac);}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ p\ +=\ p3;}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00400\ \ \ \ \ \};}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{comment}{//\ go\ from\ (x,y)\ to\ (-\/y,x)\ i.e.}}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{comment}{//\ perpendicular}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ flip()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00406\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(-\/y,\ x);}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00409\ \ \ \ \ \};}
+\DoxyCodeLine{00410\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ uspan(\textcolor{keywordtype}{double}*\ length\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (x\ *\ x\ +\ y\ *\ y);\ \};}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(length2());\ \};}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{comment}{//\ distance\ from\ this\ point\ to}}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{comment}{//\ another\ point}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist2(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00418\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ p2.x)\ *\ (x\ -\/\ p2.x)\ +\ (y\ -\/\ p2.y)\ *\ (y\ -\/\ p2.y);}
+\DoxyCodeLine{00420\ \ \ \ \ \};}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00423\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(dist2(p2));}
+\DoxyCodeLine{00425\ \ \ \ \ \};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist1(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00428\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GABS(this-\/>x\ -\/\ p2.x)\ +\ GABS(this-\/>y\ -\/\ p2.y);}
+\DoxyCodeLine{00430\ \ \ \ \ \};}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00438\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00441\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00442\ \};}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00445\ \textcolor{comment}{\ *\ CLASS:\ mx\_angle}}
+\DoxyCodeLine{00446\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00447\ \textcolor{comment}{\ *\ DESCRIPTION:\ Information\ about\ angles}}
+\DoxyCodeLine{00448\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00449\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00450\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__angle}{mx\_angle}}\ \{}
+\DoxyCodeLine{00453\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00454\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}(\textcolor{keywordtype}{double}\ iangle\ =\ 0);}
+\DoxyCodeLine{00455\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ iangle);}
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{double}\ iangle\ =\ 0);}
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ iangle);}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keywordtype}{int}\ quadrant();}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ squadrantRange(\textcolor{keywordtype}{int}\ quadrant);}
+\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ quadrantRange();}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ a()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ angle;\ \};}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ c()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cosang;\ \};}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ s()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sinang;\ \};}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{comment}{//\ make\ these\ private\ as\ we\ need\ to}}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{comment}{//\ maintain\ concistency}}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{double}\ angle;}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{double}\ cosang;}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordtype}{double}\ sinang;}
+\DoxyCodeLine{00471\ \};}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00474\ \textcolor{comment}{\ *\ CLASS:\ mx\_rotation}}
+\DoxyCodeLine{00475\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00476\ \textcolor{comment}{\ *\ DESCRIPTION:\ Information\ about\ rotations}}
+\DoxyCodeLine{00477\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00478\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00479\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rotation}{mx\_rotation}}\ \{}
+\DoxyCodeLine{00482\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00483\ \ \ \ \ \mbox{\hyperlink{classmx__rotation}{mx\_rotation}}(\textcolor{keywordtype}{double}\ iangle\ =\ 0);}
+\DoxyCodeLine{00484\ \ \ \ \ \mbox{\hyperlink{classmx__rotation}{mx\_rotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ a);}
+\DoxyCodeLine{00485\ \ \ \ \ \mbox{\hyperlink{classmx__rotation}{mx\_rotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ c,\ \textcolor{keywordtype}{double}\ iangle\ =\ 0);}
+\DoxyCodeLine{00486\ \ \ \ \ \mbox{\hyperlink{classmx__rotation}{mx\_rotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ c,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ iangle);}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ic,\ \textcolor{keywordtype}{double}\ iangle\ =\ 0);}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ic,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ iangle);}
+\DoxyCodeLine{00489\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ c;}
+\DoxyCodeLine{00490\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ a;}
+\DoxyCodeLine{00491\ \};}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00494\ \textcolor{comment}{\ *\ CLASS:\ mx\_bezier}}
+\DoxyCodeLine{00495\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00496\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00497\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00498\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00499\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__bezier}{mx\_bezier}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00502\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00503\ \ \ \ \ \mbox{\hyperlink{classmx__bezier}{mx\_bezier}}()\ \{\ a0.x\ =\ a0.y\ =\ a1.x\ =\ a1.y\ =\ a2.x\ =\ a2.y\ =\ a3.x\ =\ a3.y\ =\ 0;\ \};}
+\DoxyCodeLine{00504\ \ \ \ \ \mbox{\hyperlink{classmx__bezier}{mx\_bezier}}(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ia0,}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ia1,}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ia2,}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ia3);}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{comment}{//\ standard\ bezier\ control\ points}}
+\DoxyCodeLine{00509\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ a0;}
+\DoxyCodeLine{00510\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ a1;}
+\DoxyCodeLine{00511\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ a2;}
+\DoxyCodeLine{00512\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ a3;}
+\DoxyCodeLine{00513\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ bz(\textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordtype}{double}\ linearFactor(\textcolor{keywordtype}{double}\ tolerance);}
+\DoxyCodeLine{00515\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box();}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00523\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keywordtype}{bool}\ cpsConvex();}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keywordtype}{double}\ distConvex2(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,\ \textcolor{keywordtype}{double}\ minDist,}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,\ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ pt);}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordtype}{double}\ internDist2(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minDist,}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ splitLevel,}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxLevel,}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ currentDist,}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ pt);}
+\DoxyCodeLine{00536\ \};}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00539\ \textcolor{comment}{\ *\ ENUMS:\ mx\_arc}}
+\DoxyCodeLine{00540\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00541\ \textcolor{comment}{\ *\ DESCRIPTION:\ Arc\ components}}
+\DoxyCodeLine{00542\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00543\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00544\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00547\ \ \ \ \ MX\_ARC\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00548\ \ \ \ \ MX\_ARC\_SNAP\_START,}
+\DoxyCodeLine{00549\ \ \ \ \ MX\_ARC\_SNAP\_END,}
+\DoxyCodeLine{00550\ \ \ \ \ MX\_ARC\_SNAP\_CENTRE,}
+\DoxyCodeLine{00551\ \ \ \ \ MX\_ARC\_SNAP\_ARC,}
+\DoxyCodeLine{00552\ \ \ \ \ MX\_ARC\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00553\ \ \ \ \ MX\_ARC\_SNAP\_WHOLE}
+\DoxyCodeLine{00554\ \}\ MX\_ARC\_SNAP;}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00557\ \ \ \ \ MX\_CHORD\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00558\ \ \ \ \ MX\_CHORD\_SNAP\_START,}
+\DoxyCodeLine{00559\ \ \ \ \ MX\_CHORD\_SNAP\_END,}
+\DoxyCodeLine{00560\ \ \ \ \ MX\_CHORD\_SNAP\_CENTRE,}
+\DoxyCodeLine{00561\ \ \ \ \ MX\_CHORD\_SNAP\_ARC,}
+\DoxyCodeLine{00562\ \ \ \ \ MX\_CHORD\_SNAP\_CHORD,}
+\DoxyCodeLine{00563\ \ \ \ \ MX\_CHORD\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00564\ \ \ \ \ MX\_CHORD\_SNAP\_WHOLE}
+\DoxyCodeLine{00565\ \}\ MX\_CHORD\_SNAP;}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00568\ \ \ \ \ MX\_SECTOR\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00569\ \ \ \ \ MX\_SECTOR\_SNAP\_START,}
+\DoxyCodeLine{00570\ \ \ \ \ MX\_SECTOR\_SNAP\_END,}
+\DoxyCodeLine{00571\ \ \ \ \ MX\_SECTOR\_SNAP\_CENTRE,}
+\DoxyCodeLine{00572\ \ \ \ \ MX\_SECTOR\_SNAP\_ARC,}
+\DoxyCodeLine{00573\ \ \ \ \ MX\_SECTOR\_SNAP\_SPAN1,}
+\DoxyCodeLine{00574\ \ \ \ \ MX\_SECTOR\_SNAP\_SPAN2,}
+\DoxyCodeLine{00575\ \ \ \ \ MX\_SECTOR\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00576\ \ \ \ \ MX\_SECTOR\_SNAP\_WHOLE}
+\DoxyCodeLine{00577\ \}\ MX\_SECTOR\_SNAP;}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00580\ \textcolor{comment}{\ *\ CLASS:\ mx\_arc}}
+\DoxyCodeLine{00581\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00582\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00583\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00584\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00585\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__arc}{mx\_arc}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00588\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00589\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ cfactor;}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}()}
+\DoxyCodeLine{00592\ \ \ \ \ \{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ c.x\ =\ c.y\ =\ s.x\ =\ s.y\ =\ 0;}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ arcType\ =\ ARC\_ARC;}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ isArea\ =\ FALSE;}
+\DoxyCodeLine{00596\ \ \ \ \ \};}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ c,}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ size,}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ ARC\_TYPE\ arcType\ =\ ARC\_ARC,}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea\ =\ FALSE,}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 0);}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box();}
+\DoxyCodeLine{00607\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ ac(\textcolor{keywordtype}{double}\ angle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keywordtype}{int}\ numberComponents();}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordtype}{int}\ wholeSelectCount();}
+\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2arc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \ \ \ \ \textcolor{keywordtype}{double}\ linearFactor(\textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isFull()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (ea.a()\ >\ (sa.a()\ +\ PITWO\ -\/\ GEOM\_SMALL));\ \};}
+\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isCircle()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (fabs((s.x\ -\/\ s.y)\ /\ GMAX(s.x,\ s.y)))\ <\ GEOM\_SMALL;\ \};}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPoint()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keywordtype}{void}\ setArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ c,}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ size,}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ ARC\_TYPE\ arcType\ =\ ARC\_ARC,}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea\ =\ FALSE,}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 0);}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \ \ \ \ \textcolor{keywordtype}{double}\ pointToDist(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00640\ \ \ \ \ \textcolor{keywordtype}{double}\ pointToAngle(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00641\ \ \ \ \ \textcolor{keywordtype}{int}\ quadrant(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keywordtype}{double}\ distArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keywordtype}{double}\ distSector(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordtype}{bool}\ inArea(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,\ \textcolor{keywordtype}{double}\ snapTolerance,\ ARC\_TYPE*\ nearnessType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ unnormalisedPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00649\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ normalisedPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\ normalisedArc()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00653\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ tangent(\textcolor{keywordtype}{double}\ angle);}
+\DoxyCodeLine{00654\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ normal(\textcolor{keywordtype}{double}\ angle);}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00658\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{comment}{//\ find\ the\ nearest\ point\ in\ a\ quad}}
+\DoxyCodeLine{00661\ \ \ \ \ \textcolor{keywordtype}{bool}\ nearestPointInQuad(\textcolor{keywordtype}{int}\ iquad,}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ quickAbortTest,}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ inPoint,}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ outPoint,}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ pointEllipse()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00668\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((s.x\ ==\ 0.0)\ \&\&\ (s.y\ ==\ 0.0));}
+\DoxyCodeLine{00670\ \ \ \ \ \}}
+\DoxyCodeLine{00671\ }
+\DoxyCodeLine{00672\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ xLine()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00673\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((s.y\ ==\ 0.0)\ \&\&\ (s.x\ !=\ 0.0));}
+\DoxyCodeLine{00675\ \ \ \ \ \}}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ yLine()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00678\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((s.x\ ==\ 0.0)\ \&\&\ (s.y\ !=\ 0.0));}
+\DoxyCodeLine{00680\ \ \ \ \ \}}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isDegenerate()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00683\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (isPoint()\ ||\ xLine()\ ||\ yLine());}
+\DoxyCodeLine{00685\ \ \ \ \ \}}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \ \ \ \ \textcolor{keywordtype}{void}\ arcToPolypoint(\textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doAppend,}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pline)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00691\ \ \ \ \ \textcolor{keywordtype}{void}\ arcToBoundingPolypoint(\textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pline)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{keywordtype}{void}\ arcToQuadrants(\textcolor{keywordtype}{bool}*\ quad)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \ \ \ \ \textcolor{keywordtype}{int}\ components(\textcolor{keywordtype}{bool}*\ hasChord\ =\ NULL,}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}*\ hasSpans\ =\ NULL,}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ wholeArcType\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{comment}{//\ these\ types\ dont\ need\ to\ be\ private\ -\/\ no}}
+\DoxyCodeLine{00701\ \ \ \ \ \textcolor{comment}{//\ internal\ consistency\ involved}}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ ARC\_TYPE\ arcType;}
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea;}
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00706\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ gc()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ c;\ \};}
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ gs()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ s;\ \};}
+\DoxyCodeLine{00708\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ gsap()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ startArc;\ \};}
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ geap()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ endArc;\ \};}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ gsa()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sa.a();\ \};}
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ gea()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ea.a();\ \};}
+\DoxyCodeLine{00713\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ ga()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ angle.a();\ \};}
+\DoxyCodeLine{00714\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ gan()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ angle;\ \};}
+\DoxyCodeLine{00715\ }
+\DoxyCodeLine{00716\ \ \ \ \ \textcolor{keywordtype}{void}\ sc(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ic);}
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordtype}{void}\ ss(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ is);}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00719\ \ \ \ \ \textcolor{keywordtype}{void}\ ssa(\textcolor{keywordtype}{double}\ isa);}
+\DoxyCodeLine{00720\ \ \ \ \ \textcolor{keywordtype}{void}\ sea(\textcolor{keywordtype}{double}\ iea);}
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keywordtype}{void}\ saa(\textcolor{keywordtype}{double}\ iaa);}
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00724\ \ \ \ \ \textcolor{comment}{//\ centre}}
+\DoxyCodeLine{00725\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ c;}
+\DoxyCodeLine{00726\ \ \ \ \ \textcolor{comment}{//\ size}}
+\DoxyCodeLine{00727\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ s;}
+\DoxyCodeLine{00728\ \ \ \ \ \textcolor{comment}{//\ start\ angle\ -\/for\ x\ degress*64}}
+\DoxyCodeLine{00729\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ sa;}
+\DoxyCodeLine{00730\ \ \ \ \ \textcolor{comment}{//\ end\ angle\ -\/\ for\ x\ degrees*64}}
+\DoxyCodeLine{00731\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ ea;}
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00733\ \ \ \ \ \textcolor{comment}{//\ rotated\ angle}}
+\DoxyCodeLine{00734\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ angle;}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{comment}{//\ internally\ hold\ start\ and\ end\ points}}
+\DoxyCodeLine{00737\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ startArc;}
+\DoxyCodeLine{00738\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ endArc;}
+\DoxyCodeLine{00739\ }
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeArcSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSectorSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00746\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeChordSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00748\ }
+\DoxyCodeLine{00749\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2arc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ outPoint,}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ outAngle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \ \ \textcolor{keywordtype}{void}\ nearQuads(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ nearQuads)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2quad(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ outPoint,}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iquad,}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ clipToArc,}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal,}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ \ \ \ \ \textcolor{keywordtype}{double}\ nearestEndPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ outPoint,}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ isStart)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2properArcArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00773\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2arcArcComponents(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2degenerateArcArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2properArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2arcComponents(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00791\ }
+\DoxyCodeLine{00792\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2degenerateArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00797\ \ \ \ \ \textcolor{keywordtype}{void}\ testAngleRange(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ testAngle,}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isXtest)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \ \ \ \ \textcolor{keywordtype}{void}\ boxDegenerateArc(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00802\ \};}
+\DoxyCodeLine{00803\ }
+\DoxyCodeLine{00804\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00805\ \ \ \ \ MX\_SPAN\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00806\ \ \ \ \ MX\_SPAN\_SNAP\_START,}
+\DoxyCodeLine{00807\ \ \ \ \ MX\_SPAN\_SNAP\_END,}
+\DoxyCodeLine{00808\ \ \ \ \ MX\_SPAN\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00809\ \ \ \ \ MX\_SPAN\_SNAP\_WHOLE}
+\DoxyCodeLine{00810\ \}\ MX\_SPAN\_SNAP;}
+\DoxyCodeLine{00811\ }
+\DoxyCodeLine{00812\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00813\ \ \ \ \ MX\_RECT\_SNAP\_NONE\ =\ MX\_GEOM\_SNAP\_NONE,}
+\DoxyCodeLine{00814\ \ \ \ \ MX\_RECT\_SNAP\_TL,}
+\DoxyCodeLine{00815\ \ \ \ \ MX\_RECT\_SNAP\_TR,}
+\DoxyCodeLine{00816\ \ \ \ \ MX\_RECT\_SNAP\_BR,}
+\DoxyCodeLine{00817\ \ \ \ \ MX\_RECT\_SNAP\_BL,}
+\DoxyCodeLine{00818\ \ \ \ \ MX\_RECT\_SNAP\_TOP,}
+\DoxyCodeLine{00819\ \ \ \ \ MX\_RECT\_SNAP\_RIGHT,}
+\DoxyCodeLine{00820\ \ \ \ \ MX\_RECT\_SNAP\_BOTTOM,}
+\DoxyCodeLine{00821\ \ \ \ \ MX\_RECT\_SNAP\_LEFT,}
+\DoxyCodeLine{00822\ \ \ \ \ MX\_RECT\_SNAP\_NO\_COMPONENTS,}
+\DoxyCodeLine{00823\ \ \ \ \ MX\_RECT\_SNAP\_WHOLE}
+\DoxyCodeLine{00824\ \}\ MX\_RECT\_SNAP;}
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00826\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00827\ \textcolor{comment}{\ *\ CLASS:\ mx\_rect}}
+\DoxyCodeLine{00828\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00829\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ rectangle\ with\ double\ coordinates}}
+\DoxyCodeLine{00830\ \textcolor{comment}{\ *\ \ This\ is\ a\ lightwieght\ class\ for\ rectangles\ -\/\ no}}
+\DoxyCodeLine{00831\ \textcolor{comment}{\ *\ \ virtual\ functions}}
+\DoxyCodeLine{00832\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00833\ \textcolor{comment}{\ *\ The\ coordinates\ are\ considered\ in\ the\ Maxwell\ coordinate}}
+\DoxyCodeLine{00834\ \textcolor{comment}{\ *\ system\ e.g.\ (0,0)\ is\ the\ top\ left,\ (1,1)\ to\ the\ bottom}}
+\DoxyCodeLine{00835\ \textcolor{comment}{\ *\ right.}}
+\DoxyCodeLine{00836\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00837\ \textcolor{comment}{\ *\ Rects\ have\ two\ interpretations\ -\/\ if\ isSpan\ is\ true\ it}}
+\DoxyCodeLine{00838\ \textcolor{comment}{\ *\ is\ considered\ as\ a\ single\ line\ segment\ from\ (xb,yb)}}
+\DoxyCodeLine{00839\ \textcolor{comment}{\ *\ (yt,yb)\ else\ it\ is\ considered\ to\ be\ a\ proper\ area}}
+\DoxyCodeLine{00840\ \textcolor{comment}{\ *\ rectangle}}
+\DoxyCodeLine{00841\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00842\ \textcolor{comment}{\ *\ A\ non-\/span\ type\ rect\ is\ normalised\ if\ (xb,yb)\ is\ to\ the}}
+\DoxyCodeLine{00843\ \textcolor{comment}{\ *\ top\ left\ above\ (xt,yt).}}
+\DoxyCodeLine{00844\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00845\ \textcolor{comment}{\ *\ e.g.\ (xb,yb,xt,yt)\ \ =\ (0,0,1,1)\ is\ normalised}}
+\DoxyCodeLine{00846\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ but\ \ \ \ \ \ \ \ \ \ \ (1,0,0,1)\ is\ not\ normalised}}
+\DoxyCodeLine{00847\ \textcolor{comment}{\ *\ that\ is\ a\ rectangle\ is\ normalised\ if\ xb\ <=\ xt\ and}}
+\DoxyCodeLine{00848\ \textcolor{comment}{\ *\ yb\ <=\ yt}}
+\DoxyCodeLine{00849\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rect}{mx\_rect}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00852\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00854\ }
+\DoxyCodeLine{00855\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ spanSize\ =\ 4\ *\ SLS\_DOUBLE\ +\ 2\ *\ SLS\_BOOL;}
+\DoxyCodeLine{00856\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ boxSize\ =\ 5\ *\ SLS\_DOUBLE\ +\ 2\ *\ SLS\_BOOL;}
+\DoxyCodeLine{00857\ }
+\DoxyCodeLine{00858\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(\textcolor{keywordtype}{bool}\ span\ =\ FALSE,}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea\ =\ TRUE,}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 0);}
+\DoxyCodeLine{00861\ }
+\DoxyCodeLine{00862\ \ \ \ \ \textcolor{comment}{//\ From\ four\ coordinates}}
+\DoxyCodeLine{00863\ }
+\DoxyCodeLine{00864\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(\textcolor{keywordtype}{double}\ pxb,\ \textcolor{keywordtype}{double}\ pyb,}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pxt,\ \textcolor{keywordtype}{double}\ pyt,}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ span\ =\ FALSE,}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea\ =\ TRUE,}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 0);}
+\DoxyCodeLine{00869\ }
+\DoxyCodeLine{00870\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ other)}
+\DoxyCodeLine{00871\ \ \ \ \ \{}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ xt\ =\ other.xt;}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ xb\ =\ other.xb;}
+\DoxyCodeLine{00874\ \ \ \ \ \ \ \ \ yt\ =\ other.yt;}
+\DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ yb\ =\ other.yb;}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ isSpan\ =\ other.isSpan;}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ isArea\ =\ other.isArea;}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ angle\ =\ other.angle;}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00880\ \ \ \ \ \}}
+\DoxyCodeLine{00881\ }
+\DoxyCodeLine{00882\ \ \ \ \ \textcolor{comment}{//\ From\ two\ points}}
+\DoxyCodeLine{00883\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pt,}
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ span\ =\ FALSE,}
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea\ =\ TRUE,}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 0);}
+\DoxyCodeLine{00887\ }
+\DoxyCodeLine{00888\ \ \ \ \ \textcolor{comment}{//\ From\ an\ irect\ (to\ allow\ interchangeability)}}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ irct);}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00892\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ isSpan\ ?\ ((int)MX\_SPAN\_SNAP\_WHOLE)\ :\ ((int)MX\_RECT\_SNAP\_WHOLE);\ \};}
+\DoxyCodeLine{00893\ }
+\DoxyCodeLine{00894\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{00896\ }
+\DoxyCodeLine{00897\ \ \ \ \ \textcolor{comment}{//\ Basic\ operators}}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)}
+\DoxyCodeLine{00900\ \ \ \ \ \{}
+\DoxyCodeLine{00901\ \ \ \ \ \ \ \ \ xt\ +=\ p.x;}
+\DoxyCodeLine{00902\ \ \ \ \ \ \ \ \ yt\ +=\ p.y;}
+\DoxyCodeLine{00903\ \ \ \ \ \ \ \ \ xb\ +=\ p.x;}
+\DoxyCodeLine{00904\ \ \ \ \ \ \ \ \ yb\ +=\ p.y;}
+\DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00906\ \ \ \ \ \};}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00908\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)}
+\DoxyCodeLine{00909\ \ \ \ \ \{}
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ xt\ -\/=\ p.x;}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ yt\ -\/=\ p.y;}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ xb\ -\/=\ p.x;}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ yb\ -\/=\ p.y;}
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00915\ \ \ \ \ \};}
+\DoxyCodeLine{00916\ }
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ operator*=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00918\ \ \ \ \ \{}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ xt\ *=\ f;}
+\DoxyCodeLine{00920\ \ \ \ \ \ \ \ \ yt\ *=\ f;}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ xb\ *=\ f;}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ yb\ *=\ f;}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00924\ \ \ \ \ \};}
+\DoxyCodeLine{00925\ }
+\DoxyCodeLine{00926\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ operator/=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00927\ \ \ \ \ \{}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ xt\ /=\ f;}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ yt\ /=\ f;}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ xb\ /=\ f;}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ yb\ /=\ f;}
+\DoxyCodeLine{00932\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00933\ \ \ \ \ \};}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00935\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00936\ \ \ \ \ \{}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(this-\/>xb\ +\ p2.x,\ this-\/>yb\ +\ p2.y,}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ +\ p2.x,\ this-\/>yt\ +\ p2.y,}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isSpan,}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isArea,}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>angle.a());}
+\DoxyCodeLine{00942\ \ \ \ \ \};}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00944\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2)}
+\DoxyCodeLine{00945\ \ \ \ \ \{}
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(this-\/>xb\ -\/\ p2.x,\ this-\/>yb\ -\/\ p2.y,}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ -\/\ p2.x,\ this-\/>yt\ -\/\ p2.y,}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isSpan,}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isArea,}
+\DoxyCodeLine{00950\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>angle.a());}
+\DoxyCodeLine{00951\ \ \ \ \ \};}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator*(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00954\ \ \ \ \ \{}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(this-\/>xb\ *\ f,\ this-\/>yb\ *\ f,}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ *\ f,\ this-\/>yt\ *\ f,}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isSpan,}
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isArea,}
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>angle.a());}
+\DoxyCodeLine{00960\ \ \ \ \ \};}
+\DoxyCodeLine{00961\ }
+\DoxyCodeLine{00962\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator/(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{00963\ \ \ \ \ \{}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(this-\/>xb\ /\ f,\ this-\/>yb\ /\ f,}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ /\ f,\ this-\/>yt\ /\ f,}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isSpan,}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isArea,}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>angle.a());}
+\DoxyCodeLine{00969\ \ \ \ \ \};}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00971\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{00972\ \ \ \ \ \{}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>xt\ ==\ r2.xt)\ \&\&\ (this-\/>yt\ ==\ r2.yt)\ \&\&\ (this-\/>xb\ ==\ r2.xb)\ \&\&\ (this-\/>yb\ ==\ r2.yb)\ \&\&\ (this-\/>isSpan\ ==\ r2.isSpan)\ \&\&\ (this-\/>isArea\ ==\ r2.isArea)\ \&\&\ (this-\/>angle.a()\ ==\ r2.angle.a());}
+\DoxyCodeLine{00974\ \ \ \ \ \};}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{00977\ \ \ \ \ \{}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ r2);}
+\DoxyCodeLine{00979\ \ \ \ \ \};}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00981\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{00982\ \ \ \ \ \{}
+\DoxyCodeLine{00983\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p1\ =\ this-\/>start();}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p2\ =\ r2.start();}
+\DoxyCodeLine{00985\ }
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p1\ >\ p2)\ \{}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p1\ ==\ p2)\ \{}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ p1\ =\ this-\/>end();}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \ \ \ \ p2\ =\ r2.end();}
+\DoxyCodeLine{00991\ }
+\DoxyCodeLine{00992\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (p1\ >\ p2);}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00994\ }
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{00996\ \ \ \ \ \};}
+\DoxyCodeLine{00997\ }
+\DoxyCodeLine{00998\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator>=(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{00999\ \ \ \ \ \{}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ r2)}
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{01002\ }
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this}\ >\ r2);}
+\DoxyCodeLine{01004\ \ \ \ \ \};}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01006\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{01007\ \ \ \ \ \{}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p1\ =\ this-\/>start();}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p2\ =\ r2.start();}
+\DoxyCodeLine{01010\ }
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p1\ <\ p2)\ \{}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p1\ ==\ p2)\ \{}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ \ \ p1\ =\ this-\/>end();}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ \ \ \ \ p2\ =\ r2.end();}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (p1\ <\ p2);}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{01021\ \ \ \ \ \};}
+\DoxyCodeLine{01022\ }
+\DoxyCodeLine{01023\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<=(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2)}
+\DoxyCodeLine{01024\ \ \ \ \ \{}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ r2)}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{01027\ }
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this}\ <\ r2);}
+\DoxyCodeLine{01029\ \ \ \ \ \};}
+\DoxyCodeLine{01030\ }
+\DoxyCodeLine{01031\ \ \ \ \ \textcolor{comment}{//\ Tests\ for\ normalisation}}
+\DoxyCodeLine{01032\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01033\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ normalised()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01034\ \ \ \ \ \textcolor{keywordtype}{void}\ normalise();}
+\DoxyCodeLine{01035\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isNormalised()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (isSpan)\ ||\ ((xb\ <=\ xt)\ \&\&\ (yb\ <=\ yt));\ \};}
+\DoxyCodeLine{01036\ \ \ \ \ \textcolor{keywordtype}{bool}\ getSpan()\ \{\ \textcolor{keywordflow}{return}\ isSpan;\ \};}
+\DoxyCodeLine{01037\ \ \ \ \ \textcolor{keywordtype}{bool}\ getArea()\ \{\ \textcolor{keywordflow}{return}\ isArea;\ \};}
+\DoxyCodeLine{01038\ \ \ \ \ \textcolor{keywordtype}{bool}\ getAngle()\ \{\ \textcolor{keywordflow}{return}\ angle.a();\ \};}
+\DoxyCodeLine{01039\ }
+\DoxyCodeLine{01040\ \ \ \ \ \textcolor{comment}{//\ Basic\ geometry\ stuff}}
+\DoxyCodeLine{01041\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ area()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (xt\ -\/\ xb)\ *\ (yt\ -\/\ yb);\ \};}
+\DoxyCodeLine{01042\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (xb\ -\/\ xt)\ *\ (xb\ -\/\ xt)\ +\ (yb\ -\/\ yt)\ *\ (yb\ -\/\ yt);\ \};}
+\DoxyCodeLine{01043\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(length2());\ \};}
+\DoxyCodeLine{01044\ }
+\DoxyCodeLine{01045\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ span\ of\ the\ rectangle\ as\ a\ point}}
+\DoxyCodeLine{01046\ \ \ \ \ \textcolor{comment}{//\ mx\_point\ =\ (xt-\/bx,yt-\/yb)}}
+\DoxyCodeLine{01047\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ span()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01048\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xt\ -\/\ xb,\ yt\ -\/\ yb);}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01051\ \ \ \ \ \};}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ unit\ span\ of\ the\ rectangle}}
+\DoxyCodeLine{01054\ \ \ \ \ \textcolor{comment}{//\ optionally\ return\ length}}
+\DoxyCodeLine{01055\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ uspan(\textcolor{keywordtype}{double}*\ len\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01056\ }
+\DoxyCodeLine{01057\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ unnormalisedPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01058\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ normalisedPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01059\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ normalisedRect()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{keywordtype}{void}\ rectToPolypoint(\textcolor{keywordtype}{bool}\ doAppend,}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pline)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01063\ }
+\DoxyCodeLine{01064\ \ \ \ \ \textcolor{keywordtype}{bool}\ inArea(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ snapTolerance,}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ MX\_RECT\_SNAP*\ nearnessType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01067\ \ \ \ \ \textcolor{comment}{//\ (xb,yb)}}
+\DoxyCodeLine{01068\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ start()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01069\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xb,\ yb);}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01072\ \ \ \ \ \};}
+\DoxyCodeLine{01073\ }
+\DoxyCodeLine{01074\ \ \ \ \ \textcolor{comment}{//\ (xt,yt)}}
+\DoxyCodeLine{01075\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ end()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01076\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xt,\ yt);}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01079\ \ \ \ \ \};}
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01081\ \ \ \ \ \textcolor{comment}{//\ Coordinates\ (for\ Maxwell\ device\ and\ doc)}}
+\DoxyCodeLine{01082\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ topLeft()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01083\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ bottomLeft()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01084\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ bottomRight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01085\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ topRight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01086\ }
+\DoxyCodeLine{01087\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ size()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ bottomRight()\ -\/\ topLeft();\ \};}
+\DoxyCodeLine{01088\ }
+\DoxyCodeLine{01089\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ top()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01090\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ s(topLeft(),\ topRight(),\ TRUE);}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{01093\ \ \ \ \ \}}
+\DoxyCodeLine{01094\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ right()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01095\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ s(topRight(),\ bottomRight(),\ TRUE);}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{01098\ \ \ \ \ \};}
+\DoxyCodeLine{01099\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ bottom()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01100\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ s(bottomRight(),\ bottomLeft(),\ TRUE);}
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{01103\ \ \ \ \ \};}
+\DoxyCodeLine{01104\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ left()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01105\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ s(bottomLeft(),\ topLeft(),\ TRUE);}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{01108\ \ \ \ \ \};}
+\DoxyCodeLine{01109\ }
+\DoxyCodeLine{01110\ \ \ \ \ \textcolor{comment}{//\ Change\ between\ area\ and\ span\ representation}}
+\DoxyCodeLine{01111\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSpan(\textcolor{keywordtype}{bool}\ isspan)\ \{\ setSpanArea(isspan,\ FALSE);\ \};}
+\DoxyCodeLine{01112\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setArea(\textcolor{keywordtype}{bool}\ isarea)\ \{\ isArea\ =\ isarea;\ \};}
+\DoxyCodeLine{01113\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setAngle(\textcolor{keywordtype}{double}\ ira)\ \{\ angle.set(ira);\ \};}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ \ \ \ \ \textcolor{keywordtype}{bool}\ pointIn(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01116\ }
+\DoxyCodeLine{01117\ \ \ \ \ \textcolor{keywordtype}{double}\ xt;}
+\DoxyCodeLine{01118\ \ \ \ \ \textcolor{keywordtype}{double}\ xb;}
+\DoxyCodeLine{01119\ \ \ \ \ \textcolor{keywordtype}{double}\ yt;}
+\DoxyCodeLine{01120\ \ \ \ \ \textcolor{keywordtype}{double}\ yb;}
+\DoxyCodeLine{01121\ \ \ \ \ \textcolor{keywordtype}{bool}\ isSpan;}
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea;}
+\DoxyCodeLine{01123\ \ \ \ \ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\ angle;}
+\DoxyCodeLine{01124\ }
+\DoxyCodeLine{01125\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01129\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{01130\ }
+\DoxyCodeLine{01131\ \ \ \ \ \textcolor{comment}{//\ The\ integer\ irect\ which\ contains\ the}}
+\DoxyCodeLine{01132\ \ \ \ \ \textcolor{comment}{//\ real\ rectangle}}
+\DoxyCodeLine{01133\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ container(\textcolor{keywordtype}{double}\ tolerance);}
+\DoxyCodeLine{01134\ }
+\DoxyCodeLine{01135\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ increaseRect(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ rect);}
+\DoxyCodeLine{01136\ \ \ \ \ \textcolor{keywordtype}{void}\ setSpanArea(\textcolor{keywordtype}{bool}\ isSpan,\ \textcolor{keywordtype}{bool}\ isArea);}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ \ \ \ \ \textcolor{keywordtype}{bool}\ intersects(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ o)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01139\ }
+\DoxyCodeLine{01140\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01141\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01142\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01143\ }
+\DoxyCodeLine{01144\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01145\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01146\ \ \ \ \ \textcolor{comment}{//\ \ bool\ orthogonal\_intersect(mx\_point\ top,\ mx\_point\ bottom,\ mx\_point\ left,\ mx\_point\ right)\ const;}}
+\DoxyCodeLine{01147\ }
+\DoxyCodeLine{01148\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSpanSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{01150\ }
+\DoxyCodeLine{01151\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeRectSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01154\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2spanComponents(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distval)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2degenerateSpan(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01163\ }
+\DoxyCodeLine{01164\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2properSpan(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01167\ }
+\DoxyCodeLine{01168\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2rectComponents(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distval)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2degenerateRect(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01177\ }
+\DoxyCodeLine{01178\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2properRect(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01181\ }
+\DoxyCodeLine{01182\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2span(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01185\ }
+\DoxyCodeLine{01186\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2rect(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01189\ \};}
+\DoxyCodeLine{01190\ }
+\DoxyCodeLine{01191\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01192\ \textcolor{comment}{\ *\ CLASS:\ mx\_irect}}
+\DoxyCodeLine{01193\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01194\ \textcolor{comment}{\ *\ DESCRIPTION:\ Basic\ rectangle\ with\ integer\ coordinates}}
+\DoxyCodeLine{01195\ \textcolor{comment}{\ *\ \ This\ is\ a\ lightwieght\ class\ for\ rectangles\ -\/\ no}}
+\DoxyCodeLine{01196\ \textcolor{comment}{\ *\ \ virtual\ functions}}
+\DoxyCodeLine{01197\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01198\ \textcolor{comment}{\ *\ The\ coordinates\ are\ considered\ in\ the\ Maxwell\ coordinate}}
+\DoxyCodeLine{01199\ \textcolor{comment}{\ *\ system\ e.g.\ (0,0)\ is\ the\ top\ left,\ (1,1)\ to\ the\ bottom}}
+\DoxyCodeLine{01200\ \textcolor{comment}{\ *\ right.}}
+\DoxyCodeLine{01201\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01202\ \textcolor{comment}{\ *\ Rects\ have\ two\ interpretations\ -\/\ if\ isSpan\ is\ true\ it}}
+\DoxyCodeLine{01203\ \textcolor{comment}{\ *\ is\ considered\ as\ a\ single\ line\ segment\ from\ (xb,yb)}}
+\DoxyCodeLine{01204\ \textcolor{comment}{\ *\ (yt,yb)\ else\ it\ is\ considered\ to\ be\ a\ proper\ area}}
+\DoxyCodeLine{01205\ \textcolor{comment}{\ *\ rectangle}}
+\DoxyCodeLine{01206\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01207\ \textcolor{comment}{\ *\ A\ non-\/span\ type\ rect\ is\ normalised\ if\ (xb,yb)\ is\ to\ the}}
+\DoxyCodeLine{01208\ \textcolor{comment}{\ *\ top\ left\ above\ (xt,yt).}}
+\DoxyCodeLine{01209\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01210\ \textcolor{comment}{\ *\ e.g.\ (xb,yb,xt,yt)\ \ =\ (0,0,1,1)\ is\ normalised}}
+\DoxyCodeLine{01211\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ but\ \ \ \ \ \ \ \ \ \ \ (1,0,0,1)\ is\ not\ normalised}}
+\DoxyCodeLine{01212\ \textcolor{comment}{\ *\ that\ is\ a\ rectangle\ is\ normalised\ if\ xb\ <=\ xt\ and}}
+\DoxyCodeLine{01213\ \textcolor{comment}{\ *\ yb\ <=\ yt}}
+\DoxyCodeLine{01214\ \textcolor{comment}{}}
+\DoxyCodeLine{01215\ \textcolor{comment}{\ *\ If\ the\ isSpan\ field\ is\ TRUE\ the\ structure\ represents\ a}}
+\DoxyCodeLine{01216\ \textcolor{comment}{\ *\ directed\ span\ from\ (xt,yt)\ to\ (xb,yb)\ ,\ that\ is\ a\ single}}
+\DoxyCodeLine{01217\ \textcolor{comment}{\ *\ line\ segment}}
+\DoxyCodeLine{01218\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01219\ }
+\DoxyCodeLine{01220\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__irect}{mx\_irect}}\ \{}
+\DoxyCodeLine{01221\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01222\ \ \ \ \ \textcolor{comment}{//\ Basic\ constructor}}
+\DoxyCodeLine{01223\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(\textcolor{keywordtype}{bool}\ span\ =\ FALSE,\ \textcolor{keywordtype}{bool}\ area\ =\ TRUE);}
+\DoxyCodeLine{01224\ }
+\DoxyCodeLine{01225\ \ \ \ \ \textcolor{comment}{//\ From\ four\ coords}}
+\DoxyCodeLine{01226\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(int32\ pxb,\ int32\ pyb,}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ int32\ pxt,\ int32\ pyt,}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ span\ =\ FALSE,}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ area\ =\ TRUE);}
+\DoxyCodeLine{01230\ }
+\DoxyCodeLine{01231\ \ \ \ \ \textcolor{comment}{//\ Two\ points\ (use\ mx\_ipoint\ to\ mx\_ipoint\ conversion\ to}}
+\DoxyCodeLine{01232\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ use\ with\ mx\_ipoint\ argument)}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pt,}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ span\ =\ FALSE,}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ area\ =\ TRUE);}
+\DoxyCodeLine{01237\ }
+\DoxyCodeLine{01238\ \ \ \ \ \textcolor{comment}{//\ From\ a\ rect\ (for\ interchangeability}}
+\DoxyCodeLine{01239\ }
+\DoxyCodeLine{01240\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ rct);}
+\DoxyCodeLine{01241\ }
+\DoxyCodeLine{01242\ \ \ \ \ \textcolor{comment}{//\ Basic\ operators}}
+\DoxyCodeLine{01243\ }
+\DoxyCodeLine{01244\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p)}
+\DoxyCodeLine{01245\ \ \ \ \ \{}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ xt\ +=\ p.x;}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ xb\ +=\ p.x;}
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ yt\ +=\ p.y;}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ yb\ +=\ p.y;}
+\DoxyCodeLine{01250\ }
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01252\ \ \ \ \ \};}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01254\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p)}
+\DoxyCodeLine{01255\ \ \ \ \ \{}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ xt\ -\/=\ p.x;}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ yt\ -\/=\ p.y;}
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ xb\ -\/=\ p.x;}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ yb\ -\/=\ p.y;}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01261\ \ \ \ \ \};}
+\DoxyCodeLine{01262\ }
+\DoxyCodeLine{01263\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ operator*=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{01264\ \ \ \ \ \{}
+\DoxyCodeLine{01265\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ temp;}
+\DoxyCodeLine{01266\ }
+\DoxyCodeLine{01267\ \ \ \ \ \ \ \ \ temp\ =\ xt\ *\ f;}
+\DoxyCodeLine{01268\ \ \ \ \ \ \ \ \ xt\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01269\ }
+\DoxyCodeLine{01270\ \ \ \ \ \ \ \ \ temp\ =\ yt\ *\ f;}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ yt\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01272\ }
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \ \ temp\ =\ xb\ *\ f;}
+\DoxyCodeLine{01274\ \ \ \ \ \ \ \ \ xb\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01275\ }
+\DoxyCodeLine{01276\ \ \ \ \ \ \ \ \ temp\ =\ yb\ *\ f;}
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ yb\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01278\ }
+\DoxyCodeLine{01279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01280\ \ \ \ \ \};}
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ operator/=(\textcolor{keywordtype}{double}\ f)}
+\DoxyCodeLine{01282\ \ \ \ \ \{}
+\DoxyCodeLine{01283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ temp;}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01285\ \ \ \ \ \ \ \ \ temp\ =\ xt\ /\ f;}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ xt\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01287\ }
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ temp\ =\ yt\ /\ f;}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ yt\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01290\ }
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ temp\ =\ xb\ /\ f;}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ xb\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01293\ }
+\DoxyCodeLine{01294\ \ \ \ \ \ \ \ \ temp\ =\ yb\ /\ f;}
+\DoxyCodeLine{01295\ \ \ \ \ \ \ \ \ yb\ =\ (int32)GNINT(temp);}
+\DoxyCodeLine{01296\ }
+\DoxyCodeLine{01297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01298\ \ \ \ \ \};}
+\DoxyCodeLine{01299\ }
+\DoxyCodeLine{01300\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)}
+\DoxyCodeLine{01301\ \ \ \ \ \{}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(this-\/>xb\ +\ p2.x,\ this-\/>yb\ +\ p2.y,}
+\DoxyCodeLine{01303\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ +\ p2.x,\ this-\/>yt\ +\ p2.y);}
+\DoxyCodeLine{01304\ \ \ \ \ \};}
+\DoxyCodeLine{01305\ }
+\DoxyCodeLine{01306\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p2)}
+\DoxyCodeLine{01307\ \ \ \ \ \{}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}(this-\/>xb\ -\/\ p2.x,\ this-\/>yb\ -\/\ p2.y,}
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>xt\ -\/\ p2.x,\ this-\/>yt\ -\/\ p2.y);}
+\DoxyCodeLine{01310\ \ \ \ \ \};}
+\DoxyCodeLine{01311\ }
+\DoxyCodeLine{01312\ \ \ \ \ \textcolor{comment}{//\ Normalisation\ routines}}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01314\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ normalised()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01315\ \ \ \ \ \textcolor{keywordtype}{void}\ normalise();}
+\DoxyCodeLine{01316\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isNormalised()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (isSpan)\ ||\ ((xb\ <=\ xt)\ \&\&\ (yb\ <=\ yt));\ \};}
+\DoxyCodeLine{01317\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getSpan()\ \{\ \textcolor{keywordflow}{return}\ isSpan;\ \};}
+\DoxyCodeLine{01318\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getArea()\ \{\ \textcolor{keywordflow}{return}\ isArea;\ \};}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01320\ \ \ \ \ \textcolor{comment}{//\ Basic\ geometry\ stuff}}
+\DoxyCodeLine{01321\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ area()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (xt\ -\/\ xb)\ *\ (yt\ -\/\ yb);\ \};}
+\DoxyCodeLine{01322\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (xb\ -\/\ xt)\ *\ (xb\ -\/\ xt)\ +\ (yb\ -\/\ yt)\ *\ (yb\ -\/\ yt);\ \};}
+\DoxyCodeLine{01323\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ length()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(length2());\ \};}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ span\ of\ the\ rectangle\ as\ a\ point}}
+\DoxyCodeLine{01326\ \ \ \ \ \textcolor{comment}{//\ point\ =\ (xt-\/bx,yt-\/yb)}}
+\DoxyCodeLine{01327\ }
+\DoxyCodeLine{01328\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ span()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01329\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xt\ -\/\ xb,\ yt\ -\/\ yb);}
+\DoxyCodeLine{01331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01332\ \ \ \ \ \};}
+\DoxyCodeLine{01333\ }
+\DoxyCodeLine{01334\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ unit\ span\ of\ the\ rectangle}}
+\DoxyCodeLine{01335\ \ \ \ \ \textcolor{comment}{//\ optionally\ return\ length}}
+\DoxyCodeLine{01336\ }
+\DoxyCodeLine{01337\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ uspan(\textcolor{keywordtype}{double}*\ len\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01338\ }
+\DoxyCodeLine{01339\ \ \ \ \ \textcolor{comment}{//\ (xb,yb)}}
+\DoxyCodeLine{01340\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ start()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01341\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xb,\ yb);}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01344\ \ \ \ \ \};}
+\DoxyCodeLine{01345\ }
+\DoxyCodeLine{01346\ \ \ \ \ \textcolor{comment}{//\ (xt,yt)}}
+\DoxyCodeLine{01347\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ end()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01348\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p(xt,\ yt);}
+\DoxyCodeLine{01350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{01351\ \ \ \ \ \};}
+\DoxyCodeLine{01352\ }
+\DoxyCodeLine{01353\ \ \ \ \ \textcolor{comment}{//\ Coordinates\ (for\ Maxwell\ device\ and\ doc)}}
+\DoxyCodeLine{01354\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ topLeft()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(GMIN(xt,\ xb),\ GMIN(yt,\ yb));\ \};}
+\DoxyCodeLine{01355\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ bottomLeft()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(GMIN(xt,\ xb),\ GMAX(yt,\ yb));\ \};}
+\DoxyCodeLine{01356\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ bottomRight()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(GMAX(xt,\ xb),\ GMAX(yt,\ yb));\ \};}
+\DoxyCodeLine{01357\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ topRight()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}(GMAX(xt,\ xb),\ GMIN(yt,\ yb));\ \};}
+\DoxyCodeLine{01358\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ size()}
+\DoxyCodeLine{01359\ \ \ \ \ \{}
+\DoxyCodeLine{01360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ p1(topLeft());}
+\DoxyCodeLine{01361\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ p2(bottomRight());}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ p3(p1);}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ p3\ -\/=\ p2;}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p3;}
+\DoxyCodeLine{01367\ \ \ \ \ \};}
+\DoxyCodeLine{01368\ }
+\DoxyCodeLine{01369\ \ \ \ \ \textcolor{comment}{//\ change\ span\ interpretation}}
+\DoxyCodeLine{01370\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSpan(\textcolor{keywordtype}{bool}\ isspan)\ \{\ setSpanArea(isspan,\ FALSE);\ \};}
+\DoxyCodeLine{01371\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setArea(\textcolor{keywordtype}{bool}\ isarea)\ \{\ isArea\ =\ isarea;\ \};}
+\DoxyCodeLine{01372\ }
+\DoxyCodeLine{01373\ \ \ \ \ int32\ xt;}
+\DoxyCodeLine{01374\ \ \ \ \ int32\ xb;}
+\DoxyCodeLine{01375\ \ \ \ \ int32\ yt;}
+\DoxyCodeLine{01376\ \ \ \ \ int32\ yb;}
+\DoxyCodeLine{01377\ \ \ \ \ \textcolor{keywordtype}{bool}\ isSpan;}
+\DoxyCodeLine{01378\ \ \ \ \ \textcolor{keywordtype}{bool}\ isArea;}
+\DoxyCodeLine{01379\ \ \ \ \ \textcolor{keywordtype}{void}\ setSpanArea(\textcolor{keywordtype}{bool}\ isSpan,\ \textcolor{keywordtype}{bool}\ isArea);}
+\DoxyCodeLine{01380\ }
+\DoxyCodeLine{01381\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01382\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01383\ \};}
+\DoxyCodeLine{01384\ }
+\DoxyCodeLine{01385\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01386\ \textcolor{comment}{\ *\ CLASS:\ mx\_polypoint}}
+\DoxyCodeLine{01387\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01388\ \textcolor{comment}{\ *\ DESCRIPTION:\ a\ basic\ polypoint\ made\ up\ of\ mx\_points.}}
+\DoxyCodeLine{01389\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01390\ }
+\DoxyCodeLine{01391\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{01392\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01393\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}(POLYPOINT\_TYPE\ type\ =\ POLY\_LINE);}
+\DoxyCodeLine{01394\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}(\textcolor{keywordtype}{int}\ num\_points,\ POLYPOINT\_TYPE\ type\ =\ POLY\_LINE);}
+\DoxyCodeLine{01395\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01396\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01397\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{\string~mx\_polypoint}}();}
+\DoxyCodeLine{01398\ }
+\DoxyCodeLine{01399\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ bounding\_box()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01401\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ operator[](\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01402\ }
+\DoxyCodeLine{01403\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getPoint(\textcolor{keywordtype}{double}\ rindex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01404\ }
+\DoxyCodeLine{01405\ \ \ \ \ \textcolor{keywordtype}{void}\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{01406\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01407\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01408\ }
+\DoxyCodeLine{01409\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01410\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01411\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01412\ }
+\DoxyCodeLine{01413\ \ \ \ \ \textcolor{keywordtype}{bool}\ addPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{01414\ }
+\DoxyCodeLine{01415\ \ \ \ \ \textcolor{comment}{//\ add\ a\ new\ point\ if\ it\ is\ not\ coincident}}
+\DoxyCodeLine{01416\ \ \ \ \ \textcolor{keywordtype}{bool}\ addNewPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01418\ \ \ \ \ \textcolor{keywordtype}{void}\ setMemorySize(\textcolor{keywordtype}{int}\ newSize);}
+\DoxyCodeLine{01419\ }
+\DoxyCodeLine{01420\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01422\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01423\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{01424\ }
+\DoxyCodeLine{01425\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_area(\textcolor{keywordtype}{bool}\ iis\_area)\ \{\ is\_area\ =\ iis\_area;\ \};}
+\DoxyCodeLine{01426\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_area()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ is\_area;\ \};}
+\DoxyCodeLine{01427\ }
+\DoxyCodeLine{01428\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_closed(\textcolor{keywordtype}{bool}\ iis\_closed)\ \{\ is\_closed\ =\ iis\_closed;\ \};}
+\DoxyCodeLine{01429\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_closed()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ is\_closed;\ \};}
+\DoxyCodeLine{01430\ }
+\DoxyCodeLine{01431\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ get\_num\_points()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ num\_points;\ \};}
+\DoxyCodeLine{01432\ }
+\DoxyCodeLine{01433\ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_area(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01434\ }
+\DoxyCodeLine{01435\ \ \ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01436\ \ \ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01437\ }
+\DoxyCodeLine{01438\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPoint(\textcolor{keywordtype}{int}\ i,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pt)\ \{\ points[i]\ =\ pt;\ \};}
+\DoxyCodeLine{01439\ \ \ \ \ \textcolor{keywordtype}{void}\ clear(\textcolor{keywordtype}{int}\ npoints);}
+\DoxyCodeLine{01440\ }
+\DoxyCodeLine{01441\ \ \ \ \ \textcolor{comment}{//\ clipping\ start\ and\ end\ of\ the\ polypoint}}
+\DoxyCodeLine{01442\ }
+\DoxyCodeLine{01443\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getStartMask()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ startMask;\ \};}
+\DoxyCodeLine{01444\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setStartMask(\textcolor{keywordtype}{double}\ imask)\ \{\ startMask\ =\ imask;\ \};}
+\DoxyCodeLine{01445\ }
+\DoxyCodeLine{01446\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getEndMask()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ endMask;\ \};}
+\DoxyCodeLine{01447\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setEndMask(\textcolor{keywordtype}{double}\ imask)\ \{\ endMask\ =\ imask;\ \};}
+\DoxyCodeLine{01448\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ unsetMask()\ \{\ startMask\ =\ endMask\ =\ 0;\ \};}
+\DoxyCodeLine{01449\ \ \ \ \ \textcolor{keywordtype}{bool}\ coincidentEnds();}
+\DoxyCodeLine{01450\ }
+\DoxyCodeLine{01451\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_allow\_coincident()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ allowCoincident;\ \};}
+\DoxyCodeLine{01452\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_allow\_coincident(\textcolor{keywordtype}{bool}\ ia)\ \{\ allowCoincident\ =\ ia;\ \};}
+\DoxyCodeLine{01453\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_type(POLYPOINT\_TYPE\ itype)\ \{\ type\ =\ itype;\ \};}
+\DoxyCodeLine{01454\ \ \ \ \ POLYPOINT\_TYPE\ get\_type()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ type;\ \};}
+\DoxyCodeLine{01455\ }
+\DoxyCodeLine{01456\ \ \ \ \ \textcolor{keywordtype}{int}\ wholeSelectCount();}
+\DoxyCodeLine{01457\ }
+\DoxyCodeLine{01458\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01459\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts);}
+\DoxyCodeLine{01460\ }
+\DoxyCodeLine{01461\ \ \ \ \ \textcolor{keywordtype}{void}\ components(\textcolor{keywordtype}{int}\&\ noComponentsCount,}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ wholeCount)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01463\ }
+\DoxyCodeLine{01464\ \ \ \ \ \textcolor{keywordtype}{void}\ append(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ rest);}
+\DoxyCodeLine{01465\ }
+\DoxyCodeLine{01466\ \ \ \ \ \textcolor{keywordtype}{bool}\ split(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01467\ \ \ \ \ \ \ \ \ int32\ maxSize,}
+\DoxyCodeLine{01468\ \ \ \ \ \ \ \ \ int32\ inSegmentId,}
+\DoxyCodeLine{01469\ \ \ \ \ \ \ \ \ int32\&\ outSegmentId,}
+\DoxyCodeLine{01470\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ startPolypoint);}
+\DoxyCodeLine{01471\ }
+\DoxyCodeLine{01472\ \ \ \ \ \textcolor{keywordtype}{void}\ copyBasics(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01473\ \ \ \ \ \textcolor{keywordtype}{void}\ copyBasics(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01474\ \ \ \ \ \textcolor{keywordtype}{void}\ copyPoints(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{01475\ \ \ \ \ \textcolor{keywordtype}{void}\ copyPoints(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{01476\ }
+\DoxyCodeLine{01477\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01478\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keywordtype}{bool}\ resetPoints,\ POLYPOINT\_TYPE\ itype);}
+\DoxyCodeLine{01479\ }
+\DoxyCodeLine{01480\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ basicSize\ =\ (SLS\_INT32\ +\ 2\ *\ SLS\_BOOL\ +\ SLS\_ENUM);}
+\DoxyCodeLine{01481\ }
+\DoxyCodeLine{01482\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2plineComponents(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01483\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01484\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{01485\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01486\ }
+\DoxyCodeLine{01487\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ quickSpanCheck(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01488\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ startPoint,}
+\DoxyCodeLine{01489\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ endPoint,}
+\DoxyCodeLine{01490\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ testVal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01491\ }
+\DoxyCodeLine{01492\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2properPline(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01493\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo,}
+\DoxyCodeLine{01494\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01495\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ points;}
+\DoxyCodeLine{01496\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_points;}
+\DoxyCodeLine{01497\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_alloc\_points;}
+\DoxyCodeLine{01498\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_closed;}
+\DoxyCodeLine{01499\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_area;}
+\DoxyCodeLine{01500\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box;}
+\DoxyCodeLine{01501\ \ \ \ \ \textcolor{keywordtype}{double}\ startMask;}
+\DoxyCodeLine{01502\ \ \ \ \ \textcolor{keywordtype}{double}\ endMask;}
+\DoxyCodeLine{01503\ \ \ \ \ POLYPOINT\_TYPE\ type;}
+\DoxyCodeLine{01504\ \ \ \ \ \textcolor{keywordtype}{bool}\ allowCoincident;}
+\DoxyCodeLine{01505\ \};}
+\DoxyCodeLine{01506\ }
+\DoxyCodeLine{01507\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01508\ \textcolor{comment}{\ *\ CLASS:\ mx\_ipolypoint}}
+\DoxyCodeLine{01509\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01510\ \textcolor{comment}{\ *\ DESCRIPTION:\ a\ basic\ polypoint\ made\ up\ of\ mx\_ipoints.}}
+\DoxyCodeLine{01511\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01512\ }
+\DoxyCodeLine{01513\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\ \{}
+\DoxyCodeLine{01514\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01515\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}(POLYPOINT\_TYPE\ type\ =\ POLY\_LINE);}
+\DoxyCodeLine{01516\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01517\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01518\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}(\textcolor{keywordtype}{int}\ num\_points,\ POLYPOINT\_TYPE\ type\ =\ POLY\_LINE);}
+\DoxyCodeLine{01519\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{\string~mx\_ipolypoint}}();}
+\DoxyCodeLine{01520\ }
+\DoxyCodeLine{01521\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ bounding\_box()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01523\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ operator[](\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01524\ \ \ \ \ \textcolor{keywordtype}{void}\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p);}
+\DoxyCodeLine{01525\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pp);}
+\DoxyCodeLine{01526\ \ \ \ \ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01527\ }
+\DoxyCodeLine{01528\ \ \ \ \ \textcolor{keywordtype}{bool}\ addPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p);}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01530\ \ \ \ \ \textcolor{comment}{//\ add\ a\ new\ point\ if\ it\ is\ not\ coincident}}
+\DoxyCodeLine{01531\ \ \ \ \ \textcolor{keywordtype}{bool}\ addNewPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ p);}
+\DoxyCodeLine{01532\ }
+\DoxyCodeLine{01533\ \ \ \ \ \textcolor{keywordtype}{void}\ setMemorySize(\textcolor{keywordtype}{int}\ newSize);}
+\DoxyCodeLine{01534\ }
+\DoxyCodeLine{01535\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_area(\textcolor{keywordtype}{bool}\ iis\_area)\ \{\ is\_area\ =\ iis\_area;\ \};}
+\DoxyCodeLine{01536\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_area()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ is\_area;\ \};}
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01538\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_closed(\textcolor{keywordtype}{bool}\ iis\_closed)\ \{\ is\_closed\ =\ iis\_closed;\ \};}
+\DoxyCodeLine{01539\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_closed()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ is\_closed;\ \};}
+\DoxyCodeLine{01540\ }
+\DoxyCodeLine{01541\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ get\_num\_points()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ num\_points;\ \};}
+\DoxyCodeLine{01542\ }
+\DoxyCodeLine{01543\ \ \ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01544\ }
+\DoxyCodeLine{01545\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPoint(\textcolor{keywordtype}{int}\ i,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pt)\ \{\ points[i]\ =\ pt;\ \};}
+\DoxyCodeLine{01546\ \ \ \ \ \textcolor{keywordtype}{void}\ clear(\textcolor{keywordtype}{int}\ npoints);}
+\DoxyCodeLine{01547\ }
+\DoxyCodeLine{01548\ \ \ \ \ \textcolor{comment}{//\ clipping\ start\ and\ end\ of\ the\ polypoint}}
+\DoxyCodeLine{01549\ }
+\DoxyCodeLine{01550\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getStartMask()\ \{\ \textcolor{keywordflow}{return}\ startMask;\ \};}
+\DoxyCodeLine{01551\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setStartMask(\textcolor{keywordtype}{double}\ imask)\ \{\ startMask\ =\ imask;\ \};}
+\DoxyCodeLine{01552\ }
+\DoxyCodeLine{01553\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getEndMask()\ \{\ \textcolor{keywordflow}{return}\ endMask;\ \};}
+\DoxyCodeLine{01554\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setEndMask(\textcolor{keywordtype}{double}\ imask)\ \{\ endMask\ =\ imask;\ \};}
+\DoxyCodeLine{01555\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ unsetMask()\ \{\ startMask\ =\ endMask\ =\ 0;\ \};}
+\DoxyCodeLine{01556\ }
+\DoxyCodeLine{01557\ \ \ \ \ \textcolor{keywordtype}{bool}\ coincidentEnds();}
+\DoxyCodeLine{01558\ }
+\DoxyCodeLine{01559\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ get\_allow\_coincident()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ allowCoincident;\ \};}
+\DoxyCodeLine{01560\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_allow\_coincident(\textcolor{keywordtype}{bool}\ ia)\ \{\ allowCoincident\ =\ ia;\ \};}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01562\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_type(POLYPOINT\_TYPE\ itype)\ \{\ type\ =\ itype;\ \};}
+\DoxyCodeLine{01563\ \ \ \ \ POLYPOINT\_TYPE\ get\_type()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ type;\ \};}
+\DoxyCodeLine{01564\ }
+\DoxyCodeLine{01565\ \ \ \ \ \textcolor{keywordtype}{void}\ copyBasics(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{01566\ \ \ \ \ \textcolor{keywordtype}{void}\ copyPoints(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{01567\ }
+\DoxyCodeLine{01568\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01569\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keywordtype}{bool}\ resetPoints,\ POLYPOINT\_TYPE\ itype);}
+\DoxyCodeLine{01570\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}*\ points;}
+\DoxyCodeLine{01571\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_points;}
+\DoxyCodeLine{01572\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_alloc\_points;}
+\DoxyCodeLine{01573\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_closed;}
+\DoxyCodeLine{01574\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_area;}
+\DoxyCodeLine{01575\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ box;}
+\DoxyCodeLine{01576\ }
+\DoxyCodeLine{01577\ \ \ \ \ \textcolor{keywordtype}{double}\ startMask;}
+\DoxyCodeLine{01578\ \ \ \ \ \textcolor{keywordtype}{double}\ endMask;}
+\DoxyCodeLine{01579\ \ \ \ \ POLYPOINT\_TYPE\ type;}
+\DoxyCodeLine{01580\ \ \ \ \ \textcolor{keywordtype}{bool}\ allowCoincident;}
+\DoxyCodeLine{01581\ \};}
+\DoxyCodeLine{01582\ }
+\DoxyCodeLine{01583\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01584\ \textcolor{comment}{\ *\ CLASS:\ mx\_spline}}
+\DoxyCodeLine{01585\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01586\ \textcolor{comment}{\ *\ DESCRIPTION:\ C2\ bezier\ spline}}
+\DoxyCodeLine{01587\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01588\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01589\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01590\ }
+\DoxyCodeLine{01591\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__spline}{mx\_spline}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{01592\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01593\ \ \ \ \ \mbox{\hyperlink{classmx__spline}{mx\_spline}}()}
+\DoxyCodeLine{01594\ \ \ \ \ \{}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ points\ =\ NULL;}
+\DoxyCodeLine{01596\ \ \ \ \ \ \ \ \ beziers\ =\ NULL;}
+\DoxyCodeLine{01597\ \ \ \ \ \ \ \ \ npoints\ =\ 0;}
+\DoxyCodeLine{01598\ \ \ \ \ \ \ \ \ nallocPoints\ =\ 0;}
+\DoxyCodeLine{01599\ \ \ \ \ \};}
+\DoxyCodeLine{01600\ \ \ \ \ \mbox{\hyperlink{classmx__spline}{mx\_spline}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ doCopy,\ \textcolor{keywordtype}{int}\ inpoints,\ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ points);}
+\DoxyCodeLine{01601\ \ \ \ \ \mbox{\hyperlink{classmx__bezier}{mx\_bezier}}*\ beziers;}
+\DoxyCodeLine{01602\ }
+\DoxyCodeLine{01603\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01604\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01605\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{01608\ \ \ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__spline}{mx\_spline}}\&\ inpl,\ \textcolor{keywordtype}{bool}\ fullCopy);}
+\DoxyCodeLine{01609\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ bounding\_box()\ \{\ \textcolor{keywordflow}{return}\ box;\ \};}
+\DoxyCodeLine{01610\ }
+\DoxyCodeLine{01611\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)}
+\DoxyCodeLine{01612\ \ \ \ \ \{}
+\DoxyCodeLine{01613\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01615\ \ \ \ \ \};}
+\DoxyCodeLine{01616\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)}
+\DoxyCodeLine{01617\ \ \ \ \ \{}
+\DoxyCodeLine{01618\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01619\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01620\ \ \ \ \ \};}
+\DoxyCodeLine{01621\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01622\ \ \ \ \ \{}
+\DoxyCodeLine{01623\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01625\ \ \ \ \ \};}
+\DoxyCodeLine{01626\ }
+\DoxyCodeLine{01627\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01628\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01629\ \ \ \ \ \textcolor{keywordtype}{void}\ setBeziers(\textcolor{keywordtype}{int}\ startPoint,}
+\DoxyCodeLine{01630\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ endPoint);}
+\DoxyCodeLine{01631\ \ \ \ \ \textcolor{keywordtype}{void}\ newMemory(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01632\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newPoints);}
+\DoxyCodeLine{01633\ \ \ \ \ \textcolor{keywordtype}{void}\ addPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{01634\ }
+\DoxyCodeLine{01635\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ points;}
+\DoxyCodeLine{01636\ \ \ \ \ \textcolor{keywordtype}{int}\ npoints;}
+\DoxyCodeLine{01637\ \ \ \ \ \textcolor{keywordtype}{int}\ nallocPoints;}
+\DoxyCodeLine{01638\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box;}
+\DoxyCodeLine{01639\ \};}
+\DoxyCodeLine{01640\ }
+\DoxyCodeLine{01641\ \textcolor{comment}{//\ Some\ simple\ geometry\ types\ to\ be\ getting\ on\ with}}
+\DoxyCodeLine{01642\ }
+\DoxyCodeLine{01643\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{01644\ \ \ \ \ MX\_GEOM\_INVALID,}
+\DoxyCodeLine{01645\ \ \ \ \ MX\_GEOM\_POINT,}
+\DoxyCodeLine{01646\ \ \ \ \ MX\_GEOM\_SPAN,}
+\DoxyCodeLine{01647\ \ \ \ \ MX\_GEOM\_RECT,}
+\DoxyCodeLine{01648\ \ \ \ \ MX\_GEOM\_LINE,}
+\DoxyCodeLine{01649\ \ \ \ \ MX\_GEOM\_POLYPOINT,}
+\DoxyCodeLine{01650\ \ \ \ \ MX\_GEOM\_ARC,}
+\DoxyCodeLine{01651\ \ \ \ \ MX\_GEOM\_BEZIER,}
+\DoxyCodeLine{01652\ \ \ \ \ MX\_GEOM\_SPLINE,}
+\DoxyCodeLine{01653\ \ \ \ \ MX\_GEOM\_NONE}
+\DoxyCodeLine{01654\ \}\ MX\_GEOM\_TYPE;}
+\DoxyCodeLine{01655\ }
+\DoxyCodeLine{01656\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01657\ \textcolor{comment}{\ *\ CLASS:\ mx\_geom}}
+\DoxyCodeLine{01658\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01659\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ general\ geometry\ which\ may\ be\ a}}
+\DoxyCodeLine{01660\ \textcolor{comment}{\ *\ complex\ combination\ of\ other\ geometries.\ This\ is}}
+\DoxyCodeLine{01661\ \textcolor{comment}{\ *\ the\ heavy\ weight\ geometry\ class\ from\ which}}
+\DoxyCodeLine{01662\ \textcolor{comment}{\ *\ virtual\ functions\ for\ size\ etc\ should\ be}}
+\DoxyCodeLine{01663\ \textcolor{comment}{\ *\ put.\ This\ geometry\ class\ only\ deals\ with\ the}}
+\DoxyCodeLine{01664\ \textcolor{comment}{\ *\ geometric\ properties\ of\ geometries\ and\ not\ how\ to}}
+\DoxyCodeLine{01665\ \textcolor{comment}{\ *\ serialise\ them\ and\ draw\ them}}
+\DoxyCodeLine{01666\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01667\ \textcolor{comment}{\ *\ many\ operations\ will\ return\ geometries\ so\ we\ will}}
+\DoxyCodeLine{01668\ \textcolor{comment}{\ *\ need\ to\ know\ their\ type.}}
+\DoxyCodeLine{01669\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01670\ }
+\DoxyCodeLine{01671\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__geom}{mx\_geom}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{01672\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01673\ \ \ \ \ \textcolor{comment}{//\ values\ used\ for\ iteration}}
+\DoxyCodeLine{01674\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ fac1;}
+\DoxyCodeLine{01675\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ fac2;}
+\DoxyCodeLine{01676\ }
+\DoxyCodeLine{01677\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}();}
+\DoxyCodeLine{01678\ }
+\DoxyCodeLine{01679\ \ \ \ \ MX\_GEOM\_TYPE\ type;}
+\DoxyCodeLine{01680\ \ \ \ \ int32\ styleId;}
+\DoxyCodeLine{01681\ \ \ \ \ int32\ colourId;}
+\DoxyCodeLine{01682\ \ \ \ \ \textcolor{keywordtype}{int}\ selectCount;}
+\DoxyCodeLine{01683\ }
+\DoxyCodeLine{01684\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ getDetails(int32\&\ s,\ int32\&\ c)}
+\DoxyCodeLine{01685\ \ \ \ \ \{}
+\DoxyCodeLine{01686\ \ \ \ \ \ \ \ \ s\ =\ styleId;}
+\DoxyCodeLine{01687\ \ \ \ \ \ \ \ \ c\ =\ colourId;}
+\DoxyCodeLine{01688\ \ \ \ \ \};}
+\DoxyCodeLine{01689\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setDetails(int32\ s,\ int32\ c)}
+\DoxyCodeLine{01690\ \ \ \ \ \{}
+\DoxyCodeLine{01691\ \ \ \ \ \ \ \ \ styleId\ =\ s;}
+\DoxyCodeLine{01692\ \ \ \ \ \ \ \ \ colourId\ =\ c;}
+\DoxyCodeLine{01693\ \ \ \ \ \};}
+\DoxyCodeLine{01694\ }
+\DoxyCodeLine{01695\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ dimension()\ =\ 0;}
+\DoxyCodeLine{01696\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ storeBox()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{01697\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{01698\ }
+\DoxyCodeLine{01699\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01700\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)}
+\DoxyCodeLine{01702\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{01703\ }
+\DoxyCodeLine{01704\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01705\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01706\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01707\ }
+\DoxyCodeLine{01708\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ sqrt(dist2snap(p));\ \};}
+\DoxyCodeLine{01709\ \ \ \ \ \textcolor{keyword}{inline}\ MX\_GEOM\_TYPE\ getType()\ \{\ \textcolor{keywordflow}{return}\ type;\ \};}
+\DoxyCodeLine{01710\ }
+\DoxyCodeLine{01711\ \ \ \ \ \textcolor{comment}{//\ serialisation}}
+\DoxyCodeLine{01712\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01713\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01714\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01715\ }
+\DoxyCodeLine{01716\ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ components\ of\ a\ geometry}}
+\DoxyCodeLine{01717\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ =\ 0;}
+\DoxyCodeLine{01718\ }
+\DoxyCodeLine{01719\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01720\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)}
+\DoxyCodeLine{01721\ \ \ \ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{01722\ }
+\DoxyCodeLine{01723\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{01724\ }
+\DoxyCodeLine{01725\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ isSegmentable()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01726\ }
+\DoxyCodeLine{01727\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ segment(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01728\ \ \ \ \ \ \ \ \ int32\ maxSize,}
+\DoxyCodeLine{01729\ \ \ \ \ \ \ \ \ int32\ segmentId,}
+\DoxyCodeLine{01730\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ splitGeometry)}
+\DoxyCodeLine{01731\ \ \ \ \ \{}
+\DoxyCodeLine{01732\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01733\ \ \ \ \ \ \ \ \ *splitGeometry\ =\ NULL;}
+\DoxyCodeLine{01734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{01735\ \ \ \ \ \}}
+\DoxyCodeLine{01736\ }
+\DoxyCodeLine{01737\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ fuse(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01738\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ restGeometry,}
+\DoxyCodeLine{01739\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFirst)}
+\DoxyCodeLine{01740\ \ \ \ \ \{}
+\DoxyCodeLine{01741\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01742\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01743\ \ \ \ \ \};}
+\DoxyCodeLine{01744\ }
+\DoxyCodeLine{01745\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ requireAllSegments()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{01746\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ joinEndSegments()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{01747\ }
+\DoxyCodeLine{01748\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ isClosed()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01749\ }
+\DoxyCodeLine{01750\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01751\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01752\ \};}
+\DoxyCodeLine{01753\ }
+\DoxyCodeLine{01754\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01755\ \textcolor{comment}{\ *\ CLASS:\ gmx\_bezier}}
+\DoxyCodeLine{01756\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01757\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{01758\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01759\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01760\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01761\ }
+\DoxyCodeLine{01762\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__bezier}{gmx\_bezier}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{01763\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01764\ \ \ \ \ \mbox{\hyperlink{classmx__bezier}{mx\_bezier}}\ b;}
+\DoxyCodeLine{01765\ \ \ \ \ \mbox{\hyperlink{classgmx__bezier}{gmx\_bezier}}()\ \{\ type\ =\ MX\_GEOM\_BEZIER;\ \};}
+\DoxyCodeLine{01766\ \ \ \ \ \mbox{\hyperlink{classgmx__bezier}{gmx\_bezier}}(\mbox{\hyperlink{classmx__bezier}{mx\_bezier}}\&\ ib)}
+\DoxyCodeLine{01767\ \ \ \ \ \{}
+\DoxyCodeLine{01768\ \ \ \ \ \ \ \ \ type\ =\ MX\_GEOM\_BEZIER;}
+\DoxyCodeLine{01769\ \ \ \ \ \ \ \ \ b\ =\ ib;}
+\DoxyCodeLine{01770\ \ \ \ \ \};}
+\DoxyCodeLine{01771\ }
+\DoxyCodeLine{01772\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ 1;\ \};}
+\DoxyCodeLine{01773\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01774\ \ \ \ \ \{}
+\DoxyCodeLine{01775\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01776\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b.box();}
+\DoxyCodeLine{01777\ \ \ \ \ \};}
+\DoxyCodeLine{01778\ }
+\DoxyCodeLine{01779\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01780\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01781\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01782\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01783\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b.dist2snap(p,\ snapInfo,\ tolerance);}
+\DoxyCodeLine{01784\ \ \ \ \ \};}
+\DoxyCodeLine{01785\ }
+\DoxyCodeLine{01786\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \{\ \textcolor{keywordflow}{return}\ GEOM\_INTERSECT\_NONE;\ \};}
+\DoxyCodeLine{01787\ }
+\DoxyCodeLine{01788\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01790\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01791\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplictate()\ \{\ \textcolor{keywordflow}{return}\ NULL;\ \};}
+\DoxyCodeLine{01792\ }
+\DoxyCodeLine{01793\ \ \ \ \ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{01794\ }
+\DoxyCodeLine{01795\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01796\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01797\ }
+\DoxyCodeLine{01798\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01799\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01800\ \};}
+\DoxyCodeLine{01801\ }
+\DoxyCodeLine{01802\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01803\ \textcolor{comment}{\ *\ CLASS:\ gmx\_arc}}
+\DoxyCodeLine{01804\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01805\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{01806\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01807\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01808\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01809\ }
+\DoxyCodeLine{01810\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__arc}{gmx\_arc}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{01811\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01812\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\ a;}
+\DoxyCodeLine{01813\ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}()\ \{\ type\ =\ MX\_GEOM\_ARC;\ \};}
+\DoxyCodeLine{01814\ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ ia)}
+\DoxyCodeLine{01815\ \ \ \ \ \{}
+\DoxyCodeLine{01816\ \ \ \ \ \ \ \ \ type\ =\ MX\_GEOM\_ARC;}
+\DoxyCodeLine{01817\ \ \ \ \ \ \ \ \ a\ =\ ia;}
+\DoxyCodeLine{01818\ \ \ \ \ \};}
+\DoxyCodeLine{01819\ \ \ \ \ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}\&\ ia)\ \{\ *\textcolor{keyword}{this}\ =\ ia;\ \};}
+\DoxyCodeLine{01820\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ a.isArea\ ?\ 2\ :\ 1;\ \};}
+\DoxyCodeLine{01821\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01822\ \ \ \ \ \{}
+\DoxyCodeLine{01823\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01824\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.box();}
+\DoxyCodeLine{01825\ \ \ \ \ \};}
+\DoxyCodeLine{01826\ }
+\DoxyCodeLine{01827\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01828\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01829\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01830\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01831\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.dist2snap(p,\ snapInfo,\ tolerance);}
+\DoxyCodeLine{01832\ \ \ \ \ \};}
+\DoxyCodeLine{01833\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01834\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,}
+\DoxyCodeLine{01835\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01837\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01838\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01839\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01840\ }
+\DoxyCodeLine{01841\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ a.wholeSelectCount();\ \};}
+\DoxyCodeLine{01842\ }
+\DoxyCodeLine{01843\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01844\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ a.mergeSelectCount(nselectCounts,}
+\DoxyCodeLine{01845\ \ \ \ \ \ \ \ \ selectCounts);\ \};}
+\DoxyCodeLine{01846\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgmx__arc}{gmx\_arc}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{01847\ }
+\DoxyCodeLine{01848\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01849\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01850\ \};}
+\DoxyCodeLine{01851\ }
+\DoxyCodeLine{01852\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01853\ \textcolor{comment}{\ *\ CLASS:\ gmx\_point}}
+\DoxyCodeLine{01854\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01855\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ mx\_geom\ point}}
+\DoxyCodeLine{01856\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01857\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01858\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01859\ }
+\DoxyCodeLine{01860\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__point}{gmx\_point}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{01861\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01862\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p;}
+\DoxyCodeLine{01863\ }
+\DoxyCodeLine{01864\ \ \ \ \ \textcolor{comment}{//\ simple\ constructor}}
+\DoxyCodeLine{01865\ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}()\ \{\ type\ =\ MX\_GEOM\_POINT;\ \};}
+\DoxyCodeLine{01866\ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{01867\ \ \ \ \ \mbox{\hyperlink{classgmx__point}{gmx\_point}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgmx__point}{gmx\_point}}\&\ p)\ \{\ *\textcolor{keyword}{this}\ =\ p;\ \};}
+\DoxyCodeLine{01868\ }
+\DoxyCodeLine{01869\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{01870\ \ \ \ \ \textcolor{keywordtype}{bool}\ storeBox()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01871\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01872\ \ \ \ \ \{}
+\DoxyCodeLine{01873\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01874\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}(p,\ p,\ FALSE,\ TRUE);}
+\DoxyCodeLine{01875\ \ \ \ \ \};}
+\DoxyCodeLine{01876\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{01877\ }
+\DoxyCodeLine{01878\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pi,}
+\DoxyCodeLine{01879\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01880\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ p.dist2snap(pi,\ snapInfo,\ tolerance);\ \};}
+\DoxyCodeLine{01881\ }
+\DoxyCodeLine{01882\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01883\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01884\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01885\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgmx__point}{gmx\_point}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{01886\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ p.wholeSelectCount();\ \};}
+\DoxyCodeLine{01887\ }
+\DoxyCodeLine{01888\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01889\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ p.mergeSelectCount(nselectCounts,}
+\DoxyCodeLine{01890\ \ \ \ \ \ \ \ \ selectCounts);\ \};}
+\DoxyCodeLine{01891\ \};}
+\DoxyCodeLine{01892\ }
+\DoxyCodeLine{01893\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01894\ \textcolor{comment}{\ *\ CLASS:\ grect}}
+\DoxyCodeLine{01895\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01896\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ geometry\ area\ type\ rectangle}}
+\DoxyCodeLine{01897\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01898\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01899\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01900\ }
+\DoxyCodeLine{01901\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__rect}{gmx\_rect}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{01902\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01903\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ r;}
+\DoxyCodeLine{01904\ \ \ \ \ \textcolor{comment}{//\ simple\ constructor}}
+\DoxyCodeLine{01905\ \ \ \ \ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}()\ \{\ type\ =\ MX\_GEOM\_RECT;\ \};}
+\DoxyCodeLine{01906\ \ \ \ \ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ p);}
+\DoxyCodeLine{01907\ \ \ \ \ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}\&\ p)}
+\DoxyCodeLine{01908\ \ \ \ \ \{}
+\DoxyCodeLine{01909\ \ \ \ \ \ \ \ \ type\ =\ p.type;}
+\DoxyCodeLine{01910\ \ \ \ \ \ \ \ \ styleId\ =\ p.styleId;}
+\DoxyCodeLine{01911\ \ \ \ \ \ \ \ \ colourId\ =\ p.colourId;}
+\DoxyCodeLine{01912\ \ \ \ \ \ \ \ \ selectCount\ =\ p.selectCount;}
+\DoxyCodeLine{01913\ \ \ \ \ \}}
+\DoxyCodeLine{01914\ }
+\DoxyCodeLine{01915\ \ \ \ \ \textcolor{keywordtype}{bool}\ storeBox()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01916\ }
+\DoxyCodeLine{01917\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ r.isArea\ ?\ 2\ :\ 1;\ \};}
+\DoxyCodeLine{01918\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01919\ \ \ \ \ \{}
+\DoxyCodeLine{01920\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01921\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r.box();}
+\DoxyCodeLine{01922\ \ \ \ \ \};}
+\DoxyCodeLine{01923\ }
+\DoxyCodeLine{01924\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01925\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01926\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ r.dist2snap(p,\ snapInfo,\ tolerance);\ \};}
+\DoxyCodeLine{01927\ }
+\DoxyCodeLine{01928\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{01929\ }
+\DoxyCodeLine{01930\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01931\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01932\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01933\ }
+\DoxyCodeLine{01934\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgmx__rect}{gmx\_rect}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{01935\ }
+\DoxyCodeLine{01936\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ r.wholeSelectCount();\ \};}
+\DoxyCodeLine{01937\ }
+\DoxyCodeLine{01938\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01939\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ r.mergeSelectCount(nselectCounts,}
+\DoxyCodeLine{01940\ \ \ \ \ \ \ \ \ selectCounts);\ \};}
+\DoxyCodeLine{01941\ }
+\DoxyCodeLine{01942\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01943\ \};}
+\DoxyCodeLine{01944\ }
+\DoxyCodeLine{01945\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01946\ \textcolor{comment}{\ *\ CLASS:\ gmx\_span}}
+\DoxyCodeLine{01947\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01948\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ geometry\ span}}
+\DoxyCodeLine{01949\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01950\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01951\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01952\ }
+\DoxyCodeLine{01953\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__span}{gmx\_span}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{01954\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01955\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ s;}
+\DoxyCodeLine{01956\ \ \ \ \ \textcolor{comment}{//\ simple\ constructor}}
+\DoxyCodeLine{01957\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}()}
+\DoxyCodeLine{01958\ \ \ \ \ \ \ \ \ :\ s(TRUE)}
+\DoxyCodeLine{01959\ \ \ \ \ \{}
+\DoxyCodeLine{01960\ \ \ \ \ \ \ \ \ type\ =\ MX\_GEOM\_SPAN;}
+\DoxyCodeLine{01961\ \ \ \ \ \};}
+\DoxyCodeLine{01962\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ p);}
+\DoxyCodeLine{01963\ \ \ \ \ \mbox{\hyperlink{classgmx__span}{gmx\_span}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgmx__span}{gmx\_span}}\&\ p)}
+\DoxyCodeLine{01964\ \ \ \ \ \{}
+\DoxyCodeLine{01965\ \ \ \ \ \ \ \ \ type\ =\ p.type;}
+\DoxyCodeLine{01966\ \ \ \ \ \ \ \ \ styleId\ =\ p.styleId;}
+\DoxyCodeLine{01967\ \ \ \ \ \ \ \ \ colourId\ =\ p.colourId;}
+\DoxyCodeLine{01968\ \ \ \ \ \ \ \ \ selectCount\ =\ p.selectCount;}
+\DoxyCodeLine{01969\ \ \ \ \ \}}
+\DoxyCodeLine{01970\ }
+\DoxyCodeLine{01971\ \ \ \ \ \textcolor{keywordtype}{bool}\ storeBox()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{01972\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ 1;\ \};}
+\DoxyCodeLine{01973\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{01974\ \ \ \ \ \{}
+\DoxyCodeLine{01975\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{01976\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s.box();}
+\DoxyCodeLine{01977\ \ \ \ \ \};}
+\DoxyCodeLine{01978\ }
+\DoxyCodeLine{01979\ \ \ \ \ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{01980\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{01981\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ s.dist2snap(p,\ snapInfo,\ tolerance);\ \};}
+\DoxyCodeLine{01982\ }
+\DoxyCodeLine{01983\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{01984\ }
+\DoxyCodeLine{01985\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01986\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{01987\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01988\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgmx__span}{gmx\_span}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{01989\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ s.wholeSelectCount();\ \};}
+\DoxyCodeLine{01990\ }
+\DoxyCodeLine{01991\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{01992\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ s.mergeSelectCount(nselectCounts,}
+\DoxyCodeLine{01993\ \ \ \ \ \ \ \ \ selectCounts);\ \};}
+\DoxyCodeLine{01994\ \};}
+\DoxyCodeLine{01995\ }
+\DoxyCodeLine{01996\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01997\ \textcolor{comment}{\ *\ CLASS:\ gmx\_polypoint}}
+\DoxyCodeLine{01998\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01999\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ polypoint\ geometry}}
+\DoxyCodeLine{02000\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02001\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02002\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{02003\ }
+\DoxyCodeLine{02004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{02005\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02006\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\ pl;}
+\DoxyCodeLine{02007\ \ \ \ \ \textcolor{comment}{//\ simple\ constructor}}
+\DoxyCodeLine{02008\ \ \ \ \ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}()\ \{\ type\ =\ MX\_GEOM\_POLYPOINT;\ \};}
+\DoxyCodeLine{02009\ \ \ \ \ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pl);}
+\DoxyCodeLine{02010\ \ \ \ \ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}\&\ pl)\ \{\ *\textcolor{keyword}{this}\ =\ pl;\ \};}
+\DoxyCodeLine{02011\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ pl.get\_area()\ ?\ 2\ :\ 1;\ \};}
+\DoxyCodeLine{02012\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{02013\ \ \ \ \ \{}
+\DoxyCodeLine{02014\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{02015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pl.bounding\_box();}
+\DoxyCodeLine{02016\ \ \ \ \ \};}
+\DoxyCodeLine{02017\ }
+\DoxyCodeLine{02018\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist2snap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{02020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pl.dist2snap(p,\ snapInfo,\ tolerance);\ \};}
+\DoxyCodeLine{02021\ }
+\DoxyCodeLine{02022\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{02023\ }
+\DoxyCodeLine{02024\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{02025\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{02026\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{02027\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgmx__polypoint}{gmx\_polypoint}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{02028\ \ \ \ \ \textcolor{keywordtype}{bool}\ isSegmentable()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{02029\ }
+\DoxyCodeLine{02030\ \ \ \ \ \textcolor{keywordtype}{int}\ segment(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{02031\ \ \ \ \ \ \ \ \ int32\ maxSize,}
+\DoxyCodeLine{02032\ \ \ \ \ \ \ \ \ int32\ segmentId,}
+\DoxyCodeLine{02033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ splitGeometry);}
+\DoxyCodeLine{02034\ }
+\DoxyCodeLine{02035\ \ \ \ \ \textcolor{keywordtype}{int}\ fuse(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{02036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ restGeometry,}
+\DoxyCodeLine{02037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFirst);}
+\DoxyCodeLine{02038\ }
+\DoxyCodeLine{02039\ \ \ \ \ \textcolor{keywordtype}{bool}\ requireAllSegments()\ \{\ \textcolor{keywordflow}{return}\ pl.get\_area();\ \};}
+\DoxyCodeLine{02040\ \ \ \ \ \textcolor{keywordtype}{bool}\ joinEndSegments()\ \{\ \textcolor{keywordflow}{return}\ pl.get\_closed();\ \};}
+\DoxyCodeLine{02041\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ pl.wholeSelectCount();\ \};}
+\DoxyCodeLine{02042\ }
+\DoxyCodeLine{02043\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isClosed()\ \{\ \textcolor{keywordflow}{return}\ pl.get\_closed();\ \};}
+\DoxyCodeLine{02044\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{02045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ pl.mergeSelectCount(nselectCounts,}
+\DoxyCodeLine{02046\ \ \ \ \ \ \ \ \ selectCounts);\ \};}
+\DoxyCodeLine{02047\ \};}
+\DoxyCodeLine{02048\ }
+\DoxyCodeLine{02049\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{02050\ \textcolor{comment}{\ *\ CLASS:\ gmx\_spline}}
+\DoxyCodeLine{02051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02052\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ C2\ bezier\ spline}}
+\DoxyCodeLine{02053\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02054\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{02056\ }
+\DoxyCodeLine{02057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgmx__spline}{gmx\_spline}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geom}{mx\_geom}}\ \{}
+\DoxyCodeLine{02058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02059\ \ \ \ \ \mbox{\hyperlink{classmx__spline}{mx\_spline}}\ spl;}
+\DoxyCodeLine{02060\ \ \ \ \ \textcolor{comment}{//\ simple\ constructor}}
+\DoxyCodeLine{02061\ \ \ \ \ \mbox{\hyperlink{classgmx__spline}{gmx\_spline}}()\ \{\ type\ =\ MX\_GEOM\_SPLINE;\ \};}
+\DoxyCodeLine{02062\ \ \ \ \ \mbox{\hyperlink{classgmx__spline}{gmx\_spline}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__spline}{mx\_spline}}\&\ spl,\ \textcolor{keywordtype}{bool}\ copy\ =\ TRUE);}
+\DoxyCodeLine{02063\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ dimension()\ \{\ \textcolor{keywordflow}{return}\ 1;\ \};}
+\DoxyCodeLine{02064\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ box(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{02065\ \ \ \ \ \{}
+\DoxyCodeLine{02066\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{02067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ spl.bounding\_box();}
+\DoxyCodeLine{02068\ \ \ \ \ \};}
+\DoxyCodeLine{02069\ \ \ \ \ \textcolor{keyword}{virtual}\ GEOM\_INTERSECT\_TYPE\ intersectBox(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r,\ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\ \{\ \textcolor{keywordflow}{return}\ GEOM\_INTERSECT\_NONE;\ \};}
+\DoxyCodeLine{02070\ }
+\DoxyCodeLine{02071\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ dist2span(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ snapInfo\ =\ defaultSnapInfo,}
+\DoxyCodeLine{02073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{02074\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{02075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ spl.dist2snap(p,\ snapInfo,\ tolerance);}
+\DoxyCodeLine{02076\ \ \ \ \ \};}
+\DoxyCodeLine{02077\ }
+\DoxyCodeLine{02078\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{02079\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{02080\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{02081\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ duplicate()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ NULL;\ \};}
+\DoxyCodeLine{02082\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ wholeSelectCount()\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{02083\ }
+\DoxyCodeLine{02084\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ mergeSelectCount(\textcolor{keywordtype}{int}\ nselectCounts,}
+\DoxyCodeLine{02085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ selectCounts)\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{02086\ \};}
+\DoxyCodeLine{02087\ }
+\DoxyCodeLine{02088\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{02089\ \textcolor{comment}{\ *\ CLASS:\ mx\_affine}}
+\DoxyCodeLine{02090\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02091\ \textcolor{comment}{\ *\ DESCRIPTION:\ Class\ for\ an\ affine\ transform}}
+\DoxyCodeLine{02092\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02093\ \textcolor{comment}{\ *\ \ The\ transform\ works\ on\ a\ point\ so\ that}}
+\DoxyCodeLine{02094\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02095\ \textcolor{comment}{\ *\ \ (pox)\ \ =\ \ |\ a11\ a12\ |\ (px)\ \ +\ \ (b1)}}
+\DoxyCodeLine{02096\ \textcolor{comment}{\ *\ \ (poy)\ \ \ \ \ |\ a21\ a22\ |\ (py)\ \ \ \ \ (b2)}}
+\DoxyCodeLine{02097\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02098\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{02099\ }
+\DoxyCodeLine{02100\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__affine}{mx\_affine}}\ \{}
+\DoxyCodeLine{02101\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02102\ \ \ \ \ \mbox{\hyperlink{classmx__affine}{mx\_affine}}();}
+\DoxyCodeLine{02103\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{double}\ ia11,}
+\DoxyCodeLine{02104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ia12,}
+\DoxyCodeLine{02105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ia21,}
+\DoxyCodeLine{02106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ia22,}
+\DoxyCodeLine{02107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ib1,}
+\DoxyCodeLine{02108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ib2)}
+\DoxyCodeLine{02109\ \ \ \ \ \{}
+\DoxyCodeLine{02110\ \ \ \ \ \ \ \ \ a11\ =\ ia11;}
+\DoxyCodeLine{02111\ \ \ \ \ \ \ \ \ a12\ =\ ia12;}
+\DoxyCodeLine{02112\ \ \ \ \ \ \ \ \ a21\ =\ ia21;}
+\DoxyCodeLine{02113\ \ \ \ \ \ \ \ \ a22\ =\ ia22;}
+\DoxyCodeLine{02114\ \ \ \ \ \ \ \ \ b1\ =\ ib1;}
+\DoxyCodeLine{02115\ \ \ \ \ \ \ \ \ b2\ =\ ib2;}
+\DoxyCodeLine{02116\ \ \ \ \ \};}
+\DoxyCodeLine{02117\ }
+\DoxyCodeLine{02118\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p)}
+\DoxyCodeLine{02119\ \ \ \ \ \{}
+\DoxyCodeLine{02120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ po;}
+\DoxyCodeLine{02121\ }
+\DoxyCodeLine{02122\ \ \ \ \ \ \ \ \ po.x\ =\ this-\/>a11\ *\ p.x\ +\ this-\/>a12\ *\ p.y\ +\ this-\/>b1;}
+\DoxyCodeLine{02123\ \ \ \ \ \ \ \ \ po.y\ =\ this-\/>a21\ *\ p.x\ +\ this-\/>a22\ *\ p.y\ +\ this-\/>b2;}
+\DoxyCodeLine{02124\ }
+\DoxyCodeLine{02125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ po;}
+\DoxyCodeLine{02126\ \ \ \ \ \};}
+\DoxyCodeLine{02127\ }
+\DoxyCodeLine{02128\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator*(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r)}
+\DoxyCodeLine{02129\ \ \ \ \ \{}
+\DoxyCodeLine{02130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ ro(r);}
+\DoxyCodeLine{02131\ }
+\DoxyCodeLine{02132\ \ \ \ \ \ \ \ \ ro.xt\ =\ this-\/>a11\ *\ r.xt\ +\ this-\/>a12\ *\ r.yt\ +\ this-\/>b1;}
+\DoxyCodeLine{02133\ \ \ \ \ \ \ \ \ ro.yt\ =\ this-\/>a21\ *\ r.xt\ +\ this-\/>a22\ *\ r.yt\ +\ this-\/>b2;}
+\DoxyCodeLine{02134\ \ \ \ \ \ \ \ \ ro.xb\ =\ this-\/>a11\ *\ r.xb\ +\ this-\/>a12\ *\ r.yb\ +\ this-\/>b1;}
+\DoxyCodeLine{02135\ \ \ \ \ \ \ \ \ ro.yb\ =\ this-\/>a21\ *\ r.xb\ +\ this-\/>a22\ *\ r.yb\ +\ this-\/>b2;}
+\DoxyCodeLine{02136\ }
+\DoxyCodeLine{02137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ro;}
+\DoxyCodeLine{02138\ \ \ \ \ \};}
+\DoxyCodeLine{02139\ }
+\DoxyCodeLine{02140\ \ \ \ \ \textcolor{keywordtype}{double}\ a11;}
+\DoxyCodeLine{02141\ \ \ \ \ \textcolor{keywordtype}{double}\ a12;}
+\DoxyCodeLine{02142\ \ \ \ \ \textcolor{keywordtype}{double}\ a21;}
+\DoxyCodeLine{02143\ \ \ \ \ \textcolor{keywordtype}{double}\ a22;}
+\DoxyCodeLine{02144\ \ \ \ \ \textcolor{keywordtype}{double}\ b1;}
+\DoxyCodeLine{02145\ \ \ \ \ \textcolor{keywordtype}{double}\ b2;}
+\DoxyCodeLine{02146\ }
+\DoxyCodeLine{02147\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{02148\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{02149\ \};}
+\DoxyCodeLine{02150\ }
+\DoxyCodeLine{02151\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmxArcDistanceData}{mxArcDistanceData}}\ \{}
+\DoxyCodeLine{02152\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02153\ \ \ \ \ \mbox{\hyperlink{classmxArcDistanceData}{mxArcDistanceData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__arc}{mx\_arc}}*\ a,}
+\DoxyCodeLine{02154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ idoMin)}
+\DoxyCodeLine{02156\ \ \ \ \ \{}
+\DoxyCodeLine{02157\ \ \ \ \ \ \ \ \ arc\ =\ a;}
+\DoxyCodeLine{02158\ \ \ \ \ \ \ \ \ point\ =\ p;}
+\DoxyCodeLine{02159\ \ \ \ \ \ \ \ \ doMin\ =\ idoMin;}
+\DoxyCodeLine{02160\ \ \ \ \ \};}
+\DoxyCodeLine{02161\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__arc}{mx\_arc}}*\ arc;}
+\DoxyCodeLine{02162\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ point;}
+\DoxyCodeLine{02163\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMin;}
+\DoxyCodeLine{02164\ \};}
+\DoxyCodeLine{02165\ }
+\DoxyCodeLine{02166\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{02167\ \textcolor{comment}{\ *\ CLASS:\ mx\_snap\_info}}
+\DoxyCodeLine{02168\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02169\ \textcolor{comment}{\ *\ DESCRIPTION:\ Information\ about\ snapping}}
+\DoxyCodeLine{02170\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02171\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{02172\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{02173\ }
+\DoxyCodeLine{02174\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\ \{}
+\DoxyCodeLine{02175\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02176\ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}(\textcolor{keywordtype}{bool}\ isnapMode\ =\ FALSE,}
+\DoxyCodeLine{02177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ isnapTolerance\ =\ 0);}
+\DoxyCodeLine{02178\ }
+\DoxyCodeLine{02179\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setMode(\textcolor{keywordtype}{bool}\ im)\ \{\ snapMode\ =\ im;\ \};}
+\DoxyCodeLine{02180\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTolerance(\textcolor{keywordtype}{double}\ t)}
+\DoxyCodeLine{02181\ \ \ \ \ \{}
+\DoxyCodeLine{02182\ \ \ \ \ \ \ \ \ snapTolerance\ =\ t;}
+\DoxyCodeLine{02183\ \ \ \ \ \ \ \ \ snapTolerance2\ =\ t\ *\ t;}
+\DoxyCodeLine{02184\ \ \ \ \ \};}
+\DoxyCodeLine{02185\ }
+\DoxyCodeLine{02186\ \ \ \ \ \textcolor{keywordtype}{void}\ copyBasics(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ isnapInfo);}
+\DoxyCodeLine{02187\ }
+\DoxyCodeLine{02188\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setCount(\textcolor{keywordtype}{int}\ icount)\ \{\ count\ =\ icount;\ \};}
+\DoxyCodeLine{02189\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getCount()\ \{\ \textcolor{keywordflow}{return}\ count;\ \};}
+\DoxyCodeLine{02190\ }
+\DoxyCodeLine{02191\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isSnapping()\ \{\ \textcolor{keywordflow}{return}\ snapMode;\ \};}
+\DoxyCodeLine{02192\ }
+\DoxyCodeLine{02193\ \ \ \ \ \textcolor{keywordtype}{bool}\ setPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ snapPoint,}
+\DoxyCodeLine{02194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ distance,}
+\DoxyCodeLine{02195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count,}
+\DoxyCodeLine{02196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ offset);}
+\DoxyCodeLine{02197\ }
+\DoxyCodeLine{02198\ \ \ \ \ \textcolor{keywordtype}{bool}\ alreadyFailed(\textcolor{keywordtype}{int}\ testCount);}
+\DoxyCodeLine{02199\ }
+\DoxyCodeLine{02200\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getDistance()\ \{\ \textcolor{keywordflow}{return}\ d;\ \};}
+\DoxyCodeLine{02201\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getSnapTolerance()\ \{\ \textcolor{keywordflow}{return}\ snapTolerance;\ \};}
+\DoxyCodeLine{02202\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getSnapTolerance2()\ \{\ \textcolor{keywordflow}{return}\ snapTolerance2;\ \};}
+\DoxyCodeLine{02203\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getPoint()\ \{\ \textcolor{keywordflow}{return}\ p;\ \};}
+\DoxyCodeLine{02204\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPoint(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ip)\ \{\ p\ =\ ip;\ \};}
+\DoxyCodeLine{02205\ }
+\DoxyCodeLine{02206\ \ \ \ \ \textcolor{comment}{//\ snap\ to\ a\ point}}
+\DoxyCodeLine{02207\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2point(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ testPoint,}
+\DoxyCodeLine{02209\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testCount,}
+\DoxyCodeLine{02210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{02211\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal);}
+\DoxyCodeLine{02212\ }
+\DoxyCodeLine{02213\ \ \ \ \ \textcolor{comment}{//\ snap\ to\ a\ span}}
+\DoxyCodeLine{02214\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2span(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ testSpan,}
+\DoxyCodeLine{02216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testCount,}
+\DoxyCodeLine{02217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{02218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal);}
+\DoxyCodeLine{02219\ }
+\DoxyCodeLine{02220\ \ \ \ \ \textcolor{comment}{//\ snap\ to\ an\ arc\ span}}
+\DoxyCodeLine{02221\ \ \ \ \ \textcolor{keywordtype}{bool}\ dist2arc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p,}
+\DoxyCodeLine{02222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ testArc,}
+\DoxyCodeLine{02223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ testCount,}
+\DoxyCodeLine{02224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{02225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ distVal);}
+\DoxyCodeLine{02226\ }
+\DoxyCodeLine{02227\ \ \ \ \ \textcolor{keywordtype}{bool}\ transferSnap(\mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}\&\ testSnap,}
+\DoxyCodeLine{02228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ successCount,}
+\DoxyCodeLine{02229\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newCount);}
+\DoxyCodeLine{02230\ }
+\DoxyCodeLine{02231\ \ \ \ \ \textcolor{keywordtype}{double}\ combine(\textcolor{keywordtype}{int}\ numSnapInfos,}
+\DoxyCodeLine{02232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__snap__info}{mx\_snap\_info}}*\ snapInfos);}
+\DoxyCodeLine{02233\ }
+\DoxyCodeLine{02234\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{02235\ \ \ \ \ \textcolor{keywordtype}{bool}\ snapMode;\ \textcolor{comment}{//\ TRUE\ -\/\ use\ tolerance}}
+\DoxyCodeLine{02236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ allow\ multiple\ selections}}
+\DoxyCodeLine{02237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ FALSE\ return\ nearest\ point}}
+\DoxyCodeLine{02238\ }
+\DoxyCodeLine{02239\ \ \ \ \ \textcolor{keywordtype}{double}\ snapTolerance2;\ \textcolor{comment}{//\ tolerance\ for\ snapping}}
+\DoxyCodeLine{02240\ \ \ \ \ \textcolor{keywordtype}{double}\ snapTolerance;}
+\DoxyCodeLine{02241\ }
+\DoxyCodeLine{02242\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p;\ \textcolor{comment}{//\ the\ snapped\ to\ point}}
+\DoxyCodeLine{02243\ \ \ \ \ \textcolor{keywordtype}{int}\ count;\ \textcolor{comment}{//\ the\ component\ the\ point\ lies\ in}}
+\DoxyCodeLine{02244\ \ \ \ \ \textcolor{keywordtype}{double}\ offset;\ \textcolor{comment}{//\ the\ offset\ within\ the\ component}}
+\DoxyCodeLine{02245\ \ \ \ \ \textcolor{keywordtype}{double}\ d;\ \textcolor{comment}{//\ the\ distance\ to\ the\ point}}
+\DoxyCodeLine{02246\ }
+\DoxyCodeLine{02247\ \ \ \ \ \textcolor{comment}{//\ set\ a\ geometry\ on\ a\ mx\_snap\_info}}
+\DoxyCodeLine{02248\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}*\ geom;\ \textcolor{comment}{//\ the\ geometry\ to\ test}}
+\DoxyCodeLine{02249\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ testPoint;\ \textcolor{comment}{//\ the\ point\ to\ test\ against}}
+\DoxyCodeLine{02250\ \ \ \ \ \textcolor{keywordtype}{double}\ testTolerance;\ \textcolor{comment}{//\ the\ tolerance\ to\ use\ in}}
+\DoxyCodeLine{02251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ geometry\ (non-\/snap)\ stuff}}
+\DoxyCodeLine{02252\ }
+\DoxyCodeLine{02253\ \ \ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{02254\ \};}
+\DoxyCodeLine{02255\ }
+\DoxyCodeLine{02256\ \textcolor{preprocessor}{\#include\ "{}geomproto.h"{}}}
+\DoxyCodeLine{02257\ }
+\DoxyCodeLine{02258\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

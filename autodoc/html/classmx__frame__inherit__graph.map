@@ -1,0 +1,11 @@
+<map id="mx_frame" name="mx_frame">
+<area shape="rect" id="Node000001" title=" " alt="" coords="92,5,181,31"/>
+<area shape="rect" id="Node000002" href="$classmx__print__frame.html" title=" " alt="" coords="5,79,132,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,42,82,80,78,77,114,39"/>
+<area shape="rect" id="Node000003" href="$classmx__xframe.html" title=" " alt="" coords="156,79,253,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,39,196,77,192,80,155,42"/>
+<area shape="rect" id="Node000004" href="$classmx__scrollable__frame.html" title=" " alt="" coords="48,152,207,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="184,115,142,154,138,150,180,111"/>
+<area shape="rect" id="Node000005" href="$classmx__xfframe.html" title=" " alt="" coords="231,152,333,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="229,111,271,150,268,154,225,115"/>
+</map>

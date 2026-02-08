@@ -1,0 +1,162 @@
+\doxysection{mx\+\_\+wp\+\_\+toolbar.\+h}
+\hypertarget{mx__wp__toolbar_8h_source}{}\label{mx__wp__toolbar_8h_source}\index{ui/mx\_wp\_toolbar.h@{ui/mx\_wp\_toolbar.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_WP\_TOOLBAR\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_WP\_TOOLBAR\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_wp\_toolbar}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ \ The\ word\ process\ tool\ bar}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}mx\_bar.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_ruler\_bar.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_style.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_window.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_wp\_doc.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_wp\_menu\_items.h>}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__toolbar}{mx\_wp\_toolbar}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__bar}{mx\_bar}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ MX\_RTTI(mx\_wp\_toolbar\_class\_e)}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classmx__wp__toolbar}{mx\_wp\_toolbar}}(\mbox{\hyperlink{classmx__window}{mx\_window}}*\ window);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmx__wp__toolbar}{\string~mx\_wp\_toolbar}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ handle\ a\ button\ press}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ handle\_button(Widget\ w);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ handle\ the\ arm\ callback}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ handle\_arm(Widget\ w);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ handle\ the\ disarm\ callback}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ handle\_disarm();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ change\ the\ visibility\ of\ the\ style\ editing\ buttons\ and\ things}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ view\_styles(\textcolor{keywordtype}{bool}\ s);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ visibility\ of\ the\ menu\ item\ buttons\ (e.g.\ save,\ load\ etc)}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ view\_actions(\textcolor{keywordtype}{bool}\ s);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ visibility\ of\ the\ ruler}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ view\_ruler(\textcolor{keywordtype}{bool}\ s);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_style\_pulldown(\mbox{\hyperlink{classmx__document}{mx\_document}}*\ d);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ call\ this\ when\ a\ selection\ gets\ made\ to\ set\ the\ buttons,\ pulldowns}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ etc}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_current\_style(\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s[],\ \textcolor{keywordtype}{int}\ ns);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ list\ is\ terminated\ with\ end\_item\_e}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_visible(menu\_item\_name\_t\ item,\ ...);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_invisible(menu\_item\_name\_t\ item,\ ...);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_item\_visible(menu\_item\_name\_t\ item,\ \textcolor{keywordtype}{bool}\ s);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classmx__ruler__bar}{mx\_ruler\_bar}}*\ get\_ruler\_bar()\ \{\ \textcolor{keywordflow}{return}\ ruler\_bar;\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__ruler__bar}{mx\_ruler\_bar}}*\ ruler\_bar;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ the\ current\ paragraph\ style\ being\ displayed}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ current\_ps;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ whether\ or\ not\ to\ update\ all\ of\ the\ style\ fields}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ update\_ps;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ set\ a\ single\ paragraph\ style,\ updating\ only\ those\ fields\ that\ require}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ updating}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_current\_style(\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ ps);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ setting\ the\ states\ of\ buttons\ on\ selection\ of\ some\ text\ etc}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_bold\_toggle(Boolean\ b);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_italic\_toggle(Boolean\ b);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_underline\_toggle(Boolean\ b);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ family\ name\ may\ be\ NULL\ (for\ indeterminate)}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_current\_font\_family(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ family\_name);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_superscript\_toggles(mx\_align\_t\ a);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ size\ may\ be\ 0\ (for\ indeterminate)}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_current\_font\_size(\textcolor{keywordtype}{float}\ s);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ may\ be\ NULL\ for\ indeterminate}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_current\_style\_name(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ justification}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_justification(mx\_justification\_t\ j,\ \textcolor{keywordtype}{bool}\ is\_indeterminate);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ fill\_font\_pulldown(Widget\ list);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ fill\_size\_pulldown(Widget\ list);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ font\_family\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ style\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ font\_size\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ justify\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed,\ Widget\ w);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ align\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed,\ Widget\ which);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ bold\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ italic\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ underline\_change(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_style\_names;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{char}*\ style\_names[MX\_DOCUMENT\_MAX\_STYLES];}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_string(Widget\ w,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ Widget\ quit\_button,\ new\_button,\ open\_button,\ save\_button;}
+\DoxyCodeLine{00137\ \ \ \ \ Widget\ print\_button,\ cut\_button,\ copy\_button,\ paste\_button;}
+\DoxyCodeLine{00138\ \ \ \ \ Widget\ find\_button,\ replace\_button,\ goto\_button,\ header\_button;}
+\DoxyCodeLine{00139\ \ \ \ \ Widget\ insert\_image\_button,\ insert\_diagram\_button,\ insert\_table\_button;}
+\DoxyCodeLine{00140\ \ \ \ \ Widget\ insert\_bullets\_button,\ insert\_symbol\_button;}
+\DoxyCodeLine{00141\ \ \ \ \ Widget\ insert\_page\_break\_button,\ format\_character\_button;}
+\DoxyCodeLine{00142\ \ \ \ \ Widget\ format\_paragraph\_button,\ format\_columns\_button;}
+\DoxyCodeLine{00143\ \ \ \ \ Widget\ format\_table\_button,\ spelling\_button,\ envelope\_button;}
+\DoxyCodeLine{00144\ \ \ \ \ Widget\ style\_form,\ menu\_form,\ container\_form,\ bold\_button;}
+\DoxyCodeLine{00145\ \ \ \ \ Widget\ italic\_button,\ underline\_button,\ superscript\_button;}
+\DoxyCodeLine{00146\ \ \ \ \ Widget\ subscript\_button,\ justify\_button,\ left\_justify\_button;}
+\DoxyCodeLine{00147\ \ \ \ \ Widget\ right\_justify\_button,\ centre\_justify\_button,\ font\_list;}
+\DoxyCodeLine{00148\ \ \ \ \ Widget\ font\_text,\ size\_list,\ size\_text,\ style\_list,\ style\_text;}
+\DoxyCodeLine{00149\ \ \ \ \ Widget\ para\_style\_radiobox,\ footer\_button;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ activate\_cb(Widget,\ XtPointer,\ XtPointer);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ arm\_cb(Widget,\ XtPointer,\ XtPointer);}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ disarm\_cb(Widget,\ XtPointer,\ XtPointer);}
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_WP\_TOOLBAR\_H}}
+
+\end{DoxyCode}

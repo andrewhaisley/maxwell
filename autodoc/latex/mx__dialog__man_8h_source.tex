@@ -1,0 +1,259 @@
+\doxysection{mx\+\_\+dialog\+\_\+man.\+h}
+\hypertarget{mx__dialog__man_8h_source}{}\label{mx__dialog__man_8h_source}\index{ui/mx\_dialog\_man.h@{ui/mx\_dialog\_man.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <mx\_inform\_d.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <mx\_ui\_object.h>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font}{mx\_font}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dialog}{mx\_dialog}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__about__d}{mx\_about\_d}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__open__d}{mx\_open\_d}};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__save__d}{mx\_save\_d}};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__quit__d}{mx\_quit\_d}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__yes__no__d}{mx\_yes\_no\_d}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__new__d}{mx\_new\_d}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__print__d}{mx\_print\_d}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__search__d}{mx\_search\_d}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__replace__d}{mx\_replace\_d}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__goto__d}{mx\_goto\_d}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__zoom__d}{mx\_zoom\_d}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__symbol__d}{mx\_symbol\_d}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__d}{mx\_table\_d}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__toc__d}{mx\_toc\_d}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__index__d}{mx\_index\_d}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__d}{mx\_char\_d}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__para__d}{mx\_para\_d}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__tabf__d}{mx\_tabf\_d}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__d}{mx\_border\_d}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__tab__d}{mx\_tab\_d}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__style__d}{mx\_style\_d}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__date__d}{mx\_date\_d}};}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__page__d}{mx\_page\_d}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__column__d}{mx\_column\_d}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ins__c__d}{mx\_ins\_c\_d}};}
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ins__r__d}{mx\_ins\_r\_d}};}
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__cell__d}{mx\_cell\_d}};}
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__spell__d}{mx\_spell\_d}};}
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__env__d}{mx\_env\_d}};}
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__opt__d}{mx\_opt\_d}};}
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__support__d}{mx\_support\_d}};}
+\DoxyCodeLine{00063\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__hsearch__d}{mx\_hsearch\_d}};}
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}};}
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }mx\_locked\_d;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ mx\_none\_e\ =\ 0,}
+\DoxyCodeLine{00069\ \ \ \ \ mx\_confirm\_yes\_e\ =\ 1,}
+\DoxyCodeLine{00070\ \ \ \ \ mx\_confirm\_no\_e\ =\ 2}
+\DoxyCodeLine{00071\ \}\ mx\_confirm\_t;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__dialog__manager}{\string~mx\_dialog\_manager}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ set\ the\ parent\ widget\ to\ be\ used\ for\ dialogs.}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_parent(Widget\ w);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ some\ dialogs\ aren't\ parameterised,\ these\ first}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classmx__quit__d}{mx\_quit\_d}}*\ get\_quit\_d();}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classmx__about__d}{mx\_about\_d}}*\ get\_about\_d();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ information\ dialogs,\ have\ a\ type\ and\ some\ text}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ get\_inform\_d(mx\_inform\_d\_t\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ run\ an\ information\ dialog\ now\ -\/\ return\ when\ user\ finished}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ run\_inform\_d(mx\_inform\_d\_t\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ yes/no\ dialogs\ have\ text}}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classmx__yes__no__d}{mx\_yes\_no\_d}}*\ get\_yes\_no\_d(}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ cancel\_button,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ mx\_dialog\_result\_t\ default\_button);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ run\ a\ yes/no\ dialog\ now}}
+\DoxyCodeLine{00099\ \ \ \ \ mx\_dialog\_result\_t\ run\_yes\_no\_d(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ cancel\_button,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ mx\_dialog\_result\_t\ default\_button);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ file\ open\ dialog}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__open__d}{mx\_open\_d}}*\ get\_open\_d();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ file\ save\ dialog}}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}*\ get\_save\_d(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ template\_dir);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ new\ document\ dialog}}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classmx__new__d}{mx\_new\_d}}*\ get\_new\_d(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ template\_dir);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ print\ dialog}}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}*\ get\_print\_d();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ search\ dialog}}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classmx__search__d}{mx\_search\_d}}*\ get\_search\_d();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ search/replace\ dialog}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{classmx__replace__d}{mx\_replace\_d}}*\ get\_replace\_d();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ goto\ page\ dialog}}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{classmx__goto__d}{mx\_goto\_d}}*\ get\_goto\_d();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ zoom\ dialog}}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{classmx__zoom__d}{mx\_zoom\_d}}*\ get\_zoom\_d();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ symbol\ dialog}}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{classmx__symbol__d}{mx\_symbol\_d}}*\ get\_symbol\_d(\mbox{\hyperlink{classmx__font}{mx\_font}}*\ f);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ insert\ table\ dialog}}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{classmx__table__d}{mx\_table\_d}}*\ get\_table\_d(\textcolor{keywordtype}{float}\ width\_mm,\ mx\_unit\_e\ display\_units);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ table\ of\ contents\ insert\ dialog}}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{classmx__toc__d}{mx\_toc\_d}}*\ get\_toc\_d();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ index\ insert\ dialog}}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classmx__index__d}{mx\_index\_d}}*\ get\_index\_d();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ character\ format\ dialog}}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classmx__char__d}{mx\_char\_d}}*\ get\_char\_d();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ paragraph\ format\ dialog}}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{classmx__para__d}{mx\_para\_d}}*\ get\_para\_d();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ table\ paragraph\ format\ dialog}}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classmx__tabf__d}{mx\_tabf\_d}}*\ get\_tabf\_d();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ border\ format\ dialog}}
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{classmx__border__d}{mx\_border\_d}}*\ get\_border\_d();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ tab\ format\ dialog}}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{classmx__tab__d}{mx\_tab\_d}}*\ get\_tab\_d();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ style\ dialog}}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{classmx__style__d}{mx\_style\_d}}*\ get\_style\_d();}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ date/time\ dialog}}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{classmx__date__d}{mx\_date\_d}}*\ get\_date\_d();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ page\ setup}}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{classmx__page__d}{mx\_page\_d}}*\ get\_page\_d();}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ columns\ of\ text}}
+\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{classmx__column__d}{mx\_column\_d}}*\ get\_column\_d();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ insert\ columns\ into\ a\ table}}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classmx__ins__c__d}{mx\_ins\_c\_d}}*\ get\_ins\_c\_d();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ delete\ columns\ from\ a\ table}}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{classmx__ins__r__d}{mx\_ins\_r\_d}}*\ get\_ins\_r\_d();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ format\ table\ cells}}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{classmx__cell__d}{mx\_cell\_d}}*\ get\_cell\_d();}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ spell\ checker}}
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{classmx__spell__d}{mx\_spell\_d}}*\ get\_spell\_d(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ language);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ envelope\ formatter}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{classmx__env__d}{mx\_env\_d}}*\ get\_env\_d();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ options}}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classmx__opt__d}{mx\_opt\_d}}*\ get\_opt\_d();}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ support\ info}}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{classmx__support__d}{mx\_support\_d}}*\ get\_support\_d();}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ progress\ dialog\ with\ no\ bar}}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ get\_prog\_d();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ progress\ dialog\ with\ bar}}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ get\_prog\_bar\_d();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ reset\ the\ progress\ bar\ dialogs}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_prog\_d();}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ run\ an\ immediate\ information\ dialog\ with\ dynamic\ text}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ run\_inform\_now(mx\_inform\_d\_t\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ run\ an\ immediate\ confirm\ dialog\ with\ dynamic\ text}}
+\DoxyCodeLine{00201\ \ \ \ \ mx\_dialog\_result\_t\ run\_confirm\_now(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{//\ run\ an\ immediate\ file\ locked\ dialog\ with\ dynamic\ text}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ run\_locked\_now(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ locked\_by,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ locked\_host);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{void}\ centre\_widget(Widget\ w);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ button\_cb(Widget\ widget,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ XtPointer\ client\_data,}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ XtPointer\ call\_data);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{static}\ mx\_dialog\_result\_t\ mess\_result;}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{classmx__open__d}{mx\_open\_d}}*\ open\_d;}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}*\ save\_d;}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{classmx__quit__d}{mx\_quit\_d}}*\ quit\_d;}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{classmx__about__d}{mx\_about\_d}}*\ about\_d;}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classmx__new__d}{mx\_new\_d}}*\ new\_d;}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{classmx__print__d}{mx\_print\_d}}*\ print\_d;}
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{classmx__search__d}{mx\_search\_d}}*\ search\_d;}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classmx__replace__d}{mx\_replace\_d}}*\ replace\_d;}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{classmx__goto__d}{mx\_goto\_d}}*\ goto\_d;}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classmx__zoom__d}{mx\_zoom\_d}}*\ zoom\_d;}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classmx__symbol__d}{mx\_symbol\_d}}*\ symbol\_d;}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{classmx__table__d}{mx\_table\_d}}*\ table\_d;}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{classmx__toc__d}{mx\_toc\_d}}*\ toc\_d;}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{classmx__index__d}{mx\_index\_d}}*\ index\_d;}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{classmx__char__d}{mx\_char\_d}}*\ char\_d;}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{classmx__para__d}{mx\_para\_d}}*\ para\_d;}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{classmx__tabf__d}{mx\_tabf\_d}}*\ tabf\_d;}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{classmx__border__d}{mx\_border\_d}}*\ border\_d;}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{classmx__tab__d}{mx\_tab\_d}}*\ tab\_d;}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{classmx__style__d}{mx\_style\_d}}*\ style\_d;}
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{classmx__date__d}{mx\_date\_d}}*\ date\_d;}
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{classmx__page__d}{mx\_page\_d}}*\ page\_d;}
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{classmx__column__d}{mx\_column\_d}}*\ column\_d;}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{classmx__ins__c__d}{mx\_ins\_c\_d}}*\ ins\_c\_d;}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{classmx__ins__r__d}{mx\_ins\_r\_d}}*\ ins\_r\_d;}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{classmx__cell__d}{mx\_cell\_d}}*\ cell\_d;}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{classmx__spell__d}{mx\_spell\_d}}*\ spell\_d;}
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{classmx__env__d}{mx\_env\_d}}*\ env\_d;}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classmx__opt__d}{mx\_opt\_d}}*\ opt\_d;}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{classmx__support__d}{mx\_support\_d}}*\ support\_d;}
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ prog\_d;}
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ prog\_bar\_d;}
+\DoxyCodeLine{00247\ \ \ \ \ mx\_locked\_d*\ locked\_d;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ std::map<std::string,\ mx\_yes\_no\_d\ *>\ m\_yes\_no\_d\_hash;}
+\DoxyCodeLine{00250\ \ \ \ \ std::map<std::string,\ mx\_inform\_d\ *>\ m\_inform\_d\_hash;}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ Widget\ parent;}
+\DoxyCodeLine{00253\ \};}
+
+\end{DoxyCode}

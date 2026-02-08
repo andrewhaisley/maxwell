@@ -1,0 +1,329 @@
+\doxysection{mx\+\_\+sl\+\_\+obj.\+h}
+\hypertarget{mx__sl__obj_8h_source}{}\label{mx__sl__obj_8h_source}\index{db/mx\_sl\_obj.h@{db/mx\_sl\_obj.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_serialisable\_object}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ Base\ class\ for\ all\ serialisable\ objects}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_SERIAL\_OBJECT\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_SERIAL\_OBJECT\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ sizes\ in\ bytes\ for\ serialised\ things\ */}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ SLS\_INT32\ 4}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ SLS\_UINT32\ 4}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SLS\_INT16\ 2}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ SLS\_INT8\ 1}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ SLS\_UINT16\ 2}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SLS\_UINT8\ 1}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SLS\_BOOL\ 1}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ SLS\_ENUM\ 1}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ SLS\_FLOAT\ 4}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ SLS\_DOUBLE\ 8}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ SLS\_STRING(s)\ ((s)\ ==\ NULL\ ?\ 1\ :\ (strlen(s)\ +\ 1))}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ SLS\_INT32\_A(n)\ (4\ *\ n)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ SLS\_UINT32\_A(n)\ (4\ *\ n)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ SLS\_INT8\_A(n)\ (n)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SLS\_UINT8\_A(n)\ (n)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ SLS\_FLOAT\_A(n)\ (4\ *\ n)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ SLS\_DOUBLE\_A(n)\ (8\ *\ n)}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_SL\_OBJ\_TEMP\_BUFFER\_SIZE\ 8192}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ serialise\_int32(int32\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ serialise\_uint32(uint32\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ serialise\_int16(int16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ serialise\_uint16(uint16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ serialise\_int8(int8\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ serialise\_uint8(uint8\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ serialise\_float(\textcolor{keywordtype}{float}\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ serialise\_double(\textcolor{keywordtype}{double}\ d,\ uint8**\ buffer);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ serialise\_bool(\textcolor{keywordtype}{bool}\ b,\ uint8**\ buffer);}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ serialise\_string(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s,\ uint8**\ buffer);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ serialise\_enum(uint16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ unserialise\_int32(int32\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ unserialise\_uint32(uint32\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ unserialise\_int16(int16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ unserialise\_uint16(uint16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ unserialise\_int8(int8\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ unserialise\_uint8(uint8\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ unserialise\_float(\textcolor{keywordtype}{float}\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ unserialise\_double(\textcolor{keywordtype}{double}\&\ d,\ uint8**\ buffer);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ unserialise\_bool(\textcolor{keywordtype}{bool}\&\ b,\ uint8**\ buffer);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ unserialise\_string(\textcolor{keywordtype}{char}*\ s,\ uint8**\ buffer);}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ unserialise\_enum(uint16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ arrays\ where\ the\ size\ is\ known}}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ serialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ unserialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ serialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ unserialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ serialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ unserialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ serialise\_char\_a(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ unserialise\_char\_a(\textcolor{keywordtype}{char}*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ serialise\_float\_a(\textcolor{keywordtype}{float}*\ f,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ unserialise\_float\_a(\textcolor{keywordtype}{float}*\ f,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ MX\_RTTI(mx\_serialisable\_object\_class\_e)}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ objects\ can\ use\ this\ for\ temporary\ store\ during\ serialisation}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{static}\ uint8\ temp\_buffer[MX\_SL\_OBJ\_TEMP\_BUFFER\_SIZE];}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ there\ are\ two\ categories\ of\ serialisable\ object.\ Those\ that\ are}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ db\_ojects\ and\ those\ that\ are\ not.\ Look\ in\ mx\_db\_object\ for\ the}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ extra\ routines\ needed\ by\ those\ classes.}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ all\ objects\ have\ these\ routines:}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{00121\ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ err\ =\ MX\_ERROR\_OK;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ \};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ now,\ a\ load\ of\ routines\ to\ serialise\ standard\ things}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_int32(int32\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_uint32(uint32\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_int16(int16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_uint16(uint16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_int8(int8\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_char(\textcolor{keywordtype}{char}\ c,\ uint8**\ buffer);}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_uint8(uint8\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_float(\textcolor{keywordtype}{float}\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_double(\textcolor{keywordtype}{double}\ d,\ uint8**\ buffer);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_bool(\textcolor{keywordtype}{bool}\ b,\ uint8**\ buffer);}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_string(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ uint8**\ buffer);}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_enum(uint16\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_int32(int32\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_uint32(uint32\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_int16(int16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_uint16(uint16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_int8(int8\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_char(\textcolor{keywordtype}{char}\&\ c,\ uint8**\ buffer)}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ c\ =\ **buffer;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ (*buffer)++;}
+\DoxyCodeLine{00149\ \ \ \ \ \};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_uint8(uint8\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_float(\textcolor{keywordtype}{float}\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_double(\textcolor{keywordtype}{double}\&\ d,\ uint8**\ buffer);}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_bool(\textcolor{keywordtype}{bool}\&\ b,\ uint8**\ buffer);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_string(\textcolor{keywordtype}{char}*\ s,\ uint8**\ buffer);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_enum(uint16\&\ i,\ uint8**\ buffer);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ arrays\ where\ the\ size\ is\ known}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise\_float\_a(\textcolor{keywordtype}{float}*\ f,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_float\_a(\textcolor{keywordtype}{float}*\ f,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer);}
+\DoxyCodeLine{00166\ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_int32(int32\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00169\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ ::serialise\_int32(i,\ buffer);}
+\DoxyCodeLine{00171\ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_uint32(uint32\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00174\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ ::serialise\_uint32(i,\ buffer);}
+\DoxyCodeLine{00176\ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_int16(int16\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00179\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ ::serialise\_int16(i,\ buffer);}
+\DoxyCodeLine{00181\ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_uint16(uint16\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00184\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ ::serialise\_uint16(i,\ buffer);}
+\DoxyCodeLine{00186\ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_enum(uint16\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00189\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ ::serialise\_enum(i,\ buffer);}
+\DoxyCodeLine{00191\ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_int8(int8\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00194\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ ::serialise\_int8(i,\ buffer);}
+\DoxyCodeLine{00196\ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_uint8(uint8\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00199\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ ::serialise\_uint8(i,\ buffer);}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_float(\textcolor{keywordtype}{float}\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00204\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ ::serialise\_float(i,\ buffer);}
+\DoxyCodeLine{00206\ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_double(\textcolor{keywordtype}{double}\ d,\ uint8**\ buffer)}
+\DoxyCodeLine{00209\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ ::serialise\_double(d,\ buffer);}
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_bool(\textcolor{keywordtype}{bool}\ b,\ uint8**\ buffer)}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ ::serialise\_bool(b,\ buffer);}
+\DoxyCodeLine{00216\ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ inline\ void\ mx\_serialisable\_object::serialise\_string(const\ char\ *s,\ uint8\ **buffer)}}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00220\ \textcolor{comment}{//::serialise\_char\_a(s,\ strlen(s),\ buffer);}}
+\DoxyCodeLine{00221\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_string(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s,\ uint8**\ buffer)}
+\DoxyCodeLine{00224\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ ::serialise\_string(s,\ buffer);}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_int32(int32\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00229\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ ::unserialise\_int32(i,\ buffer);}
+\DoxyCodeLine{00231\ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_uint32(uint32\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00234\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ ::unserialise\_uint32(i,\ buffer);}
+\DoxyCodeLine{00236\ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_int16(int16\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ ::unserialise\_int16(i,\ buffer);}
+\DoxyCodeLine{00241\ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_uint16(uint16\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00244\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ ::unserialise\_uint16(i,\ buffer);}
+\DoxyCodeLine{00246\ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_enum(uint16\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00249\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ ::unserialise\_enum(i,\ buffer);}
+\DoxyCodeLine{00251\ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_int8(int8\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00254\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ ::unserialise\_int8(i,\ buffer);}
+\DoxyCodeLine{00256\ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_uint8(uint8\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00259\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ ::unserialise\_uint8(i,\ buffer);}
+\DoxyCodeLine{00261\ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_float(\textcolor{keywordtype}{float}\&\ i,\ uint8**\ buffer)}
+\DoxyCodeLine{00264\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ ::unserialise\_float(i,\ buffer);}
+\DoxyCodeLine{00266\ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_double(\textcolor{keywordtype}{double}\&\ d,\ uint8**\ buffer)}
+\DoxyCodeLine{00269\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ ::unserialise\_double(d,\ buffer);}
+\DoxyCodeLine{00271\ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_bool(\textcolor{keywordtype}{bool}\&\ b,\ uint8**\ buffer)}
+\DoxyCodeLine{00274\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ ::unserialise\_bool(b,\ buffer);}
+\DoxyCodeLine{00276\ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_string(\textcolor{keywordtype}{char}*\ s,\ uint8**\ buffer)}
+\DoxyCodeLine{00279\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ ::unserialise\_string(s,\ buffer);}
+\DoxyCodeLine{00281\ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00284\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ ::serialise\_int32\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00286\ \}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_int32\_a(int32*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00289\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ ::unserialise\_int32\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00291\ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00294\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ ::serialise\_uint16\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00296\ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_uint16\_a(uint16*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00299\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ ::unserialise\_uint16\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00301\ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_float\_a(\textcolor{keywordtype}{float}*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00304\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ ::serialise\_float\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00306\ \}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_float\_a(\textcolor{keywordtype}{float}*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00309\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ ::unserialise\_float\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00311\ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::serialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00314\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ ::serialise\_int8\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00316\ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mx\_serialisable\_object::unserialise\_int8\_a(int8*\ i,\ \textcolor{keywordtype}{int}\ n,\ uint8**\ buffer)}
+\DoxyCodeLine{00319\ \{}
+\DoxyCodeLine{00320\ \ \ \ \ ::unserialise\_int8\_a(i,\ n,\ buffer);}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

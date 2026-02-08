@@ -1,0 +1,107 @@
+\doxysection{mx\+\_\+ftarget.\+h}
+\hypertarget{mx__ftarget_8h_source}{}\label{mx__ftarget_8h_source}\index{view/mx\_ftarget.h@{view/mx\_ftarget.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_FTARGET\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_FTARGET\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_ftarget.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_ftarget.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_cb.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}mx\_sh\_lay.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}mx\_wp\_lay.h"{}}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}(\mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}*\ layout);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ a\ simple\ target\ with\ one\ very\ big\ sheet}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{\string~mx\_frame\_target}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ get\ the\ sheet\ layout\ from\ a\ frameable\ object}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ the\ sheet\ layout\ tells}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}\&\ getSheetLayout()\ \{\ \textcolor{keywordflow}{return}\ *sheetLayout;\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ set\ a\ new\ sheet\ layout}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ setSheetLayout(\mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}*\ layout);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ coordinate\ in\ the\ set\ of\ sheets\ to\ a\ doc\ coord}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ coordToDocCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sheetLayout-\/>coordToDocCoord(err,\ coord,\ docCoord,\ coordType);}
+\DoxyCodeLine{00063\ \ \ \ \ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ doc\ coord\ to\ a\ cumulative\ coord}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ docCoordToCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sheetLayout-\/>docCoordToCoord(err,\ docCoord,\ coord);}
+\DoxyCodeLine{00071\ \ \ \ \ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ doc\ coord\ to\ a\ cumulative\ coord}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getTotalSize(\textcolor{keywordtype}{int}\&\ err)}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sheetLayout-\/>getTotalSize(err);}
+\DoxyCodeLine{00077\ \ \ \ \ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSnapTolerance(\textcolor{keywordtype}{double}\ snapTolerance)}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ sheetLayout-\/>setSnapTolerance(snapTolerance);}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getSnapTolerance()}
+\DoxyCodeLine{00085\ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sheetLayout-\/>getSnapTolerance();}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ every\ framable\ object\ must\ have\ a\ sheet\ layout}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}*\ sheetLayout;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__layout}{mx\_sheet\_layout}}*\ get\_simple\_layout();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ bit\ of\ a\ fudge,\ because\ in\ some\ cases\ this\ object\ holds\ on\ to\ a}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ reference\ to\ a\ sheet\ layout\ owned\ by\ other\ objects\ and\ sometimes\ owns}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ a\ sheet\ layout}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ sheet\_layout\_allocated;}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

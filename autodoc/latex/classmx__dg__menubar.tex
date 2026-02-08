@@ -1,0 +1,120 @@
+\doxysection{mx\+\_\+dg\+\_\+menubar Class Reference}
+\hypertarget{classmx__dg__menubar}{}\label{classmx__dg__menubar}\index{mx\_dg\_menubar@{mx\_dg\_menubar}}
+
+
+Inheritance diagram for mx\+\_\+dg\+\_\+menubar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classmx__dg__menubar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+dg\+\_\+menubar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classmx__dg__menubar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__dg__menubar_aca68ba89a18b0ea2be2b157d6436de19}\label{classmx__dg__menubar_aca68ba89a18b0ea2be2b157d6436de19} 
+{\bfseries mx\+\_\+dg\+\_\+menubar} (\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}parent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__menubar}{mx\+\_\+menubar}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+menubar} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window)
+\item 
+\mbox{\hyperlink{classmx__menu}{mx\+\_\+menu}} \texorpdfstring{$\ast$}{*} {\bfseries add\+\_\+sub\+\_\+menu} (const char \texorpdfstring{$\ast$}{*}name, bool is\+\_\+help=FALSE)
+\item 
+\mbox{\hyperlink{classmx__menu}{mx\+\_\+menu}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+sub\+\_\+menu} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set\+\_\+item\+\_\+visible} (const char \texorpdfstring{$\ast$}{*}menu\+\_\+name, const char \texorpdfstring{$\ast$}{*}item\+\_\+name, bool s)
+\item 
+bool {\bfseries get\+\_\+item\+\_\+checked} (const char \texorpdfstring{$\ast$}{*}menu\+\_\+name, const char \texorpdfstring{$\ast$}{*}item\+\_\+name)
+\item 
+void {\bfseries set\+\_\+item\+\_\+checked} (const char \texorpdfstring{$\ast$}{*}menu\+\_\+name, const char \texorpdfstring{$\ast$}{*}item\+\_\+name, bool s)
+\item 
+\mbox{\hyperlink{classmx__menu__item}{mx\+\_\+menu\+\_\+item}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+item} (const char \texorpdfstring{$\ast$}{*}menu\+\_\+name, const char \texorpdfstring{$\ast$}{*}item\+\_\+name)
+\item 
+bool {\bfseries is\+\_\+checked} (Widget w)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__bar}{mx\+\_\+bar}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+bar} (\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+{\bfseries mx\+\_\+bar} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window)
+\item 
+{\bfseries mx\+\_\+bar} (const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*}window, Widget\+Class c)
+\item 
+\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+window} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+void {\bfseries manage} ()
+\item 
+void {\bfseries unmanage} ()
+\item 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+void {\bfseries bell} ()
+\item 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+void {\bfseries take\+\_\+focus} ()
+\item 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__bar}{mx\+\_\+bar}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__window}{mx\+\_\+window}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries widget}
+\item 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dgui/mx\+\_\+dg\+\_\+menubar.\+h\end{DoxyCompactItemize}

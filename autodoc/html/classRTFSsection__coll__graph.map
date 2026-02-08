@@ -1,0 +1,36 @@
+<map id="RTFSsection" name="RTFSsection">
+<area shape="rect" id="Node000001" title=" " alt="" coords="26,5,126,31"/>
+<area shape="rect" id="Node000006" href="$classRTFSformatting.html" title=" " alt="" coords="541,93,664,119"/>
+<area shape="poly" id="edge6_Node000006_Node000001" title=" " alt="" coords="140,27,541,92,540,97,139,32"/>
+<area shape="rect" id="Node000002" href="$classRTFSsecfmt.html" title=" " alt="" coords="5,284,104,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,270,72,31,78,31,59,271"/>
+<area shape="rect" id="Node000003" href="$classRTFSpage.html" title=" " alt="" coords="92,181,177,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,219,66,286,62,282,115,216"/>
+<area shape="rect" id="Node000004" href="$classRTFSstyle.html" title=" " alt="" coords="380,181,465,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="368,213,97,287,96,281,367,208"/>
+<area shape="rect" id="Node000010" href="$classRTFSparfmt.html" title=" " alt="" coords="270,284,367,309"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="402,218,332,286,329,282,399,215"/>
+<area shape="rect" id="Node000014" href="$classRTFSchrfmt.html" title=" " alt="" coords="909,284,1005,309"/>
+<area shape="poly" id="edge18_Node000014_Node000004" title=" " alt="" coords="479,195,638,205,717,215,773,228,794,243,813,258,862,275,910,286,909,291,861,280,811,262,791,247,771,233,716,220,638,211,479,200"/>
+<area shape="rect" id="Node000005" href="$classmx__list.html" title=" " alt="" coords="387,93,458,119"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="425,133,425,181,420,181,420,133"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="571,128,508,160,452,184,450,179,506,155,569,123"/>
+<area shape="rect" id="Node000007" href="$classRTFSpar.html" title=" " alt="" coords="485,460,560,485"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="573,465,608,454,624,446,638,434,658,405,665,378,668,309,669,281,665,252,649,198,627,152,608,120,613,117,632,149,654,196,670,251,674,281,673,309,670,379,663,408,642,438,627,450,610,459,574,470"/>
+<area shape="rect" id="Node000008" href="$classRTFSparTab.html" title=" " alt="" coords="733,284,829,309"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="779,323,759,382,741,412,716,438,688,451,647,460,561,471,560,466,646,455,687,446,713,434,737,409,754,379,774,322"/>
+<area shape="rect" id="Node000009" href="$classRTFSparBorder.html" title=" " alt="" coords="128,284,245,309"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="198,321,230,379,253,409,283,434,320,447,374,457,485,467,485,472,373,462,318,452,280,438,250,413,225,382,194,323"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="332,320,368,377,392,408,422,434,453,451,486,462,484,467,451,456,418,438,389,411,363,380,328,323"/>
+<area shape="rect" id="Node000011" href="$classRTFSparFrame.html" title=" " alt="" coords="392,284,507,309"/>
+<area shape="poly" id="edge12_Node000007_Node000011" title=" " alt="" coords="455,322,467,376,477,406,490,435,510,458,506,462,486,437,472,408,462,377,450,324"/>
+<area shape="rect" id="Node000012" href="$classRTFSparShading.html" title=" " alt="" coords="531,284,658,309"/>
+<area shape="poly" id="edge13_Node000007_Node000012" title=" " alt="" coords="587,323,530,461,525,459,582,321"/>
+<area shape="rect" id="Node000013" href="$classRTFScharacter.html" title=" " alt="" coords="844,460,959,485"/>
+<area shape="poly" id="edge14_Node000006_Node000013" title=" " alt="" coords="898,446,895,402,885,346,866,286,853,258,835,232,793,192,742,160,691,137,646,121,648,116,693,132,745,155,796,187,839,229,857,255,871,284,891,344,900,401,904,446"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="952,323,908,461,903,459,947,322"/>
+<area shape="rect" id="Node000015" href="$classRTFSfont.html" title=" " alt="" coords="923,181,1002,207"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="964,221,961,284,955,284,959,220"/>
+<area shape="rect" id="Node000016" href="$classRTFScolour.html" title=" " alt="" coords="1027,181,1120,207"/>
+<area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="1051,218,972,286,969,282,1048,214"/>
+</map>

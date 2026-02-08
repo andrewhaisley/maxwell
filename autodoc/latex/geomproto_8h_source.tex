@@ -1,0 +1,147 @@
+\doxysection{geomproto.\+h}
+\hypertarget{geomproto_8h_source}{}\label{geomproto_8h_source}\index{geometry/geomproto.h@{geometry/geomproto.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ geomproto.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ geomproto.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ GEOMETRYPROTO\_H}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ GEOMETRYPROTO\_H}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ FUNCTION:\ operator*(point,f)\ (f,point)}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ DESCRIPTION:\ p\ \ =\ p1*f\ scaling}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ operator*(\textcolor{keywordtype}{double}\ f,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p);}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ operator*(\textcolor{keywordtype}{double}\ f,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Two\ points}}
+\DoxyCodeLine{00049\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2,}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ span\ with\ polyline}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__polypoint}{mx\_polypoint}}\&\ pl1,}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r1,}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ Point\ and\ rectangle/span}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r1,}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r1,}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ Two\ rectangles}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r1,}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2,}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ arc\ and\ point}}
+\DoxyCodeLine{00086\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ a1,}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2,}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ point\ and\ arc}}
+\DoxyCodeLine{00093\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ a2,}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ arc\ and\ rect/span}}
+\DoxyCodeLine{00100\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ a1,}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r2,}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ rect/span\ with\ arc}}
+\DoxyCodeLine{00107\ GEOM\_INTERSECT\_TYPE\ intersect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ r1,}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{classmx__arc}{mx\_arc}}\&\ a2,}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__geom}{mx\_geom}}**\ geom\ =\ NULL,}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance\ =\ GEOM\_SMALL);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ doubleDecomp(\textcolor{keywordtype}{double}\ r,\ \textcolor{keywordtype}{int}\&\ ir,\ \textcolor{keywordtype}{float}\&\ rr);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ FUNCTION:\ gatan2}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ angle\ relative\ to\ base\ angle}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{double}\ gatan2(\textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ baseAngle);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{typedef}\ double\ (*GMINIMIZER\_FUNC)(\textcolor{keywordtype}{double}\ testValue,}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}*\ funcData);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ *\ FUNCTION:\ gminimizer}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ DESCRIPTION:\ Functional\ minimiser}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{double}\ gminimizer(\textcolor{keywordtype}{double}\ startValue,}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{double}\ endValue,}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{double}\ tolerance,}
+\DoxyCodeLine{00137\ \ \ \ \ GMINIMIZER\_FUNC\ gminFunc,}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}*\ funcData,}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{double}\&\ minValue);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

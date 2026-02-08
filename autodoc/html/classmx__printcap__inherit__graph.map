@@ -1,0 +1,7 @@
+<map id="mx_printcap" name="mx_printcap">
+<area shape="rect" id="Node000001" title=" " alt="" coords="55,5,157,31"/>
+<area shape="rect" id="Node000002" href="$classmx__opt__d.html" title=" " alt="" coords="5,79,92,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,43,60,80,56,77,86,40"/>
+<area shape="rect" id="Node000003" href="$classmx__print__d.html" title=" " alt="" coords="116,79,211,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,40,156,77,152,80,122,43"/>
+</map>

@@ -1,0 +1,13 @@
+Maxwell is copyright (c) 1996 to 1998 of:
+Andrew Haisley, Dave Miller and Tom Newton, with
+significant contributions by Katherine Brown.
+
+This program is free software and is provided under 
+the terms of the GNU General Public License, version
+2 or later.  There is no WARRANTY for this software.
+
+See the COPYRIGHT file distributed with this
+application for full details.
+
+send bug reports to Tom Newton
+maxwell@eeyore-mule.demon.co.uk

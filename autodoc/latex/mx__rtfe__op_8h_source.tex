@@ -1,0 +1,189 @@
+\doxysection{mx\+\_\+rtfe\+\_\+op.\+h}
+\hypertarget{mx__rtfe__op_8h_source}{}\label{mx__rtfe__op_8h_source}\index{rtf/mx\_rtfe\_op.h@{rtf/mx\_rtfe\_op.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_RTFE\_OP\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_RTFE\_OP\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_rtfe\_op.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ a\ load\ of\ classes\ for\ outputting\ maxwell\ objects\ into\ an\ rtf\ file}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx\_std.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__area}{mx\_table\_area}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__complex__word}{mx\_complex\_word}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__space__word}{mx\_space\_word}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__break__word}{mx\_break\_word}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__field__word}{mx\_field\_word}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__image__area}{mx\_image\_area}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}(FILE*\ file,\ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtfe__output}{\string~mx\_rtfe\_output}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ can't\ copy\ these\ objects\ so\ copy\ constructor\ not\ implemented}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}\&);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ output\ a\ brace\ into\ the\ stream\ and\ remember\ how\ many\ braces\ are}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ opened/closed}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ open\_brace(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ close\ a\ brace\ and}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ close\_brace(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ close\_all\_braces();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ convenience\ functions\ which\ convert\ stdio\ errors\ to\ maxwell\ errors}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ write\ an\ rtf\ string,\ using\ rtf\ tokens\ for\ non-\/standard\ characters}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_rtf\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_rtf\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ override\ this\ to\ output\ the\ things\ rtf}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ output\_rtf(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00080\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lookups;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ uint32\ brace\_count;}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}\ \{}
+\DoxyCodeLine{00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}(FILE*\ file,\ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{\string~mx\_rtfe\_paragraph\_output}}();}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}\&);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{enum}\ mx\_rtfe\_para\_type\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ normal\_e,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ in\_table\_e,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ last\_in\_cell\_e,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ last\_in\_row\_e}
+\DoxyCodeLine{00098\ \ \ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_paragraph(\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p,\ mx\_rtfe\_para\_type\ =\ normal\_e);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ makes\ sure\ the\ full\ paragraph\ style\ description\ is\ output\ for\ the\ next}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ paragraph}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ invalidate\_current\_style();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_word\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__complex__word}{mx\_complex\_word}}*\ w);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_word\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__space__word}{mx\_space\_word}}*\ w);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_word\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__break__word}{mx\_break\_word}}*\ w);}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_word\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}*\ w);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_area\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_image\_area\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ a);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ para;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ current\_base\_style;}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ current\_para\_style;}
+\DoxyCodeLine{00118\ \ \ \ \ mx\_rtfe\_para\_type\ rtf\_para\_type;}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__table__output}{mx\_rtfe\_table\_output}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}\ \{}
+\DoxyCodeLine{00122\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__table__output}{mx\_rtfe\_table\_output}}(FILE*\ file,\ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}*\ a\_para\_op);}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__table__output}{\string~mx\_rtfe\_table\_output}}();}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__table__output}{mx\_rtfe\_table\_output}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtfe__table__output}{mx\_rtfe\_table\_output}}\&);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_table(\mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ taba);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_row\_formatting\_rtf(\textcolor{keywordtype}{int}\&\ err,\ uint32\ row\_num);}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_row(\textcolor{keywordtype}{int}\&\ err,\ uint32\ row\_num);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_cell(\textcolor{keywordtype}{int}\&\ err,\ uint32\ row\_num,\ uint32\ col\_num);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ table;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ stored\ for\ convenience}}
+\DoxyCodeLine{00139\ \ \ \ \ uint32\ num\_rows,\ num\_columns;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ used\ to\ output\ paragraphs}}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\_rtfe\_paragraph\_output}}*\ para\_op;}
+\DoxyCodeLine{00143\ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__document__output}{mx\_rtfe\_document\_output}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__output}{mx\_rtfe\_output}}\ \{}
+\DoxyCodeLine{00146\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__document__output}{mx\_rtfe\_document\_output}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ output\_file);}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__document__output}{\string~mx\_rtfe\_document\_output}}();}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__document__output}{mx\_rtfe\_document\_output}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtfe__document__output}{mx\_rtfe\_document\_output}}\&);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ method\ which\ is\ called\ at\ intervals\ during\ export\ notifying\ progress,\ in}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ terms\ of\ an\ length\ integer\ value\ and\ a\ progress\ value\ specifying\ a}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ proportion\ of\ that\ length}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ notify\_export\_progress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ uint32\ length,\ uint32\ progress);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_docheader\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_document\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_doc\_info\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_doc\_fmt\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_page\_info\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_header\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_footer\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_header\_footer\_rtf(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ do\_header);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_main\_text\_rtf(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ stuff\ for\ progress\ notification.\ document\_length\ is\ the\ number\ of\ areas}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ in\ a\ document.\ During\ export\ the\ area\ counter\ is\ incremented\ the}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ notification\ methods\ are\ called\ with\ the\ relevant\ values}}
+\DoxyCodeLine{00176\ \ \ \ \ uint32\ document\_length,\ current\_area\_num;}
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ last\_area;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ maxwell\_doc;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name;}
+\DoxyCodeLine{00181\ \};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_RTFE\_OP\_H}}
+
+\end{DoxyCode}

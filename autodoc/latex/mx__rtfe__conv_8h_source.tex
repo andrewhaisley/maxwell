@@ -1,0 +1,147 @@
+\doxysection{mx\+\_\+rtfe\+\_\+conv.\+h}
+\hypertarget{mx__rtfe__conv_8h_source}{}\label{mx__rtfe__conv_8h_source}\index{rtf/mx\_rtfe\_conv.h@{rtf/mx\_rtfe\_conv.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_RTFE\_CONV\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_RTFE\_CONV\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_rtfe\_conv.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ classes\ for\ converting\ maxwell\ styles\ and\ mods\ into\ rtf\ style\ control\ words}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__style}{mx\_border\_style}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__style__conv}{mx\_rtfe\_style\_conv}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__style__conv}{mx\_rtfe\_style\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtfe__style__conv}{\string~mx\_rtfe\_style\_conv}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ output\_rtf(\textcolor{keywordtype}{int}\&\ err,\ FILE*\ file);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_rtf\_string();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_rtf\_string(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str);}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ get\_lookups();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lookups;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{char}*\ rtf\_string;}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__char__style__conv}{mx\_rtfe\_char\_style\_conv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__style__conv}{mx\_rtfe\_style\_conv}}\ \{}
+\DoxyCodeLine{00066\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__char__style__conv}{mx\_rtfe\_char\_style\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__char__style__conv}{\string~mx\_rtfe\_char\_style\_conv}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ only\ produces\ the\ control\ words\ that\ differ\ from\ the\ RTF\ default}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ cs);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ produces\ all\ control\ words\ in\ the\ mod}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ csm);}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__border__style__conv}{mx\_rtfe\_border\_style\_conv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__style__conv}{mx\_rtfe\_style\_conv}}\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__border__style__conv}{mx\_rtfe\_border\_style\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__border__style__conv}{\string~mx\_rtfe\_border\_style\_conv}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ only\ produces\ the\ control\ words\ that\ differ\ from\ the\ RTF\ default}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__border__style}{mx\_border\_style}}\&\ bs);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ produces\ all\ control\ words\ in\ the\ mod}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}}\&\ bsm);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_top\_style\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bottom\_style\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_left\_style\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_right\_style\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_shading\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bg\_colour\_rtf\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00094\ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__para__bs__conv}{mx\_rtfe\_para\_bs\_conv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__border__style__conv}{mx\_rtfe\_border\_style\_conv}}\ \{}
+\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__para__bs__conv}{mx\_rtfe\_para\_bs\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__para__bs__conv}{\string~mx\_rtfe\_para\_bs\_conv}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_top\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bottom\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_left\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_right\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_shading\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bg\_colour\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__table__bs__conv}{mx\_rtfe\_table\_bs\_conv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__border__style__conv}{mx\_rtfe\_border\_style\_conv}}\ \{}
+\DoxyCodeLine{00110\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__table__bs__conv}{mx\_rtfe\_table\_bs\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__table__bs__conv}{\string~mx\_rtfe\_table\_bs\_conv}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_top\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bottom\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_left\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_right\_style\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_shading\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_bg\_colour\_rtf\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtfe__para__style__conv}{mx\_rtfe\_para\_style\_conv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtfe__style__conv}{mx\_rtfe\_style\_conv}}\ \{}
+\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__para__style__conv}{mx\_rtfe\_para\_style\_conv}}(\mbox{\hyperlink{classmx__rtfe__lookups}{mx\_rtfe\_lookups}}*\ lu);}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classmx__rtfe__para__style__conv}{\string~mx\_rtfe\_para\_style\_conv}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ only\ produces\ the\ control\ words\ that\ differ\ from\ the\ RTF\ default}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ ps);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ produces\ all\ control\ words\ in\ the\ mod}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}}\&\ psm);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ use\ this\ for\ the\ paragraph\ style\ used\ in\ table\ cells\ to\ describe\ cell}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ borders}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_table\_cell\_style\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ ps);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ convert\_table\_cell\_style\_from(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\_paragraph\_style\_mod}}\&\ psm);}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_RTFE\_CONV\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,351 @@
+\doxysection{traster.\+h}
+\hypertarget{traster_8h_source}{}\label{traster_8h_source}\index{raster/traster.h@{raster/traster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ traster.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ traster.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ \$id\$}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \$log\$}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ TRASTER\_H}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ TRASTER\_H}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}raster.h"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ CLASS:\ mx\_rtransform\_data}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}\ \{}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ CLASS:\ mx\_rshift\_data}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rshift__data}{mx\_rshift\_data}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classmx__rshift__data}{mx\_rshift\_data}}(\textcolor{keywordtype}{int}\ ishift,\ LUT\_VALUE*\ ilut)}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ shift\ =\ ishift;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ lut\ =\ ilut;}
+\DoxyCodeLine{00067\ \ \ \ \ \};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ shift;}
+\DoxyCodeLine{00069\ \ \ \ \ LUT\_VALUE*\ lut;}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ CLASS:\ mx\_rshift\_data}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rdither__data}{mx\_rdither\_data}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}\ \{}
+\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classmx__rdither__data}{mx\_rdither\_data}}(\textcolor{keywordtype}{int}\ rowSize,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itoggle,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ iuniform27,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numColours,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ LUT\_VALUE*\ lut);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__rdither__data}{\string~mx\_rdither\_data}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}*\ thisError;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}*\ nextError;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ uniform27;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ toggle;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}*\ colourData;}
+\DoxyCodeLine{00095\ \ \ \ \ LUT\_VALUE*\ lut;}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ CLASS:\ mx\_tile\_array}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__tile__array}{mx\_tile\_array}}\ \{}
+\DoxyCodeLine{00106\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tsz;}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ ntiles;}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ tl;}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ br;}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ ptl;}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ oft;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ pixx;\ \textcolor{comment}{//\ X\ pixel\ in\ tile}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ toff;\ \textcolor{comment}{//\ Tile\ offset}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ npb;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ offs;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ ntotalTiles;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ tiles;}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structrasterItem}{rasItem}}**\ items;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ ptr;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getPtr(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pt);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getNextPtr();}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ addPtr(\textcolor{keywordtype}{int}\ add);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00129\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ FUNCTION:\ mx\_tile\_array::getPtr}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ DESCRIPTION:\ Get\ a\ pointer\ to\ a\ pixel\ in\ a\ tile}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ array}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ mx\_tile\_array::getPtr(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pt)}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ Make\ offset}}
+\DoxyCodeLine{00143\ \ \ \ \ oft\ =\ pt\ -\/\ ptl;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ Store\ the\ x\ offset}}
+\DoxyCodeLine{00146\ \ \ \ \ pixx\ =\ oft.x\ \%\ tsz.x;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ Store\ the\ tileoff}}
+\DoxyCodeLine{00149\ \ \ \ \ toff\ =\ (oft.y\ /\ tsz.y)\ *\ ntiles.x\ +\ (oft.x\ /\ tsz.x);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ Store\ the\ start\ offset}}
+\DoxyCodeLine{00152\ \ \ \ \ offs\ =\ (oft.y\ \%\ tsz.y)\ *\ npb\ *\ tsz.x;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ Get\ the\ pointer\ in\ the\ tile}}
+\DoxyCodeLine{00155\ \ \ \ \ ptr\ =\ tiles[toff]\ +\ offs\ +\ pixx\ *\ npb;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *\ FUNCTION:\ mx\_tile\_array::getNextPtr}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ mx\_tile\_array::getNextPtr()}
+\DoxyCodeLine{00169\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ pixx++;}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{if}\ (pixx\ ==\ tsz.x)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ toff++;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ pixx\ =\ 0;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ ptr\ =\ tiles[toff]\ +\ offs;}
+\DoxyCodeLine{00175\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ ptr\ +=\ npb;}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ *\ FUNCTION:\ mx\_tile\_array::addPtr}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00185\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ mx\_tile\_array::addPtr(\textcolor{keywordtype}{int}\ add)}
+\DoxyCodeLine{00190\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ pixx\ +=\ add;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (pixx\ >=\ tsz.x)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pixx\ >=\ tsz.x)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ toff++;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ pixx\ -\/=\ tsz.x;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ ptr\ =\ tiles[toff]\ +\ offs\ +\ pixx\ *\ npb;}
+\DoxyCodeLine{00199\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ ptr\ +=\ (npb\ *\ add);}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
+\DoxyCodeLine{00203\ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{typedef}\ void\ (*rasterTransformFunction)(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{classmx__tile__array}{mx\_tile\_array}}*\ tileArray,}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{typedef}\ void\ (*rasterDataFunction)(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ shiftRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{void}\ ditherRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keywordtype}{void}\ lutRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{keywordtype}{void}\ packRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00248\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keywordtype}{void}\ shiftRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{keywordtype}{void}\ unpackRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00265\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00266\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ in,}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ inbuffer,}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ outbuffer,}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{keywordtype}{void}\ rescaleRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00273\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00275\ \ \ \ \ \mbox{\hyperlink{classmx__tile__array}{mx\_tile\_array}}*\ tileArray,}
+\DoxyCodeLine{00276\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00278\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{keywordtype}{void}\ isubsampleRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00281\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00283\ \ \ \ \ \mbox{\hyperlink{classmx__tile__array}{mx\_tile\_array}}*\ tileArray,}
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00286\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{keywordtype}{void}\ ireplicateRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ output,}
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,}
+\DoxyCodeLine{00291\ \ \ \ \ \mbox{\hyperlink{classmx__tile__array}{mx\_tile\_array}}*\ tileArray,}
+\DoxyCodeLine{00292\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ out,}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00294\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00297\ \textcolor{comment}{\ *\ CLASS:\ traster}}
+\DoxyCodeLine{00298\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00299\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ transformation\ raster}}
+\DoxyCodeLine{00300\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtraster}{traster}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classraster}{raster}}\ \{}
+\DoxyCodeLine{00305\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00306\ \ \ \ \ \mbox{\hyperlink{classtraster}{traster}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base,\ \textcolor{keywordtype}{bool}\ deleteSource,\ RAST\_CACHE\ cacheType\ =\ RCACHE\_DICT);}
+\DoxyCodeLine{00308\ \ \ \ \ \mbox{\hyperlink{classtraster}{\string~traster}}();}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ thisBuffer,}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ getForEdit,}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ unknown,}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile);}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ isize);}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{void}\ setTileSize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ itilesize);}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{void}\ setPack(\textcolor{keywordtype}{int}\&\ err,\ RAST\_PACK\ pack);}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{void}\ setLut(\textcolor{keywordtype}{int}\&\ err,\ LUT\_VALUE*\ lut,\ \textcolor{keywordtype}{int}\ lutSize);}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{void}\ setSpecialData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ forTrans,\ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ data);}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{void}\ setTransFunction(\textcolor{keywordtype}{int}\&\ err,\ rasterTransformFunction\ transFunc);}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{void}\ setDataFunction(\textcolor{keywordtype}{int}\&\ err,\ rasterDataFunction\ dataFunc);}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{void}\ getScaleChangeFunction(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{double}\ fac1,\ \textcolor{keywordtype}{double}\ fac2);}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordtype}{void}\ getDataChangeFunction(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{void}\ setSigbits(\textcolor{keywordtype}{int}\&\ err,\ int32\_t\ inplanes,\ int32\_t*\ isigbits);}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{void}\ setData(\textcolor{keywordtype}{int}\&\ err,\ RAST\_DATA\ idata);}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{void}\ setColours(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ inumColours,\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ icolours);}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ LUT\_VALUE*\ lut;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00334\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00335\ \ \ \ \ rasterTransformFunction\ transformFunction;}
+\DoxyCodeLine{00336\ \ \ \ \ rasterDataFunction\ dataFunction;}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ storeBuffer;}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{bool}\ used;}
+\DoxyCodeLine{00339\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ base;}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleteSource;}
+\DoxyCodeLine{00341\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ transSpecialData;}
+\DoxyCodeLine{00342\ \ \ \ \ \mbox{\hyperlink{classmx__rtransform__data}{mx\_rtransform\_data}}*\ dataSpecialData;}
+\DoxyCodeLine{00343\ \};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,280 @@
+\doxysection{mx\+\_\+paintable Class Reference}
+\hypertarget{classmx__paintable}{}\label{classmx__paintable}\index{mx\_paintable@{mx\_paintable}}
+
+
+Inheritance diagram for mx\+\_\+paintable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__paintable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+paintable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__paintable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__paintable_a8c61168596bf35928850748e60f65292}\label{classmx__paintable_a8c61168596bf35928850748e60f65292} 
+{\bfseries mx\+\_\+paintable} (uint32 docid, bool is\+\_\+controlled=FALSE)
+\item 
+\Hypertarget{classmx__paintable_a183c13bf31d1ad5d83ef1a132018e73d}\label{classmx__paintable_a183c13bf31d1ad5d83ef1a132018e73d} 
+{\bfseries mx\+\_\+paintable} (uint32 docid, uint32 oid, bool is\+\_\+controlled=FALSE)
+\item 
+\Hypertarget{classmx__paintable_a68516a58cd57d0ff1be3be6362823ff2}\label{classmx__paintable_a68516a58cd57d0ff1be3be6362823ff2} 
+{\bfseries mx\+\_\+paintable} (const \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&o)
+\item 
+\Hypertarget{classmx__paintable_af215ab6798ba9dbda0238e68205af9c5}\label{classmx__paintable_af215ab6798ba9dbda0238e68205af9c5} 
+virtual void {\bfseries redraw} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&r)
+\item 
+\Hypertarget{classmx__paintable_a5555f8cce59547e89af41f74944dbb9b}\label{classmx__paintable_a5555f8cce59547e89af41f74944dbb9b} 
+\mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+painter} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (uint32 docid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (uint32 docid, uint32 oid, bool is\+\_\+controlled=FALSE)
+\item 
+{\bfseries mx\+\_\+db\+\_\+object} (const \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \&o)
+\item 
+int {\bfseries get\+\_\+db\+\_\+id} (int \&err)
+\item 
+virtual void {\bfseries move\+\_\+to\+\_\+document} (int \&err, int docid)
+\item 
+virtual uint32 {\bfseries memory\+\_\+size} (int \&err)
+\item 
+void {\bfseries add\+\_\+attribute} (int \&err, \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*}initial)
+\item 
+void {\bfseries delete\+\_\+attribute} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set} (int \&err, \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*}v)
+\item 
+\mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*} {\bfseries get} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+readonly} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+virtual void {\bfseries serialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries unserialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries uncache} (int \&err)
+\item 
+void {\bfseries create\+\_\+blob} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries delete\+\_\+blob} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+uint32 {\bfseries get\+\_\+blob\+\_\+size} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void {\bfseries set\+\_\+blob\+\_\+size} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 size)
+\item 
+void {\bfseries set\+\_\+blob\+\_\+data} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes, uint8 \texorpdfstring{$\ast$}{*}data)
+\item 
+void {\bfseries get\+\_\+blob\+\_\+data} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes, uint8 \texorpdfstring{$\ast$}{*}data)
+\item 
+void {\bfseries copy\+\_\+blob} (int \&err, bool create\+New, const char \texorpdfstring{$\ast$}{*}name, \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*}in\+Object, const char \texorpdfstring{$\ast$}{*}inname)
+\item 
+const uint8 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+blob\+\_\+readonly} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 start\+\_\+index, uint32 n\+\_\+bytes)
+\item 
+void {\bfseries set\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 i)
+\item 
+void {\bfseries set\+\_\+id} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 id)
+\item 
+void {\bfseries set\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float i)
+\item 
+void {\bfseries set\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries set\+\_\+int\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+void {\bfseries set\+\_\+id\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+void {\bfseries set\+\_\+float\+\_\+array} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float \texorpdfstring{$\ast$}{*}a, int length)
+\item 
+int32 {\bfseries get\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+float {\bfseries get\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+int32 {\bfseries get\+\_\+default\+\_\+int} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 def)
+\item 
+uint32 {\bfseries get\+\_\+default\+\_\+id} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 def)
+\item 
+float {\bfseries get\+\_\+default\+\_\+float} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float def)
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+default\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}def)
+\item 
+uint32 {\bfseries get\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, uint32 id)
+\item 
+void {\bfseries add\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, uint32 id)
+\item 
+void {\bfseries del\+\_\+id\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+id\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const uint32 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+id\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+int32 {\bfseries get\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, int32 i)
+\item 
+void {\bfseries add\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 i)
+\item 
+void {\bfseries del\+\_\+int\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+int\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const int32 \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+int\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+float {\bfseries get\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+void {\bfseries set\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index, float f)
+\item 
+void {\bfseries add\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, float f)
+\item 
+void {\bfseries del\+\_\+float\+\_\+array\+\_\+item} (int \&err, const char \texorpdfstring{$\ast$}{*}name, int32 index)
+\item 
+int32 {\bfseries get\+\_\+float\+\_\+array\+\_\+length} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+const float \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+float\+\_\+array\+\_\+ro} (int \&err, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+virtual \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+owner\+\_\+object} (int \&err)
+\item 
+void {\bfseries set\+\_\+owner\+\_\+object} (int \&err, \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}} \texorpdfstring{$\ast$}{*}o)
+\item 
+int {\bfseries get\+\_\+docid} () const
+\item 
+virtual mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t {\bfseries get\+\_\+mem\+\_\+state} ()
+\item 
+virtual void {\bfseries set\+\_\+mem\+\_\+state} (mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t s)
+\item 
+bool {\bfseries is\+\_\+controlled} () const
+\item 
+virtual void {\bfseries cc\+\_\+serialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries cc\+\_\+unserialise\+\_\+attributes} (int \&err)
+\item 
+virtual void {\bfseries cc\+\_\+uncache} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries serialise} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual void {\bfseries unserialise} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual uint32 {\bfseries get\+\_\+serialised\+\_\+size} (int \&err)
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__paintable_a7ef7df7b7a604d1bf4f4b2d23b969381}\label{classmx__paintable_a7ef7df7b7a604d1bf4f4b2d23b969381} 
+\mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries painter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32 {\bfseries db\+\_\+id}
+\item 
+uint32 {\bfseries doc\+\_\+id}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__db__object}{mx\+\_\+db\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries error}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+paintable.\+h\end{DoxyCompactItemize}

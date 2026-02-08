@@ -1,0 +1,124 @@
+\doxysection{mx\+\_\+field\+\_\+w.\+h}
+\hypertarget{mx__field__w_8h_source}{}\label{mx__field__w_8h_source}\index{document/mx\_field\_w.h@{document/mx\_field\_w.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_field\_word}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Fields\ represent\ something\ like\ a\ date/time\ or\ a\ page\ number.\ No}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ sub-\/classes\ here\ but\ may\ need\ to\ review\ that\ if\ lots\ more\ complicated}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ fields\ come\ along\ in\ the\ future.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ A\ current\ restriction\ is\ that\ the\ whole\ of\ the\ field\ must\ appear\ in}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ a\ character\ style.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ MX\_FIELD\_WORD\_H}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_FIELD\_WORD\_H}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_word.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ this\ must\ be\ big\ enough\ to\ hold\ the\ widest\ field}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ MX\_FIELD\_WORD\_MAX\_STATIC\_LENGTH\ 50}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__word}{mx\_word}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_RTTI(mx\_field\_word\_class\_e)}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ mx\_date\_time\_field\_e,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ mx\_page\_num\_field\_e}
+\DoxyCodeLine{00058\ \ \ \ \ \}\ mx\_field\_word\_type\_t;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ dt\_dd\_mm\_yyyy\_e\ =\ 1,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ dt\_mm\_dd\_yyyy\_e\ =\ 2,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ dt\_d\_mon\_yyyy\_e\ =\ 3,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ dt\_hh24\_mm\_ss\_e\ =\ 4,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ dt\_hh\_mm\_ss\_e\ =\ 5,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ dt\_hh24\_mm\_e\ =\ 6,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ dt\_none\_e\ =\ 7}
+\DoxyCodeLine{00068\ \ \ \ \ \}\ mx\_field\_dt\_format\_t;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}();}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}(mx\_field\_word\_type\_t\ t);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}(}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ mx\_field\_word\_type\_t\ t,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ mx\_field\_dt\_format\_t\ h\_format,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ mx\_field\_dt\_format\_t\ d\_format);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}\&\ s);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__field__word}{\string~mx\_field\_word}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ duplicate()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmx__field__word}{mx\_field\_word}}(*\textcolor{keyword}{this});\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ the\ width\ according\ to\ the\ underlying\ outline\ font.}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ the\ spacing\ according\ to\ the\ underlying\ character\ style}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ spacing(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ get\ the\ word\ as\ a\ C\ string}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ cstring();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ mx\_field\_word\_type\_t\ type();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ not\ relevant\ for\ page\ numbers}}
+\DoxyCodeLine{00095\ \ \ \ \ mx\_field\_dt\_format\_t\ hour\_format();}
+\DoxyCodeLine{00096\ \ \ \ \ mx\_field\_dt\_format\_t\ date\_format();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ not\ relvant\ for\ dates}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_page\_number(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ dt\_cstring();}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ page\_cstring();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{char}\ word\_array[MX\_FIELD\_WORD\_MAX\_STATIC\_LENGTH\ +\ 1];}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ mx\_field\_word\_type\_t\ word\_type;}
+\DoxyCodeLine{00112\ \ \ \ \ mx\_field\_dt\_format\_t\ h\_format;}
+\DoxyCodeLine{00113\ \ \ \ \ mx\_field\_dt\_format\_t\ d\_format;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ page\_num;}
+\DoxyCodeLine{00116\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

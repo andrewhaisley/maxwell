@@ -1,0 +1,177 @@
+\doxysection{mx\+\_\+list.\+h}
+\hypertarget{mx__list_8h_source}{}\label{mx__list_8h_source}\index{collection/mx\_list.h@{collection/mx\_list.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_LIST\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_LIST\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_list}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ CLASS:\ mx\_list}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ \ This\ list\ class\ is\ designed\ to\ be\ reasonably\ space\ efficient\ and\ also}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ \ reasonably\ fast.\ You\ can\ basically\ insert\ and\ delete\ items\ at\ indexs}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ \ and\ there\ are\ also\ methods\ to\ iterate\ throught\ the\ list.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ \ It\ is\ optimized\ such\ that\ repeated\ operations\ at\ a\ given\ index\ are}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ \ really\ quick\ and\ so\ that\ if\ you\ get\ iterate\ up\ through\ the\ list\ it\ is}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ quick\ too.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__list}{mx\_list}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_RTTI(mx\_list\_class\_e)}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ list);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__list}{\string~mx\_list}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ rvalue)\ \{\ \textcolor{keywordflow}{return}\ equate(rvalue);\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ equate(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ rvalue);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ get\_num\_items()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ num\_items;\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}*\ get(\textcolor{keywordtype}{int}\&\ err,\ int32\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}*\ last();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ int32\ index,\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ prepend(\textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ append(\textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ these\ return\ a\ pointer\ to\ the\ object\ that\ has\ just\ been\ overwritten}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ or\ removed.}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}*\ overwrite(\textcolor{keywordtype}{int}\&\ err,\ int32\ index,\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}*\ remove(\textcolor{keywordtype}{int}\&\ err,\ int32\ index);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}*\ find\_smallest(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}*\ find\_largest(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ find\_smallest\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{inline}\ int32\ find\_largest\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ returns\ an\ index\ from\ a\ pointer\ if\ the\ pointer\ is\ in\ the\ list.}}
+\DoxyCodeLine{00082\ \ \ \ \ int32\ find\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ iterate(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{void}\ (*iter\_func)(\textcolor{keywordtype}{int}\&\ err,\ uint32\ index,\ \textcolor{keywordtype}{void}*\ item));}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ These\ functions\ can\ be\ used\ to\ iterate\ through\ inserted\ objects}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ you\ call\ iterate\_start\ and\ then\ repeatedly\ call\ iterate\_next.}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ iterate\_next\ returns\ NULL\ when\ you\ have\ completed\ the\ iteration.}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Having\ said\ that,\ it\ is\ much\ easier\ to\ use\ a\ list\ iterator\ object.}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ iterate\_start();}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}*\ iterate\_next();}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}*\ iterate\_next\_no\_increment();}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ iterate\_more();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ move\ the\ last\ n\ items\ from\ this\ list\ into\ the\ start\ of\ another\ list}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_items\_out\_end(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ other);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ move\ the\ first\ n\ items\ of\ another\ list\ into\ the\ end\ of\ this\ one}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_items\_in\_end(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ other);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ move\ the\ first\ n\ items\ from\ this\ list\ into\ the\ end\ of\ another\ list}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_items\_out\_start(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ other);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ move\ the\ last\ n\ items\ of\ another\ list\ into\ the\ start\ of\ this\ one}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_items\_in\_start(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ other);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ overridden\ new/delete\ operators\ to\ cache\ nodes\ so\ they\ don't\ have\ to\ be}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ allocated\ and\ deleted}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keywordtype}{size\_t}\ s);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}*\ n);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ item;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ next;}
+\DoxyCodeLine{00115\ \ \ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \ \ int32\ num\_items;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{mutable}\ int32\ current\_index;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ prev\_list\_elem;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ current\_list\_elem;}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ first\_list\_elem;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ last\_list\_elem;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ goto\_index(\textcolor{keywordtype}{int}\&\ err,\ int32\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ range\_check(\textcolor{keywordtype}{int}\&\ err,\ int32\&\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_list(\mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ list);}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ copy\_list(\mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ list,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ other);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ private\ stuff\ for\ moving\ chunks\ of\ lists\ about}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{struct\ }list\_segment\_t\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ first\_elem;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmx__list_1_1elem__t}{elem\_t}}*\ last\_elem;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ int32\ num\_elems;}
+\DoxyCodeLine{00137\ \ \ \ \ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_all\_elems(list\_segment\_t\&\ seg);}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_last\_n\_elems(\textcolor{keywordtype}{int}\&\ err,\ int32\ n,\ list\_segment\_t\&\ seg);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_first\_n\_elems(\textcolor{keywordtype}{int}\&\ err,\ int32\ n,\ list\_segment\_t\&\ seg);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ prepend\_segment(\textcolor{keyword}{const}\ list\_segment\_t\&\ seg);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ append\_segment(\textcolor{keyword}{const}\ list\_segment\_t\&\ seg);}
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *\ FUNCTION:\ find\_smallest\_index}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ *\ You\ give\ this\ function\ a\ comparision\ function\ for\ the\ objects}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ and\ it\ will\ return\ the\ index\ of\ the\ smallest\ one\ (according\ to}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ *\ the\ comparison\ function.\ find\_largest\_index\ does\ the\ opposite.}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00157\ \textcolor{keyword}{inline}\ int32\ mx\_list::}
+\DoxyCodeLine{00158\ \ \ \ \ find\_smallest\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two))}
+\DoxyCodeLine{00159\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ find\_smallest(err,\ comp\_func);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ current\_index;}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{inline}\ int32\ mx\_list::}
+\DoxyCodeLine{00165\ \ \ \ \ find\_largest\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keywordtype}{void}*\ one,\ \textcolor{keywordtype}{void}*\ two))}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ find\_largest(err,\ comp\_func);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{return}\ current\_index;}
+\DoxyCodeLine{00169\ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_LIST\_H}}
+
+\end{DoxyCode}

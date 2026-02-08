@@ -1,0 +1,48 @@
+cmake_minimum_required(VERSION 3.5)
+
+include_directories(
+    ..
+    ../collection  
+    ../db  
+    ../dgedit  
+    ../dgui  
+    ../document  
+    ../edit  
+    ../geometry  
+    ../geomstyle  
+    ../raster  
+    ../rtf  
+    ../shared  
+    ../ui  
+    ../view)
+
+add_library(edit
+    mx_aa.C
+    mx_app.C
+    mx_buffer.C
+    mx_editor.C
+    mx_print_target.C
+    mx_ta_buff.C
+    mx_text_buff.C
+    mx_undo.C
+    mx_word_iter.C
+    mx_wp_area_iter.C
+    mx_wpc_edit.C
+    mx_wpc_event.C
+    mx_wpc_format.C
+    mx_wpc_pos.C
+    mx_wpc_sel.C
+    mx_wp_cursor.C
+    mx_wp_edit.C
+    mx_wp_editor.C
+    mx_wp_file.C
+    mx_wp_format.C
+    mx_wp_help.C
+    mx_wp_insert.C
+    mx_wp_iter.C
+    mx_wp_ob_buff.C
+    mx_wp_style_iter.C
+    mx_wp_table.C
+    mx_wp_tools.C
+    mx_wp_view.C
+    mx_resources.C)

@@ -1,0 +1,9 @@
+<map id="mx_table_area_pos" name="mx_table_area_pos">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,225,155,251"/>
+<area shape="rect" id="Node000002" href="$classmx__area__pos.html" title=" " alt="" coords="25,152,135,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,191,83,225,77,225,77,191"/>
+<area shape="rect" id="Node000003" href="$classmx__position.html" title=" " alt="" coords="29,79,131,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,118,83,152,77,152,77,118"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="45,5,115,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="83,44,83,79,77,79,77,44"/>
+</map>

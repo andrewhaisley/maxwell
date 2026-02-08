@@ -1,0 +1,33 @@
+<map id="mx_dg_state" name="mx_dg_state">
+<area shape="rect" id="Node000001" title=" " alt="" coords="204,252,311,277"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__arc__state.html" title=" " alt="" coords="379,79,513,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,238,301,176,326,143,357,114,381,102,383,106,360,119,330,146,305,179,272,241"/>
+<area shape="rect" id="Node000010" href="$classmx__dg__point__state.html" title=" " alt="" coords="373,128,519,153"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="275,239,310,201,357,164,386,151,388,156,360,168,314,204,279,243"/>
+<area shape="rect" id="Node000011" href="$classmx__dg__polypoint__state.html" title=" " alt="" coords="359,177,533,203"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="293,243,358,213,395,200,397,205,360,218,295,248"/>
+<area shape="rect" id="Node000012" href="$classmx__dg__rect__state.html" title=" " alt="" coords="377,227,515,252"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="324,253,376,246,377,251,325,258"/>
+<area shape="rect" id="Node000013" href="$classmx__dg__select__state.html" title=" " alt="" coords="370,276,522,301"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="325,270,370,276,370,282,324,276"/>
+<area shape="rect" id="Node000014" href="$classmx__dg__snap__state.html" title=" " alt="" coords="374,325,518,351"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="295,282,360,312,394,323,392,328,358,316,293,286"/>
+<area shape="rect" id="Node000015" href="$classmx__dg__span__state.html" title=" " alt="" coords="374,375,518,400"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="279,287,314,325,360,361,385,372,383,377,357,366,310,329,275,290"/>
+<area shape="rect" id="Node000016" href="$classmx__dg__top__state.html" title=" " alt="" coords="379,424,513,449"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="271,289,305,351,330,383,360,410,381,422,378,426,357,415,326,387,301,353,267,291"/>
+<area shape="rect" id="Node000002" href="$classmx__callback__target.html" title=" " alt="" coords="5,252,156,277"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,262,204,262,204,267,170,267"/>
+<area shape="rect" id="Node000004" href="$classmx__dg__farc__state.html" title=" " alt="" coords="583,55,721,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="526,79,582,73,583,78,526,85"/>
+<area shape="rect" id="Node000007" href="$classmx__dg__parc__state.html" title=" " alt="" coords="581,104,723,129"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="527,99,581,105,581,111,526,104"/>
+<area shape="rect" id="Node000005" href="$classmx__dg__fcircle__state.html" title=" " alt="" coords="776,5,929,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="717,49,800,28,801,33,718,54"/>
+<area shape="rect" id="Node000006" href="$classmx__dg__fellipse__state.html" title=" " alt="" coords="772,55,933,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="735,65,772,65,772,70,735,70"/>
+<area shape="rect" id="Node000008" href="$classmx__dg__pcircle__state.html" title=" " alt="" coords="775,104,931,129"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="737,114,774,114,774,119,737,119"/>
+<area shape="rect" id="Node000009" href="$classmx__dg__pellipse__state.html" title=" " alt="" coords="771,153,935,179"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="718,130,801,151,800,156,717,135"/>
+</map>

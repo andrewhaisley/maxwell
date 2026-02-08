@@ -1,0 +1,175 @@
+\doxysection{mx\+\_\+unit.\+h}
+\hypertarget{mx__unit_8h_source}{}\label{mx__unit_8h_source}\index{shared/mx\_unit.h@{shared/mx\_unit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_unit}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ MX\_UNIT\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MX\_UNIT\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ there\ are\ two\ interfaces\ here.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ 1.\ a\ standard\ set\ of\ C\ things.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ 2.\ a\ C++\ class\ to\ do\ the\ same\ sorts\ of\ things.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ all\ new\ code\ doing\ things\ with\ unit\ conversions\ should\ use\ the\ class}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ interface.\ Please\ note\ that\ ALL\ internal\ maxwell\ values\ are\ held\ in}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ mm.\ Translation\ only\ occurs\ on\ user\ IO}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ MX\_NUM\_UNIT\_TYPES\ 3}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ mx\_mm,}
+\DoxyCodeLine{00053\ \ \ \ \ mx\_inches,}
+\DoxyCodeLine{00054\ \ \ \ \ mx\_points}
+\DoxyCodeLine{00055\ \}\ mx\_unit\_e;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_MM\_TO\_INCHES(x)\ ((x)\ /\ 25.4)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ MX\_INCHES\_TO\_MM(x)\ ((x)\ *\ 25.4)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ MX\_POINTS\_TO\_INCHES(x)\ ((x)\ /\ 72.0)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ MX\_INCHES\_TO\_POINTS(x)\ ((x)\ *\ 72.0)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ MX\_POINTS\_TO\_MM(x)\ ((x)\ *\ 0.3527778)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ MX\_MM\_TO\_POINTS(x)\ ((x)\ /\ 0.3527778)}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ conversion\ to/from\ twips\ (twentieths\ of\ a\ point)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ MX\_TWIPS\_TO\_MM(twips)\ ((twips)\ *\ 0.017638889)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ MX\_MM\_TO\_TWIPS(mm)\ ((mm)\ /\ 0.017638889)}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{float}\ mx\_mm\_to\_unit(\textcolor{keywordtype}{float}\ mm,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00069\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ \ \ IN\ \ -\/\ mm\ \ \ a\ measurement\ in\ mm}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ value\ converted\ into\ another\ unit}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{float}\ mx\_unit\_to\_mm(\textcolor{keywordtype}{float}\ x,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00078\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ \ \ IN\ -\/\ x\ \ \ a\ measurement\ in\ the\ given\ unit}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ value\ in\ mm}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_unit\_name(mx\_unit\_e\ u);}
+\DoxyCodeLine{00087\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *\ \ \ IN\ -\/\ u\ \ \ a\ unit\ type}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ symbolic\ name\ for\ the\ particular\ unit\ type}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ mx\_unit\_e\ mx\_unit\_type(\textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00096\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ \ \ IN\ -\/\ u\ \ \ a\ unit\ type}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ unit\ type\ from\ a\ name}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_full\_unit\_name(mx\_unit\_e\ u);}
+\DoxyCodeLine{00105\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *\ \ \ IN\ -\/\ u\ \ \ a\ unit\ type}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ full\ symbolic\ name\ for\ the\ particular\ unit\ type}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ now,\ a\ class\ that\ does\ the\ same\ things}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__unit}{mx\_unit}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ MX\_RTTI(mx\_unit\_class\_e)}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ various\ constructors}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ 0\ mm}}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{classmx__unit}{mx\_unit}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ n\ mm}}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classmx__unit}{mx\_unit}}(\textcolor{keywordtype}{float}\ mm);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ n\ units\ of\ type\ u}}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classmx__unit}{mx\_unit}}(\textcolor{keywordtype}{float}\ mm,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ from\ string\ -\/\ if\ the\ string\ contains\ a\ type,\ use\ that\ otherwise}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ assume\ it's\ in\ the\ unit\ type\ given}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ err\ -\/\ MX\_UNIT\_INVALID\_TYPE\ \ \ -\/\ the\ type\ named\ in\ the\ string\ was\ not}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ err\ -\/\ MX\_UNIT\_INVALID\_STRING\ -\/\ the\ string\ was\ garbage}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ recognisable\ e.g.\ 23.5\ xyz}}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{classmx__unit}{mx\_unit}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ s,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ turn\ it\ into\ a\ string\ of\ the\ specified\ unit\ type}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ string(mx\_unit\_e\ u);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ turn\ it\ into\ a\ mm\ string\ with\ no\ trailing\ 'mm'}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ string\_mm();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ value\ in\ mm}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{float}\ value();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ value\ in\ any\ given\ unit\ type}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{float}\ value\_unit(mx\_unit\_e\ u);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ set\ value\ in\ mm}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_value(\textcolor{keywordtype}{float}\ v);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ set\ value\ in\ unit}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_value(\textcolor{keywordtype}{float}\ v,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ set\ value\ from\ string}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_value(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ s,\ mx\_unit\_e\ u);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ unit\ type\ names}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ unit\_name(mx\_unit\_e\ u);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ full\ unit\ type\ names}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ full\_unit\_name(mx\_unit\_e\ u);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{float}\ v;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ buffer[100];}
+\DoxyCodeLine{00167\ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

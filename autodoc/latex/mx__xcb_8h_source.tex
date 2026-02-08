@@ -1,0 +1,215 @@
+\doxysection{mx\+\_\+xcb.\+h}
+\hypertarget{mx__xcb_8h_source}{}\label{mx__xcb_8h_source}\index{view/mx\_xcb.h@{view/mx\_xcb.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_XCB\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_XCB\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_xcb.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:\ Treatment\ of\ X\ callbacks}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Module\ mx\_xcb.h}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <X11/Intrinsic.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <Xm/ScrollBar.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_cb.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_MAX\_MOTIONS\ 50}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__xcallback__target}{mx\_xcallback\_target}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classmx__xcallback__target}{mx\_xcallback\_target}}(Widget\ iwidget\ =\ NULL);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ setCBwidget(Widget\ iwidget);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{inline}\ Widget\ getCBWidget()\ \{\ \textcolor{keywordflow}{return}\ cbwidget;\ \};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ setVerticalScrollWidget(\textcolor{keywordtype}{int}\&\ err,\ Widget\ vscrollWidget);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ setHorizontalScrollWidget(\textcolor{keywordtype}{int}\&\ err,\ Widget\ hscrollWidget);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{inline}\ Widget\ getVerticalScrollWidget()\ \{\ \textcolor{keywordflow}{return}\ vscrollWidget;\ \};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{inline}\ Widget\ getHorizontalScrollWidget()\ \{\ \textcolor{keywordflow}{return}\ hscrollWidget;\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ expose(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}\&\ event)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ mx\_callback\_target::expose(err,\ event);}
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ resize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ event)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ mx\_callback\_target::resize(err,\ event);}
+\DoxyCodeLine{00063\ \ \ \ \ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event)}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ mx\_callback\_target::preDraw(err,\ event);}
+\DoxyCodeLine{00068\ \ \ \ \ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ specialDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ mx\_callback\_target::specialDraw(err,\ event);}
+\DoxyCodeLine{00073\ \ \ \ \ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event)}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ mx\_callback\_target::draw(err,\ event);}
+\DoxyCodeLine{00078\ \ \ \ \ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ postDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event)}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ mx\_callback\_target::postDraw(err,\ event);}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ forceScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ scrollEvent);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ setEvent(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ eventType,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ setOn);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ the\ widget\ for\ the\ x\ callback\ target}}
+\DoxyCodeLine{00094\ \ \ \ \ Widget\ cbwidget;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ scrolling\ widgets}}
+\DoxyCodeLine{00097\ \ \ \ \ Widget\ vscrollWidget;}
+\DoxyCodeLine{00098\ \ \ \ \ Widget\ hscrollWidget;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ true\ if\ dragging\ is\ occuring}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ buttonIsInMotion;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ button\ clicks}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ numberButtonClicks;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ the\ timer\ id}}
+\DoxyCodeLine{00107\ \ \ \ \ XtIntervalId\ clickTimerId;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ the\ timer\ id}}
+\DoxyCodeLine{00110\ \ \ \ \ XtIntervalId\ stillMotionTimerId;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ test\ for\ button\ release}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ hadButtonRelease;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Cumulative\ button\ mode}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ cumulativeButtonMode;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ the\ first\ of\ a\ set\ of\ events\ for\ button\ presses}}
+\DoxyCodeLine{00119\ \ \ \ \ XButtonEvent\ firstEvent;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ the\ current\ mask}}
+\DoxyCodeLine{00122\ \ \ \ \ EventMask\ eventMask;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ saved\ motion\ events\ awaiting\ the\ timeout\ after\ a\ key\ press}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ nmotions;}
+\DoxyCodeLine{00126\ \ \ \ \ XMotionEvent\ motions[MX\_MAX\_MOTIONS];}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ XMotionEvent\ lastMotionEvent;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ XButtonEvent\ lastReleaseEvent;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ the\ mx\ button\ motion\ callback}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mxXtEH(Widget\ widget,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ XtPointer\ clientdata,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ XEvent*\ event,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}*\ cont\_dispatch);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Motif\ callbacks}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mxXtCallback(Widget\ widget,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ XtPointer\ clientData,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ XtPointer\ callData);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ button\ click\ and\ button\ motion\ timeout\ callback}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mxCTCallback(XtPointer\ client\_data,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ XtIntervalId*\ timer\_id);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ processTimeout(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ XtIntervalId\ timer\_id);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ processClickTimeout(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ processStillMotionTimeout(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ processKeyPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ XKeyEvent*\ keyEvent);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ processKeyRelease(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ XKeyEvent*\ keyEvent);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ processButtonPress(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ XButtonEvent*\ keyEvent);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ processButtonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ XMotionEvent*\ keyEvent);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ processButtonRelease(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ XButtonEvent*\ keyEvent);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ processButtonClicks(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ processResize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ XConfigureEvent*\ configureEvent);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ processExpose(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ XExposeEvent*\ exposeEvent);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ processScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ Widget\ eventWidget,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ XmScrollBarCallbackStruct*\ scrollData);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ convert\ an\ x\ event\ to\ a\ Maxwell\ button\ event}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ xevTOmxbe(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nclicks,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ mxbe,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ XButtonEvent*\ sxbe,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ XButtonEvent*\ xbe,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ XMotionEvent*\ xme);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{int}\ xevTOmxke(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isRelease,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__key__event}{mx\_key\_event}}\&\ mxke,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ XKeyEvent*\ xke);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ xevTOmxee(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}\&\ mxee,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ XExposeEvent*\ xee);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ xevTOmxre(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ mxre,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ XConfigureEvent*\ xre);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ xevTOmxse(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ mxse,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ Widget\ eventWidget,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ XmScrollBarCallbackStruct*\ scrollData);}
+\DoxyCodeLine{00207\ \};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

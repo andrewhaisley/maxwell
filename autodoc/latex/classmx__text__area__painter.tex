@@ -1,0 +1,145 @@
+\doxysection{mx\+\_\+text\+\_\+area\+\_\+painter Class Reference}
+\hypertarget{classmx__text__area__painter}{}\label{classmx__text__area__painter}\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+
+
+Inheritance diagram for mx\+\_\+text\+\_\+area\+\_\+painter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classmx__text__area__painter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+text\+\_\+area\+\_\+painter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{classmx__text__area__painter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classmx__text__area__painter_a1d7a1d3df4f986a67f65c33f652b3d9b}{draw}} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&r, \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&o)
+\item 
+virtual void \mbox{\hyperlink{classmx__text__area__painter_ada83dec415a68bc948bd2be3da5726aa}{highlight\+\_\+from\+\_\+start\+\_\+of\+\_\+area}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}end)
+\item 
+virtual void \mbox{\hyperlink{classmx__text__area__painter_a96894c073446977aab394814a8802a46}{highlight\+\_\+whole\+\_\+area}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}s)
+\item 
+virtual void \mbox{\hyperlink{classmx__text__area__painter_aaa81e4a9d1a4de453db8b054427f6c87}{highlight\+\_\+in\+\_\+area}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}start, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}end)
+\item 
+virtual void \mbox{\hyperlink{classmx__text__area__painter_a86b39625b258360afdd5c24d2f328f1a}{highlight\+\_\+to\+\_\+end\+\_\+of\+\_\+area}} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}start)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__area__painter}{mx\+\_\+area\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries draw\+\_\+area\+\_\+border} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries draw\+\_\+area\+\_\+background} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries add\+\_\+border\+\_\+to\+\_\+false\+\_\+origin} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries unset\+\_\+area\+\_\+clip} (int \&err)
+\item 
+void {\bfseries set\+\_\+area\+\_\+clip} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&top\+Left, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&display\+Size, bool clip\+TL, bool clip\+BR)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__text__area__painter_aa9bb25978b6a715e36e1a8ec89b6615f}\label{classmx__text__area__painter_aa9bb25978b6a715e36e1a8ec89b6615f} 
+static \mbox{\hyperlink{classmx__text__area__painter}{mx\+\_\+text\+\_\+area\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries painter} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+device} ()
+\item 
+static void {\bfseries set\+\_\+device} (\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \&dev)
+\item 
+static void {\bfseries set\+\_\+draw\+\_\+mode} (mx\+\_\+painter\+\_\+mode\+\_\+t t)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries xor\+Rect} (int \&err, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&tl, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&br)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries device}
+\item 
+static mx\+\_\+painter\+\_\+mode\+\_\+t {\bfseries draw\+\_\+mode}
+\item 
+static \mbox{\hyperlink{classmx__grid__paint}{mx\+\_\+grid\+\_\+paint}} {\bfseries grid\+\_\+paint}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__text__area__painter_a1d7a1d3df4f986a67f65c33f652b3d9b}\label{classmx__text__area__painter_a1d7a1d3df4f986a67f65c33f652b3d9b} 
+\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}!draw@{draw}}
+\index{draw@{draw}!mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+text\+\_\+area\+\_\+painter\+::draw (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&}]{r,  }\item[{\mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}.
+
+\Hypertarget{classmx__text__area__painter_ada83dec415a68bc948bd2be3da5726aa}\label{classmx__text__area__painter_ada83dec415a68bc948bd2be3da5726aa} 
+\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}!highlight\_from\_start\_of\_area@{highlight\_from\_start\_of\_area}}
+\index{highlight\_from\_start\_of\_area@{highlight\_from\_start\_of\_area}!mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+\doxysubsubsection{\texorpdfstring{highlight\_from\_start\_of\_area()}{highlight\_from\_start\_of\_area()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+text\+\_\+area\+\_\+painter\+::highlight\+\_\+from\+\_\+start\+\_\+of\+\_\+area (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area__painter}{mx\+\_\+area\+\_\+painter}}.
+
+\Hypertarget{classmx__text__area__painter_aaa81e4a9d1a4de453db8b054427f6c87}\label{classmx__text__area__painter_aaa81e4a9d1a4de453db8b054427f6c87} 
+\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}!highlight\_in\_area@{highlight\_in\_area}}
+\index{highlight\_in\_area@{highlight\_in\_area}!mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+\doxysubsubsection{\texorpdfstring{highlight\_in\_area()}{highlight\_in\_area()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+text\+\_\+area\+\_\+painter\+::highlight\+\_\+in\+\_\+area (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}}]{start,  }\item[{\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area__painter}{mx\+\_\+area\+\_\+painter}}.
+
+\Hypertarget{classmx__text__area__painter_a86b39625b258360afdd5c24d2f328f1a}\label{classmx__text__area__painter_a86b39625b258360afdd5c24d2f328f1a} 
+\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}!highlight\_to\_end\_of\_area@{highlight\_to\_end\_of\_area}}
+\index{highlight\_to\_end\_of\_area@{highlight\_to\_end\_of\_area}!mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+\doxysubsubsection{\texorpdfstring{highlight\_to\_end\_of\_area()}{highlight\_to\_end\_of\_area()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+text\+\_\+area\+\_\+painter\+::highlight\+\_\+to\+\_\+end\+\_\+of\+\_\+area (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*}}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area__painter}{mx\+\_\+area\+\_\+painter}}.
+
+\Hypertarget{classmx__text__area__painter_a96894c073446977aab394814a8802a46}\label{classmx__text__area__painter_a96894c073446977aab394814a8802a46} 
+\index{mx\_text\_area\_painter@{mx\_text\_area\_painter}!highlight\_whole\_area@{highlight\_whole\_area}}
+\index{highlight\_whole\_area@{highlight\_whole\_area}!mx\_text\_area\_painter@{mx\_text\_area\_painter}}
+\doxysubsubsection{\texorpdfstring{highlight\_whole\_area()}{highlight\_whole\_area()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+text\+\_\+area\+\_\+painter\+::highlight\+\_\+whole\+\_\+area (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__area__painter}{mx\+\_\+area\+\_\+painter}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+txt\+\_\+paint.\+h\end{DoxyCompactItemize}

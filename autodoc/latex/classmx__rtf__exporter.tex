@@ -1,0 +1,138 @@
+\doxysection{mx\+\_\+rtf\+\_\+exporter Class Reference}
+\hypertarget{classmx__rtf__exporter}{}\label{classmx__rtf__exporter}\index{mx\_rtf\_exporter@{mx\_rtf\_exporter}}
+
+
+Inheritance diagram for mx\+\_\+rtf\+\_\+exporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classmx__rtf__exporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+rtf\+\_\+exporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__rtf__exporter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__rtf__exporter_aa42939853288f3d3631b48c9cbcf26ab}\label{classmx__rtf__exporter_aa42939853288f3d3631b48c9cbcf26ab} 
+{\bfseries mx\+\_\+rtf\+\_\+exporter} (int \&err, const char \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, \mbox{\hyperlink{classmx__dialog__manager}{mx\+\_\+dialog\+\_\+manager}} \texorpdfstring{$\ast$}{*}dm=NULL)
+\item 
+virtual void \mbox{\hyperlink{classmx__rtf__exporter_acfe05e51c5b59ab655f621fdd18d30fb}{export\+\_\+doc}} (int \&err)
+\item 
+virtual void \mbox{\hyperlink{classmx__rtf__exporter_a5f062b268d9ad8b1cdb1098dd57c3edf}{notify\+\_\+export\+\_\+progress}} (int \&err, uint32 length, uint32 progress)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__exporter}{mx\+\_\+exporter}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+exporter} (int \&err, const char \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, \mbox{\hyperlink{classmx__dialog__manager}{mx\+\_\+dialog\+\_\+manager}} \texorpdfstring{$\ast$}{*}dm=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtfe__document__output}{mx\+\_\+rtfe\+\_\+document\+\_\+output}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+document\+\_\+output} (const char \texorpdfstring{$\ast$}{*}output\+\_\+file)
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+document\+\_\+output} (const \mbox{\hyperlink{classmx__rtfe__document__output}{mx\+\_\+rtfe\+\_\+document\+\_\+output}} \&)
+\item 
+void {\bfseries set\+\_\+document} (int \&err, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}d)
+\item 
+void \mbox{\hyperlink{classmx__rtfe__document__output_a5dc6f5b06717e595a827b99161aa92ca}{output\+\_\+rtf}} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+output} (FILE \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{classmx__rtfe__lookups}{mx\+\_\+rtfe\+\_\+lookups}} \texorpdfstring{$\ast$}{*}lu)
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+output} (const \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}} \&)
+\item 
+void {\bfseries open\+\_\+brace} (int \&err)
+\item 
+void {\bfseries close\+\_\+brace} (int \&err)
+\item 
+void {\bfseries close\+\_\+all\+\_\+braces} ()
+\item 
+void {\bfseries write\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries write\+\_\+char} (int \&err, char c)
+\item 
+void {\bfseries write\+\_\+rtf\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries write\+\_\+rtf\+\_\+char} (int \&err, char c)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__rtf__exporter_adff130ce2fd17bf85a3d925cb4759949}\label{classmx__rtf__exporter_adff130ce2fd17bf85a3d925cb4759949} 
+bool {\bfseries length\+\_\+is\+\_\+set}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__exporter}{mx\+\_\+exporter}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+\_\+output\+\_\+length} (int i)
+\item 
+bool {\bfseries update\+\_\+progress} ()
+\item 
+bool {\bfseries update\+\_\+progress} (int output\+\_\+pos)
+\item 
+virtual void {\bfseries finish\+\_\+export} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__exporter}{mx\+\_\+exporter}}}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} {\bfseries file}
+\item 
+\mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*} {\bfseries doc}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}}}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} {\bfseries file}
+\item 
+\mbox{\hyperlink{classmx__rtfe__lookups}{mx\+\_\+rtfe\+\_\+lookups}} \texorpdfstring{$\ast$}{*} {\bfseries lookups}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__rtf__exporter_acfe05e51c5b59ab655f621fdd18d30fb}\label{classmx__rtf__exporter_acfe05e51c5b59ab655f621fdd18d30fb} 
+\index{mx\_rtf\_exporter@{mx\_rtf\_exporter}!export\_doc@{export\_doc}}
+\index{export\_doc@{export\_doc}!mx\_rtf\_exporter@{mx\_rtf\_exporter}}
+\doxysubsubsection{\texorpdfstring{export\_doc()}{export\_doc()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+rtf\+\_\+exporter\+::export\+\_\+doc (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__exporter}{mx\+\_\+exporter}}.
+
+\Hypertarget{classmx__rtf__exporter_a5f062b268d9ad8b1cdb1098dd57c3edf}\label{classmx__rtf__exporter_a5f062b268d9ad8b1cdb1098dd57c3edf} 
+\index{mx\_rtf\_exporter@{mx\_rtf\_exporter}!notify\_export\_progress@{notify\_export\_progress}}
+\index{notify\_export\_progress@{notify\_export\_progress}!mx\_rtf\_exporter@{mx\_rtf\_exporter}}
+\doxysubsubsection{\texorpdfstring{notify\_export\_progress()}{notify\_export\_progress()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+rtf\+\_\+exporter\+::notify\+\_\+export\+\_\+progress (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint32}]{length,  }\item[{uint32}]{progress }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__rtfe__document__output}{mx\+\_\+rtfe\+\_\+document\+\_\+output}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+rtf\+\_\+exporter.\+h\end{DoxyCompactItemize}

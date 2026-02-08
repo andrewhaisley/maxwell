@@ -1,0 +1,27 @@
+<map id="mx_metafile" name="mx_metafile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="307,373,411,399"/>
+<area shape="rect" id="Node000002" href="$classmx__metafile__header.html" title=" " alt="" coords="5,278,161,303"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,306,239,347,318,371,317,376,237,352,124,311"/>
+<area shape="rect" id="Node000003" href="$classmx__metafile__reader.html" title=" " alt="" coords="295,168,448,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,201,115,280,113,275,327,196"/>
+<area shape="rect" id="Node000004" href="$classmx__standard__metafile__record.html" title=" " alt="" coords="186,271,354,311"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="353,205,290,272,286,269,349,201"/>
+<area shape="rect" id="Node000005" href="$classmx__metafile__input.html" title=" " alt="" coords="378,278,522,303"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="390,203,444,276,439,279,386,206"/>
+<area shape="rect" id="Node000006" href="$classmx__metafile__output.html" title=" " alt="" coords="547,278,700,303"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="412,196,598,275,596,280,410,201"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="287,321,305,347,337,371,334,375,301,351,282,325"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="439,317,412,351,381,375,378,371,408,347,435,313"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="581,311,467,352,395,376,394,371,465,347,579,306"/>
+<area shape="rect" id="Node000007" href="$classmx__point.html" title=" " alt="" coords="637,168,719,193"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="668,207,632,279,627,276,663,205"/>
+<area shape="rect" id="Node000008" href="$classmx__serialisable__object.html" title=" " alt="" coords="592,80,764,105"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="681,119,681,167,675,167,675,119"/>
+<area shape="rect" id="Node000010" href="$classmx__rect.html" title=" " alt="" coords="538,168,613,193"/>
+<area shape="poly" id="edge13_Node000010_Node000008" title=" " alt="" coords="655,116,591,170,588,165,652,112"/>
+<area shape="rect" id="Node000009" href="$classmx__rtti.html" title=" " alt="" coords="643,5,713,31"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="681,45,681,80,675,80,675,45"/>
+<area shape="poly" id="edge12_Node000006_Node000010" title=" " alt="" coords="584,206,599,246,617,276,613,279,594,248,579,208"/>
+<area shape="rect" id="Node000011" href="$classmx__angle.html" title=" " alt="" coords="481,80,568,105"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="541,116,571,166,566,169,536,119"/>
+</map>

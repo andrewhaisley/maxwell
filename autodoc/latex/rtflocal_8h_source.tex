@@ -1,0 +1,724 @@
+\doxysection{rtflocal.\+h}
+\hypertarget{rtflocal_8h_source}{}\label{rtflocal_8h_source}\index{rtf/rtflocal.h@{rtf/rtflocal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ rtflocal.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ rtflocal.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ \_RTFLOCAL\_H}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ \_RTFLOCAL\_H}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <rtf.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ RTF\_DEFINING\_CONTROLS}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \mbox{\hyperlink{classRTFcontrol}{RTFcontrol}}\ Controls[]\ =\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Version}}
+\DoxyCodeLine{00043\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtf"{}},\ RTFrtf,\ RTFDrtf,\ RTFCdestination,\ 1\ \},}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Default\ font}}
+\DoxyCodeLine{00046\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}deff"{}},\ RTFdeff,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Charset}}
+\DoxyCodeLine{00049\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ansi"{}},\ RTFansi,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00050\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}mac"{}},\ RTFmac,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00051\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pc"{}},\ RTFpc,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00052\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pca"{}},\ RTFpca,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Font\ attributes}}
+\DoxyCodeLine{00055\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fonttbl"{}},\ RTFfonttbl,\ RTFDfonttbl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00056\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}f"{}},\ RTFf,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00057\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fnil"{}},\ RTFfnil,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00058\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}froman"{}},\ RTFfroman,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00059\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fswiss"{}},\ RTFfswiss,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00060\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fmodern"{}},\ RTFfmodern,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00061\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fscript"{}},\ RTFfscript,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00062\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fdecor"{}},\ RTFfdecor,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00063\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftech"{}},\ RTFftech,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00064\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fbidi"{}},\ RTFfbidi,\ RTFDfonttbl,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00065\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fcharset"{}},\ RTFfcharset,\ RTFDfonttbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00066\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fprq"{}},\ RTFfprq,\ RTFDfonttbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00067\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cpg"{}},\ RTFcpg,\ RTFDfonttbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Alternative\ font\ name}}
+\DoxyCodeLine{00070\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}falt"{}},\ RTFfalt,\ RTFDfalt,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Font\ embedding}}
+\DoxyCodeLine{00073\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fontemb"{}},\ RTFfontemb,\ RTFDfontemb,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00074\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnil"{}},\ RTFftnil,\ RTFDfontemb,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00075\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fttruetype"{}},\ RTFfttruetype,\ RTFDfontemb,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Font\ file}}
+\DoxyCodeLine{00078\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fontfile"{}},\ RTFfontfile,\ RTFDfontfile,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ File\ attributes}}
+\DoxyCodeLine{00081\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}filetbl"{}},\ RTFfiletbl,\ RTFDfiletbl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00082\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}file"{}},\ RTFfile,\ RTFDfile,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00083\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fid"{}},\ RTFfid,\ RTFDfile,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00084\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}frelative"{}},\ RTFfrelative,\ RTFDfile,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00085\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fosnum"{}},\ RTFfosnum,\ RTFDfile,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00086\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fvalidmac"{}},\ RTFfvalidmac,\ RTFDfile,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00087\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fvaliddos"{}},\ RTFfvaliddos,\ RTFDfile,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00088\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fvalidntfs"{}},\ RTFfvalidntfs,\ RTFDfile,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00089\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fvalidhpfs"{}},\ RTFfvalidhpfs,\ RTFDfile,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00090\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fnetwork"{}},\ RTFfnetwork,\ RTFDfile,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Colour\ table}}
+\DoxyCodeLine{00093\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}colortbl"{}},\ RTFcolortbl,\ RTFDcolortbl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00094\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}red"{}},\ RTFred,\ RTFDcolortbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00095\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}green"{}},\ RTFgreen,\ RTFDcolortbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00096\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}blue"{}},\ RTFblue,\ RTFDcolortbl,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Stylesheet}}
+\DoxyCodeLine{00099\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}stylesheet"{}},\ RTFstylesheet,\ RTFDstylesheet,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00100\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}s"{}},\ RTFs,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00101\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cs"{}},\ RTFcs,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00102\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ds"{}},\ RTFds,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00103\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}additive"{}},\ RTFadditive,\ RTFDstylesheet,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00104\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbasedon"{}},\ RTFsbasedon,\ RTFDstylesheet,\ RTFCvalue,\ 222\ \},}
+\DoxyCodeLine{00105\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}snext"{}},\ RTFsnext,\ RTFDstylesheet,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ Keycodes}}
+\DoxyCodeLine{00108\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}keycode"{}},\ RTFkeycode,\ RTFDkeycode,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00109\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}shift"{}},\ RTFshift,\ RTFDkeycode,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00110\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ctrl"{}},\ RTFctrl,\ RTFDkeycode,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00111\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}alt"{}},\ RTFalt,\ RTFDkeycode,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00112\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fn"{}},\ RTFfn,\ RTFDkeycode,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Revtbl}}
+\DoxyCodeLine{00115\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revtbl"{}},\ RTFrevtbl,\ RTFDrevtbl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ Info}}
+\DoxyCodeLine{00118\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}info"{}},\ RTFinfo,\ RTFDinfo,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00119\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}title"{}},\ RTFtitle,\ RTFDtitle,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00120\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}subject"{}},\ RTFsubject,\ RTFDsubject,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00121\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}author"{}},\ RTFauthor,\ RTFDauthor,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00122\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}operator"{}},\ RTFoperator,\ RTFDoperator,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00123\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}keywords"{}},\ RTFkeywords,\ RTFDkeywords,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00124\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}comment"{}},\ RTFcomment,\ RTFDcomment,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00125\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}doccomm"{}},\ RTFdoccomm,\ RTFDdoccomm,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00126\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}creatim"{}},\ RTFcreatim,\ RTFDcreatim,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00127\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revtim"{}},\ RTFrevtim,\ RTFDrevtim,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00128\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}printim"{}},\ RTFprintim,\ RTFDprintim,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00129\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}buptim"{}},\ RTFbuptim,\ RTFDbuptim,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}version"{}},\ RTFversion,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00132\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}vern"{}},\ RTFvern,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00133\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}edmins"{}},\ RTFedmins,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00134\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nofpages"{}},\ RTFnofpages,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00135\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nofwords"{}},\ RTFnofwords,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00136\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nofchars"{}},\ RTFnofchars,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00137\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}id"{}},\ RTFid,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00138\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}yr"{}},\ RTFyr,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00139\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}mo"{}},\ RTFmo,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00140\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dy"{}},\ RTFdy,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00141\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hr"{}},\ RTFhr,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00142\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}min"{}},\ RTFmin,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00143\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sec"{}},\ RTFsec,\ RTFDinfo,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ Document\ formatting}}
+\DoxyCodeLine{00146\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}deftab"{}},\ RTFdeftab,\ RTFDdocfmt,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00147\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hyphhotz"{}},\ RTFhyphhotz,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00148\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hyphconsec"{}},\ RTFhyphconsec,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00149\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linestart"{}},\ RTFlinestart,\ RTFDdocfmt,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00150\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}deflang"{}},\ RTFdeflang,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hyphcaps"{}},\ RTFhyphcaps,\ RTFDdocfmt,\ RTFCtoggle,\ 1\ \},}
+\DoxyCodeLine{00153\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hyphauto"{}},\ RTFhyphauto,\ RTFDdocfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fracwidth"{}},\ RTFfracwidth,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00156\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}makebackup"{}},\ RTFmakebackup,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00157\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}defformat"{}},\ RTFdefformat,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00158\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}psover"{}},\ RTFpsover,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00159\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}doctemp"{}},\ RTFdoctemp,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nextfile"{}},\ RTFnextfile,\ RTFDnextfile,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00162\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}template"{}},\ RTFtemplate,\ RTFDtemplate,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ Footnotes}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fet"{}},\ RTFfet,\ RTFDdocfootnote,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00167\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnstart"{}},\ RTFftnstart,\ RTFDdocfootnote,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00168\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnstart"{}},\ RTFaftnstart,\ RTFDdocfootnote,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnsep"{}},\ RTFftnsep,\ RTFDftnsep,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00171\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnsepc"{}},\ RTFftnsepc,\ RTFDftnsepc,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00172\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftncn"{}},\ RTFftncn,\ RTFDftncn,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00173\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnsepc"{}},\ RTFaftnsepc,\ RTFDaftnsepc,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00174\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftncn"{}},\ RTFaftncn,\ RTFDaftncn,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}endnotes"{}},\ RTFendnotes,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00177\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}enddoc"{}},\ RTFenddoc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00178\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftntj"{}},\ RTFftntj,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00179\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnbj"{}},\ RTFftnbj,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00180\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aendnotes"{}},\ RTFaendnotes,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00181\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aenddoc"{}},\ RTFaenddoc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00182\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftntj"{}},\ RTFaftntj,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00183\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnbj"{}},\ RTFaftnbj,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00184\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnrstpg"{}},\ RTFftnrstpg,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00185\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnrestart"{}},\ RTFftnrestart,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00186\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnrstcont"{}},\ RTFftnrstcont,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00187\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnrestart"{}},\ RTFaftnrestart,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00188\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnrstcont"{}},\ RTFaftnrstcont,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00189\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnar"{}},\ RTFftnnar,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00190\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnalc"{}},\ RTFftnnalc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00191\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnauc"{}},\ RTFftnnauc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00192\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnrlc"{}},\ RTFftnnrlc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00193\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnruc"{}},\ RTFftnnruc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00194\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnnchi"{}},\ RTFftnnchi,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00195\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnar"{}},\ RTFaftnnar,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00196\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnalc"{}},\ RTFaftnnalc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00197\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnauc"{}},\ RTFaftnnauc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00198\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnrlc"{}},\ RTFaftnnrlc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00199\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnruc"{}},\ RTFaftnnruc,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00200\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aftnnchi"{}},\ RTFaftnnchi,\ RTFDdocfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ Page\ info}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}paperw"{}},\ RTFpaperw,\ RTFDdocpage,\ RTFCvalue,\ 12240\ \},}
+\DoxyCodeLine{00205\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}paperh"{}},\ RTFpaperh,\ RTFDdocpage,\ RTFCvalue,\ 15840\ \},}
+\DoxyCodeLine{00206\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}psz"{}},\ RTFpsz,\ RTFDdocpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00207\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margl"{}},\ RTFmargl,\ RTFDdocpage,\ RTFCvalue,\ 1800\ \},}
+\DoxyCodeLine{00208\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margr"{}},\ RTFmargr,\ RTFDdocpage,\ RTFCvalue,\ 1800\ \},}
+\DoxyCodeLine{00209\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margt"{}},\ RTFmargt,\ RTFDdocpage,\ RTFCvalue,\ 1440\ \},}
+\DoxyCodeLine{00210\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margb"{}},\ RTFmargb,\ RTFDdocpage,\ RTFCvalue,\ 1440\ \},}
+\DoxyCodeLine{00211\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}gutter"{}},\ RTFgutter,\ RTFDdocpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00212\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnstart"{}},\ RTFpgnstart,\ RTFDdocpage,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00213\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}facingp"{}},\ RTFfacingp,\ RTFDdocpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00214\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margmirror"{}},\ RTFmargmirror,\ RTFDdocpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00215\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}landscape"{}},\ RTFlandscape,\ RTFDdocpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00216\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}widowctrl"{}},\ RTFwidowctrl,\ RTFDdocpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ linked\ styles,compatibility\ options,\ forms,}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{comment}{//\ revision\ marks,\ annotatons,\ bidirectional\ controls}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linkstyles"{}},\ RTFlinkstyles,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00222\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}notabind"{}},\ RTFnotabind,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00223\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wraptrsp"{}},\ RTFwraptrsp,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00224\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}prcolbl"{}},\ RTFprcolbl,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00225\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}noextrasprl"{}},\ RTFnoextrasprl,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00226\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nocolbal"{}},\ RTFnocolbal,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00227\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cvmme"{}},\ RTFcvmme,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00228\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sprstsp"{}},\ RTFsprstsp,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00229\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sprsspbf"{}},\ RTFsprsspbf,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00230\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}otblrul"{}},\ RTFotblrul,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00231\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}transmf"{}},\ RTFtransmf,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00232\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}swpbdr"{}},\ RTFswpbdr,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00233\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brkfrm"{}},\ RTFbrkfrm,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ Forms}}
+\DoxyCodeLine{00236\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}formprot"{}},\ RTFformprot,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00237\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}allprot"{}},\ RTFallprot,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00238\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}formshade"{}},\ RTFformshade,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00239\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}formdisp"{}},\ RTFformdisp,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00240\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}printdata"{}},\ RTFprintdata,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{//\ revisions}}
+\DoxyCodeLine{00243\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revprot"{}},\ RTFrevprot,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00244\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revisions"{}},\ RTFrevisions,\ RTFDdocfmt,\ RTFCflag\ \},}
+\DoxyCodeLine{00245\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revprop"{}},\ RTFrevprop,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00246\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revbar"{}},\ RTFrevbar,\ RTFDdocfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ Annotations}}
+\DoxyCodeLine{00249\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}annotprot"{}},\ RTFannotprot,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{comment}{//\ Bidirectional\ controls}}
+\DoxyCodeLine{00252\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtldoc"{}},\ RTFrtldoc,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00253\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrdoc"{}},\ RTFltrdoc,\ RTFDdocfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//\ section\ formatting}}
+\DoxyCodeLine{00256\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sectd"{}},\ RTFsectd,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00257\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}endnhere"{}},\ RTFendnhere,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00258\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}setunlocked"{}},\ RTFsetunlocked,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00259\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}binfsxn"{}},\ RTFbinfsxn,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00260\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}binsxn"{}},\ RTFbinsxn,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00261\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnseclvl"{}},\ RTFpnseclvl,\ RTFDpnseclvl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ Section\ break}}
+\DoxyCodeLine{00264\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbknone"{}},\ RTFsbknone,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00265\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbkcol"{}},\ RTFsbkcol,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00266\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbkpage"{}},\ RTFsbkpage,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00267\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbkeven"{}},\ RTFsbkeven,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00268\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbkodd"{}},\ RTFsbkodd,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ Line\ numbering}}
+\DoxyCodeLine{00271\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linebetcol"{}},\ RTFlinebetcol,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00272\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linerestart"{}},\ RTFlinerestart,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00273\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}lineppage"{}},\ RTFlineppage,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00274\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linecont"{}},\ RTFlinecont,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00275\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cols"{}},\ RTFcols,\ RTFDsecfmt,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00276\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}colsx"{}},\ RTFcolsx,\ RTFDsecfmt,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00277\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}colno"{}},\ RTFcolno,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00278\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}colsr"{}},\ RTFcolsr,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00279\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}colw"{}},\ RTFcolw,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00280\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linemod"{}},\ RTFlinemod,\ RTFDsecfmt,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00281\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linex"{}},\ RTFlinex,\ RTFDsecfmt,\ RTFCvalue,\ 360\ \},}
+\DoxyCodeLine{00282\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}linestarts"{}},\ RTFlinestarts,\ RTFDsecfmt,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{comment}{//\ Page\ information}}
+\DoxyCodeLine{00285\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgwsxn"{}},\ RTFpgwsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00286\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pghsxn"{}},\ RTFpghsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00287\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}marglsxn"{}},\ RTFmarglsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00288\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margrsxn"{}},\ RTFmargrsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00289\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margtsxn"{}},\ RTFmargtsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00290\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}margbsxn"{}},\ RTFmargbsxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00291\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}guttersxn"{}},\ RTFguttersxn,\ RTFDsectionpage,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00292\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}lndscpsxn"{}},\ RTFlndscpsxn,\ RTFDsectionpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00293\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}titlepg"{}},\ RTFtitlepg,\ RTFDsectionpage,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00294\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}headery"{}},\ RTFheadery,\ RTFDsectionpage,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00295\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footery"{}},\ RTFfootery,\ RTFDsectionpage,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00296\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnstarts"{}},\ RTFpgnstarts,\ RTFDsectionpage,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{comment}{//\ Page\ numbers}}
+\DoxyCodeLine{00299\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnx"{}},\ RTFpgnx,\ RTFDsecfmt,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00300\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgny"{}},\ RTFpgny,\ RTFDsecfmt,\ RTFCvalue,\ 720\ \},}
+\DoxyCodeLine{00301\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhn"{}},\ RTFpgnhn,\ RTFDsecfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00302\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgncont"{}},\ RTFpgncont,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00303\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnrestart"{}},\ RTFpgnrestart,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00304\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgndec"{}},\ RTFpgndec,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00305\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnucrm"{}},\ RTFpgnucrm,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00306\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnlcrm"{}},\ RTFpgnlcrm,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00307\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnucltr"{}},\ RTFpgnucltr,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00308\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnlcltr"{}},\ RTFpgnlcltr,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00309\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhnsh"{}},\ RTFpgnhnsh,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00310\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhnsp"{}},\ RTFpgnhnsp,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00311\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhnsc"{}},\ RTFpgnhnsc,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00312\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhnsm"{}},\ RTFpgnhnsm,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00313\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pgnhnsn"{}},\ RTFpgnhnsn,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{comment}{//\ Vertical\ alignment}}
+\DoxyCodeLine{00316\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}vertalb"{}},\ RTFvertalb,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00317\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}vertalt"{}},\ RTFvertalt,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00318\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}vertalc"{}},\ RTFvertalc,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00319\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}vertalj"{}},\ RTFvertalj,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00320\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtlsect"{}},\ RTFrtlsect,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00321\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrsect"{}},\ RTFltrsect,\ RTFDsecfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//\ Headers\ and\ footers}}
+\DoxyCodeLine{00324\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}header"{}},\ RTFheader,\ RTFDheader,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00325\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footer"{}},\ RTFfooter,\ RTFDfooter,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00326\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}headerl"{}},\ RTFheaderl,\ RTFDheaderl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00327\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footerl"{}},\ RTFfooterl,\ RTFDfooterl,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00328\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}headerr"{}},\ RTFheaderr,\ RTFDheaderr,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00329\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footerr"{}},\ RTFfooterr,\ RTFDfooterr,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00330\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}headerf"{}},\ RTFheaderf,\ RTFDheaderf,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00331\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footerf"{}},\ RTFfooterf,\ RTFDfooterf,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ formatting}}
+\DoxyCodeLine{00334\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pard"{}},\ RTFpard,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00335\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}hyphpar"{}},\ RTFhyphpar,\ RTFDparfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00336\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}intbl"{}},\ RTFintbl,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00337\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}keep"{}},\ RTFkeep,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00338\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}widctlpar"{}},\ RTFwidctlpar,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00339\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nowidctlpar"{}},\ RTFnowidctlpar,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00340\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}keepn"{}},\ RTFkeepn,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00341\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}noline"{}},\ RTFnoline,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00342\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pagebb"{}},\ RTFpagebb,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00343\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sbys"{}},\ RTFsbys,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00344\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}level"{}},\ RTFlevel,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ Indentation}}
+\DoxyCodeLine{00347\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fi"{}},\ RTFfi,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00348\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}li"{}},\ RTFli,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00349\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ri"{}},\ RTFri,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ Alignment}}
+\DoxyCodeLine{00352\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ql"{}},\ RTFql,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00353\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}qr"{}},\ RTFqr,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00354\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}qj"{}},\ RTFqj,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00355\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}qc"{}},\ RTFqc,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ Spacing}}
+\DoxyCodeLine{00358\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sb"{}},\ RTFsb,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00359\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sa"{}},\ RTFsa,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00360\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sl"{}},\ RTFsl,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00361\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}slmult"{}},\ RTFslmult,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ Subdocument}}
+\DoxyCodeLine{00364\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}subdocument"{}},\ RTFsubdocument,\ RTFDparfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ Bidirectional\ controls}}
+\DoxyCodeLine{00367\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rltpar"{}},\ RTFrltpar,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00368\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrpar"{}},\ RTFltrpar,\ RTFDparfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{comment}{//\ Tabs}}
+\DoxyCodeLine{00371\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tx"{}},\ RTFtx,\ RTFDtab,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00372\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tb"{}},\ RTFtb,\ RTFDtab,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00373\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tqr"{}},\ RTFtqr,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00374\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tqc"{}},\ RTFtqc,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00375\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tqdec"{}},\ RTFtqdec,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00376\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tldot"{}},\ RTFtldot,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00377\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tlhyph"{}},\ RTFtlhyph,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00378\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tlul"{}},\ RTFtlul,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00379\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tlth"{}},\ RTFtlth,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00380\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tleq"{}},\ RTFtleq,\ RTFDtab,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{comment}{//\ Bullets\ and\ numbering}}
+\DoxyCodeLine{00383\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pntext"{}},\ RTFpntext,\ RTFDpntext,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00384\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pn"{}},\ RTFpn,\ RTFDpn,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00385\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlvl"{}},\ RTFpnlvl,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00386\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlvbit"{}},\ RTFpnlvbit,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00387\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlvlbody"{}},\ RTFpnlvlbody,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00388\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlvlcont"{}},\ RTFpnlvlcont,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00389\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pncard"{}},\ RTFpncard,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00390\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pndec"{}},\ RTFpndec,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00391\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnucltr"{}},\ RTFpnucltr,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00392\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnucrm"{}},\ RTFpnucrm,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00393\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlctr"{}},\ RTFpnlctr,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00394\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnlcrm"{}},\ RTFpnlcrm,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00395\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnord"{}},\ RTFpnord,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00396\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnordt"{}},\ RTFpnordt,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00397\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnuld"{}},\ RTFpnuld,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00398\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnuldb"{}},\ RTFpnuldb,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00399\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnulnone"{}},\ RTFpnulnone,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00400\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnulw"{}},\ RTFpnulw,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00401\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnnumonce"{}},\ RTFpnnumonce,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00402\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnacross"{}},\ RTFpnacross,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00403\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnprev"{}},\ RTFpnprev,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00404\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnhang"{}},\ RTFpnhang,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00405\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnrestart"{}},\ RTFpnrestart,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00406\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnqc"{}},\ RTFpnqc,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00407\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnql"{}},\ RTFpnql,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00408\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnqr"{}},\ RTFpnqr,\ RTFDpn,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00409\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnf"{}},\ RTFpnf,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00410\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnfs"{}},\ RTFpnfs,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00411\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pncf"{}},\ RTFpncf,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00412\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnindent"{}},\ RTFpnindent,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00413\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnsp"{}},\ RTFpnsp,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00414\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnstart"{}},\ RTFpnstart,\ RTFDpn,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00415\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnb"{}},\ RTFpnb,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00416\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pni"{}},\ RTFpni,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00417\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pncaps"{}},\ RTFpncaps,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00418\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnscaps"{}},\ RTFpnscaps,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00419\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnul"{}},\ RTFpnul,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00420\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pnstrike"{}},\ RTFpnstrike,\ RTFDpn,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00421\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pntxta"{}},\ RTFpntxta,\ RTFDpntxta,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00422\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pntxtb"{}},\ RTFpntxtb,\ RTFDpntxtb,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ borders}}
+\DoxyCodeLine{00425\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrt"{}},\ RTFbrdrt,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00426\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrb"{}},\ RTFbrdrb,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00427\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrl"{}},\ RTFbrdrl,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00428\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrr"{}},\ RTFbrdrr,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00429\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrbtw"{}},\ RTFbrdrbtw,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00430\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrbar"{}},\ RTFbrdrbar,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00431\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}box"{}},\ RTFbox,\ RTFDpar,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00432\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrs"{}},\ RTFbrdrs,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00433\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrth"{}},\ RTFbrdrth,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00434\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrsh"{}},\ RTFbrdrsh,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00435\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrdb"{}},\ RTFbrdrdb,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00436\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrdot"{}},\ RTFbrdrdot,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00437\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrdash"{}},\ RTFbrdrdash,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00438\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrhair"{}},\ RTFbrdrhair,\ RTFDborder,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00439\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrw"{}},\ RTFbrdrw,\ RTFDborder,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00440\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brsp"{}},\ RTFbrsp,\ RTFDborder,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00441\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}brdrcf"{}},\ RTFbrdrcf,\ RTFDborder,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{comment}{//\ Paragraph\ shading}}
+\DoxyCodeLine{00444\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}shading"{}},\ RTFshading,\ RTFDshading,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00445\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cfpat"{}},\ RTFcfpat,\ RTFDshading,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00446\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cbpat"{}},\ RTFcbpat,\ RTFDshading,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00447\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bghoriz"{}},\ RTFbghoriz,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00448\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgvert"{}},\ RTFbgvert,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00449\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgfdiag"{}},\ RTFbgfdiag,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00450\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgbdiag"{}},\ RTFbgbdiag,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00451\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgcross"{}},\ RTFbgcross,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00452\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdcross"{}},\ RTFbgdcross,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00453\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkhoriz"{}},\ RTFbgdkhoriz,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00454\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkvert"{}},\ RTFbgdkvert,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00455\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkfdiag"{}},\ RTFbgdkfdiag,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00456\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkbdiag"{}},\ RTFbgdkbdiag,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00457\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkcross"{}},\ RTFbgdkcross,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00458\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bgdkdcross"{}},\ RTFbgdkdcross,\ RTFDshading,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{comment}{//\ Positioned\ objects\ and\ frames}}
+\DoxyCodeLine{00461\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}absw"{}},\ RTFabsw,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00462\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}absh"{}},\ RTFabsh,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00463\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posx"{}},\ RTFposx,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00464\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posnegx"{}},\ RTFposnegx,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00465\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posy"{}},\ RTFposy,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00466\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posnegy"{}},\ RTFposnegy,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00467\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dxfrtext"{}},\ RTFdxfrtext,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00468\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dfrmtxtx"{}},\ RTFdfrmtxtx,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00469\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dfrmtxty"{}},\ RTFdfrmtxty,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00470\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dropcapli"{}},\ RTFdropcapli,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00471\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dropcapt"{}},\ RTFdropcapt,\ RTFDframe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00472\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}phmrg"{}},\ RTFphmrg,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00473\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}phpg"{}},\ RTFphpg,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00474\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}phcol"{}},\ RTFphcol,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00475\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posxc"{}},\ RTFposxc,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00476\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posxi"{}},\ RTFposxi,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00477\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posxo"{}},\ RTFposxo,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00478\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posxr"{}},\ RTFposxr,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00479\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posxl"{}},\ RTFposxl,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00480\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pvmrg"{}},\ RTFpvmrg,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00481\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pvpg"{}},\ RTFpvpg,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00482\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pvpara"{}},\ RTFpvpara,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00483\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posyc"{}},\ RTFposyc,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00484\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posyil"{}},\ RTFposyil,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00485\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posyt"{}},\ RTFposyt,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00486\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}posyb"{}},\ RTFposyb,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00487\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nowrap"{}},\ RTFnowrap,\ RTFDframe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{comment}{//\ Tables}}
+\DoxyCodeLine{00490\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trgaph"{}},\ RTFtrgaph,\ RTFDtable,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00491\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trleft"{}},\ RTFtrleft,\ RTFDtable,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00492\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trrh"{}},\ RTFtrrh,\ RTFDtable,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00493\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cellx"{}},\ RTFcellx,\ RTFDtable,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00494\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clcfpat"{}},\ RTFclcfpat,\ RTFDcell,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00495\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clcbpat"{}},\ RTFclcbpat,\ RTFDcell,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00496\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clshdng"{}},\ RTFclshdng,\ RTFDcell,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00497\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trowd"{}},\ RTFtrowd,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00498\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trql"{}},\ RTFtrql,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00499\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trqr"{}},\ RTFtrqr,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00500\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trqc"{}},\ RTFtrqc,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00501\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trhdr"{}},\ RTFtrhdr,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00502\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trkeep"{}},\ RTFtrkeep,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00503\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrrow"{}},\ RTFltrrow,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00504\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtlrow"{}},\ RTFrtlrow,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00505\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrt"{}},\ RTFtrbrdrt,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00506\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrl"{}},\ RTFtrbrdrl,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00507\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrb"{}},\ RTFtrbrdrb,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00508\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrr"{}},\ RTFtrbrdrr,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00509\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrh"{}},\ RTFtrbrdrh,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00510\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}trbrdrv"{}},\ RTFtrbrdrv,\ RTFDtable,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00511\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clmgf"{}},\ RTFclmgf,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00512\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clmrg"{}},\ RTFclmrg,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00513\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbrdrt"{}},\ RTFclbrdrt,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00514\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbrdrl"{}},\ RTFclbrdrl,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00515\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbrdrb"{}},\ RTFclbrdrb,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00516\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbrdrr"{}},\ RTFclbrdrr,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00517\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbghoriz"{}},\ RTFclbghoriz,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00518\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgvert"{}},\ RTFclbgvert,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00519\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgfdiag"{}},\ RTFclbgfdiag,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00520\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgbdiag"{}},\ RTFclbgbdiag,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00521\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgcross"{}},\ RTFclbgcross,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00522\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdcross"{}},\ RTFclbgdcross,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00523\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkhor"{}},\ RTFclbgdkhor,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00524\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkvert"{}},\ RTFclbgdkvert,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00525\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkfdiag"{}},\ RTFclbgdkfdiag,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00526\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkbdiag"{}},\ RTFclbgdkbdiag,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00527\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkcross"{}},\ RTFclbgdkcross,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00528\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}clbgdkdcross"{}},\ RTFclbgdkdcross,\ RTFDcell,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{comment}{//\ Characters}}
+\DoxyCodeLine{00531\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dn"{}},\ RTFdn,\ RTFDchrfmt,\ RTFCvalue,\ 6\ \},}
+\DoxyCodeLine{00532\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}expnd"{}},\ RTFexpnd,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00533\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}expndtw"{}},\ RTFexpndtw,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00534\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fs"{}},\ RTFfs,\ RTFDchrfmt,\ RTFCvalue,\ 24\ \},}
+\DoxyCodeLine{00535\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revauth"{}},\ RTFrevauth,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00536\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revdttm"{}},\ RTFrevdttm,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00537\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}kerning"{}},\ RTFkerning,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00538\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}up"{}},\ RTFup,\ RTFDchrfmt,\ RTFCvalue,\ 6\ \},}
+\DoxyCodeLine{00539\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cf"{}},\ RTFcf,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00540\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cb"{}},\ RTFcb,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00541\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cchs"{}},\ RTFcchs,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00542\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}lang"{}},\ RTFlang,\ RTFDchrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00543\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}plain"{}},\ RTFplain,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00544\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sub"{}},\ RTFsub,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00545\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}super"{}},\ RTFsuper,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00546\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}nosupersub"{}},\ RTFnosupersub,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00547\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}revised"{}},\ RTFrevised,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00548\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}uld"{}},\ RTFuld,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00549\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ulnone"{}},\ RTFulnone,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00550\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}uldb"{}},\ RTFuldb,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00551\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ulw"{}},\ RTFulw,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00552\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtlch"{}},\ RTFrtlch,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00553\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrch"{}},\ RTFltrch,\ RTFDchrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00554\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}b"{}},\ RTFb,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00555\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}caps"{}},\ RTFcaps,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00556\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}deleted"{}},\ RTFdeleted,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00557\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}i"{}},\ RTFi,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00558\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}outl"{}},\ RTFoutl,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00559\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}scaps"{}},\ RTFscaps,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00560\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}shad"{}},\ RTFshad,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00561\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}strike"{}},\ RTFstrike,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00562\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ul"{}},\ RTFul,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00563\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}v"{}},\ RTFv,\ RTFDchrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{comment}{//\ Associated\ character\ properties}}
+\DoxyCodeLine{00566\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}adn"{}},\ RTFadn,\ RTFDachrfmt,\ RTFCvalue,\ 6\ \},}
+\DoxyCodeLine{00567\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aexpnd"{}},\ RTFaexpnd,\ RTFDachrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00568\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}af"{}},\ RTFaf,\ RTFDachrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00569\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}afs"{}},\ RTFafs,\ RTFDachrfmt,\ RTFCvalue,\ 24\ \},}
+\DoxyCodeLine{00570\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aup"{}},\ RTFaup,\ RTFDachrfmt,\ RTFCvalue,\ 6\ \},}
+\DoxyCodeLine{00571\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}acf"{}},\ RTFacf,\ RTFDachrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00572\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}alang"{}},\ RTFalang,\ RTFDachrfmt,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00573\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}auld"{}},\ RTFauld,\ RTFDachrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00574\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aulnone"{}},\ RTFaulnone,\ RTFDachrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00575\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}auldb"{}},\ RTFauldb,\ RTFDachrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00576\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aulw"{}},\ RTFaulw,\ RTFDachrfmt,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00577\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ab"{}},\ RTFab,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00578\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}acaps"{}},\ RTFacaps,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00579\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ai"{}},\ RTFai,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00580\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aoutl"{}},\ RTFaoutl,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00581\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ascaps"{}},\ RTFascaps,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00582\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ashad"{}},\ RTFashad,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00583\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}astrike"{}},\ RTFastrike,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00584\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}aul"{}},\ RTFaul,\ RTFDachrfmt,\ RTFCtoggle,\ 0\ \},}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{comment}{//\ Symbols}}
+\DoxyCodeLine{00587\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}par"{}},\ RTFpar,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00588\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}row"{}},\ RTFrow,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00589\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}cell"{}},\ RTFcell,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00590\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sect"{}},\ RTFsect,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00591\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chdate"{}},\ RTFchdate,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00592\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chdpl"{}},\ RTFchdpl,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00593\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chdpa"{}},\ RTFchdpa,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00594\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chtime"{}},\ RTFchtime,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00595\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chpgn"{}},\ RTFchpgn,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00596\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}sectnum"{}},\ RTFsectnum,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00597\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chftn"{}},\ RTFchftn,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00598\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chatn"{}},\ RTFchatn,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00599\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chftnsep"{}},\ RTFchftnsep,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00600\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}chftnsepc"{}},\ RTFchftnsepc,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00601\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}page"{}},\ RTFpage,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00602\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}column"{}},\ RTFcolumn,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00603\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}line"{}},\ RTFline,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00604\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tab"{}},\ RTFtab,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00605\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}emdash"{}},\ RTFemdash,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00606\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}endash"{}},\ RTFendash,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00607\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}emspace"{}},\ RTFemspace,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00608\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}enspace"{}},\ RTFenspace,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00609\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bullet"{}},\ RTFbullet,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00610\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}lquote"{}},\ RTFlquote,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00611\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rquote"{}},\ RTFrquote,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00612\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ldblquote"{}},\ RTFldblquote,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00613\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rdblquote"{}},\ RTFrdblquote,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00614\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}|"{}},\ RTFsymbar,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00615\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}\string~"{}},\ RTFsymtilda,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00616\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}-\/"{}},\ RTFsymhyphen,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00617\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}\_"{}},\ RTFsymunderbar,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00618\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}:"{}},\ RTFsymcolon,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00619\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}*"{}},\ RTFsymstar,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00620\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}'"{}},\ RTFsymquote,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00621\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ RTFnewline,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00622\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}\(\backslash\)r"{}},\ RTFcarriageReturn,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00623\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ltrmark"{}},\ RTFltrmark,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00624\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rtlmark"{}},\ RTFrtlmark,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00625\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}zwj"{}},\ RTFzwj,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00626\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}zwnj"{}},\ RTFzwnj,\ RTFDrtf,\ RTFCsymbol,\ 0\ \},}
+\DoxyCodeLine{00627\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}softpage"{}},\ RTFsoftpage,\ RTFDrtf,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00628\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}softcol"{}},\ RTFsoftcol,\ RTFDrtf,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00629\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}softline"{}},\ RTFsoftline,\ RTFDrtf,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00630\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}softlheight"{}},\ RTFsoftlheight,\ RTFDrtf,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \ \ \ \ \textcolor{comment}{//\ Book\ marks}}
+\DoxyCodeLine{00633\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bkmkstart"{}},\ RTFbkmkstart,\ RTFDbkmkstart,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00634\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bkmkend"{}},\ RTFbkmkend,\ RTFDbkmkend,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00635\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bkmkcolf"{}},\ RTFbkmkcolf,\ RTFDbkmkstart,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00636\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bkmkcoll"{}},\ RTFbkmkcoll,\ RTFDbkmkstart,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{comment}{//\ Picture}}
+\DoxyCodeLine{00639\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pict"{}},\ RTFpict,\ RTFDpict,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00640\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}macpict"{}},\ RTFmacpict,\ RTFDpict,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00641\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pmmetafile"{}},\ RTFpmmetafile,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00642\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wmetafile"{}},\ RTFwmetafile,\ RTFDpict,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00643\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dibitmap"{}},\ RTFdibitmap,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00644\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wbitmap"{}},\ RTFwbitmap,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00645\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wbmbitspixel"{}},\ RTFwbmbitspixel,\ RTFDpict,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00646\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wbmplanes"{}},\ RTFwbmplanes,\ RTFDpict,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00647\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}wbmwidthbytes"{}},\ RTFwbmwidthbytes,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00648\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picw"{}},\ RTFpicw,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00649\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pich"{}},\ RTFpich,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00650\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picwgoal"{}},\ RTFpicwgoal,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00651\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}pichgoal"{}},\ RTFpichgoal,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00652\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picscalex"{}},\ RTFpicscalex,\ RTFDpict,\ RTFCvalue,\ 100\ \},}
+\DoxyCodeLine{00653\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picscaley"{}},\ RTFpicscaley,\ RTFDpict,\ RTFCvalue,\ 100\ \},}
+\DoxyCodeLine{00654\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picscaled"{}},\ RTFpicscaled,\ RTFDpict,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00655\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}piccropt"{}},\ RTFpiccropt,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00656\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}piccropb"{}},\ RTFpiccropb,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00657\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}piccropr"{}},\ RTFpiccropr,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00658\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}piccropl"{}},\ RTFpiccropl,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00659\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picbmp"{}},\ RTFpicbmp,\ RTFDpict,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00660\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}picbpp"{}},\ RTFpicbpp,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00661\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bin"{}},\ RTFbin,\ RTFDpict,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{comment}{//\ OLE\ objects}}
+\DoxyCodeLine{00664\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}object"{}},\ RTFobject,\ RTFDobject,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ \ \ \ \ \textcolor{comment}{//\ Drawings}}
+\DoxyCodeLine{00667\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}do"{}},\ RTFdo,\ RTFDdo,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{comment}{//\ Footnote}}
+\DoxyCodeLine{00670\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}footnote"{}},\ RTFfootnote,\ RTFDfootnote,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00671\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ftnalt"{}},\ RTFftnalt,\ RTFDfootnote,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{comment}{//\ Annotations}}
+\DoxyCodeLine{00674\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atrfstart"{}},\ RTFatrfstart,\ RTFDatrfstart,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00675\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atrfend"{}},\ RTFatrfend,\ RTFDatrfend,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00676\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atnid"{}},\ RTFatnid,\ RTFDatnid,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00677\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atnauthor"{}},\ RTFatnauthor,\ RTFDatnauthor,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00678\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}annotation"{}},\ RTFannotation,\ RTFDannotation,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00679\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atnref"{}},\ RTFatnref,\ RTFDatnref,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00680\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atntime"{}},\ RTFatntime,\ RTFDatntime,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00681\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}atnicn"{}},\ RTFatnicn,\ RTFDatnicn,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{comment}{//\ Fields}}
+\DoxyCodeLine{00684\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}field"{}},\ RTFfield,\ RTFDfield,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00685\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldinst"{}},\ RTFfldinst,\ RTFDfldinst,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00686\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldrslt"{}},\ RTFfldrslt,\ RTFDfldrslt,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00687\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}datafield"{}},\ RTFdatafield,\ RTFDdatafield,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00688\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}flddirty"{}},\ RTFflddirty,\ RTFDfield,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00689\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldedit"{}},\ RTFfldedit,\ RTFDfield,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00690\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldlock"{}},\ RTFfldlock,\ RTFDfield,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00691\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldpriv"{}},\ RTFfldpriv,\ RTFDfield,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00692\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fldalt"{}},\ RTFfldalt,\ RTFDfield,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{comment}{//\ Indices}}
+\DoxyCodeLine{00695\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}xe"{}},\ RTFxe,\ RTFDxe,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00696\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}txe"{}},\ RTFtxe,\ RTFDtxe,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00697\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rxe"{}},\ RTFrxe,\ RTFDrxe,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00698\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}xef"{}},\ RTFxef,\ RTFDxe,\ RTFCvalue,\ 0\ \},}
+\DoxyCodeLine{00699\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bxe"{}},\ RTFbxe,\ RTFDxe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00700\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ixe"{}},\ RTFixe,\ RTFDxe,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \ \ \ \textcolor{comment}{//\ Table\ of\ contents}}
+\DoxyCodeLine{00703\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tc"{}},\ RTFtc,\ RTFDtc,\ RTFCdestination,\ 0\ \},}
+\DoxyCodeLine{00704\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tcf"{}},\ RTFtcf,\ RTFDtc,\ RTFCvalue,\ 67\ \},}
+\DoxyCodeLine{00705\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tcl"{}},\ RTFtcl,\ RTFDtc,\ RTFCvalue,\ 1\ \},}
+\DoxyCodeLine{00706\ \ \ \ \ \{\ \textcolor{stringliteral}{"{}tcn"{}},\ RTFtcn,\ RTFDtc,\ RTFCflag,\ 0\ \},}
+\DoxyCodeLine{00707\ \};}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00709\ \textcolor{keywordtype}{int}\ nRTFcontrols\ =\ \textcolor{keyword}{sizeof}(Controls)\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classRTFcontrol}{RTFcontrol}});}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classRTFcontrol}{RTFcontrol}}\ Controls[];}
+\DoxyCodeLine{00714\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ nRTFcontrols;}
+\DoxyCodeLine{00715\ }
+\DoxyCodeLine{00716\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

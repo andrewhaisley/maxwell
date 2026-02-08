@@ -1,0 +1,194 @@
+\doxysection{mx\+\_\+doc.\+h}
+\hypertarget{mx__doc_8h_source}{}\label{mx__doc_8h_source}\index{document/mx\_doc.h@{document/mx\_doc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_document}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ mx\_document\ is\ the\ top-\/level\ class\ used\ by\ all\ parts\ of\ the}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ Maxwell\ application\ to\ access\ documents.\ Database\ connectivity,}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ access\ control\ etc\ is\ encapsulated\ in\ the\ mx\_document\_class}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ (actually,\ inherited\ from\ the\ mx\_db\_object\ class).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_db.h>}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_area.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <mx\_doc\_paint.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <mx\_paintable.h>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <mx\_sheet.h>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <mx\_style.h>}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ names\ of\ attributes\ and\ blobs}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_SHEETS\ "{}sheets"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_TYPE\ "{}type"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_NUM\_STYLES\ "{}numstyles"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_STYLES\ "{}styles"{}}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_DOCUMENT\_MAX\_STYLES\ 1024}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ the\ primary\ type\ of\ the\ document}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ mx\_wp\ =\ 100,}
+\DoxyCodeLine{00061\ \ \ \ \ mx\_dtp,}
+\DoxyCodeLine{00062\ \ \ \ \ mx\_image,}
+\DoxyCodeLine{00063\ \ \ \ \ mx\_diagram,}
+\DoxyCodeLine{00064\ \ \ \ \ mx\_graph,}
+\DoxyCodeLine{00065\ \ \ \ \ mx\_signature\ \}\ mx\_primary\_type\_t;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__paintable}{mx\_paintable}}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ MX\_RTTI(mx\_document\_class\_e)}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ uint32\ docid);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__document}{\string~mx\_document}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ get\ an\ object\ from\ the\ document\ by\ id}}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ get\_obj(\textcolor{keywordtype}{int}\&\ err,\ uint32\ oid);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ what\ file\ it's\ stored\ in}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{char}*\ get\_file\_name();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ the\ full\ expanded\ file\ it's\ stored\ in}}
+\DoxyCodeLine{00081\ \ \ \ \ std::string\ get\_full\_file\_name();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ commit\ changes\ to\ disk\ -\/\ look\ in\ mx\_error\_codes\ for\ errors}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ commit(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ commit\ changes\ to\ disk\ into\ a\ new\ file}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ commit\_as(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ retrieves\ the\ number\ of\ sheets\ in\ the\ document}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_sheets(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ get\ a\ single\ sheet\ by\ index}}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ sheet(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ sheet\_index);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ remove\ a\ sheet\ -\/\ gets\ rid\ of\ all\ the\ areas\ in\ the}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ sheet\ as\ well}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_sheet\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ sheet\_index);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_sheet\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ s);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ create\ a\ new\ sheet\ and\ add\ it\ -\/\ it's\ up\ to\ you}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ to\ set\ all\ the\ attributes\ when\ you\ get\ it\ back}}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ add\_sheet(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ add\ a\ new\ sheet\ at\ the\ given\ position}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ add\_sheet\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ swap\ two\ sheets\ around\ in\ the\ document}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ swap\_sheets(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index1,\ \textcolor{keywordtype}{int}\ index2);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ sets\ description,\ author\ and\ version\ info}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_info(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ description,\ \textcolor{keywordtype}{char}*\ author,\ \textcolor{keywordtype}{char}*\ version);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ gets\ description}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_description();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ gets\ author}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_author();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ gets\ version}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_version();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ has\ this\ document\ been\ modified\ since\ it\ was\ opened}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_modified();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ style\ handling\ stuff}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ names\ style\ or,\ if\ it\ doesn't\ exist,\ the}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ default\ one}}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_named\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ index\ of\ the\ named\ style,\ or\ returns\ -\/1\ if\ it\ cannot\ be\ found}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_named\_style\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ if\ the\ style\ of\ the\ given\ name\ does\ not\ exist\ in\ this\ document,\ it\ adds}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ it.\ otherwise\ the\ style\ in\ the\ document\ is\ replaced.\ Note\ the\ whole}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ document\ must\ be\ reformatted\ after\ this\ to\ ensure\ that\ all\ parts\ know}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ about\ the\ style\ change}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_or\_replace\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ if\ the\ style\ of\ the\ given\ name\ does\ not\ exist\ in\ this\ document,\ it\ adds}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ it.\ Returns\ pointer\ to\ the\ named\ style.}}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ add\_or\_get\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_all\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_style\_list(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s[],\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ update\ an\ individual\ style}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_default\_style(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ this\ depends\ on\ the\ document\ type}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ add\_default\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ set/get\ the\ temporary\ document\ flag}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_temp\_flag(\textcolor{keywordtype}{bool}\ f)\ \{\ temporary\ =\ f;\ \};}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_temp\_flag()\ \{\ \textcolor{keywordflow}{return}\ temporary;\ \};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{const}\ uint32*\ get\_sheet\_oids(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{char}\ file\_name[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ styles[MX\_DOCUMENT\_MAX\_STYLES];}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ sort\_styles();}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ cache\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ temporary;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ iterates\ through\ all\ references\ to\ paragraph\ styles\ that\ exist\ in\ the}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ document\ and\ replaces\ any\ occurences\ of\ them\ with\ a\ new\ paragraph}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ style.\ Used\ just\ before\ a\ particular\ style\ is\ about\ to\ be\ deleted,\ or}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ replaced\ with\ a\ new\ one.\ document\ subclasses\ should\ override\ this\ if}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ they\ use\ any\ document\ objects\ which\ can\ reference\ paragraph\ styles,}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ which\ may\ need\ to\ be\ updated.}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ replace\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ style\_to\_replace,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ replacement\_style);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00188\ \};}
+
+\end{DoxyCode}

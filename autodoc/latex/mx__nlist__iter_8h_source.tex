@@ -1,0 +1,82 @@
+\doxysection{mx\+\_\+nlist\+\_\+iter.\+h}
+\hypertarget{mx__nlist__iter_8h_source}{}\label{mx__nlist__iter_8h_source}\index{collection/mx\_nlist\_iter.h@{collection/mx\_nlist\_iter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_nlist\_iter}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Simple\ \&\ efficient\ iteration\ over\ the\ whole\ contents\ of\ an\ nlist}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Note:\ this\ iterator\ cannot\ handle\ the\ contents\ of\ the\ nlist\ changing}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ behind\ it's\ back.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifndef\ MX\_NLIST\_ITERATOR}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_NLIST\_ITERATOR}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_iterator.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_nlist.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__nlist__iterator}{mx\_nlist\_iterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ MX\_RTTI(mx\_nlist\_iterator\_class\_e)}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__nlist__iterator}{mx\_nlist\_iterator}}(\mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\&\ l,\ mx\_iter\_dir\_t\ d\ =\ mx\_forwards\_e);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ get\ the\ current\ item}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}*\ data();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ returns\ NULL\ if\ the\ current\ item\ is\ the\ last}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}*\ next\_data();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ row\_key();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ item\_key();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ rewind(mx\_iter\_dir\_t\ d\ =\ mx\_forwards\_e);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ more();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_position(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ item);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ init(mx\_iter\_dir\_t\ d);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_items;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_rows;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ row\_index;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ item\_index;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ forward;}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\&\ list;}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

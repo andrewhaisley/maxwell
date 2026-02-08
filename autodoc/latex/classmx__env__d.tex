@@ -1,0 +1,158 @@
+\doxysection{mx\+\_\+env\+\_\+d Class Reference}
+\hypertarget{classmx__env__d}{}\label{classmx__env__d}\index{mx\_env\_d@{mx\_env\_d}}
+
+
+Inheritance diagram for mx\+\_\+env\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__env__d__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+env\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__env__d__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__env__d_a2899811ee11686bdd47b855b01ebc32d}\label{classmx__env__d_a2899811ee11686bdd47b855b01ebc32d} 
+{\bfseries mx\+\_\+env\+\_\+d} (Widget parent)
+\item 
+\Hypertarget{classmx__env__d_a599158a514ed580506033bd474599795}\label{classmx__env__d_a599158a514ed580506033bd474599795} 
+void {\bfseries activate\+\_\+d} (float width, float height, bool is\+\_\+landscape, char \texorpdfstring{$\ast$}{*}address, mx\+\_\+unit\+\_\+e u)
+\item 
+\Hypertarget{classmx__env__d_ac3c28740653f281d4f32a59ac273f5f1}\label{classmx__env__d_ac3c28740653f281d4f32a59ac273f5f1} 
+void {\bfseries figure\+\_\+options} ()
+\item 
+\Hypertarget{classmx__env__d_a888ae32a3a65f5d873f9f4398898e679}\label{classmx__env__d_a888ae32a3a65f5d873f9f4398898e679} 
+void {\bfseries set\+\_\+options} ()
+\item 
+\Hypertarget{classmx__env__d_a9391903d0c5082631db8c3ba2733060e}\label{classmx__env__d_a9391903d0c5082631db8c3ba2733060e} 
+void {\bfseries set\+\_\+size} (char \texorpdfstring{$\ast$}{*}s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+dialog} (const char \texorpdfstring{$\ast$}{*}name, Widget parent, bool do\+Modal=FALSE, bool resizable=FALSE)
+\item 
+void {\bfseries centre} ()
+\item 
+bool {\bfseries is\+\_\+active} ()
+\item 
+virtual void {\bfseries activate} ()
+\item 
+virtual void {\bfseries deactivate} ()
+\item 
+int {\bfseries run\+\_\+modal} ()
+\item 
+int {\bfseries run} ()
+\item 
+void {\bfseries set\+\_\+title} (char \texorpdfstring{$\ast$}{*}title)
+\item 
+Xm\+Toggle\+Button\+State {\bfseries Xm\+Toggle\+Button\+Get\+Value} (Widget w)
+\item 
+bool {\bfseries traverse\+\_\+widget\+\_\+tree} (Widget w, char \texorpdfstring{$\ast$}{*}mnemonic, XKey\+Event \texorpdfstring{$\ast$}{*}key\+\_\+event)
+\item 
+bool {\bfseries handle\+\_\+acc} (Widget w, XEvent \texorpdfstring{$\ast$}{*}event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+void {\bfseries manage} ()
+\item 
+void {\bfseries unmanage} ()
+\item 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+void {\bfseries bell} ()
+\item 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+void {\bfseries take\+\_\+focus} ()
+\item 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__env__d_a29058d161d075899e9e204e19b75f9b1}\label{classmx__env__d_a29058d161d075899e9e204e19b75f9b1} 
+float {\bfseries width}
+\item 
+\Hypertarget{classmx__env__d_a622ec0fa5bc5e3375d8894fee3548710}\label{classmx__env__d_a622ec0fa5bc5e3375d8894fee3548710} 
+float {\bfseries height}
+\item 
+\Hypertarget{classmx__env__d_aeaf532e42e58cc21b733d64ca7877082}\label{classmx__env__d_aeaf532e42e58cc21b733d64ca7877082} 
+char {\bfseries address} \mbox{[}MX\+\_\+\+ENV\+\_\+\+MAX\+\_\+\+TEXT\mbox{]}
+\item 
+\Hypertarget{classmx__env__d_aa2c62f85e2ca16cc8bd645f140c904d5}\label{classmx__env__d_aa2c62f85e2ca16cc8bd645f140c904d5} 
+bool {\bfseries is\+\_\+landscape}
+\item 
+\Hypertarget{classmx__env__d_a0e20c9e03ad6b5d62eb8762c973a2505}\label{classmx__env__d_a0e20c9e03ad6b5d62eb8762c973a2505} 
+Widget {\bfseries ok\+\_\+button}
+\item 
+\Hypertarget{classmx__env__d_af4f3b80be495d9d985d335a0c0e76a98}\label{classmx__env__d_af4f3b80be495d9d985d335a0c0e76a98} 
+Widget {\bfseries cancel\+\_\+button}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+mx\+\_\+dialog\+\_\+result\+\_\+t {\bfseries modal\+\_\+result}
+\item 
+Widget {\bfseries dialog}
+\item 
+Widget {\bfseries dialog\+\_\+parent}
+\item 
+Widget {\bfseries pane}
+\item 
+Widget {\bfseries control\+\_\+area}
+\item 
+Widget {\bfseries action\+\_\+area}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries widget}
+\item 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+env\+\_\+d.\+h\end{DoxyCompactItemize}

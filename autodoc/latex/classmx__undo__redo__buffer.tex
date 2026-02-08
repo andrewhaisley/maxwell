@@ -1,0 +1,40 @@
+\doxysection{mx\+\_\+undo\+\_\+redo\+\_\+buffer Class Reference}
+\hypertarget{classmx__undo__redo__buffer}{}\label{classmx__undo__redo__buffer}\index{mx\_undo\_redo\_buffer@{mx\_undo\_redo\_buffer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__undo__redo__buffer_ad8f9aa8c463ecda5506f9d38f5f40a53}\label{classmx__undo__redo__buffer_ad8f9aa8c463ecda5506f9d38f5f40a53} 
+{\bfseries mx\+\_\+undo\+\_\+redo\+\_\+buffer} (int length)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a5843a4cc90384f8559c884452e238e89}\label{classmx__undo__redo__buffer_a5843a4cc90384f8559c884452e238e89} 
+void {\bfseries insert} (int \&err, \mbox{\hyperlink{classmx__ur__item}{mx\+\_\+ur\+\_\+item}} \texorpdfstring{$\ast$}{*}i, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc=NULL)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a231873560e145e1cffe711dfed000782}\label{classmx__undo__redo__buffer_a231873560e145e1cffe711dfed000782} 
+void {\bfseries mark\+\_\+cant\+\_\+undo} (int \&err)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a0b67c39a37b7e79782e1a28de604f6ec}\label{classmx__undo__redo__buffer_a0b67c39a37b7e79782e1a28de604f6ec} 
+bool {\bfseries anything\+\_\+to\+\_\+undo} ()
+\item 
+\Hypertarget{classmx__undo__redo__buffer_ae34a897f14fc7e4442cfeca99673ae89}\label{classmx__undo__redo__buffer_ae34a897f14fc7e4442cfeca99673ae89} 
+mx\+\_\+ur\+\_\+item\+\_\+type\+\_\+t {\bfseries type\+\_\+to\+\_\+undo} (int \&err)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_ad15dd0da47d25ce057aa3d16442c9d85}\label{classmx__undo__redo__buffer_ad15dd0da47d25ce057aa3d16442c9d85} 
+bool {\bfseries anything\+\_\+to\+\_\+redo} ()
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a7512bb301b12dadf1f5e47b636795b4b}\label{classmx__undo__redo__buffer_a7512bb301b12dadf1f5e47b636795b4b} 
+mx\+\_\+ur\+\_\+item\+\_\+type\+\_\+t {\bfseries type\+\_\+to\+\_\+redo} (int \&err)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a50b26edfffae63fbba013e9f7ad8cf1a}\label{classmx__undo__redo__buffer_a50b26edfffae63fbba013e9f7ad8cf1a} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries item\+\_\+name} (mx\+\_\+ur\+\_\+item\+\_\+type\+\_\+t t)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_a85fbf6cb6aa73a6650b223b1dd1e3ac1}\label{classmx__undo__redo__buffer_a85fbf6cb6aa73a6650b223b1dd1e3ac1} 
+void {\bfseries undo} (int \&err, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \texorpdfstring{$\ast$}{*}pos)
+\item 
+\Hypertarget{classmx__undo__redo__buffer_af81059529dcaafeffbca3e27d07e84c1}\label{classmx__undo__redo__buffer_af81059529dcaafeffbca3e27d07e84c1} 
+void {\bfseries redo} (int \&err, \mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \texorpdfstring{$\ast$}{*}pos)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+edit/mx\+\_\+undo.\+h\end{DoxyCompactItemize}

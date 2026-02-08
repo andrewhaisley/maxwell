@@ -1,0 +1,117 @@
+\doxysection{mx\+\_\+save\+\_\+d.\+h}
+\hypertarget{mx__save__d_8h_source}{}\label{mx__save__d_8h_source}\index{ui/mx\_save\_d.h@{ui/mx\_save\_d.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_SAVE\_D}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_SAVE\_D}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_save\_d}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ A\ file\ browsing/saving\ dialog}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}mx\_dialog.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_file\_type.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__yes__no__d}{mx\_yes\_no\_d}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__finfo__d}{mx\_finfo\_d}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MX\_FILE\_SAVE\_MAX\_DIR\_DEPTH\ 100}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ MAX\_FILE\_NAME\_LEN\ 1024}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__save__d}{mx\_save\_d}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ mx\_file\_type\_t\ t;}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}*\ d;}
+\DoxyCodeLine{00055\ \}\ \mbox{\hyperlink{structsave__file__type__callback__t}{save\_file\_type\_callback\_t}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dialog}{mx\_dialog}}\ \{}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{\string~mx\_save\_d}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classmx__save__d}{mx\_save\_d}}(}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ Widget\ parent,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ mx\_file\_type\_t\ default\_type\ =\ mx\_document\_file\_e,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ mx\_file\_class\_t\ c\ =\ mx\_save\_file\_class\_e,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ template\_dir\ =\ NULL);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ call\ this\ after\ run\_modal\ to\ find\ the\ name\ of\ the}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ file\ selected.\ The\ file\ will\ have\ write\ permission}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{char}*\ file\_name();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ activate();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ Widget\ save\_button,\ cancel\_button,\ file\_list;}
+\DoxyCodeLine{00076\ \ \ \ \ Widget\ type\_menu,\ path\_menu,\ path\_sub\_menu,\ file\_text,\ perm\_button;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ no\_write\_d;}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ no\_exec\_d;}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ no\_create\_d;}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmx__yes__no__d}{mx\_yes\_no\_d}}*\ overwrite\_d;}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classmx__finfo__d}{mx\_finfo\_d}}*\ finfo\_d;}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classmx__inform__d}{mx\_inform\_d}}*\ no\_exist\_d;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ load\_directory();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{char}\ current\_dir[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{char}\ selected\_file\_name[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ selected\_write\_perm;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ mx\_file\_type\_t\ save\_file\_type;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ Widget\ path\_buttons[MX\_FILE\_SAVE\_MAX\_DIR\_DEPTH];}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ path\_indexes[MX\_FILE\_SAVE\_MAX\_DIR\_DEPTH];}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_path\_buttons;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_path\_menu(Widget\ w);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{char}\ template\_dir[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_file\_types(Widget\ w);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_files;}
+\DoxyCodeLine{00105\ \ \ \ \ mx\_file\_class\_t\ file\_class;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{structsave__file__type__callback__t}{save\_file\_type\_callback\_t}}*\ file\_type\_ptr[MX\_FILE\_TYPE\_NUM\_TYPES];}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_file\_types;}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

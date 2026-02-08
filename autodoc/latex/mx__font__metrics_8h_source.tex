@@ -1,0 +1,122 @@
+\doxysection{mx\+\_\+font\+\_\+metrics.\+h}
+\hypertarget{mx__font__metrics_8h_source}{}\label{mx__font__metrics_8h_source}\index{font/mx\_font\_metrics.h@{font/mx\_font\_metrics.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_FONT\_METRICS\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_FONT\_METRICS\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_font\_metrics\ \&\ mx\_font\_metrics\_store}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ The\ mx\_font\_metrics\ class\ represents\ the\ metrics\ for\ a\ given\ font.\ It\ is}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ used\ by\ mx\_font\ to\ get\ its\ characters'\ widths\ etc.\ The\ mx\_font\_metrics\_store}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ class\ is\ used\ as\ a\ nice\ interface\ to\ a\ static\ map\ table\ for\ a\ load\ of}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ instances\ of\ mx\_font\_metrics.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <mx\_font.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <mx\_font\_family.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ MX\_FM\_CHARSET\_SIZE\ 65536}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ This\ defines\ a\ class\ for\ storing\ the\ metrics\ information\ for\ a\ given}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ font.\ There\ is\ functionality\ for\ reading\ postscript\ font\ metrics\ information}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ and\ also\ reading/writing\ the\ maxwell\ font\ metrics\ files.}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font__metrics}{mx\_font\_metrics}}\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classmx__font__metrics}{mx\_font\_metrics}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classmx__font__metrics}{\string~mx\_font\_metrics}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::string\ get\_family\_name()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ get\_file\_name()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ mx\_font\_style\_t\ get\_style()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ int32\ get\_em\_ascender()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ int32\ get\_em\_descender()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ This\ function\ gets\ called\ a\ lot\ by\ mx\_font.\ It\ returns\ the\ wdith\ (in}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ thousands\ of\ an\ em-\/square)\ of\ a\ particular\ character,\ or\ zero\ if\ the}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ character\ does\ not\ exist\ for\ this\ font.}}
+\DoxyCodeLine{00068\ \ \ \ \ uint32\ get\_em\_width(uint16\ c)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ set\ methods\ to\ be\ used\ by\ mx\_font\_metrics\_store\ only}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_family\_name(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_file\_name(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_style(mx\_font\_style\_t\ st);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_em\_ascender(int32\ a);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_em\_descender(int32\ d);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_em\_width(uint16\ character,\ uint32\ em\_width);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ write\ to\ a\ file}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_to\_file(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ read\ from\ a\ file}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_from\_file(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ std::string\ m\_family\_name;\ \ \ \ \ \ \ \textcolor{comment}{//\ name\ of\ the\ font\ family}}
+\DoxyCodeLine{00087\ \ \ \ \ std::string\ m\_file\_name;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ fonts\ full\ pathname}}
+\DoxyCodeLine{00088\ \ \ \ \ std::string\ m\_metrics\_file\_name;\ \textcolor{comment}{//\ The\ font\ metrics\ file\ full\ pathname}}
+\DoxyCodeLine{00089\ \ \ \ \ mx\_font\_style\_t\ style;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ style\ of\ the\ font}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{bool}\ m\_pending\_file\_read;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ an\ array\ of\ character\ widths}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{mutable}\ uint32\ widths\_arr[MX\_FM\_CHARSET\_SIZE];}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ max\ char\ index\ for\ which\ we\ have\ a\ width}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{mutable}\ uint16\ m\_max\_char;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ int32\ em\_ascender;\ \ \textcolor{comment}{//\ height\ of\ the\ ascender}}
+\DoxyCodeLine{00100\ \ \ \ \ int32\ em\_descender;\ \textcolor{comment}{//\ height\ of\ the\ descender}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ private\ methods\ for\ accessing\ the\ map\ between\ iso\ numbers\ and\ type1}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ character\ names}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ build\_iso\_lookup();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_read\_from\_file()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ uint16\ get\_iso(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ std::string\ \&type1\_name);}
+\DoxyCodeLine{00109\ \ \ \ \ std::string\ get\_type1\_name(\textcolor{keywordtype}{int}\&\ err,\ uint16\ iso\_num);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ private\ maps\ for\ the\ iso\ num\ to\ type\ 1\ name\ map}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{static}\ std::map<int,\ std::string>\ iso\_to\_type1;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ int>\ type1\_to\_iso;}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_FONT\_METRICS\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+<map id="mx_ghatch_style" name="mx_ghatch_style">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,429,139,455"/>
+<area shape="rect" id="Node000002" href="$classmx__geomstyle.html" title=" " alt="" coords="13,204,131,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,243,66,341,70,429,65,429,60,341,63,243"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="81,243,84,341,79,429,74,429,78,341,75,243"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="121,80,293,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="151,113,122,131,104,149,89,169,72,205,68,203,85,167,100,146,118,127,148,109"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="173,114,146,131,112,170,87,205,83,202,108,166,142,127,170,109"/>
+<area shape="rect" id="Node000005" href="$classmx__hatch__style.html" title=" " alt="" coords="136,341,261,367"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="198,119,184,159,172,204,171,243,177,282,196,340,191,342,172,283,165,244,167,204,178,157,193,118"/>
+<area shape="rect" id="Node000006" href="$classmx__point.html" title=" " alt="" coords="171,204,253,229"/>
+<area shape="poly" id="edge9_Node000006_Node000003" title=" " alt="" coords="210,119,214,204,209,204,205,119"/>
+<area shape="rect" id="Node000007" href="$classmx__line__style.html" title=" " alt="" coords="289,253,402,279"/>
+<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="227,115,338,252,334,255,223,118"/>
+<area shape="rect" id="Node000008" href="$classmx__dash__style.html" title=" " alt="" coords="295,155,415,180"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="244,109,332,152,330,157,242,114"/>
+<area shape="rect" id="Node000009" href="$classmx__colour.html" title=" " alt="" coords="439,155,529,180"/>
+<area shape="poly" id="edge15_Node000009_Node000003" title=" " alt="" coords="264,106,441,152,440,157,263,111"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="172,5,241,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="209,45,209,80,204,80,204,45"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="172,377,91,431,88,427,169,372"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="212,243,202,341,197,341,207,243"/>
+<area shape="poly" id="edge10_Node000005_Node000007" title=" " alt="" coords="315,288,220,343,217,339,312,283"/>
+<area shape="poly" id="edge12_Node000007_Node000008" title=" " alt="" coords="355,194,349,254,344,253,350,194"/>
+<area shape="poly" id="edge14_Node000007_Node000009" title=" " alt="" coords="471,193,454,213,434,231,410,245,386,256,383,251,408,241,430,227,450,209,467,190"/>
+</map>

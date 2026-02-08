@@ -1,0 +1,90 @@
+\doxysection{mx\+\_\+document\+\_\+painter Class Reference}
+\hypertarget{classmx__document__painter}{}\label{classmx__document__painter}\index{mx\_document\_painter@{mx\_document\_painter}}
+
+
+Inheritance diagram for mx\+\_\+document\+\_\+painter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classmx__document__painter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+document\+\_\+painter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{classmx__document__painter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classmx__document__painter_aee0bc867c52daf5ac6b2b683c219ad72}{draw}} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&r, \mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&o)
+\item 
+\Hypertarget{classmx__document__painter_a255e2c7bb529672d927c229fccb76ec8}\label{classmx__document__painter_a255e2c7bb529672d927c229fccb76ec8} 
+void {\bfseries set\+\_\+highlight\+\_\+range} (\mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&start, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&end)
+\item 
+\Hypertarget{classmx__document__painter_a02952529c5ec77e37056cba1af8c808c}\label{classmx__document__painter_a02952529c5ec77e37056cba1af8c808c} 
+void {\bfseries clear\+\_\+highlight} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__document__painter_a5f114c1dabce7716919786edf09d8c71}\label{classmx__document__painter_a5f114c1dabce7716919786edf09d8c71} 
+static \mbox{\hyperlink{classmx__document__painter}{mx\+\_\+document\+\_\+painter}} \texorpdfstring{$\ast$}{*} {\bfseries painter} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+device} ()
+\item 
+static void {\bfseries set\+\_\+device} (\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \&dev)
+\item 
+static void {\bfseries set\+\_\+draw\+\_\+mode} (mx\+\_\+painter\+\_\+mode\+\_\+t t)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries xor\+Rect} (int \&err, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&tl, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&br)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries device}
+\item 
+static mx\+\_\+painter\+\_\+mode\+\_\+t {\bfseries draw\+\_\+mode}
+\item 
+static \mbox{\hyperlink{classmx__grid__paint}{mx\+\_\+grid\+\_\+paint}} {\bfseries grid\+\_\+paint}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__document__painter_aee0bc867c52daf5ac6b2b683c219ad72}\label{classmx__document__painter_aee0bc867c52daf5ac6b2b683c219ad72} 
+\index{mx\_document\_painter@{mx\_document\_painter}!draw@{draw}}
+\index{draw@{draw}!mx\_document\_painter@{mx\_document\_painter}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+document\+\_\+painter\+::draw (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&}]{r,  }\item[{\mbox{\hyperlink{classmx__paintable}{mx\+\_\+paintable}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__painter}{mx\+\_\+painter}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+doc\+\_\+paint.\+h\end{DoxyCompactItemize}

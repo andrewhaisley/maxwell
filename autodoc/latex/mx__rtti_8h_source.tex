@@ -1,0 +1,184 @@
+\doxysection{mx\+\_\+rtti.\+h}
+\hypertarget{mx__rtti_8h_source}{}\label{mx__rtti_8h_source}\index{shared/mx\_rtti.h@{shared/mx\_rtti.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_rtti}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Simple\ run\ time\ type\ identification}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ MX\_RTTI\_H}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ MX\_RTTI\_H}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_RTTI(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ virtual\ bool\ is\_a(mx\_rtti\_class\_e\ c)\ const\ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ c\ ==\ x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ virtual\ bool\ is\_a(const\ mx\_rtti\&\ o)\ const\ \ \(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ x\ ==\ o.rtti\_class();\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ virtual\ mx\_rtti\_class\_e\ rtti\_class()\ const\ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ mx\_rtti\_class\_e\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ mx\_area\_class\_e,}
+\DoxyCodeLine{00056\ \ \ \ \ mx\_area\_cursor\_class\_e,}
+\DoxyCodeLine{00057\ \ \ \ \ mx\_area\_cw\_t\_class\_e,}
+\DoxyCodeLine{00058\ \ \ \ \ mx\_area\_para\_iterator\_class\_e,}
+\DoxyCodeLine{00059\ \ \ \ \ mx\_area\_pos\_class\_e,}
+\DoxyCodeLine{00060\ \ \ \ \ mx\_ascii\_importer\_class\_e,}
+\DoxyCodeLine{00061\ \ \ \ \ mx\_attribute\_class\_e,}
+\DoxyCodeLine{00062\ \ \ \ \ mx\_bar\_class\_e,}
+\DoxyCodeLine{00063\ \ \ \ \ mx\_block\_class\_e,}
+\DoxyCodeLine{00064\ \ \ \ \ mx\_border\_style\_class\_e,}
+\DoxyCodeLine{00065\ \ \ \ \ mx\_border\_style\_mod\_class\_e,}
+\DoxyCodeLine{00066\ \ \ \ \ mx\_break\_word\_class\_e,}
+\DoxyCodeLine{00067\ \ \ \ \ mx\_buffer\_class\_e,}
+\DoxyCodeLine{00068\ \ \ \ \ mx\_char\_style\_class\_e,}
+\DoxyCodeLine{00069\ \ \ \ \ mx\_char\_style\_mod\_class\_e,}
+\DoxyCodeLine{00070\ \ \ \ \ mx\_character\_cw\_t\_class\_e,}
+\DoxyCodeLine{00071\ \ \ \ \ mx\_colour\_class\_e,}
+\DoxyCodeLine{00072\ \ \ \ \ mx\_complex\_word\_class\_e,}
+\DoxyCodeLine{00073\ \ \ \ \ mx\_cursor\_class\_e,}
+\DoxyCodeLine{00074\ \ \ \ \ mx\_cw\_iter\_class\_e,}
+\DoxyCodeLine{00075\ \ \ \ \ mx\_db\_object\_class\_e,}
+\DoxyCodeLine{00076\ \ \ \ \ mx\_device\_class\_e,}
+\DoxyCodeLine{00077\ \ \ \ \ mx\_diagram\_area\_class\_e,}
+\DoxyCodeLine{00078\ \ \ \ \ mx\_diagram\_area\_painter\_class\_e,}
+\DoxyCodeLine{00079\ \ \ \ \ mx\_doc\_polypoint\_class\_e,}
+\DoxyCodeLine{00080\ \ \ \ \ mx\_doc\_pos\_class\_e,}
+\DoxyCodeLine{00081\ \ \ \ \ mx\_doc\_rect\_class\_e,}
+\DoxyCodeLine{00082\ \ \ \ \ mx\_document\_class\_e,}
+\DoxyCodeLine{00083\ \ \ \ \ mx\_document\_painter\_class\_e,}
+\DoxyCodeLine{00084\ \ \ \ \ mx\_editor\_class\_e,}
+\DoxyCodeLine{00085\ \ \ \ \ mx\_field\_word\_class\_e,}
+\DoxyCodeLine{00086\ \ \ \ \ mx\_field\_word\_cw\_t\_class\_e,}
+\DoxyCodeLine{00087\ \ \ \ \ mx\_file\_class\_e,}
+\DoxyCodeLine{00088\ \ \ \ \ mx\_sfile\_class\_e,}
+\DoxyCodeLine{00089\ \ \ \ \ mx\_fill\_style\_class\_e,}
+\DoxyCodeLine{00090\ \ \ \ \ mx\_font\_class\_e,}
+\DoxyCodeLine{00091\ \ \ \ \ mx\_font\_mod\_class\_e,}
+\DoxyCodeLine{00092\ \ \ \ \ mx\_grid\_paint\_class\_e,}
+\DoxyCodeLine{00093\ \ \ \ \ mx\_image\_area\_class\_e,}
+\DoxyCodeLine{00094\ \ \ \ \ mx\_image\_area\_painter\_class\_e,}
+\DoxyCodeLine{00095\ \ \ \ \ mx\_importer\_class\_e,}
+\DoxyCodeLine{00096\ \ \ \ \ mx\_line\_style\_class\_e,}
+\DoxyCodeLine{00097\ \ \ \ \ mx\_list\_class\_e,}
+\DoxyCodeLine{00098\ \ \ \ \ mx\_list\_iterator\_class\_e,}
+\DoxyCodeLine{00099\ \ \ \ \ mx\_log\_class\_e,}
+\DoxyCodeLine{00100\ \ \ \ \ mx\_maxwell\_importer\_class\_e,}
+\DoxyCodeLine{00101\ \ \ \ \ mx\_menu\_class\_e,}
+\DoxyCodeLine{00102\ \ \ \ \ mx\_menu\_item\_class\_e,}
+\DoxyCodeLine{00103\ \ \ \ \ mx\_menubar\_class\_e,}
+\DoxyCodeLine{00104\ \ \ \ \ mx\_nlist\_class\_e,}
+\DoxyCodeLine{00105\ \ \ \ \ mx\_nlist\_iterator\_class\_e,}
+\DoxyCodeLine{00106\ \ \ \ \ mx\_opaque\_area\_cursor\_class\_e,}
+\DoxyCodeLine{00107\ \ \ \ \ mx\_opaque\_area\_pos\_class\_e,}
+\DoxyCodeLine{00108\ \ \ \ \ mx\_paintable\_class\_e,}
+\DoxyCodeLine{00109\ \ \ \ \ mx\_painter\_class\_e,}
+\DoxyCodeLine{00110\ \ \ \ \ mx\_para\_pos\_class\_e,}
+\DoxyCodeLine{00111\ \ \ \ \ mx\_paragraph\_class\_e,}
+\DoxyCodeLine{00112\ \ \ \ \ mx\_paragraph\_style\_class\_e,}
+\DoxyCodeLine{00113\ \ \ \ \ mx\_paragraph\_style\_mod\_class\_e,}
+\DoxyCodeLine{00114\ \ \ \ \ mx\_position\_class\_e,}
+\DoxyCodeLine{00115\ \ \ \ \ mx\_printer\_device\_class\_e,}
+\DoxyCodeLine{00116\ \ \ \ \ mx\_rtf\_importer\_class\_e,}
+\DoxyCodeLine{00117\ \ \ \ \ mx\_ruler\_bar\_class\_e,}
+\DoxyCodeLine{00118\ \ \ \ \ mx\_ruler\_class\_e,}
+\DoxyCodeLine{00119\ \ \ \ \ mx\_screen\_device\_class\_e,}
+\DoxyCodeLine{00120\ \ \ \ \ mx\_serialisable\_object\_class\_e,}
+\DoxyCodeLine{00121\ \ \ \ \ mx\_sheet\_class\_e,}
+\DoxyCodeLine{00122\ \ \ \ \ mx\_sheet\_painter\_class\_e,}
+\DoxyCodeLine{00123\ \ \ \ \ mx\_simple\_word\_class\_e,}
+\DoxyCodeLine{00124\ \ \ \ \ mx\_space\_word\_class\_e,}
+\DoxyCodeLine{00125\ \ \ \ \ mx\_statusbar\_class\_e,}
+\DoxyCodeLine{00126\ \ \ \ \ mx\_style\_mod\_cw\_t\_class\_e,}
+\DoxyCodeLine{00127\ \ \ \ \ mx\_table\_area\_class\_e,}
+\DoxyCodeLine{00128\ \ \ \ \ mx\_table\_area\_cursor\_class\_e,}
+\DoxyCodeLine{00129\ \ \ \ \ mx\_table\_area\_painter\_class\_e,}
+\DoxyCodeLine{00130\ \ \ \ \ mx\_table\_area\_pos\_class\_e,}
+\DoxyCodeLine{00131\ \ \ \ \ mx\_table\_buffer\_class\_e,}
+\DoxyCodeLine{00132\ \ \ \ \ mx\_tabstop\_class\_e,}
+\DoxyCodeLine{00133\ \ \ \ \ mx\_text\_area\_class\_e,}
+\DoxyCodeLine{00134\ \ \ \ \ mx\_text\_area\_cursor\_class\_e,}
+\DoxyCodeLine{00135\ \ \ \ \ mx\_text\_area\_painter\_class\_e,}
+\DoxyCodeLine{00136\ \ \ \ \ mx\_text\_area\_pos\_class\_e,}
+\DoxyCodeLine{00137\ \ \ \ \ mx\_text\_buffer\_class\_e,}
+\DoxyCodeLine{00138\ \ \ \ \ mx\_text\_importer\_class\_e,}
+\DoxyCodeLine{00139\ \ \ \ \ mx\_ui\_object\_class\_e,}
+\DoxyCodeLine{00140\ \ \ \ \ mx\_unit\_class\_e,}
+\DoxyCodeLine{00141\ \ \ \ \ mx\_word6\_importer\_class\_e,}
+\DoxyCodeLine{00142\ \ \ \ \ mx\_word\_class\_e,}
+\DoxyCodeLine{00143\ \ \ \ \ mx\_word\_iterator\_class\_e,}
+\DoxyCodeLine{00144\ \ \ \ \ mx\_wp\_area\_iterator\_class\_e,}
+\DoxyCodeLine{00145\ \ \ \ \ mx\_wp\_cursor\_class\_e,}
+\DoxyCodeLine{00146\ \ \ \ \ mx\_wp\_document\_class\_e,}
+\DoxyCodeLine{00147\ \ \ \ \ mx\_wp\_editor\_class\_e,}
+\DoxyCodeLine{00148\ \ \ \ \ mx\_wp\_iterator\_class\_e,}
+\DoxyCodeLine{00149\ \ \ \ \ mx\_wp\_menubar\_class\_e,}
+\DoxyCodeLine{00150\ \ \ \ \ mx\_wp\_object\_buffer\_class\_e,}
+\DoxyCodeLine{00151\ \ \ \ \ mx\_wp\_pos\_class\_e,}
+\DoxyCodeLine{00152\ \ \ \ \ mx\_wp\_repaginator\_class\_e,}
+\DoxyCodeLine{00153\ \ \ \ \ mx\_wp\_sh\_buff\_class\_e,}
+\DoxyCodeLine{00154\ \ \ \ \ mx\_wp\_sheet\_pos\_class\_e,}
+\DoxyCodeLine{00155\ \ \ \ \ mx\_wp\_statusbar\_class\_e,}
+\DoxyCodeLine{00156\ \ \ \ \ mx\_wp\_style\_iterator\_class\_e,}
+\DoxyCodeLine{00157\ \ \ \ \ mx\_wp\_toolbar\_class\_e,}
+\DoxyCodeLine{00158\ \ \ \ \ mx\_exporter\_class\_e,}
+\DoxyCodeLine{00159\ \ \ \ \ mx\_rtf\_exporter\_class\_e,}
+\DoxyCodeLine{00160\ \ \ \ \ mx\_ascii\_exporter\_class\_e,}
+\DoxyCodeLine{00161\ \ \ \ \ mx\_undo\_redo\_buffer\_class\_e,}
+\DoxyCodeLine{00162\ \ \ \ \ mx\_ur\_item\_class\_e,}
+\DoxyCodeLine{00163\ \ \ \ \ mx\_point\_style\_class\_e,}
+\DoxyCodeLine{00164\ \ \ \ \ mx\_dash\_style\_class\_e,}
+\DoxyCodeLine{00165\ \ \ \ \ mx\_area\_style\_class\_e,}
+\DoxyCodeLine{00166\ \ \ \ \ mx\_doc\_arc\_class\_e}
+\DoxyCodeLine{00167\ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00170\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_a(mx\_rtti\_class\_e\ c)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_a(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\&\ o)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{virtual}\ mx\_rtti\_class\_e\ rtti\_class()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtti}{\string~mx\_rtti}}()\ \{\ \};}
+\DoxyCodeLine{00176\ \};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

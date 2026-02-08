@@ -1,0 +1,246 @@
+\doxysection{mx\+\_\+area\+\_\+cw\+\_\+t Class Reference}
+\hypertarget{classmx__area__cw__t}{}\label{classmx__area__cw__t}\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+
+
+Inheritance diagram for mx\+\_\+area\+\_\+cw\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__area__cw__t__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+area\+\_\+cw\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__area__cw__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__area__cw__t_a9000155c168b7b00fba2daa16b0ec584}\label{classmx__area__cw__t_a9000155c168b7b00fba2daa16b0ec584} 
+{\bfseries mx\+\_\+area\+\_\+cw\+\_\+t} (\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}na=NULL)
+\item 
+virtual float \mbox{\hyperlink{classmx__area__cw__t_a81634be91c8f02c964a9f8c698f77c78}{width}} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+\Hypertarget{classmx__area__cw__t_a002f8eeb4964b2f00c20d62b9bc6a0c3}\label{classmx__area__cw__t_a002f8eeb4964b2f00c20d62b9bc6a0c3} 
+virtual float {\bfseries height} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+virtual float \mbox{\hyperlink{classmx__area__cw__t_a42636c82c6dd9db89c69e414684cca3c}{ascender}} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+virtual float \mbox{\hyperlink{classmx__area__cw__t_abc48a3c68b0b0a9c976d28672de24d85}{descender}} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+virtual bool \mbox{\hyperlink{classmx__area__cw__t_ac2f6b80ce3b910ae5c6a86a15cc798f0}{line\+\_\+difference}} ()
+\item 
+virtual \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__area__cw__t_a2ac6cb737fa84162f256e4efe944cc7d}{deep\+\_\+copy}} ()
+\item 
+virtual void \mbox{\hyperlink{classmx__area__cw__t_a3cd9ccff59634588c914c803383cef8d}{move\+\_\+to\+\_\+document}} (int \&err, \mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}doc)
+\item 
+virtual void \mbox{\hyperlink{classmx__area__cw__t_ad63f067c8eed50e345e8157006138369}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual void \mbox{\hyperlink{classmx__area__cw__t_a5a2d1136a575d8970ce15a98de8bd77a}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer, uint32 docid)
+\item 
+virtual uint32 \mbox{\hyperlink{classmx__area__cw__t_ad235ca13ca326022a9a73f1eca9f736c}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries mod\+\_\+style} (\mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+virtual float {\bfseries spacing} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&s)
+\item 
+virtual void {\bfseries set\+\_\+page\+\_\+number} (uint32 num)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries unserialise} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__area__cw__t_a5c9e35c897d6fd400214188ee937727f}\label{classmx__area__cw__t_a5c9e35c897d6fd400214188ee937727f} 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries a}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__area__cw__t_a42636c82c6dd9db89c69e414684cca3c}\label{classmx__area__cw__t_a42636c82c6dd9db89c69e414684cca3c} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!ascender@{ascender}}
+\index{ascender@{ascender}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{ascender()}{ascender()}}
+{\footnotesize\ttfamily virtual float mx\+\_\+area\+\_\+cw\+\_\+t\+::ascender (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_a2ac6cb737fa84162f256e4efe944cc7d}\label{classmx__area__cw__t_a2ac6cb737fa84162f256e4efe944cc7d} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!deep\_copy@{deep\_copy}}
+\index{deep\_copy@{deep\_copy}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{deep\_copy()}{deep\_copy()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*} mx\+\_\+area\+\_\+cw\+\_\+t\+::deep\+\_\+copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_abc48a3c68b0b0a9c976d28672de24d85}\label{classmx__area__cw__t_abc48a3c68b0b0a9c976d28672de24d85} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!descender@{descender}}
+\index{descender@{descender}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{descender()}{descender()}}
+{\footnotesize\ttfamily virtual float mx\+\_\+area\+\_\+cw\+\_\+t\+::descender (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_ad235ca13ca326022a9a73f1eca9f736c}\label{classmx__area__cw__t_ad235ca13ca326022a9a73f1eca9f736c} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily virtual uint32 mx\+\_\+area\+\_\+cw\+\_\+t\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_ac2f6b80ce3b910ae5c6a86a15cc798f0}\label{classmx__area__cw__t_ac2f6b80ce3b910ae5c6a86a15cc798f0} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!line\_difference@{line\_difference}}
+\index{line\_difference@{line\_difference}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{line\_difference()}{line\_difference()}}
+{\footnotesize\ttfamily virtual bool mx\+\_\+area\+\_\+cw\+\_\+t\+::line\+\_\+difference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_a3cd9ccff59634588c914c803383cef8d}\label{classmx__area__cw__t_a3cd9ccff59634588c914c803383cef8d} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!move\_to\_document@{move\_to\_document}}
+\index{move\_to\_document@{move\_to\_document}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{move\_to\_document()}{move\_to\_document()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+area\+\_\+cw\+\_\+t\+::move\+\_\+to\+\_\+document (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_ad63f067c8eed50e345e8157006138369}\label{classmx__area__cw__t_ad63f067c8eed50e345e8157006138369} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+area\+\_\+cw\+\_\+t\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_a5a2d1136a575d8970ce15a98de8bd77a}\label{classmx__area__cw__t_a5a2d1136a575d8970ce15a98de8bd77a} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+area\+\_\+cw\+\_\+t\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint32}]{docid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+\Hypertarget{classmx__area__cw__t_a81634be91c8f02c964a9f8c698f77c78}\label{classmx__area__cw__t_a81634be91c8f02c964a9f8c698f77c78} 
+\index{mx\_area\_cw\_t@{mx\_area\_cw\_t}!width@{width}}
+\index{width@{width}!mx\_area\_cw\_t@{mx\_area\_cw\_t}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily virtual float mx\+\_\+area\+\_\+cw\+\_\+t\+::width (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+cw\+\_\+t.\+h\end{DoxyCompactItemize}

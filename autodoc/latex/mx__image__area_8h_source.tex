@@ -1,0 +1,196 @@
+\doxysection{mx\+\_\+image\+\_\+area.\+h}
+\hypertarget{mx__image__area_8h_source}{}\label{mx__image__area_8h_source}\index{document/mx\_image\_area.h@{document/mx\_image\_area.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_image\_area}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Dave\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Areas\ specifically\ for\ holding\ images}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_IMAGE\_AREA\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_IMAGE\_AREA\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_db.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_area.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_mxmetafile.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mxraster.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ MX\_RASTER\_SUBSAMPLED,}
+\DoxyCodeLine{00045\ \ \ \ \ MX\_RASTER\_FULL}
+\DoxyCodeLine{00046\ \}\ mx\_stored\_raster\_t;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ MX\_IMAGE\_AREA\_UNDEFINED,}
+\DoxyCodeLine{00050\ \ \ \ \ MX\_IMAGE\_AREA\_TIFF,}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_IMAGE\_AREA\_JPEG,}
+\DoxyCodeLine{00052\ \ \ \ \ MX\_IMAGE\_AREA\_PNG,}
+\DoxyCodeLine{00053\ \ \ \ \ MX\_IMAGE\_AREA\_XBM,}
+\DoxyCodeLine{00054\ \ \ \ \ MX\_IMAGE\_AREA\_XPM,}
+\DoxyCodeLine{00055\ \ \ \ \ MX\_IMAGE\_AREA\_METAFILE,}
+\DoxyCodeLine{00056\ \ \ \ \ MX\_IMAGE\_AREA\_MAXRAST}
+\DoxyCodeLine{00057\ \}\ mx\_image\_area\_t;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__area}{mx\_area}}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ MX\_RTTI(mx\_image\_area\_class\_e)}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}(uint32\ docid,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ s,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}(uint32\ docid,\ uint32\ oid,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}\&\ a);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__image__area}{\string~mx\_image\_area}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ duplicate();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ move\ the\ object\ to\ another\ document\ -\/\ subclass\ must\ make\ sure\ that}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ all\ it's\ attributes\ and\ blobs\ are\ in\ the\ cache\ before\ calling\ this.}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ image\ areas\ are\ not\ flowable}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_flowable()\ \{\ \textcolor{keywordflow}{return}\ FALSE;\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ they\ are\ croppable}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_croppable()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ and\ scalable}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_scalable()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ uncache(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ memory\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ createMETAFILEarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__mxmetafile__output}{mx\_mxmetafile\_output}}\&\ metafileData);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ createTIFFarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ TIFFfile);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ createXBMarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ XBMfile);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ createXPMarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ XPMfile);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ createPNGarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ PNGfile);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ createJPEGarea(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ jpegfile,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ get24bits,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ncolours);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmxraster}{mxraster}}*\ getSubsampledRaster()\ \{\ \textcolor{keywordflow}{return}\ subsampledRaster;\ \};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classraster}{raster}}*\ getInputRaster()\ \{\ \textcolor{keywordflow}{return}\ inputRaster;\ \};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmxraster}{mxraster}}*\ getFullImportRaster()\ \{\ \textcolor{keywordflow}{return}\ fullImportRaster;\ \};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classraster}{raster}}*\ getDisplayRaster()\ \{\ \textcolor{keywordflow}{return}\ displayRaster;\ \};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classraster}{raster}}*\ getPrintRaster()\ \{\ \textcolor{keywordflow}{return}\ printRaster;\ \};}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ getSourceRaster();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ newDisplayRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ displayResolution,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ totalSize,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ newRasterSize);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ getBestRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ needsDeleting);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ createDisplayRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ displayResolution,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ LUT\_VALUE*\ lut,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lutSize,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ int32\ ndisplayBits,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ RAST\_DATA\ data,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ RAST\_PACK\ pack,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ncolours,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colours,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ newRasterSize);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ createPrintRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ printResolution);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ areaSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pageSize,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pixelResolution);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ createStoredRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ pageSize,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pixelResolution);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteInputRaster();}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteDisplayRaster();}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ deletePrintRaster();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ defaultColours(\textcolor{keywordtype}{int}*\ ndefColours,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}**\ defColours);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setLastRasterSize(\mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ newRasterSize)}
+\DoxyCodeLine{00157\ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ lastRasterSize\ =\ newRasterSize;}
+\DoxyCodeLine{00159\ \ \ \ \ \};}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getLastRasterSize()\ \{\ \textcolor{keywordflow}{return}\ lastRasterSize;\ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ createBasics(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ ifilename,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ mx\_image\_area\_t\ itype,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ icreateSubsampled,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ icreateFullImport,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ inumColours);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ readBasics(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ createSubsampled(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ areaSize,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pixelAreaSize);}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ createCopy(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ mx\_image\_area\_t\ type;}
+\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ inputRaster;\ \textcolor{comment}{//\ the\ raster\ based\ on\ the\ file}}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{classmxraster}{mxraster}}*\ fullImportRaster;\ \textcolor{comment}{//\ a\ full\ import\ mxraster\ of\ the\ file}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{classmxraster}{mxraster}}*\ subsampledRaster;\ \textcolor{comment}{//\ a\ subsampled\ view\ of\ the\ file}}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ displayRaster;\ \textcolor{comment}{//\ a\ raster\ used\ in\ display}}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}*\ printRaster;\ \textcolor{comment}{//\ a\ raster\ used\ in\ printing}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{char}*\ filename;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{int}\ numColours;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ fullImportExists;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ subsampledExists;}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ lastRasterSize;}
+\DoxyCodeLine{00188\ \};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,205 @@
+\doxysection{mx\+\_\+rtf\+\_\+importer.\+h}
+\hypertarget{mx__rtf__importer_8h_source}{}\label{mx__rtf__importer_8h_source}\index{document/mx\_rtf\_importer.h@{document/mx\_rtf\_importer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_rtf\_importer}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ This\ is\ the\ subclass\ of\ importer\ which\ is\ used\ to\ import\ rtf\ files\ into\ a}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ maxwell\ document.\ The\ simple\ interface\ is\ inherited\ from\ mx\_importer.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_importer.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_mxmetafile.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <rtf.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font}{mx\_font}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__colour}{mx\_colour}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}};}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__area}{mx\_text\_area}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__importer}{mx\_importer}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtf}{mx\_rtf}}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ MX\_RTTI(mx\_rtf\_importer\_class\_e)}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ f,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ c,\ \mbox{\hyperlink{classmx__dialog__manager}{mx\_dialog\_manager}}*\ dm\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtf__importer}{\string~mx\_rtf\_importer}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ the\ following\ two\ methods\ both\ read\ an\ rtf\ file\ into\ the\ maxwell}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ document\ structure.\ The\ difference\ is\ that\ import()\ does\ not\ read\ the}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ headers/footers,\ or\ page\ setup\ information\ into\ memory}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ load(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{import}(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classmx__font}{mx\_font}}*\ get\_font(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ rtf\_font\_num);}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ get\_colour(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ rtf\_colour\_num);}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ get\_char\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ rtf\_char\_style\_num);}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_para\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ rtf\_para\_style\_num);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ build\ up\ a\ fifo\ of\ chunks\ of\ maxwell\ words\ with\ their\ character\ styles}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ with\ the\ following\ stucture}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmx__rtf__importer_1_1text__fifo__elem__t}{text\_fifo\_elem\_t}}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\ mx\_cs;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ mx\_words;}
+\DoxyCodeLine{00084\ \ \ \ \ \};}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ text\_fifo;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ stuff\ for\ the\ progress\ bar.}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ uint32\ file\_length;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ pd;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ update\_progress();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ get\ a\ maxwell\ paragraph\ style\ from\ an\ RTF\ paragraph\ style.\ Make\ sure\ the}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ document\ gets\ updated\ with\ any\ new\ styles\ correctly}}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_named\_paragraph\_style(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ rtf\_ps);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ whether\ the\ break\ before\ paragraph\ attribute\ should\ be\ set\ for\ the\ next}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ paragraph.\ Used\ to\ implement\ hard\ page\ breaks}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ break\_before\_next\_para;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ if\ this\ is\ true,\ headers\ and\ footers\ get\ imported,\ and\ styles\ get}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ overwritten\ with\ the\ styles\ in\ the\ RTF\ document.\ Otherwise,\ headers\ and}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ footers\ are\ not\ loaded,\ and\ do\ we\ want\ to\ insert\ headers\ and\ footers}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{bool}\ do\_full\_import;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ did\ we\ insert\ header/footer}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ inserted\_header;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ inserted\_footer;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ current\ document\ and\ position.}}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc;}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ doc\_cursor;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ was\ the\ last\ paragraph\ inserted\ a\ table\ paragraph?}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ last\_para\_in\_table;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ how\ many\ cells\ were\ there\ in\ the\ last\ table\ row?}}
+\DoxyCodeLine{00120\ \ \ \ \ int32\ last\_num\_cells;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ used\ within\ table\ areas}}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ table\_area;}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ merged\_cells;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ what\ is\ the\ trgaph\ gap\ (in\ twips)\ between\ cells\ for\ this\ table}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ table\_trgaph;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ translation\ table\ for\ the\ particular\ character\ set}}
+\DoxyCodeLine{00130\ \ \ \ \ uint8*\ character\_set\_lookup;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ lookup\ tables\ for\ rtf\ font\ numbers,\ colour\ numbers,\ character\ style}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ numbers\ and\ paragraph\ style\ numbers}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ std::map<int,\ mx\_font\ *>\ m\_font\_lookup;}
+\DoxyCodeLine{00136\ \ \ \ \ std::map<int,\ mx\_colour\ *>\ m\_colour\_lookup;}
+\DoxyCodeLine{00137\ \ \ \ \ std::map<int,\ mx\_paragraph\_style\ *>\ m\_para\_style\_lookup;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ ensure\ all\ the\ styles\ in\ the\ rtf\ stylesheet\ are\ imported}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ styles\_are\_added;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_all\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ do\_import(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ processFieldInstOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ processMainOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ processNewParagraph(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ processNewTableCell(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ processNewTableRow(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ processNewTab(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ processSpecialCharacter(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ processPictOutput(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ insertNewParagraph(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ insertNewTableParagraph(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ insertHeaderFooterText(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ txta);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ insertParagraphWords(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ para);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ userProcessFontOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSfont}{RTFSfont}}*\ f);}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ userProcessFileOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSfile}{RTFSfile}}*\ f);}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ userProcessColourOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}*\ c);}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ userProcessStyleOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ s);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ was\ the\ last\ field\ instruction\ inserted?\ (pointer\ because\ of\ gcc\ bug)}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{bool}\ field\_inst\_was\_inserted;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ do\ we\ want\ to\ insert\ the\ current\ rtf\ "{}thing"{}?.\ Returns\ true\ if\ the}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ current\ group\ destination\ is\ RTFDrtf,\ OR\ if\ it\ is\ field\ text\ for\ which}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ we\ have\ not\ recognised\ the\ field\ instruction.}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{bool}\ not\_field\_text\_group(\mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{00183\ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtf__mxmetafile__output}{mx\_rtf\_mxmetafile\_output}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__mxmetafile__output}{mx\_mxmetafile\_output}}\ \{}
+\DoxyCodeLine{00186\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{classmx__rtf__mxmetafile__output}{mx\_rtf\_mxmetafile\_output}}(\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ text\_fifo,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmx__rtf__importer_1_1text__fifo__elem__t}{mx\_rtf\_importer::text\_fifo\_elem\_t}}*\ elem);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ current\ document\ and\ position.}}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc;}
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ text\_fifo;}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{structmx__rtf__importer_1_1text__fifo__elem__t}{mx\_rtf\_importer::text\_fifo\_elem\_t}}*\ elem;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ processStretchDIBits(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00199\ \};}
+
+\end{DoxyCode}

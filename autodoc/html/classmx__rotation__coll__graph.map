@@ -1,0 +1,11 @@
+<map id="mx_rotation" name="mx_rotation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,243,197,268"/>
+<area shape="rect" id="Node000002" href="$classmx__point.html" title=" " alt="" coords="50,155,133,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,190,141,241,136,244,104,193"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,80,177,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,120,94,154,89,154,89,120"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,45,94,80,89,80,89,45"/>
+<area shape="rect" id="Node000005" href="$classmx__angle.html" title=" " alt="" coords="157,155,244,180"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="188,193,156,244,151,241,184,190"/>
+</map>

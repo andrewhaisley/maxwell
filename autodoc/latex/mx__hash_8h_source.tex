@@ -1,0 +1,115 @@
+\doxysection{mx\+\_\+hash.\+h}
+\hypertarget{mx__hash_8h_source}{}\label{mx__hash_8h_source}\index{collection/save/mx\_hash.h@{collection/save/mx\_hash.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_hash}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ MX\_HASH\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MX\_HASH\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__hash}{mx\_hash}}\ \{}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ s;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ uint32\ i;}
+\DoxyCodeLine{00042\ \ \ \ \ \}\ \mbox{\hyperlink{unionmx__hash_1_1key__t}{key\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classmx__hash}{mx\_hash}}(uint32\ init\_size);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classmx__hash}{mx\_hash}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classmx__hash}{\string~mx\_hash}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ clear(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\&\ err,\ uint32\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ adds\ the\ item\ if\ it\ doesn't\ exist\ or\ replaces\ an\ existing\ item}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_or\_repl(\textcolor{keywordtype}{int}\&\ err,\ uint32\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_or\_repl(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ del(\textcolor{keywordtype}{int}\&\ err,\ uint32\ key);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ del\_safe(\textcolor{keywordtype}{int}\&\ err,\ uint32\ key);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ del(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ del\_safe(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ get(\textcolor{keywordtype}{int}\&\ err,\ uint32\ key);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ get(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ find\_smallest(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ one,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ find\_largest(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ (*comp\_func)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ one,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ two));}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ uint32\ get\_num\_entries(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ iterate\_keys(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{void}\ (*iter\_func)(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{unionmx__hash_1_1key__t}{key\_t}}\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item));}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ These\ functions\ can\ be\ used\ to\ iterate\ through\ inserted\ objects}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ you\ call\ iterate\_start\ and\ then\ repeatedly\ call\ iterate\_next.}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ iterate\_next\ returns\ NULL\ when\ you\ have\ completed\ the\ iteration.}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ iterate\_start(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ iterate\_next(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{unionmx__hash_1_1key__t}{key\_t}}*\ iterate\_next\_key(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ iterate\_next\_key\_data(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{void}*\ key);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_add(\textcolor{keywordtype}{int}\&\ err,\ uint32\ gen\_key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_del\_safe(\textcolor{keywordtype}{int}\&\ err,\ uint32\ gen\_key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ aka\_get(\textcolor{keywordtype}{int}\&\ err,\ uint32\ gen\_key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ aka\_del(\textcolor{keywordtype}{int}\&\ err,\ uint32\ gen\_key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ uint32\ gen\_key(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\ num\_entries;}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\ num\_cont;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ string\_key,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ int\_key,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ unused\ \}\ usage\_t;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ usage\_t\ usage;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ key\_t\ key;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ item;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__hash}{mx\_hash}}*\ continuation;}
+\DoxyCodeLine{00100\ \ \ \ \ \}\ entry\_t;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ uint32\ size;}
+\DoxyCodeLine{00103\ \ \ \ \ entry\_t*\ table;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ uint32\ current\_index;\ \textcolor{comment}{//\ Used\ by\ iterate\_start,\ iterate\_next}}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

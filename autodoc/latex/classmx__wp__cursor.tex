@@ -1,0 +1,321 @@
+\doxysection{mx\+\_\+wp\+\_\+cursor Class Reference}
+\hypertarget{classmx__wp__cursor}{}\label{classmx__wp__cursor}\index{mx\_wp\_cursor@{mx\_wp\_cursor}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__wp__cursor_a367b50e98cf1c6598e4393aa3f5b6cc1}\label{classmx__wp__cursor_a367b50e98cf1c6598e4393aa3f5b6cc1} 
+enum {\bfseries mx\+\_\+tab\+\_\+change} \{ {\bfseries mx\+\_\+add\+\_\+tab\+\_\+e}
+, {\bfseries mx\+\_\+remove\+\_\+tab\+\_\+e}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__wp__cursor_a870ed7065844b2de585fb162533e8705}\label{classmx__wp__cursor_a870ed7065844b2de585fb162533e8705} 
+{\bfseries mx\+\_\+wp\+\_\+cursor} (\mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc, \mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \texorpdfstring{$\ast$}{*}f)
+\item 
+\Hypertarget{classmx__wp__cursor_ac1a6e8df8ef2f4447edcfd39205afd88}\label{classmx__wp__cursor_ac1a6e8df8ef2f4447edcfd39205afd88} 
+void {\bfseries set\+\_\+document} (\mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*}doc)
+\item 
+\Hypertarget{classmx__wp__cursor_abf3e849cbd58c3caaf3e20c821f53596}\label{classmx__wp__cursor_abf3e849cbd58c3caaf3e20c821f53596} 
+void {\bfseries set\+\_\+ur\+\_\+buffer} (\mbox{\hyperlink{classmx__undo__redo__buffer}{mx\+\_\+undo\+\_\+redo\+\_\+buffer}} \texorpdfstring{$\ast$}{*}buf)
+\item 
+\Hypertarget{classmx__wp__cursor_aa0cebdac78a1b2d9d06cb55e2bca0fea}\label{classmx__wp__cursor_aa0cebdac78a1b2d9d06cb55e2bca0fea} 
+void {\bfseries set\+\_\+frame} (\mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \texorpdfstring{$\ast$}{*}f)
+\item 
+\Hypertarget{classmx__wp__cursor_ae985449dd2c938ab79dc142ea44f1df6}\label{classmx__wp__cursor_ae985449dd2c938ab79dc142ea44f1df6} 
+void {\bfseries set\+\_\+layout} (\mbox{\hyperlink{classmx__wp__layout}{mx\+\_\+wp\+\_\+layout}} \texorpdfstring{$\ast$}{*}layout)
+\item 
+\Hypertarget{classmx__wp__cursor_a0755c8c1fbd61401786c73b3705953c8}\label{classmx__wp__cursor_a0755c8c1fbd61401786c73b3705953c8} 
+void {\bfseries set\+\_\+view\+\_\+mode} (mx\+\_\+painter\+\_\+mode\+\_\+t current\+\_\+view\+\_\+mode)
+\item 
+\Hypertarget{classmx__wp__cursor_ab74ad977939889716abd3ade4ee5f228}\label{classmx__wp__cursor_ab74ad977939889716abd3ade4ee5f228} 
+void {\bfseries single\+\_\+click} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__wp__cursor_a950f4b5ba03fc02b88a58e49cb292799}\label{classmx__wp__cursor_a950f4b5ba03fc02b88a58e49cb292799} 
+void {\bfseries double\+\_\+click} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__wp__cursor_a6e587baee26a54c57d95fcb970532051}\label{classmx__wp__cursor_a6e587baee26a54c57d95fcb970532051} 
+void {\bfseries triple\+\_\+click} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__wp__cursor_ae97308c157e5bbb2202f87d5290fbe50}\label{classmx__wp__cursor_ae97308c157e5bbb2202f87d5290fbe50} 
+void {\bfseries button\+\_\+motion} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__wp__cursor_ae7a6f6b54d309b7f8c2470c8d6752a62}\label{classmx__wp__cursor_ae7a6f6b54d309b7f8c2470c8d6752a62} 
+void {\bfseries button\+\_\+motion\+\_\+end} (int \&err, \mbox{\hyperlink{classmx__button__event}{mx\+\_\+button\+\_\+event}} \&event)
+\item 
+\Hypertarget{classmx__wp__cursor_a69832e0034e3c2e413e6f0c774657f58}\label{classmx__wp__cursor_a69832e0034e3c2e413e6f0c774657f58} 
+void {\bfseries key\+\_\+down} (int \&err, \mbox{\hyperlink{classmx__key__event}{mx\+\_\+key\+\_\+event}} \&event, bool \&something\+\_\+changed)
+\item 
+\Hypertarget{classmx__wp__cursor_aebd42fd9ed8055239568f9fabd40f9f7}\label{classmx__wp__cursor_aebd42fd9ed8055239568f9fabd40f9f7} 
+void {\bfseries moveto\+\_\+sheet} (int \&err, int sheet)
+\item 
+\Hypertarget{classmx__wp__cursor_a3cfa0af268a962c6b488fa4f467dc6e1}\label{classmx__wp__cursor_a3cfa0af268a962c6b488fa4f467dc6e1} 
+void {\bfseries moveto\+\_\+para\+\_\+start} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a58017c3b5d6222ab3f73043251724e54}\label{classmx__wp__cursor_a58017c3b5d6222ab3f73043251724e54} 
+void {\bfseries moveto\+\_\+para\+\_\+end} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a4d2acfd7444c7c5eff1ca4510ccde5c3}\label{classmx__wp__cursor_a4d2acfd7444c7c5eff1ca4510ccde5c3} 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries style\+\_\+at\+\_\+position} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ada0d71cc363a051309a604949639a29b}\label{classmx__wp__cursor_ada0d71cc363a051309a604949639a29b} 
+\mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries char\+\_\+style\+\_\+at\+\_\+position} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ac2efd57918e540928e7d024a992c32a9}\label{classmx__wp__cursor_ac2efd57918e540928e7d024a992c32a9} 
+void {\bfseries set\+\_\+current\+\_\+style} (const \mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \&cs)
+\item 
+\Hypertarget{classmx__wp__cursor_a485ad02dde7576659a63b4ff25d826b8}\label{classmx__wp__cursor_a485ad02dde7576659a63b4ff25d826b8} 
+\mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+current\+\_\+style} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a71d7383f52d01b58a1c7bee689b8e01f}\label{classmx__wp__cursor_a71d7383f52d01b58a1c7bee689b8e01f} 
+void {\bfseries styles\+\_\+in\+\_\+selection} (int \&err, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&style\+\_\+list)
+\item 
+\Hypertarget{classmx__wp__cursor_adaffe2d5a1a38c9918ce88af845a3f57}\label{classmx__wp__cursor_adaffe2d5a1a38c9918ce88af845a3f57} 
+void {\bfseries table\+\_\+styles\+\_\+in\+\_\+selection} (int \&err, \mbox{\hyperlink{classmx__list}{mx\+\_\+list}} \&style\+\_\+list)
+\item 
+\Hypertarget{classmx__wp__cursor_a8a5eb4fd1e340a5047357d95f538a1b8}\label{classmx__wp__cursor_a8a5eb4fd1e340a5047357d95f538a1b8} 
+void {\bfseries border\+\_\+styles\+\_\+in\+\_\+selection} (int \&err, \mbox{\hyperlink{classmx__nlist}{mx\+\_\+nlist}} \&style\+\_\+array)
+\item 
+\Hypertarget{classmx__wp__cursor_a25fede87894c56f091b6af19a8200161}\label{classmx__wp__cursor_a25fede87894c56f091b6af19a8200161} 
+bool {\bfseries selection} ()
+\item 
+\Hypertarget{classmx__wp__cursor_afa0b18b99933a8d72e5f9eb083774f9a}\label{classmx__wp__cursor_afa0b18b99933a8d72e5f9eb083774f9a} 
+void {\bfseries set\+\_\+selection} (int \&err, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&start, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&end)
+\item 
+\Hypertarget{classmx__wp__cursor_ac081795aa271e95d8fab31c3afdda8c8}\label{classmx__wp__cursor_ac081795aa271e95d8fab31c3afdda8c8} 
+void {\bfseries clear\+\_\+selection} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a70c44d5ee8cfee5138d31d464981e1f2}\label{classmx__wp__cursor_a70c44d5ee8cfee5138d31d464981e1f2} 
+void {\bfseries set\+\_\+position} (int \&err, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&pos)
+\item 
+\Hypertarget{classmx__wp__cursor_a7dee555f6897675d7825fd212f258040}\label{classmx__wp__cursor_a7dee555f6897675d7825fd212f258040} 
+\mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \texorpdfstring{$\ast$}{*} {\bfseries selection\+\_\+start} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a2e5047464ef1d464d95998d244d24f7a}\label{classmx__wp__cursor_a2e5047464ef1d464d95998d244d24f7a} 
+\mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \texorpdfstring{$\ast$}{*} {\bfseries selection\+\_\+end} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a2bbb747629d0b273c8218cf68048a633}\label{classmx__wp__cursor_a2bbb747629d0b273c8218cf68048a633} 
+bool {\bfseries selection\+\_\+has\+\_\+table} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a5584770ab3b7194f0e3edad18881892d}\label{classmx__wp__cursor_a5584770ab3b7194f0e3edad18881892d} 
+bool {\bfseries selection\+\_\+has\+\_\+text} ()
+\item 
+\Hypertarget{classmx__wp__cursor_ab91df7716babe74ada4c4569327e128f}\label{classmx__wp__cursor_ab91df7716babe74ada4c4569327e128f} 
+bool {\bfseries selection\+\_\+has\+\_\+diagram} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a140c0f88048e077ffae1c114a5721998}\label{classmx__wp__cursor_a140c0f88048e077ffae1c114a5721998} 
+bool {\bfseries selection\+\_\+has\+\_\+image} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a5783044856512bba7b4d027326da450d}\label{classmx__wp__cursor_a5783044856512bba7b4d027326da450d} 
+bool {\bfseries selection\+\_\+has\+\_\+multi\+\_\+column} ()
+\item 
+\Hypertarget{classmx__wp__cursor_aa3087558b28b45d48bd2914fb7dc2f0d}\label{classmx__wp__cursor_aa3087558b28b45d48bd2914fb7dc2f0d} 
+bool {\bfseries selection\+\_\+only\+\_\+covers\+\_\+text} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a15cb6a5f4c2cd5fd4bf53dc7a322630a}\label{classmx__wp__cursor_a15cb6a5f4c2cd5fd4bf53dc7a322630a} 
+bool {\bfseries selection\+\_\+only\+\_\+covers\+\_\+table} ()
+\item 
+\Hypertarget{classmx__wp__cursor_af8ce1c23c73348b5210e179380ee5288}\label{classmx__wp__cursor_af8ce1c23c73348b5210e179380ee5288} 
+void {\bfseries cut} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a1f6ebbdc2a1d99b9ef67520188a9d5c0}\label{classmx__wp__cursor_a1f6ebbdc2a1d99b9ef67520188a9d5c0} 
+void {\bfseries copy} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a44b12b663aacc588be5a1a06aa64b314}\label{classmx__wp__cursor_a44b12b663aacc588be5a1a06aa64b314} 
+void {\bfseries paste} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_aaa8ea4ee4fc7753807b1632819b4717c}\label{classmx__wp__cursor_aaa8ea4ee4fc7753807b1632819b4717c} 
+\mbox{\hyperlink{classmx__wp__document}{mx\+\_\+wp\+\_\+document}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+document} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a82bc014de2f4bd9dcaf7042730a47062}\label{classmx__wp__cursor_a82bc014de2f4bd9dcaf7042730a47062} 
+\mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+position} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a881704ba2aefd4ec1bc704d4737d03cf}\label{classmx__wp__cursor_a881704ba2aefd4ec1bc704d4737d03cf} 
+\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+\_\+paragraph} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ac7b79bbcb9ef34b9347fe0af6f234985}\label{classmx__wp__cursor_ac7b79bbcb9ef34b9347fe0af6f234985} 
+\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+\_\+paragraph\+\_\+after} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_af920e265928e42363c1e1b89c9ee810c}\label{classmx__wp__cursor_af920e265928e42363c1e1b89c9ee810c} 
+\mbox{\hyperlink{classmx__table__area}{mx\+\_\+table\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries insert\+\_\+table} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_af295312e0c46f96d60ee00eed7242b00}\label{classmx__wp__cursor_af295312e0c46f96d60ee00eed7242b00} 
+void {\bfseries insert\+\_\+cw\+\_\+item} (int \&err, \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{classmx__wp__cursor_a57f39384433986e8a8b64bddcd776922}\label{classmx__wp__cursor_a57f39384433986e8a8b64bddcd776922} 
+void {\bfseries pre\+\_\+scroll} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a0e8c16a427381e9dab2770895e1a6b2b}\label{classmx__wp__cursor_a0e8c16a427381e9dab2770895e1a6b2b} 
+void {\bfseries post\+\_\+scroll} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a6fb8773c8efda869cb2b0a4dc1bed35a}\label{classmx__wp__cursor_a6fb8773c8efda869cb2b0a4dc1bed35a} 
+void {\bfseries pre\+\_\+redraw} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a4f5e33568235c39ef83b1d34e7f44db2}\label{classmx__wp__cursor_a4f5e33568235c39ef83b1d34e7f44db2} 
+void {\bfseries post\+\_\+redraw} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a752eaea75a68f9905afa20f97d8334ad}\label{classmx__wp__cursor_a752eaea75a68f9905afa20f97d8334ad} 
+void {\bfseries update\+\_\+caret} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ad89529785936466c8d96bca067eb16b4}\label{classmx__wp__cursor_ad89529785936466c8d96bca067eb16b4} 
+void {\bfseries up} (int \&err, bool is\+\_\+shift)
+\item 
+\Hypertarget{classmx__wp__cursor_ab3bb5e021566daf08ede93225c6da823}\label{classmx__wp__cursor_ab3bb5e021566daf08ede93225c6da823} 
+void {\bfseries down} (int \&err, bool is\+\_\+shift)
+\item 
+\Hypertarget{classmx__wp__cursor_ad0342a8e1227ad402c421b1ce39e3e0f}\label{classmx__wp__cursor_ad0342a8e1227ad402c421b1ce39e3e0f} 
+void {\bfseries left} (int \&err, bool is\+\_\+shift)
+\item 
+\Hypertarget{classmx__wp__cursor_a9dbc1701e16b94c82400b3a3b57674e5}\label{classmx__wp__cursor_a9dbc1701e16b94c82400b3a3b57674e5} 
+void {\bfseries right} (int \&err, bool is\+\_\+shift)
+\item 
+\Hypertarget{classmx__wp__cursor_afe8de195fc4d701938607e2e77c5a6e3}\label{classmx__wp__cursor_afe8de195fc4d701938607e2e77c5a6e3} 
+void {\bfseries handle\+\_\+return} (int \&err, bool is\+\_\+shift)
+\item 
+\Hypertarget{classmx__wp__cursor_a1f137b11eae40a02b078707197542fa8}\label{classmx__wp__cursor_a1f137b11eae40a02b078707197542fa8} 
+void {\bfseries backspace} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ae77f6973e4e723af475c06b298c2d0f5}\label{classmx__wp__cursor_ae77f6973e4e723af475c06b298c2d0f5} 
+void {\bfseries handle\+\_\+delete} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_adffdd460d6468561beb4629aa5248a4e}\label{classmx__wp__cursor_adffdd460d6468561beb4629aa5248a4e} 
+void {\bfseries insert\+\_\+char} (int \&err, char c)
+\item 
+\Hypertarget{classmx__wp__cursor_ae0d589967ce2adb20c8a39b0723d6f4b}\label{classmx__wp__cursor_ae0d589967ce2adb20c8a39b0723d6f4b} 
+void {\bfseries insert\+\_\+text} (int \&err, char \texorpdfstring{$\ast$}{*}s)
+\item 
+\Hypertarget{classmx__wp__cursor_a7924ab52ebcf984d16fe9601c1cb9b7c}\label{classmx__wp__cursor_a7924ab52ebcf984d16fe9601c1cb9b7c} 
+void {\bfseries insert\+\_\+space} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a3c749c35736f25d9bcdbf1233257b859}\label{classmx__wp__cursor_a3c749c35736f25d9bcdbf1233257b859} 
+void {\bfseries insert\+\_\+tab} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_afdb670c8658997645446b44f0d825c64}\label{classmx__wp__cursor_afdb670c8658997645446b44f0d825c64} 
+void {\bfseries insert\+\_\+para\+\_\+break} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a8c0b97255e5779c91148bd67c9121b14}\label{classmx__wp__cursor_a8c0b97255e5779c91148bd67c9121b14} 
+bool {\bfseries need\+\_\+to\+\_\+refresh\+\_\+all} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a3668f649a2a5a6a94b07aaf827278ea3}\label{classmx__wp__cursor_a3668f649a2a5a6a94b07aaf827278ea3} 
+bool {\bfseries last\+\_\+key\+\_\+event\+\_\+was\+\_\+cursor\+\_\+movement} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a4f355a978d4ad168587b7d362145a471}\label{classmx__wp__cursor_a4f355a978d4ad168587b7d362145a471} 
+void {\bfseries make\+\_\+visible} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ac37701bf9b08d0423512e47381af25a0}\label{classmx__wp__cursor_ac37701bf9b08d0423512e47381af25a0} 
+float {\bfseries get\+\_\+sheet\+\_\+width} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a357dcf25b89650b4987b79def411f8e1}\label{classmx__wp__cursor_a357dcf25b89650b4987b79def411f8e1} 
+float {\bfseries get\+\_\+sheet\+\_\+height} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a389f8175bffa2708f45f3e3c06ad588f}\label{classmx__wp__cursor_a389f8175bffa2708f45f3e3c06ad588f} 
+\mbox{\hyperlink{classmx__frame}{mx\+\_\+frame}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+frame} ()
+\item 
+\Hypertarget{classmx__wp__cursor_aa20c745dcf6ab97769b671149d48254e}\label{classmx__wp__cursor_aa20c745dcf6ab97769b671149d48254e} 
+\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+device} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a37f9ec27a9e554fa0c50a4076b076628}\label{classmx__wp__cursor_a37f9ec27a9e554fa0c50a4076b076628} 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries current\+\_\+area} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ae23949d690eb11c811ebba87d58a9520}\label{classmx__wp__cursor_ae23949d690eb11c811ebba87d58a9520} 
+void {\bfseries sheet\+\_\+size\+\_\+changed} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_aafdcd7a921d61757eb1b942014b35e89}\label{classmx__wp__cursor_aafdcd7a921d61757eb1b942014b35e89} 
+void {\bfseries insert\+\_\+bullets} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ad8598536e580717be850c0aee5aabe63}\label{classmx__wp__cursor_ad8598536e580717be850c0aee5aabe63} 
+float {\bfseries get\+\_\+selected\+\_\+column\+\_\+width} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a8845966b45432b05e2666e5e6cb08dd4}\label{classmx__wp__cursor_a8845966b45432b05e2666e5e6cb08dd4} 
+void {\bfseries set\+\_\+selected\+\_\+column\+\_\+width} (int \&err, float w)
+\item 
+\Hypertarget{classmx__wp__cursor_a431a7dea333a57b01143ead6161630ed}\label{classmx__wp__cursor_a431a7dea333a57b01143ead6161630ed} 
+void {\bfseries select\+\_\+all} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_af60d143ee0b6299c592b7bfcb97cecd3}\label{classmx__wp__cursor_af60d143ee0b6299c592b7bfcb97cecd3} 
+bool {\bfseries selection\+\_\+within\+\_\+area} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a03d5cfac9e68d64339fef8e687870951}\label{classmx__wp__cursor_a03d5cfac9e68d64339fef8e687870951} 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+start\+\_\+area} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_aaa9a6d21d477e7f34595ea7d4cf540d8}\label{classmx__wp__cursor_aaa9a6d21d477e7f34595ea7d4cf540d8} 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+end\+\_\+area} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ab97d9361ff5b6b4be9edad061943baca}\label{classmx__wp__cursor_ab97d9361ff5b6b4be9edad061943baca} 
+\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+start\+\_\+area\+\_\+pos} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a92525bed7e3e37c01ff0d3eb8a4ec1a0}\label{classmx__wp__cursor_a92525bed7e3e37c01ff0d3eb8a4ec1a0} 
+\mbox{\hyperlink{classmx__area__pos}{mx\+\_\+area\+\_\+pos}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+end\+\_\+area\+\_\+pos} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_ac6f5c8215e62647d236f0c52c1d7f5b5}\label{classmx__wp__cursor_ac6f5c8215e62647d236f0c52c1d7f5b5} 
+void {\bfseries cut\+\_\+table\+\_\+columns} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a99c2d1cae1a66f4ac0682a0520ee0dbb}\label{classmx__wp__cursor_a99c2d1cae1a66f4ac0682a0520ee0dbb} 
+void {\bfseries cut\+\_\+table\+\_\+rows} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a47601bddf5e87573507565b74fa1f211}\label{classmx__wp__cursor_a47601bddf5e87573507565b74fa1f211} 
+void {\bfseries insert\+\_\+table\+\_\+rows\+\_\+before} (int \&err, int n)
+\item 
+\Hypertarget{classmx__wp__cursor_a1193ead3fd4500c199569f07019935eb}\label{classmx__wp__cursor_a1193ead3fd4500c199569f07019935eb} 
+void {\bfseries insert\+\_\+table\+\_\+rows\+\_\+after} (int \&err, int n)
+\item 
+\Hypertarget{classmx__wp__cursor_ae04b1f233bbc2f265f885d7fb6fe71d6}\label{classmx__wp__cursor_ae04b1f233bbc2f265f885d7fb6fe71d6} 
+void {\bfseries insert\+\_\+table\+\_\+columns\+\_\+before} (int \&err, int n)
+\item 
+\Hypertarget{classmx__wp__cursor_ac0b8d44f9b93750678f012dc6d9d079e}\label{classmx__wp__cursor_ac0b8d44f9b93750678f012dc6d9d079e} 
+void {\bfseries insert\+\_\+table\+\_\+columns\+\_\+after} (int \&err, int n)
+\item 
+\Hypertarget{classmx__wp__cursor_a5ab2e49366a3b148f06ae8a7cb3bba15}\label{classmx__wp__cursor_a5ab2e49366a3b148f06ae8a7cb3bba15} 
+const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \& {\bfseries get\+\_\+view\+\_\+correction} ()
+\item 
+\Hypertarget{classmx__wp__cursor_a134f2c27123793f98a5308e47568937b}\label{classmx__wp__cursor_a134f2c27123793f98a5308e47568937b} 
+void {\bfseries repaginate} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a433fa30bd30ba256ea31f2b8bbc51d50}\label{classmx__wp__cursor_a433fa30bd30ba256ea31f2b8bbc51d50} 
+\mbox{\hyperlink{classmx__table__area}{mx\+\_\+table\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries split\+\_\+table} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a13dabe35bc9501ba9b92cc571e2bd5d4}\label{classmx__wp__cursor_a13dabe35bc9501ba9b92cc571e2bd5d4} 
+void {\bfseries insert\+\_\+page\+\_\+break} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a6d985f7d9704403fa00a485438753f2e}\label{classmx__wp__cursor_a6d985f7d9704403fa00a485438753f2e} 
+void {\bfseries apply\+\_\+mod\+\_\+to\+\_\+current\+\_\+style} (int \&err, const \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\+\_\+paragraph\+\_\+style\+\_\+mod}} \&mod)
+\item 
+\Hypertarget{classmx__wp__cursor_a390f82bfd1229bd7fa7af8454e5c3935}\label{classmx__wp__cursor_a390f82bfd1229bd7fa7af8454e5c3935} 
+void {\bfseries apply\+\_\+mod\+\_\+to\+\_\+current\+\_\+table\+\_\+style} (int \&err, const \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\+\_\+paragraph\+\_\+style\+\_\+mod}} \&mod)
+\item 
+\Hypertarget{classmx__wp__cursor_aaab9cfb7b4f6148cc8d6c0bd1a62646c}\label{classmx__wp__cursor_aaab9cfb7b4f6148cc8d6c0bd1a62646c} 
+void {\bfseries apply\+\_\+tab\+\_\+change\+\_\+to\+\_\+current\+\_\+style} (int \&err, mx\+\_\+tab\+\_\+change op, const \mbox{\hyperlink{classmx__tabstop}{mx\+\_\+tabstop}} \&tab, float tolerance)
+\item 
+\Hypertarget{classmx__wp__cursor_a74823af4322f1234bbd62b41e456ffe3}\label{classmx__wp__cursor_a74823af4322f1234bbd62b41e456ffe3} 
+void {\bfseries apply\+\_\+style\+\_\+change\+\_\+to\+\_\+current\+\_\+style} (int \&err, const char \texorpdfstring{$\ast$}{*}new\+\_\+style\+\_\+name)
+\item 
+\Hypertarget{classmx__wp__cursor_a5c5986022eeb1fe9aa6fdaf0f6b082ab}\label{classmx__wp__cursor_a5c5986022eeb1fe9aa6fdaf0f6b082ab} 
+void {\bfseries remove\+\_\+selection} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a13678df5368a2f7d8f18fa6ba85f82af}\label{classmx__wp__cursor_a13678df5368a2f7d8f18fa6ba85f82af} 
+\mbox{\hyperlink{classmx__wp__object__buffer}{mx\+\_\+wp\+\_\+object\+\_\+buffer}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+buffer} ()
+\item 
+\Hypertarget{classmx__wp__cursor_acbe4c30fa7322cebfd7c17e32b31d6f9}\label{classmx__wp__cursor_acbe4c30fa7322cebfd7c17e32b31d6f9} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+selection\+\_\+as\+\_\+text} (int \&err)
+\item 
+\Hypertarget{classmx__wp__cursor_a6ae5e83dbe94ada918e279af361e570b}\label{classmx__wp__cursor_a6ae5e83dbe94ada918e279af361e570b} 
+void {\bfseries reformat\+\_\+and\+\_\+restore\+\_\+position} (int \&err, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&start\+\_\+pos, \mbox{\hyperlink{classmx__wp__doc__pos}{mx\+\_\+wp\+\_\+doc\+\_\+pos}} \&end\+\_\+pos, bool sheets\+\_\+deleted=FALSE)
+\item 
+\Hypertarget{classmx__wp__cursor_ab2ff690062bdea08bd1dca1709796f96}\label{classmx__wp__cursor_ab2ff690062bdea08bd1dca1709796f96} 
+void {\bfseries scale\+\_\+active\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}active\+\_\+area, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&new\+\_\+size)
+\item 
+\Hypertarget{classmx__wp__cursor_a5f314a1b6d27a59db196351112a395e3}\label{classmx__wp__cursor_a5f314a1b6d27a59db196351112a395e3} 
+void {\bfseries crop\+\_\+active\+\_\+area} (int \&err, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}active\+\_\+area, const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&crop\+\_\+rectangle)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__wp__cursor_a1d104a33053af32f220adff19551927c}\label{classmx__wp__cursor_a1d104a33053af32f220adff19551927c} 
+static void {\bfseries delete\+\_\+buffer} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+edit/mx\+\_\+wp\+\_\+cursor.\+h\end{DoxyCompactItemize}

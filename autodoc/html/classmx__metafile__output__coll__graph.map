@@ -1,0 +1,16 @@
+<map id="mx_metafile_output" name="mx_metafile_output">
+<area shape="rect" id="Node000001" title=" " alt="" coords="144,271,297,296"/>
+<area shape="rect" id="Node000002" href="$classmx__metafile__reader.html" title=" " alt="" coords="5,168,159,193"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,199,207,268,203,273,108,204"/>
+<area shape="rect" id="Node000003" href="$classmx__point.html" title=" " alt="" coords="282,168,365,193"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="305,205,261,249,236,272,232,268,257,245,301,201"/>
+<area shape="rect" id="Node000004" href="$classmx__serialisable__object.html" title=" " alt="" coords="237,80,409,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="326,119,326,167,321,167,321,119"/>
+<area shape="rect" id="Node000006" href="$classmx__rect.html" title=" " alt="" coords="183,168,258,193"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="300,116,237,170,233,165,297,112"/>
+<area shape="rect" id="Node000005" href="$classmx__rtti.html" title=" " alt="" coords="289,5,358,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="326,45,326,80,321,80,321,45"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="223,207,223,271,218,271,218,207"/>
+<area shape="rect" id="Node000007" href="$classmx__angle.html" title=" " alt="" coords="127,80,213,105"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="186,116,216,166,211,169,182,119"/>
+</map>

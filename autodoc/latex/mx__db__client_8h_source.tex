@@ -1,0 +1,119 @@
+\doxysection{mx\+\_\+db\+\_\+client.\+h}
+\hypertarget{mx__db__client_8h_source}{}\label{mx__db__client_8h_source}\index{db/mx\_db\_client.h@{db/mx\_db\_client.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_db\_client}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ MX\_DB\_CLIENTX\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENTX\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <mx\_db\_object.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <mx\_doc\_file.h>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ mx\_db\_client\_login(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ \ \ \ \ \ what\ went\ wrong}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ ACTION\ \ :\ logs\ in\ -\/\ may\ need\ to\ connect\ to\ server\ too}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ RETURNS\ :\ TRUE\ if\ everything\ worked,\ FALSE\ otherwise.\ On}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ :\ failure,\ err\ indicates\ what\ went\ wrong:}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ MX\_DB\_CLIENT\_COULDNT\_CONNECT}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ MX\_DB\_CLIENT\_AUTHENTICATION\_FAILURE}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ mx\_db\_client\_open\_wp\_doc(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ file\_name,\ \textcolor{keywordtype}{bool}\ recover,\ mx\_file\_create\_type\_t\ t\ =\ mx\_file\_simple\_e);}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ \ \ \ \ \ \ \ \ what\ went\ wrong}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ cid\ \ \ \ \ \ \ \ \ \ database\ connection\ id}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ file\_name\ \ \ \ \ \ \ name\ of\ file\ document}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ recover\ \ \ \ \ \ whether\ to\ attempt\ to\ recover\ a\ damaged\ document}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ ACTION\ \ :\ opens\ the\ document\ creating\ it\ if\ necessary.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ pointer\ to\ the\ document}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :\ \ \ \ MX\_FILE\_NEEDS\_RECOVER}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :\ \ \ \ MX\_FILE\_UNRECOVERABLE}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ mx\_db\_client\_open\_temporary\_doc(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00070\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ what\ went\ wrong}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ ACTION\ \ :\ creates\ a\ new\ document\ in\ a\ temporary\ file\ (/tmp\ e.g.)}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ pointer\ to\ the\ document.\ There\ should\ be\ no\ erros\ except\ in}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :\ a\ disaster.}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ mx\_db\_client\_open\_temporary\_wp\_doc(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ page\_size\ =\ \textcolor{stringliteral}{"{}A4"{}});}
+\DoxyCodeLine{00081\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ what\ went\ wrong}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ page\_size}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ ACTION\ \ :\ creates\ a\ new\ document\ in\ a\ temporary\ file\ (/tmp\ e.g.)}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ RETURNS\ :\ a\ pointer\ to\ the\ document.\ There\ should\ be\ no\ erros\ except\ in}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ :\ a\ disaster.}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ mx\_db\_client\_close\_wp\_doc(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00093\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ what\ went\ wrong}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ doc\ \ the\ document\ to\ close}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ ACTION\ \ :\ closes\ the\ document}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *\ Errors\ that\ can\ be\ handled\ by\ the\ caller:}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_MALLOC\_FAILED}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_FILE\_EFAULT}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_FILE\_EACCES}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_FILE\_ENOMEM}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_FILE\_ENOSPC}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ MX\_FILE\_UNKNOWN}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

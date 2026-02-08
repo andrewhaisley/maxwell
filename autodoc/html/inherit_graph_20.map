@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classmx__dg__ur__item.html" title=" " alt="" coords="5,55,128,80"/>
+<area shape="rect" id="Node000001" href="$classmx__dg__geom__ur__item.html" title=" " alt="" coords="176,55,343,80"/>
+<area shape="poly" id="edge210_Node000000_Node000001" title=" " alt="" coords="142,65,176,65,176,70,142,70"/>
+<area shape="rect" id="Node000002" href="$classmx__dg__add__ur__item.html" title=" " alt="" coords="399,5,553,31"/>
+<area shape="poly" id="edge211_Node000001_Node000002" title=" " alt="" coords="328,49,419,28,420,33,329,54"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__delete__ur__item.html" title=" " alt="" coords="391,55,561,80"/>
+<area shape="poly" id="edge212_Node000001_Node000003" title=" " alt="" coords="356,65,391,65,391,70,356,70"/>
+<area shape="rect" id="Node000004" href="$classmx__dg__swap__ur__item.html" title=" " alt="" coords="394,104,558,129"/>
+<area shape="poly" id="edge213_Node000001_Node000004" title=" " alt="" coords="329,80,420,101,419,107,328,86"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="mx_dg_farc_state" name="mx_dg_farc_state">
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,225,242,251"/>
+<area shape="rect" id="Node000005" href="$classmx__dg__fcircle__state.html" title=" " alt="" coords="5,299,159,324"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="149,261,98,301,95,296,146,257"/>
+<area shape="rect" id="Node000006" href="$classmx__dg__fellipse__state.html" title=" " alt="" coords="183,299,344,324"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="200,257,250,296,247,301,197,261"/>
+<area shape="rect" id="Node000002" href="$classmx__dg__arc__state.html" title=" " alt="" coords="106,152,239,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,191,175,225,170,225,170,191"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__state.html" title=" " alt="" coords="119,79,226,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,118,175,152,170,152,170,118"/>
+<area shape="rect" id="Node000004" href="$classmx__callback__target.html" title=" " alt="" coords="97,5,248,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="175,44,175,79,170,79,170,44"/>
+</map>

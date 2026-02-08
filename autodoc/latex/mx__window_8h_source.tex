@@ -1,0 +1,101 @@
+\doxysection{mx\+\_\+window.\+h}
+\hypertarget{mx__window_8h_source}{}\label{mx__window_8h_source}\index{ui/mx\_window.h@{ui/mx\_window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_WINDOW}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_WINDOW}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_window.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton/Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Editor\ window.\ One\ of\ these\ is\ used\ to\ hold\ whatever\ bits\ and\ pieces}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ an\ editor\ wants\ -\/\ e.g.\ toolbar,\ menu\ work\ area\ etc.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Things\ in\ windows\ are\ tiled\ vertically.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_bar.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_list.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_ui\_object.h>}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__editor}{mx\_editor}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__window}{mx\_window}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__window}{mx\_window}}(\mbox{\hyperlink{classmx__editor}{mx\_editor}}*\ parent,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name\ =\ NULL);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__window}{\string~mx\_window}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Change\ the\ windows\ title..}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_title(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Get\ this\ window's\ owning\ editor.}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__editor}{mx\_editor}}*\ get\_editor();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ iconise\ the\ window}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ iconsise();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ de-\/iconise\ the\ window}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ deiconise();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ gets\ hold\ of\ the\ form\ widget\ -\/\ needed\ by\ objects\ that\ you}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ are\ going\ to\ add\ in\ resize\ etc.}}
+\DoxyCodeLine{00068\ \ \ \ \ Widget\ get\_form()\ \{\ \textcolor{keywordflow}{return}\ form;\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ tell\ the\ window\ that\ you\ have\ added\ a\ ui\ object\ -\/\ this\ allows\ the}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ window\ to\ tile\ everything\ horizontally\ in\ the\ correct\ order}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_ui\_object(\mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}*\ o);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ call\ this\ once\ everything\ has\ been\ constructed\ to\ realize\ the\ widget}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ tree}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ activate(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ give\ the\ initial\ focus\ to\ the\ given\ ui\_object}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_focus(\mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}*\ o);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ called\ when\ the\ window\ is\ about\ to\ be\ forceably\ closed}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ forced\_close();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ his\ calls\ mx\_editor::window\_is\_closing()}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ close\_window\_cb(Widget,\ XtPointer,\ XtPointer);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__editor}{mx\_editor}}*\ parent;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ Widget\ form;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ objects;}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

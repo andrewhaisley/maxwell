@@ -1,0 +1,244 @@
+\doxysection{mx\+\_\+wp\+\_\+doc.\+h}
+\hypertarget{mx__wp__doc_8h_source}{}\label{mx__wp__doc_8h_source}\index{document/mx\_wp\_doc.h@{document/mx\_wp\_doc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_wp\_document}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ a\ document\ for\ a\ word\ processor}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ MX\_WP\_DOCUMENT\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOCUMENT\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}mx\_doc.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_sh\_lay.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOCUMENT\_IS\_HEADER\ "{}bhead"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOCUMENT\_IS\_FOOTER\ "{}bfoot"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOCUMENT\_HF\_SHEET\ "{}hfsid"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ maximum\ header/footer\ size\ as\ a\ proportion\ of\ a\ sheet\ size}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOC\_MAX\_HEADER\ (1.0\ /\ 3.0)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ MX\_WP\_DOC\_MAX\_FOOTER\ (1.0\ /\ 3.0)}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__document}{mx\_document}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__repaginator}{mx\_wp\_repaginator}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ MX\_RTTI(mx\_wp\_document\_class\_e)}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ as\ normal\ but,\ in\ the\ case\ of\ a\ new\ document,\ sets\ up\ some}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ default\ contents}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ uint32\ docid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ page\_size\ =\ \textcolor{stringliteral}{"{}A4"{}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ does\ things\ like\ flowing\ over\ sheet\ boundaries\ etc}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ same\ but\ form\ the\ start\ of\ the\ sheet\ containing\ the\ start\ position}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_from\_start\_of\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ reformats\ the\ whole\ document\ -\/\ after\ a\ global\ style\ change\ for\ example}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ add\_default\_styles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ get\ the\ size\ of\ the\ visisble\ portion\ of\ a\ sheet.\ This\ is}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ peculiar\ to\ wp\ docs\ where\ there\ are\ bits\ (headers\ \&\ footers)}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ that\ don't\ always\ get\ displayed\ but\ are\ still\ there.}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classmx__sheet__size}{mx\_sheet\_size}}\ get\_sheet\_visible\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i,\ mx\_painter\_mode\_t\ mode);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ get\ the\ text\ area\ used\ for\ the\ header\ \&\ footer\ -\/\ returns\ NULL}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ if\ there\ are\ non}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ header(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ footer(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ set\ the\ header\ and\ footer}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_header(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ a);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_footer(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ a);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ clear\ the\ header\ and\ footer}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_header(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_footer(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ delete\ the\ thing\ to\ the\ left\ of\ the\ postion.\ The\ position}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ is\ left\ pointing\ to\ the\ left\ of\ whatever\ got\ deleted}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ delete\_to\_left(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p,\ \textcolor{keywordtype}{bool}\&\ deleted\_paragraph);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ remove\ the\ area\ at\ the\ given\ position\ -\/\ rejoins\ surrounding\ areas}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ is\ necessary}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ get\ the\ style\ at\ a\ position.\ This\ is\ not\ a\ copy\ so\ don't\ delete\ or}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ modify\ it.}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_para\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ character.\ may\ be\ space\ or\ tab\ as\ well\ as\ printing}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ character}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ complex\ word\ item.\ The\ item\ is\ NOT\ copied,\ so\ do\ not\ delete\ it.}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_cw\_item(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ line\ break}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_line\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ paragraph\ break\ -\/\ split\ the\ paragraph\ at\ the\ given}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ position}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_para\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ pre-\/existing\ paragraph\ after\ the\ para\ at\ the\ given\ position.}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_next\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ character\ style\ at\ the\ given\ position\ -\/\ statically\ allocated}}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ get\_char\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ join\ the\ paragraph\ at\ the\ position\ with\ the\ next\ one.\ throws\ an\ error}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ if\ the\ next\ paragraph\ cannot\ be\ joined}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ join\_para\_with\_next(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ join\ the\ table\ at\ the\ position\ with\ the\ next\ one.\ throws\ an\ error}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ if\ the\ next\ table\ cannot\ be\ joined\ or\ if\ the\ position\ is\ not\ in\ a}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ table\ area}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ join\_table\_with\_next(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ join\ the\ thing\ at\ the\ current\ position\ if\ it\ has\ been\ split\ by}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ repagination.\ rejoin\_split\_text\_container()\ merely\ calls\ one\ of\ the\ two}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ following\ methods\ as\ appropriate}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_split\_text\_container(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_split\_paragraph(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_split\_table(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ split\ the\ document\ at\ the\ given\ position.\ If\ the\ position\ is\ in}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ the\ middle\ of\ a\ text\ area,\ this\ creates\ a\ new\ text\ are\ otherwise}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ does\ nothing.\ returns\ the\ index\ of\ the\ area\ created\ or\ just\ of\ the}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ old\ area.}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ split(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ the\ really\ nasty\ bit......\ sort\ out\ paragraph\ constraints,\ page\ and\ area}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ sizes\ etc\ and\ make\ it\ all\ fit}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ repaginate(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start\_sheet);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ set\ the\ highlight\ region\ -\/\ used\ by\ redraw}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_highlight\_range(\mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ clear\ the\ highlight}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_highlight();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ set/get\ the\ page\ size\ for\ all\ sheets\ in\ the\ document}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_page\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{bool}\ is\_landscape);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_page\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\&\ width,\ \textcolor{keywordtype}{float}\&\ height,\ \textcolor{keywordtype}{bool}\&\ is\_landscape);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ set/get\ the\ margins\ of\ all\ pages\ in\ the\ document}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_page\_margins(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ left,\ \textcolor{keywordtype}{float}\ right,\ \textcolor{keywordtype}{float}\ top,\ \textcolor{keywordtype}{float}\ bottom);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_page\_margins(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\&\ left,\ \textcolor{keywordtype}{float}\&\ right,\ \textcolor{keywordtype}{float}\&\ top,\ \textcolor{keywordtype}{float}\&\ bottom);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ reformat\ whole\ sheet}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ sn,\ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ insert\ an\ string\ of\ text}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_text(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ Get\ word\ at\ given\ position}}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_word(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ get\ the\ "{}logical"{}\ word\ at\ given\ position.\ This\ means\ if\ the\ word\ at\ the}}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ given\ position\ has\ been\ split\ across\ lines/pages,\ it\ will\ be\ joined\ up}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ and\ returned\ whole..\ The\ word\ returned\ is\ only\ guaranteed\ to\ be\ valid}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ until\ the\ next\ document\ access,\ since\ it\ may\ be\ allocated}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ statically.\ the\ other\ two\ positions\ are\ set\ to\ be\ the\ start\ and\ end\ of}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ the\ logical\ word\ respectively.}}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_logical\_word(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start\_word,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end\_word);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ similar\ to\ get\_logical\_word(),\ but\ it\ limits\ the\ output\ word\ to\ be\ within}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ the\ positions\ passed\ in\ the\ start\_limit,\ end\_limit\ parameters}}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ get\_logical\_word\_with\_limits(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ pos,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start\_limit,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end\_limit);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{//\ reposition\ the\ areas\ on\ the\ sheets.\ This\ is\ here\ (rather\ than\ in\ the}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ sheet\ class)\ as\ the\ way\ this\ happens\ is\ tightly\ bound\ to\ how\ a\ WP}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ works.\ A\ DTP\ package\ for\ example\ would\ want\ to\ do\ this\ very\ differently}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ reposition\_sheet\_areas(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ sn);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ reformat\ a\ bit\ of\ a\ single\ sheet\ -\/\ comments\ as\ for\ last\ routine}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_sheet(}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sn,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ start\_pos,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ end\_pos,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ this\ just\ calls\ the\ reformat\ method\ on\ the\ area\ -\/\ in\ a\ separate\ routine\ as\ it\ has}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{//\ to\ do\ a\ bit\ of\ casting}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ reformat\_area(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}*\ start\_pos,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}*\ end\_pos,}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ width,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ reposition\_sheet\_area(}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ left,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ right,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ top,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ width,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ y\_pos);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_area\_x\_pos(\mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ area\_width,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ width,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ left,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ right);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ get\_header\_footer\_sheet(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_header(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_footer(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_is\_header(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ b);}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_is\_footer(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ b);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ join\_sheets(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ sn1,\ \textcolor{keywordtype}{int}\ sn2);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ replace\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ style\_to\_replace,}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ replacement\_style);}
+\DoxyCodeLine{00237\ \};}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

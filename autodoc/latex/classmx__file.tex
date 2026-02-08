@@ -1,0 +1,174 @@
+\doxysection{mx\+\_\+file Class Reference}
+\hypertarget{classmx__file}{}\label{classmx__file}\index{mx\_file@{mx\_file}}
+
+
+Inheritance diagram for mx\+\_\+file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{classmx__file__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{classmx__file__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__file_aac696c924026455a8e2d502acf74eb42}\label{classmx__file_aac696c924026455a8e2d502acf74eb42} 
+void {\bfseries open} (int \&err, const char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\item 
+void \mbox{\hyperlink{classmx__file_a1b63ffd35e6f112211fc56e4409106c2}{close}} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__file_a7b99d66a551ecb87ab0568cc6c861beb}{start\+\_\+transaction}} (int \&err)
+\item 
+void \mbox{\hyperlink{classmx__file_a9383d8c66c01228601f5cdf647e02f14}{commit}} (int \&err)
+\item 
+virtual void \mbox{\hyperlink{classmx__file_ab7e5ed01e67276c8e831187e0327c4b5}{duplicate}} (int \&err, char \texorpdfstring{$\ast$}{*}name)
+\item 
+\Hypertarget{classmx__file_a6dc3d7347b8c87c49d732b9d341e5483}\label{classmx__file_a6dc3d7347b8c87c49d732b9d341e5483} 
+mx\+\_\+sfile\+\_\+type\+\_\+t {\bfseries next\+\_\+type} (int \&err)
+\item 
+\Hypertarget{classmx__file_ae94c330a8b35d335d6434ecd6b2ce0ad}\label{classmx__file_ae94c330a8b35d335d6434ecd6b2ce0ad} 
+\mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+attribute} (int \&err, int \&oid)
+\item 
+\Hypertarget{classmx__file_a4b7ca8665e3322fa7f025ce97d97d1fe}\label{classmx__file_a4b7ca8665e3322fa7f025ce97d97d1fe} 
+void {\bfseries next\+\_\+blob} (int \&err, int \&oid, char \texorpdfstring{$\ast$}{*}name, int \&length)
+\item 
+\Hypertarget{classmx__file_abaf360a91e31c7130fd1e701ec58a730}\label{classmx__file_abaf360a91e31c7130fd1e701ec58a730} 
+std\+::shared\+\_\+ptr$<$ unsigned char\mbox{[}$\,$\mbox{]}$>$ {\bfseries next\+\_\+blob\+\_\+segment} (int \&err, int \&oid, int \&seg\+\_\+num, char \texorpdfstring{$\ast$}{*}name, int \&len)
+\item 
+\Hypertarget{classmx__file_a0864c8c403fddf9ab9e9c20e1f3ddec8}\label{classmx__file_a0864c8c403fddf9ab9e9c20e1f3ddec8} 
+void {\bfseries write\+\_\+attribute} (int \&err, int oid, \mbox{\hyperlink{classmx__attribute}{mx\+\_\+attribute}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{classmx__file_ab968d2b8f6967e940a86f186587a9d96}\label{classmx__file_ab968d2b8f6967e940a86f186587a9d96} 
+void {\bfseries write\+\_\+blob} (int \&err, int oid, const char \texorpdfstring{$\ast$}{*}name, int length)
+\item 
+\Hypertarget{classmx__file_a7a9bd3bd3ee8ed31740a5ac1a47e1421}\label{classmx__file_a7a9bd3bd3ee8ed31740a5ac1a47e1421} 
+void {\bfseries write\+\_\+blob\+\_\+segment} (int \&err, int oid, int seg\+\_\+num, int length, const char \texorpdfstring{$\ast$}{*}name, const unsigned char \texorpdfstring{$\ast$}{*}data)
+\item 
+virtual uint32 \mbox{\hyperlink{classmx__file_a2bdcaf9d3283ad5ec11ecd0971361ec4}{get\+\_\+next\+\_\+id}} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__file_a6bfa6a120db907d6443cfd6d52275395}{get\+\_\+description}} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__file_abd3edaa15b96ef1909f2fbd34ad9c408}{get\+\_\+author}} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmx__file_a43f5e7d351e17f0b81e918bada04dcd5}{get\+\_\+version}} ()
+\item 
+virtual void \mbox{\hyperlink{classmx__file_a7532a913665e01bcf2dcf630bd1156fb}{set\+\_\+info}} (int \&err, char \texorpdfstring{$\ast$}{*}description, char \texorpdfstring{$\ast$}{*}author, char \texorpdfstring{$\ast$}{*}version)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__file_a1b63ffd35e6f112211fc56e4409106c2}\label{classmx__file_a1b63ffd35e6f112211fc56e4409106c2} 
+\index{mx\_file@{mx\_file}!close@{close}}
+\index{close@{close}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void mx\+\_\+file\+::close (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a9383d8c66c01228601f5cdf647e02f14}\label{classmx__file_a9383d8c66c01228601f5cdf647e02f14} 
+\index{mx\_file@{mx\_file}!commit@{commit}}
+\index{commit@{commit}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{commit()}{commit()}}
+{\footnotesize\ttfamily void mx\+\_\+file\+::commit (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_ab7e5ed01e67276c8e831187e0327c4b5}\label{classmx__file_ab7e5ed01e67276c8e831187e0327c4b5} 
+\index{mx\_file@{mx\_file}!duplicate@{duplicate}}
+\index{duplicate@{duplicate}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{duplicate()}{duplicate()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+file\+::duplicate (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_abd3edaa15b96ef1909f2fbd34ad9c408}\label{classmx__file_abd3edaa15b96ef1909f2fbd34ad9c408} 
+\index{mx\_file@{mx\_file}!get\_author@{get\_author}}
+\index{get\_author@{get\_author}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{get\_author()}{get\_author()}}
+{\footnotesize\ttfamily virtual const char \texorpdfstring{$\ast$}{*} mx\+\_\+file\+::get\+\_\+author (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a6bfa6a120db907d6443cfd6d52275395}\label{classmx__file_a6bfa6a120db907d6443cfd6d52275395} 
+\index{mx\_file@{mx\_file}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}}
+{\footnotesize\ttfamily virtual const char \texorpdfstring{$\ast$}{*} mx\+\_\+file\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a2bdcaf9d3283ad5ec11ecd0971361ec4}\label{classmx__file_a2bdcaf9d3283ad5ec11ecd0971361ec4} 
+\index{mx\_file@{mx\_file}!get\_next\_id@{get\_next\_id}}
+\index{get\_next\_id@{get\_next\_id}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{get\_next\_id()}{get\_next\_id()}}
+{\footnotesize\ttfamily virtual uint32 mx\+\_\+file\+::get\+\_\+next\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a43f5e7d351e17f0b81e918bada04dcd5}\label{classmx__file_a43f5e7d351e17f0b81e918bada04dcd5} 
+\index{mx\_file@{mx\_file}!get\_version@{get\_version}}
+\index{get\_version@{get\_version}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{get\_version()}{get\_version()}}
+{\footnotesize\ttfamily virtual const char \texorpdfstring{$\ast$}{*} mx\+\_\+file\+::get\+\_\+version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a7532a913665e01bcf2dcf630bd1156fb}\label{classmx__file_a7532a913665e01bcf2dcf630bd1156fb} 
+\index{mx\_file@{mx\_file}!set\_info@{set\_info}}
+\index{set\_info@{set\_info}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{set\_info()}{set\_info()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+file\+::set\+\_\+info (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{char \texorpdfstring{$\ast$}{*}}]{description,  }\item[{char \texorpdfstring{$\ast$}{*}}]{author,  }\item[{char \texorpdfstring{$\ast$}{*}}]{version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+\Hypertarget{classmx__file_a7b99d66a551ecb87ab0568cc6c861beb}\label{classmx__file_a7b99d66a551ecb87ab0568cc6c861beb} 
+\index{mx\_file@{mx\_file}!start\_transaction@{start\_transaction}}
+\index{start\_transaction@{start\_transaction}!mx\_file@{mx\_file}}
+\doxysubsubsection{\texorpdfstring{start\_transaction()}{start\_transaction()}}
+{\footnotesize\ttfamily void mx\+\_\+file\+::start\+\_\+transaction (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__doc__file}{mx\+\_\+doc\+\_\+file}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+db/mx\+\_\+file.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{mx\+\_\+ui\+\_\+object.\+h}
+\hypertarget{mx__ui__object_8h_source}{}\label{mx__ui__object_8h_source}\index{ui/mx\_ui\_object.h@{ui/mx\_ui\_object.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_UI\_OBJECT}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_UI\_OBJECT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_ui\_object.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ This\ is\ a\ base\ class\ for\ all\ user\ interface\ objects,\ ie,\ anything\ with\ a}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ widget\ (but\ not\ a\ John\ Smiths).}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \ Essentially\ just\ a\ wrapper\ for\ the\ standard\ Motif\ functions.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ \ The\ destructor\ does\ not\ destroy\ the\ Widget,\ since\ its\ parent\ (in\ the\ Motif}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ \ Hierarchy)\ will\ do\ this,\ and\ multiple\ calls\ to\ XtDestroyWidget\ are\ slow.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ \ To\ destroy\ a\ Widget\ when\ you\ need\ to\ you\ call\ destroyWidget().}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <X11/Intrinsic.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ MX\_NO\_CURSOR,}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_WATCH\_CURSOR,}
+\DoxyCodeLine{00052\ \ \ \ \ MX\_CROSSHAIR\_CURSOR,}
+\DoxyCodeLine{00053\ \ \ \ \ MX\_PENCIL\_CURSOR}
+\DoxyCodeLine{00054\ \}\ mx\_cursor\_type\_t;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ MX\_RTTI(mx\_ui\_object\_class\_e)}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ objectName,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ WidgetClass\ objectClass,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ Widget\ objectParent,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_args\ =\ 0,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ Arg*\ args\ =\ NULL);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__ui__object}{\string~mx\_ui\_object}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_managed();}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ manage();}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ unmanage();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ Widget\ get\_widget();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_name();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ destroy\_widget();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ set\ or\ clear\ a\ busy\ cursor\ -\/\ this\ is\ hierachical\ so\ any\ children}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ will\ also\ be\ set\ busy.}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_busy(Widget\ w\ =\ NULL);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_busy(Widget\ w\ =\ NULL);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ same\ thing\ on\ the\ widgets\ parent}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_parent\_busy();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_parent\_busy();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ this\ is\ a\ replacement\ for\ XtAppNextEvent}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ XtAppNextEvent(XtAppContext\ app\_context,\ XEvent*\ event\_return);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ make\ a\ beep}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ bell();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ get\ a\ value\ out\ of\ the\ X\ resource\ file}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_resource(}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ in\_value\_name,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ String\ out\_value\_type,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ XrmValue*\ out\_value\_ptr);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ take\ the\ input\ focus}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ take\_focus();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_cursor(mx\_cursor\_type\_t\ icursor\_type,\ Widget\ w\ =\ NULL);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00106\ \ \ \ \ Widget\ widget;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ mx\_cursor\_type\_t\ current\_cursor\_type;}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_UI\_OBJECT}}
+
+\end{DoxyCode}

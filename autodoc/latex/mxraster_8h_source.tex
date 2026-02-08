@@ -1,0 +1,161 @@
+\doxysection{mxraster.\+h}
+\hypertarget{mxraster_8h_source}{}\label{mxraster_8h_source}\index{raster/mxraster.h@{raster/mxraster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ mxraster.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ mxraster.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ \$id\$}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \$log\$}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ MXRASTER\_H}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MXRASTER\_H}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}mx\_db\_object.h"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}raster.h"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ CLASS:\ mxraster}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ raster\ based\ on\ a\ database\ object}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ e.g.\ an\ image\ area}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmxraster}{mxraster}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classraster}{raster}}\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmxraster}{mxraster}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\&\ robj,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nraster,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ alreadyExists,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ RAST\_CACHE\ cacheType\ =\ RCACHE\_NONE);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ new\ raster}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmxraster}{mxraster}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\&\ robj,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nraster,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ isize,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ itileSize,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ihasStoredResolution,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ istoredResolution,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ RAST\_PACK\ ipack,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ RAST\_DATA\ idata,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ int32\ inplanes,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ int32*\ isigbits,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ int32\ inumColours,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colours,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ COMP\_TYPE\ icomp,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ RAST\_CACHE\ cacheType\ =\ RCACHE\_NONE);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Create\ from\ an\ existing\ raster}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmxraster}{mxraster}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\&\ robj,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nraster,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classraster}{raster}}\&\ rast,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ COMP\_TYPE\ comp,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ RAST\_CACHE\ cacheType\ =\ RCACHE\_NONE);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{inline}\ COMP\_TYPE\ getCompression()\ \{\ \textcolor{keywordflow}{return}\ comp;\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ getTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ thisBuffer,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ getForEdit,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ unknown,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ putTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ areaSize);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ stringBuffer[100];}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ idStr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prop);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ indexSize();}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ indexReadSize();}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ indexByteSize();}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ indexReadByteSize();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ setRaster(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}\&\ robj,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nraster,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ isize,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ itileSize,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ihasStoredResolution,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ istoredResolution,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ RAST\_PACK\ ipack,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ RAST\_DATA\ idata,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ int32\ inplanes,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ int32*\ isigbits,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ int32\ numColours,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colours,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ COMP\_TYPE\ icomp,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ RAST\_CACHE\ cacheType);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ readIndex(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ int32*\ indexData,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ unknown);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ writeIndex(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tile,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ int32*\ indexData);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Object\ identifier}}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ object;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ numRaster;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ The\ object\ identifier}}
+\DoxyCodeLine{00148\ \ \ \ \ uint32\ id;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ The\ compression\ used\ in\ this\ raster}}
+\DoxyCodeLine{00150\ \ \ \ \ COMP\_TYPE\ comp;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ RAST\_CACHE\ savedCacheType;}
+\DoxyCodeLine{00153\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

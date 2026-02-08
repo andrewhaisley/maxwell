@@ -1,0 +1,114 @@
+\doxysection{mx\+\_\+app.\+h}
+\hypertarget{mx__app_8h_source}{}\label{mx__app_8h_source}\index{edit/mx\_app.h@{edit/mx\_app.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_APP}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_APP}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_app}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ This\ module\ defines\ a\ class\ which\ will\ handle\ all\ common\ aspects\ of}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ initializing\ and\ running\ an\ application.\ For\ example\ saving\ the\ document}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ etc.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ One\ app\ owns\ many\ editors.\ Each\ editor\ has\ it's\ own\ window\ menus.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ Editors\ may\ in\ turn\ have\ editors\ of\ their\ own\ -\/\ the\ app\ knows\ nothing}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ about\ these\ sub-\/editors.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ There\ can\ only\ ever\ be\ one\ app\ instance.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ \#include\ <mx.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_ui\_object.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ forward\ declarations}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__list}{mx\_list}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__app}{mx\_app}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ creates\ the\ instance\ of\ the\ app\ -\/\ reads\ config\ files,\ connects\ to}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ the\ lock\ manager\ etc}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmx__app}{mx\_app}}*\ init();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ runs\ the\ app\ -\/\ only\ returns\ on\ the\ quit\ button\ being\ pressed}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ run(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ closes\ things\ down\ -\/\ can't\ call\ run\ again\ after\ this}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ stop(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ explict\ call\ to\ open\ a\ document\ in\ a\ new\ editor\ window\ -\/\ call\ this}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ to\ open\ up\ command\ line\ option\ documents.\ Is\ also\ called\ from\ the}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ editor\ if\ the\ user\ asks\ to\ opens\ a\ document.}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ new\_wp\_editor(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ relocks\ any\ files\ opened\ by\ editors\ that\ the\ app\ knows\ about}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ relock();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ unlocks\ any\ files\ opened\ by\ editors\ that\ the\ app\ knows\ about}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ unlock();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ called\ by\ a\ wp\ editor\ when\ it\ is\ exiting}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ wp\_editor\_is\_exiting(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__editor}{mx\_wp\_editor}}*\ ed);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ called\ by\ anyone\ who\ has\ changed\ items\ in\ the\ global\ user}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ configuration.\ This\ allows\ the\ app\ to\ tell\ all\ it's\ editors}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ to\ refresh\ themselves\ (redraw\ rulers\ in\ new\ units\ etc).}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ config\_changed();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ is\ a\ named\ document\ currently\ being\ edited\ by\ one\ of\ the\ editors\ the}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ app\ knows\ about?}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_doc\_open(\textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ if\ the\ doc\ is\ open,\ bring\ the\ editor\ dealing\ with\ it\ to\ the\ front}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ promote\_doc\_editor(\textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classmx__app}{\string~mx\_app}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classmx__app}{mx\_app}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmx__app}{mx\_app}}*\ the\_app;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ build\_main\_window(Widget\ main\_window);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_busy();}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_busy();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ relock\_cb(XtPointer\ cd,\ XtIntervalId*\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ quit\_cb(Widget\ w,\ XtPointer\ client\_data,\ XtPointer\ call\_data);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ start\_wp\_cb(Widget\ w,\ XtPointer\ client\_data,\ XtPointer\ call\_data);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ wp\_editors;}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

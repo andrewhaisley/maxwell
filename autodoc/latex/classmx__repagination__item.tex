@@ -1,0 +1,86 @@
+\doxysection{mx\+\_\+repagination\+\_\+item Class Reference}
+\hypertarget{classmx__repagination__item}{}\label{classmx__repagination__item}\index{mx\_repagination\_item@{mx\_repagination\_item}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__repagination__item_a47add6b6f4ed789ce25137a5d2320a5b}\label{classmx__repagination__item_a47add6b6f4ed789ce25137a5d2320a5b} 
+enum {\bfseries mx\+\_\+constraint\+\_\+e} \{ {\bfseries mx\+\_\+keep\+\_\+together\+\_\+e}
+, {\bfseries mx\+\_\+keep\+\_\+with\+\_\+next\+\_\+e}
+, {\bfseries mx\+\_\+none\+\_\+e}
+, {\bfseries mx\+\_\+break\+\_\+before\+\_\+e}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__repagination__item_ad45b9d8b297430378f14505c27f37b1b}\label{classmx__repagination__item_ad45b9d8b297430378f14505c27f37b1b} 
+{\bfseries mx\+\_\+repagination\+\_\+item} (mx\+\_\+constraint\+\_\+e c)
+\item 
+\Hypertarget{classmx__repagination__item_af596b1a040a842e8a4340c53bff7e728}\label{classmx__repagination__item_af596b1a040a842e8a4340c53bff7e728} 
+{\bfseries mx\+\_\+repagination\+\_\+item} (mx\+\_\+constraint\+\_\+e c, float h)
+\item 
+\Hypertarget{classmx__repagination__item_ac6cd3ca27edac5f995b13b34851c1443}\label{classmx__repagination__item_ac6cd3ca27edac5f995b13b34851c1443} 
+mx\+\_\+constraint\+\_\+e {\bfseries get\+\_\+constraint} ()
+\item 
+\Hypertarget{classmx__repagination__item_aa374e73998f97e321492039de0cbcd2b}\label{classmx__repagination__item_aa374e73998f97e321492039de0cbcd2b} 
+void {\bfseries set\+\_\+constraint} (mx\+\_\+constraint\+\_\+e c)
+\item 
+\Hypertarget{classmx__repagination__item_ace9a5726ade3a432f320b9d676472760}\label{classmx__repagination__item_ace9a5726ade3a432f320b9d676472760} 
+float {\bfseries get\+\_\+height} ()
+\item 
+\Hypertarget{classmx__repagination__item_a38ab73c71dbc89b1964bad0fbf192725}\label{classmx__repagination__item_a38ab73c71dbc89b1964bad0fbf192725} 
+void {\bfseries set\+\_\+height} (float f)
+\item 
+\Hypertarget{classmx__repagination__item_a91f843a12c71acf0a0e68fda89004591}\label{classmx__repagination__item_a91f843a12c71acf0a0e68fda89004591} 
+void {\bfseries add\+\_\+area} (int \&err, int sheet\+\_\+num, \mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{classmx__repagination__item_a7c9e16acffb81eed01cba05cdf3529e0}\label{classmx__repagination__item_a7c9e16acffb81eed01cba05cdf3529e0} 
+void {\bfseries add\+\_\+para} (int \&err, int sheet\+\_\+num, \mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__text__area}{mx\+\_\+text\+\_\+area}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__repagination__item_ad026ff0f9fde67b8386212bc92c37efa}\label{classmx__repagination__item_ad026ff0f9fde67b8386212bc92c37efa} 
+void {\bfseries insert\+\_\+para} (int \&err, int bit\+\_\+num, int sheet\+\_\+num, \mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__text__area}{mx\+\_\+text\+\_\+area}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__repagination__item_a7678182a3d42ce2512427e149715eb58}\label{classmx__repagination__item_a7678182a3d42ce2512427e149715eb58} 
+void {\bfseries insert\+\_\+area} (int \&err, int bit\+\_\+num, int sheet\+\_\+num, \mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{classmx__repagination__item_a712fbb379b94d24385d8007bd1eb9c96}\label{classmx__repagination__item_a712fbb379b94d24385d8007bd1eb9c96} 
+void {\bfseries set\+\_\+dest} (int n)
+\item 
+\Hypertarget{classmx__repagination__item_a2ad2939beb87374fdd13a2faf158c3cb}\label{classmx__repagination__item_a2ad2939beb87374fdd13a2faf158c3cb} 
+int {\bfseries get\+\_\+dest} ()
+\item 
+\Hypertarget{classmx__repagination__item_aaf04c89bc42ce6d9eef72f32d1794b6f}\label{classmx__repagination__item_aaf04c89bc42ce6d9eef72f32d1794b6f} 
+int {\bfseries get\+\_\+num\+\_\+bits} ()
+\item 
+\Hypertarget{classmx__repagination__item_abe0f6078695782bf6bb0939ef6651089}\label{classmx__repagination__item_abe0f6078695782bf6bb0939ef6651089} 
+bool {\bfseries is\+\_\+bit\+\_\+paragraph} (int \&err, int i)
+\item 
+\Hypertarget{classmx__repagination__item_a4f4c23780d95e9452c2e62f38f2f35a7}\label{classmx__repagination__item_a4f4c23780d95e9452c2e62f38f2f35a7} 
+\mbox{\hyperlink{classmx__area}{mx\+\_\+area}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+area} (int \&err, int i)
+\item 
+\Hypertarget{classmx__repagination__item_a85ff2d836d7c3521b988f060f7301a16}\label{classmx__repagination__item_a85ff2d836d7c3521b988f060f7301a16} 
+\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+para} (int \&err, int i)
+\item 
+\Hypertarget{classmx__repagination__item_ad1bda51313ae32434577dc8997b1b44e}\label{classmx__repagination__item_ad1bda51313ae32434577dc8997b1b44e} 
+\mbox{\hyperlink{classmx__sheet}{mx\+\_\+sheet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+sheet} (int \&err, int i)
+\item 
+\Hypertarget{classmx__repagination__item_aaf8da6638223045617e76b20dd1c083d}\label{classmx__repagination__item_aaf8da6638223045617e76b20dd1c083d} 
+int {\bfseries get\+\_\+sheet\+\_\+index} (int \&err, int i)
+\item 
+\Hypertarget{classmx__repagination__item_a0f4cfb76ce6d7f51b2d2e0c78ec87f1d}\label{classmx__repagination__item_a0f4cfb76ce6d7f51b2d2e0c78ec87f1d} 
+void {\bfseries print\+\_\+debug} ()
+\item 
+\Hypertarget{classmx__repagination__item_ad13abaec5f935b685d512f2160924b87}\label{classmx__repagination__item_ad13abaec5f935b685d512f2160924b87} 
+bool {\bfseries is\+\_\+para} (int \&err)
+\item 
+\Hypertarget{classmx__repagination__item_a654ed9428a1795378ba8505c91286f10}\label{classmx__repagination__item_a654ed9428a1795378ba8505c91286f10} 
+mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries get\+\_\+area\+\_\+class} (int \&err)
+\item 
+\Hypertarget{classmx__repagination__item_a9bec61689104442ea249ebc3150f9a0f}\label{classmx__repagination__item_a9bec61689104442ea249ebc3150f9a0f} 
+\mbox{\hyperlink{classmx__repagination__item}{mx\+\_\+repagination\+\_\+item}} \texorpdfstring{$\ast$}{*} {\bfseries split} (int \&err, int i)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+wp\+\_\+rp\+\_\+item.\+h\end{DoxyCompactItemize}

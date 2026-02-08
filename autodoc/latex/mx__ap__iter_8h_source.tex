@@ -1,0 +1,93 @@
+\doxysection{mx\+\_\+ap\+\_\+iter.\+h}
+\hypertarget{mx__ap__iter_8h_source}{}\label{mx__ap__iter_8h_source}\index{document/mx\_ap\_iter.h@{document/mx\_ap\_iter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_area\_para\_iter}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ a\ class\ that\ iterates\ over\ the\ paragraphs\ in\ text\ areas\ and\ whole\ areas}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ for\ other\ classes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ MX\_AP\_ITER\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MX\_AP\_ITER\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_wp\_iter.h>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area__para__iterator}{mx\_area\_para\_iterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__wp__iterator}{mx\_wp\_iterator}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ MX\_RTTI(mx\_area\_para\_iterator\_class\_e)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classmx__area__para__iterator}{mx\_area\_para\_iterator}}(}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ start,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ end);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ there\ is\ always\ at\ least\ one\ thing.\ This\ means\ that\ the}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ more()\ function\ must\ be\ used\ after\ the\ data\ method\ rather\ than}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ before:}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ \ \ do}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ x\ =\ i.data(err);}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ \ \ while\ (i.more(err));}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ more(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ this\ returns\ a\ pointer\ to\ either\ an\ area\ or\ a\ paragraph\ within\ an}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ area\ depending\ on\ the\ class\ of\ the\ area.\ For\ a\ text\ area,\ it\ always\ a}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ paragraph.\ For\ other\ areas,\ it\ is\ the\ area\ itself.}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}*\ data(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ the\ current\ sheet\ number}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ the\ current\ sheet}}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ sheet();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ the\ paragraph\ number\ (if\ a\ paragraph)}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ para\_num();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ the\ current\ paragraph}}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ para();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ the\ current\ area\ index}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ area\_index();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ the\ current\ area}}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ area();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ increment(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

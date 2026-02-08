@@ -1,0 +1,516 @@
+\doxysection{mx\+\_\+sc\+\_\+device.\+h}
+\hypertarget{mx__sc__device_8h_source}{}\label{mx__sc__device_8h_source}\index{view/mx\_sc\_device.h@{view/mx\_sc\_device.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_SC\_DEVICE\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_SC\_DEVICE\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_sc\_device.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_sc\_device.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <Xft/Xft.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_device.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_ui\_object.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_xcb.h>}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_char\_style.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ CLASS:\ mx\_screen\_device}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__screen__device}{mx\_screen\_device}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__device}{mx\_device}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__xcallback__target}{mx\_xcallback\_target}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ MX\_RTTI(mx\_screen\_device\_class\_e)}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ \ Constructor}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classmx__screen__device}{mx\_screen\_device}}(\textcolor{keywordtype}{int}\&\ err,\ Widget\ parentWidget,\ \mbox{\hyperlink{classmx__frame}{mx\_frame}}\&\ deviceFrame);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ \ Destructor}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__screen__device}{\string~mx\_screen\_device}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ \ Overridden\ events\ for\ the\ screen\ device\ as\ an\ x\ callback}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ \ target}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ expose(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__expose__event}{mx\_expose\_event}}\&\ event);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ resize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ event);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ processPreDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ processSpecialDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ processDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ processPostDraw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ \ Routines\ for\ the\ size\ of\ the\ device}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ getDevicePixelSize()\ \{\ \textcolor{keywordflow}{return}\ windowSize;\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ \ Routines\ to\ drive\ clipping}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ clip\ in\ pixels}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ pushClipRect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\&\ coords,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doIntersect);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ pop\ a\ clip\ mask}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ popClipMask(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ clip\ to\ lines\ in\ pixels}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ pushClipPolypoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doIntersect);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ routines\ used\ to\ drive\ clipping\ when\ redrawing\ due\ to\ clipping\ etc}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ by\ default\ the\ screen\ device\ applies\ a\ clip\ mask\ to\ the\ area\ it\ is\ to}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ redraw\ and\ then\ asks\ the\ frame\ target\ to\ redraw\ the\ an\ area\ 2\ pixels}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ bigger}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getApplyClipMask()\ \{\ \textcolor{keywordflow}{return}\ applyClipMask;\ \};}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setApplyClipMask(\textcolor{keywordtype}{bool}\ iapplyClipMask)\ \{\ applyClipMask\ =\ iapplyClipMask;\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getPixelAdd()\ \{\ \textcolor{keywordflow}{return}\ pixelAdd;\ \};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPixelAdd(\textcolor{keywordtype}{int}\ ipixelAdd)\ \{\ pixelAdd\ =\ ipixelAdd;\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ \ Routines\ for\ basic\ drawing\ in\ pixels\ only}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ draw\ a\ rectangle}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillRect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ bottomRight,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ pxorRect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ bottomRight);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillArc(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ size,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFull,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillSector(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ size,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFull,}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillArc(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iarcFillType,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ size,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFull,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawArc(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ size,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFull,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ startAng,}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ endAng,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawLine(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ start,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ end);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawRect(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ bottomRight,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__angle}{mx\_angle}}\&\ angle);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawPoints(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawPolypoint(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawSegments(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ linesCoincident);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillPolypoint(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawCircle(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ radius);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ pfillCircle(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ radius);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ draw\ some\ text\ in\ a\ character\ style}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ pdrawText(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s,}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ uint32\ s\_len,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ pos,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ charStyle);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ draw\ a\ line\ of\ text\ in\ one\ go}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ pdrawTextLine(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ pos,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ init\_char\_style,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structmx__text__item}{mx\_text\_item}}*\ text\_items,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ uint32\ num\_items);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ pixel\ width\ of\ a\ character\ according\ to\ a\ given\ device}}
+\DoxyCodeLine{00223\ \ \ \ \ uint32\ pgetCharWidth(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ c,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ cs);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawTile(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ MX\_DEVICE\_RASTER\ tileType,}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nsigbits,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nunpackedBits,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tileSize,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ tile,}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}*\ clipRect\ =\ NULL);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{comment}{//\ draw\ a\ set\ of\ "{}resize\ handles"{},\ ie\ eight\ little\ boxes\ at\ the\ corner}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ of\ an\ unfilled\ reactangle.\ Do\ all\ in\ xormode\ so\ it\ can\ be\ undone}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ quickly\ by\ doing\ another\ call\ with\ the\ same\ parameters}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ pxorResizeHandles(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ bottomRight,}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ uint32\ handleWidth);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{void}\ outputImageHeader(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ topLeftOffset,}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ realSize,}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ MX\_DEVICE\_RASTER\ deviceType,}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nbits,}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nplanes,}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ncolours,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colours,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ imageSize,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ clipSet)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{void}\ outputImageTrailer(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ clipSet)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{int}\ depth();}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{comment}{//\ Routines\ to\ drive\ redrawing\ and\ scrolling\ of\ a\ device}}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{void}\ setShiftOrigin(\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ wantedShiftOrigin,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ gotShiftOrigin,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doShift);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{void}\ makeGap(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doX,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ frameStartPoint,}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ frameGapSize);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{void}\ closeGap(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doX,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ frameStartPoint,}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ frameGapSize);}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ shift\ the\ contents\ of\ a\ window\ in\ frame\ coordinates\ (used\ in\ scrolling\ and\ repositioning)}}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ shift(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ redraw\ the\ whole\ window}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ refresh(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ topLeft\ =\ NULL,}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ bottomRight\ =\ NULL);}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{comment}{//\ Routines\ to\ set\ line\ and\ fill\ styles\ on\ the\ device}}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{void}\ setDefaultLineStyle(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ s);}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{void}\ setDefaultFillStyle(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__fill__style}{mx\_fill\_style}}\&\ s);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{//\ Routines\ to\ manipulate\ colours\ on\ the\ device}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{void}\ registerColour(\mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colour,\ LUT\_VALUE*\ pixel);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{void}\ setForegroundColour(\textcolor{keywordtype}{int}\&\ err,\ LUT\_VALUE\ pixel);}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{void}\ setBackgroundColour(\textcolor{keywordtype}{int}\&\ err,\ LUT\_VALUE\ pixel);}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{void}\ setForegroundColour(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}\&\ c);}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{void}\ setBackgroundColour(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}\&\ c);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{static}\ XftColor\ getXftColour(Display\ *display,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}\ \&c);}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ Routines\ to\ manipulate\ pixmaps.\ The\ screen\ device\ is\ driven}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{comment}{//\ so\ that\ entities\ are\ only\ drawn\ into\ the\ pixmaps.\ The\ screen}}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{//\ device\ needs\ to\ keep\ a\ list\ of\ the\ maximum\ extent\ it\ needs\ to}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{comment}{//\ redraw.\ This\ functionality\ can\ be\ turned\ off\ -\/\ for\ instance}}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{comment}{//\ if\ we\ are\ redrawing\ for\ an\ expose/resize\ event\ we\ know\ we}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{//\ have\ to\ redraw\ everything.}}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{comment}{//\ When\ the\ device\ is\ being\ driven\ from\ outside\ the\ use\ may}}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{comment}{//\ call\ the\ pixmapCommit\ function\ to\ blat\ from\ the\ pixmap\ to}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{//\ the\ window\ the\ extent\ which\ has\ been\ drawn\ into}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{void}\ setDrawToWindowOnly(\textcolor{keywordtype}{bool}\ idrawToWindowOnly)}
+\DoxyCodeLine{00331\ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ drawToWindowOnly\ =\ idrawToWindowOnly;}
+\DoxyCodeLine{00333\ \ \ \ \ \};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setMonitor(\textcolor{keywordtype}{bool}\ idoMonitor)}
+\DoxyCodeLine{00336\ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ doMonitor\ =\ idoMonitor;}
+\DoxyCodeLine{00338\ \ \ \ \ \};}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{void}\ pixmapCommit();}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{comment}{//\ routines\ to\ drive\ the\ caret\ (cursor\ to\ all\ those\ non-\/computer}}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{comment}{//\ scientists\ who\ don't\ understand\ these\ things)}}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{void}\ switchCaretOff();}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordtype}{void}\ switchCaretOn();}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{void}\ caretPosition(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ pos,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{comment}{//\ called\ when\ the\ application\ shuts\ down}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ unloadFontsAndColours();}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{void}\ setXor(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ setOn);}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{comment}{//\ Basic\ parameters}}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{comment}{//***************************************************************}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ Display*\ display;}
+\DoxyCodeLine{00366\ \ \ \ \ GC\ gc;}
+\DoxyCodeLine{00367\ \ \ \ \ Window\ window;}
+\DoxyCodeLine{00368\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ windowSize;}
+\DoxyCodeLine{00369\ \ \ \ \ Screen*\ screen;}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{comment}{//\ the\ stored\ pixmap}}
+\DoxyCodeLine{00372\ \ \ \ \ Pixmap\ storePixmap;}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{comment}{//\ foreground\ and\ background\ colour}}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ foreground;}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ background;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{comment}{//\ the\ screen\ device\ creates\ draw\ events\ -\/\ so\ need\ process\ functions}}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{bool}\ inDrawEvent;}
+\DoxyCodeLine{00380\ \ \ \ \ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\ shiftOrigin;}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ Pixmap\ initialisePixmap();}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{void}\ setWindowSize();}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ setBasicColours();}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordtype}{void}\ blatPixmap(Pixmap\ ipixmap,}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ tl,}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ br);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{void}\ copyPixmapToWindow(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ topLeft,}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ bottomRight);}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{void}\ redraw(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ MX\_DEVICE\_GRAVITY\ deviceOffset,}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ oldSize,}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ newSize,}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ copyToWindow,}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doBlatPixmap,}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ topLeft\ =\ NULL,}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}*\ bottomRight\ =\ NULL);}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{comment}{//\ clip\ masks}}
+\DoxyCodeLine{00402\ \ \ \ \ Region*\ clipStack;}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{int}\ clipStackOffset;}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{int}\ clipStackSize;}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{comment}{//\ push\ a\ new\ region\ on\ to\ the\ stack}}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{void}\ pushClipMask(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ Region\ newRegion,}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doIntersect);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{comment}{//\ draw\ a\ polypoint\ as\ lines\ or\ points}}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{void}\ pdrawPolypointIntern(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ drawLines);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{comment}{//\ maximum\ number\ of\ requests\ and\ a\ static\ array\ of}}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{comment}{//\ xpoint\ to\ be\ used}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordtype}{int}\ maxRequests;}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{int}\ maxExtRequests;}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getMaxRequests()\ \{\ \textcolor{keywordflow}{return}\ GMAX(maxRequests,\ maxExtRequests);\ \};}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{comment}{//\ arc\ fill\ type}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordtype}{int}\ arcFillType;}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ nxpoints;}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{static}\ XPoint*\ xpoints;}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ nxsegments;}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keyword}{static}\ XSegment*\ xsegments;}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ setXPoints(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ npoints);}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordtype}{void}\ setXSegments(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nsegments);}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{comment}{//\ variable\ to\ monitor\ the\ size\ drawn\ to}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordtype}{bool}\ doMonitor;}
+\DoxyCodeLine{00440\ \ \ \ \ \mbox{\hyperlink{classmx__irect}{mx\_irect}}\ monitorRect;}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{comment}{//\ whether\ to\ clip\ on\ draw}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordtype}{bool}\ applyClipMask;}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordtype}{int}\ pixelAdd;}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordtype}{int}\ extendWidth;}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{int}\ nallocDashLengths;}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordtype}{int}\ nusedDashes;}
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordtype}{int}*\ dashLengths;}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ cdashLengths;}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{int}\ pixDashOffset;}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordtype}{bool}\ useXDash;}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keyword}{static}\ std::map<LUT\_VALUE,\ XColor\ *>\ m\_colour\_dict;}
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ LUT\_VALUE>\ m\_colour\_name\_dict;}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{static}\ std::map<uint32,\ LUT\_VALUE>\ m\_colour\_val\_dict;}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\ last\_char\_style;}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{bool}\ font\_set;}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordtype}{int}\ char\_style\_alignment\_offset(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ style);}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_char\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ charStyle);}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_underline(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ start,}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ end,}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ style);}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordtype}{void}\ setDashStyle(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ ndashes,\ \textcolor{keywordtype}{float}*\ dashes,\ \textcolor{keywordtype}{float}\ dashOffset);}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{void}\ polypointToXPoints(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordtype}{int}\ polypointToXSegments(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp,}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ linesCoincident);}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordtype}{void}\ monitorArcSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ size,}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipoint}{mx\_ipoint}}\&\ centre);}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordtype}{void}\ monitorPolypointSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ipolypoint}{mx\_ipolypoint}}\&\ pp);}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordtype}{float}\ fontScale;}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_char\_style\_pixel;}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{bool}\ caretVisible;}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keywordtype}{bool}\ caretOn;}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ caretTop;}
+\DoxyCodeLine{00492\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ caretBottom;}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordtype}{void}\ invertCaret();}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ caretXtCallback(XtPointer\ cd,\ XtIntervalId*\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordtype}{void}\ caretCallback();}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_xft\_width(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ \ \ XtIntervalId\ caretTimer;}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keywordtype}{bool}\ drawToWindowOnly;}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \ \ \ \ XftFont\ *m\_xft\_font;}
+\DoxyCodeLine{00506\ \ \ \ \ XftColor\ m\_xft\_foreground\_colour;}
+\DoxyCodeLine{00507\ \ \ \ \ XftColor\ m\_xft\_background\_colour;}
+\DoxyCodeLine{00508\ \};}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,145 @@
+\doxysection{mx\+\_\+wp\+\_\+layout Class Reference}
+\hypertarget{classmx__wp__layout}{}\label{classmx__wp__layout}\index{mx\_wp\_layout@{mx\_wp\_layout}}
+
+
+Inheritance diagram for mx\+\_\+wp\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classmx__wp__layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+wp\+\_\+layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classmx__wp__layout__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmx__wp__layout_af63eddda9bc67ab9ab767982299fd6e7}{change\+Sheets}} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+void \mbox{\hyperlink{classmx__wp__layout_ae0ed32e4da5d5a82f2a172938d4d8196}{remove\+Sheets}} (int \&err, int start\+Sheet, int n\+Sheets)
+\item 
+bool \mbox{\hyperlink{classmx__wp__layout_ac6d411f0d4c28a034ba470cb854275ae}{coord\+To\+Doc\+Coord}} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+Coord, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+bool \mbox{\hyperlink{classmx__wp__layout_a62d7483076ba8ebc0cedf6fa25ad4643}{doc\+Coord\+To\+Coord}} (int \&err, const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&doc\+\_\+coord, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord)
+\item 
+bool \mbox{\hyperlink{classmx__wp__layout_ac01bba9cb17964ce67d062e2deb8c2d5}{next\+Over\+Area}} (int \&err, \mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&output)
+\item 
+\Hypertarget{classmx__wp__layout_a31442fd1990675e91e522acd581a3369}\label{classmx__wp__layout_a31442fd1990675e91e522acd581a3369} 
+bool {\bfseries get\+Clip\+ToX} ()
+\item 
+\Hypertarget{classmx__wp__layout_a4ac69c70d0c5b156543c70246df07fb2}\label{classmx__wp__layout_a4ac69c70d0c5b156543c70246df07fb2} 
+void {\bfseries set\+Clip\+ToX} (bool icl)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries add\+Sheets} (int \&err, int start\+Sheet, int n\+Sheets, \mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}isheet\+Sizes)
+\item 
+virtual void {\bfseries start\+Iterate\+Over\+Area} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&tlcoord, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&brcoord)
+\item 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} {\bfseries get\+Sheet\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Position} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Max\+Size} (int \&err, int test\+Sheet)
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Total\+Size} (int \&err)
+\item 
+MX\+\_\+\+SH\+\_\+\+LAY\+\_\+\+OFFSET {\bfseries check\+Coord\+On\+Sheet} (int \&err, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&coord, int test\+Sheet, MX\+\_\+\+COORD\+\_\+\+TYPE coord\+Type)
+\item 
+int {\bfseries get\+Number\+Sheets} ()
+\item 
+void {\bfseries set\+Snap\+Tolerance} (double isnap\+Tolerance)
+\item 
+double {\bfseries get\+Snap\+Tolerance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries check\+Range} (int \&err, int test\+Sheet)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries nsheets}
+\item 
+\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*} {\bfseries sheet\+Sizes}
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries tl\+Iterate}
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries br\+Iterate}
+\item 
+int {\bfseries last\+Sheet\+Iterate}
+\item 
+double {\bfseries snap\+Tolerance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__wp__layout_af63eddda9bc67ab9ab767982299fd6e7}\label{classmx__wp__layout_af63eddda9bc67ab9ab767982299fd6e7} 
+\index{mx\_wp\_layout@{mx\_wp\_layout}!changeSheets@{changeSheets}}
+\index{changeSheets@{changeSheets}!mx\_wp\_layout@{mx\_wp\_layout}}
+\doxysubsubsection{\texorpdfstring{changeSheets()}{changeSheets()}}
+{\footnotesize\ttfamily void mx\+\_\+wp\+\_\+layout\+::change\+Sheets (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{int}]{start\+Sheet,  }\item[{int}]{n\+Sheets,  }\item[{\mbox{\hyperlink{classmx__sheet__size}{mx\+\_\+sheet\+\_\+size}} \texorpdfstring{$\ast$}{*}}]{isheet\+Sizes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+\Hypertarget{classmx__wp__layout_ac6d411f0d4c28a034ba470cb854275ae}\label{classmx__wp__layout_ac6d411f0d4c28a034ba470cb854275ae} 
+\index{mx\_wp\_layout@{mx\_wp\_layout}!coordToDocCoord@{coordToDocCoord}}
+\index{coordToDocCoord@{coordToDocCoord}!mx\_wp\_layout@{mx\_wp\_layout}}
+\doxysubsubsection{\texorpdfstring{coordToDocCoord()}{coordToDocCoord()}}
+{\footnotesize\ttfamily bool mx\+\_\+wp\+\_\+layout\+::coord\+To\+Doc\+Coord (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{coord,  }\item[{\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{doc\+Coord,  }\item[{MX\+\_\+\+COORD\+\_\+\+TYPE}]{coord\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+\Hypertarget{classmx__wp__layout_a62d7483076ba8ebc0cedf6fa25ad4643}\label{classmx__wp__layout_a62d7483076ba8ebc0cedf6fa25ad4643} 
+\index{mx\_wp\_layout@{mx\_wp\_layout}!docCoordToCoord@{docCoordToCoord}}
+\index{docCoordToCoord@{docCoordToCoord}!mx\_wp\_layout@{mx\_wp\_layout}}
+\doxysubsubsection{\texorpdfstring{docCoordToCoord()}{docCoordToCoord()}}
+{\footnotesize\ttfamily bool mx\+\_\+wp\+\_\+layout\+::doc\+Coord\+To\+Coord (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{const \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&}]{doc\+\_\+coord,  }\item[{\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+\Hypertarget{classmx__wp__layout_ac01bba9cb17964ce67d062e2deb8c2d5}\label{classmx__wp__layout_ac01bba9cb17964ce67d062e2deb8c2d5} 
+\index{mx\_wp\_layout@{mx\_wp\_layout}!nextOverArea@{nextOverArea}}
+\index{nextOverArea@{nextOverArea}!mx\_wp\_layout@{mx\_wp\_layout}}
+\doxysubsubsection{\texorpdfstring{nextOverArea()}{nextOverArea()}}
+{\footnotesize\ttfamily bool mx\+\_\+wp\+\_\+layout\+::next\+Over\+Area (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__doc__rect__t}{mx\+\_\+doc\+\_\+rect\+\_\+t}} \&}]{output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+\Hypertarget{classmx__wp__layout_ae0ed32e4da5d5a82f2a172938d4d8196}\label{classmx__wp__layout_ae0ed32e4da5d5a82f2a172938d4d8196} 
+\index{mx\_wp\_layout@{mx\_wp\_layout}!removeSheets@{removeSheets}}
+\index{removeSheets@{removeSheets}!mx\_wp\_layout@{mx\_wp\_layout}}
+\doxysubsubsection{\texorpdfstring{removeSheets()}{removeSheets()}}
+{\footnotesize\ttfamily void mx\+\_\+wp\+\_\+layout\+::remove\+Sheets (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{int}]{start\+Sheet,  }\item[{int}]{n\+Sheets }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__sheet__layout}{mx\+\_\+sheet\+\_\+layout}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+wp\+\_\+lay.\+h\end{DoxyCompactItemize}

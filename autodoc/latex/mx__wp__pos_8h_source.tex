@@ -1,0 +1,281 @@
+\doxysection{mx\+\_\+wp\+\_\+pos.\+h}
+\hypertarget{mx__wp__pos_8h_source}{}\label{mx__wp__pos_8h_source}\index{document/mx\_wp\_pos.h@{document/mx\_wp\_pos.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_WP\_POS}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_WP\_POS}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_wp\_pos.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Positions\ within\ a\ document\ from\ a\ WP\ point\ of\ view.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_wp\_sh\_pos.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__point}{mx\_point}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ MX\_RTTI(mx\_wp\_pos\_class\_e)}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}();}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ other);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__wp__doc__pos}{\string~mx\_wp\_doc\_pos}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ compare\ logical\ positions}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ p);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ logical\ navigation\ around\ the\ document}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ up(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ down(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ left(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ right(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d,\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ c);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d,\ \textcolor{keywordtype}{int}\ sheet);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ is\ it\ the\ end/start\ of\ the\ doc?}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ is\ it\ the\ first\ line/paragraph\ of\ the\ doc?}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_start();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_start\_line();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_start\_para();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ which\ sheet\ is\ the\ current\ position\ in}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_sheet()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ position\ within\ the\ sheet}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}*\ get\_sheet\_pos();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ back\ one\ sheet}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ back\_sheet(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ back\ one\ area}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ back\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ forward\ one\ sheet}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ forward\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ end\ of\ sheet}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ start\ of\ sheet}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ where\ are\ we?}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ position(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ where\ are\ we\ offset\ in\ lines\ from\ current\ position}}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ position(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d,\ \textcolor{keywordtype}{int}\ line\_offset);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ reset\ in\ the\ event\ of\ a\ change\ in\ the\ underlying\ document}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ d);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ in\ paragraph?}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_paragraph(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ in\ table?}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_table(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ get\ the\ paragraph\ pos\ if\ the\ postion\ is\ in\ one}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{classmx__para__pos}{mx\_para\_pos}}*\ get\_para\_pos(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ get\ the\ paragraph\ if\ the\ postion\ is\ in\ one}}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ get\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ get\ the\ paragraph\ style\ at\ the\ current\ location\ -\/\ could\ be\ an}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ area\ or\ a\ paragraph}}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_para\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ get\ the\ area\ position\ the\ position\ is\ in}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}*\ get\_area\_pos(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ get\ the\ area\ the\ position\ is\ in}}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ get\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ at\ the\ start\ of\ its\ area}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_area\_start(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ at\ the\ end\ of\ its\ area}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_area\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ moveto\ next\ sheet}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ moveto\ previous\ sheet}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ moveto\ next\ area}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ moveto\ previous\ area}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ moveto\ start\ of\ next\ or\ end\ of\ previous\ cell\ in\ table.\ Or\ do\ left/right}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ if\ at\ the\ start/end\ of\ current\ table\ area,\ or\ not\ in\ a\ table\ area}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_cell(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_cell(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ moveto\ start\ of\ next\ or\ end\ of\ previous\ row\ in\ table.\ Or\ do\ up/down\ if}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ at\ the\ start/end\ of\ current\ table\ area,\ or\ not\ in\ a\ table\ area}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_row(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_row(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ move\ to\ the\ start/end\ of\ the\ area.}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ moveto\ start\ of\ next/prev\ paragraph\ if\ in\ a\ text\ area,\ next/prev\ area}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ otherwise}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ next/prev\ word}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ next/prev\ logical\ word,\ ie,\ counting\ words\ which\ have\ been\ split\ across}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ lines\ as\ one.}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_logical\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{void}\ prev\_logical\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ if\ the\ position\ is\ a\ paragraph,\ moveto\ the\ start/end\ of\ it.\ Otherwise}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ move\ to\ the\ start/end\ of\ the\ area.}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ moveto\ the\ start/end\ of\ the\ table\ row.\ Position\ must\ be\ in\ a\ table\ area}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_row(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_row(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ moveto\ the\ start/end\ of\ the\ table\ cell.\ Position\ must\ be\ in\ a\ table\ area}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_cell(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_cell(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ move\ to\ the\ start\ or\ end\ of\ physical\ or\ logical\ words}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_start\_logical\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ moveto\_end\_logical\_word(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ move\ left\ or\ right\ ignoring\ "{}false"{}\ break\ words.\ False\ break\ words\ are}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ those\ break\ words\ which\ are\ merely\ markers,\ ie\ Long\ word\ breaks\ and}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ paragraph\ breaks\ for\ split\ paragraphs\ (after\ repagination).}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_left\_ignoring\_false\_breaks(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_right\_ignoring\_false\_breaks(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ try\ and\ make\ sure\ the\ position\ is\ valid\ -\/\ if\ it\ is\ off\ the\ end\ of\ the}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//\ sheet,\ move\ it\ to\ the\ end}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ make\_valid(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ in\ the\ same\ area,\ paragraph,\ table\ cell,\ table\ row,\ or}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ table\ column\ as\ the\ other?}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_same\_area\_as(\mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_same\_para\_as(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_same\_cell\_as(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_same\_row\_as(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_same\_column\_as(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ p);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ at\ the\ start\ of\ a\ paragraph}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_at\_start\_of\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_at\_end\_of\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{comment}{//\ is\ the\ position\ within\ a\ table\ or\ paragraph\ which\ has\ been\ split\ due}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ to\ repagination}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_in\_split\_text\_container(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{comment}{//\ remember\ this\ position\ from\ the\ start\ of\ a\ given\ sheet\ in\ units\ of}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//\ paragraphs/table\ areas\ and\ character\ offsets\ into\ those\ objects}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ save(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc,\ uint32\ sheet\_no\ =\ 0);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ restore\ this\ position\ from\ the\ start\ of\ a\ given\ sheet\ in\ units\ of}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ paragraphs/table\ areas\ and\ character\ offsets\ into\ those\ objects}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{void}\ restore(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{comment}{//\ tells\ whether\ this\ position\ and\ the\ other\ position\ are\ part\ of\ the\ same}}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ logical\ text\ container\ (paragraph/table)}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_part\_of\_same\_text\_container(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ other,}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ moves\ to\ the\ next\ logical\ paragraph}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_logical\_para(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num;}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\ sheet\_pos;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ stuff\ for\ "{}remembering"{}\ positions}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{struct\ }stored\_pos\_t\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ stored\_pos\_t();}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ uint32\ sheet\_index;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ uint32\ paragraph\_index;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ uint32\ char\_index;}
+\DoxyCodeLine{00252\ \ \ \ \ \};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ stored\_pos\_t\ stored\_pos;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ text\ container\ (table\ area\ or\ paragraph)\ at\ the\ current}}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{comment}{//\ position}}
+\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}*\ get\_text\_container(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//\ is\ the\ given\ text\ container\ the\ end,\ or\ a\ whole\ one,\ ie\ not\ split\ by\ the}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//\ repagination}}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_whole\_or\_end\_of\_text\_container(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rtti}{mx\_rtti}}*\ tc);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ stored\ pos\ to\ be\ the\ offset\ from\ the\ start\ of\ the\ current}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ logical\ paragraph}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_offset\_from\_start\_of\_logical\_paragraph(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ physical\ pos\ to\ be\ the\ stored\ logical\ pos\ from\ the\ start\ of\ the}}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{//\ current\ logical\ paragraph}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_offset\_from\_start\_of\_logical\_paragraph(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00273\ \};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_WP\_POS}}
+
+\end{DoxyCode}

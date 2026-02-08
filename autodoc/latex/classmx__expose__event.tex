@@ -1,0 +1,100 @@
+\doxysection{mx\+\_\+expose\+\_\+event Class Reference}
+\hypertarget{classmx__expose__event}{}\label{classmx__expose__event}\index{mx\_expose\_event@{mx\_expose\_event}}
+
+
+Inheritance diagram for mx\+\_\+expose\+\_\+event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classmx__expose__event__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+expose\+\_\+event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classmx__expose__event__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__expose__event_ab6ba98cd1462aebd916abe645fef08c0}\label{classmx__expose__event_ab6ba98cd1462aebd916abe645fef08c0} 
+{\bfseries mx\+\_\+expose\+\_\+event} (\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*}idevice)
+\item 
+\Hypertarget{classmx__expose__event_a3c912517c287c65529b96a0d38db20db}\label{classmx__expose__event_a3c912517c287c65529b96a0d38db20db} 
+void {\bfseries set\+Rect} (\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&itl, \mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} \&ibr)
+\item 
+\Hypertarget{classmx__expose__event_a0af26d6586b6266792d0fc189dd1ee67}\label{classmx__expose__event_a0af26d6586b6266792d0fc189dd1ee67} 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries get\+TL} ()
+\item 
+\Hypertarget{classmx__expose__event_a5af13ecdca602bacd8a7ade49fe77951}\label{classmx__expose__event_a5af13ecdca602bacd8a7ade49fe77951} 
+\mbox{\hyperlink{classmx__doc__coord__t}{mx\+\_\+doc\+\_\+coord\+\_\+t}} {\bfseries get\+BR} ()
+\item 
+\Hypertarget{classmx__expose__event_ac489f630ee130112280c7599544a29d8}\label{classmx__expose__event_ac489f630ee130112280c7599544a29d8} 
+int {\bfseries get\+Count} ()
+\item 
+\Hypertarget{classmx__expose__event_a8ceb9093470a158c9bc2870bdc366410}\label{classmx__expose__event_a8ceb9093470a158c9bc2870bdc366410} 
+void {\bfseries set\+Count} (int icount)
+\item 
+unsigned long int \mbox{\hyperlink{classmx__expose__event_a269418ecb8f561c75a23ff6b6f453e44}{get\+Type}} ()
+\item 
+void \mbox{\hyperlink{classmx__expose__event_adc20352769b069361120b2ab8a10b4a5}{convert}} (int \&err, int dest\+Id, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}destination\+Target, \mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}out\+Event)
+\item 
+void \mbox{\hyperlink{classmx__expose__event_a4a893fa204b02ad781565dc8495f8b88}{propagate}} (int \&err, \mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}destination\+Target)
+\item 
+\Hypertarget{classmx__expose__event_ac7d8ef54dda4221bfc6b3114159cb71a}\label{classmx__expose__event_ac7d8ef54dda4221bfc6b3114159cb71a} 
+\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Device} ()
+\item 
+\Hypertarget{classmx__expose__event_a9db4fff4ba7600374f5412d72de584fe}\label{classmx__expose__event_a9db4fff4ba7600374f5412d72de584fe} 
+void {\bfseries set\+Device} (\mbox{\hyperlink{classmx__device}{mx\+\_\+device}} \texorpdfstring{$\ast$}{*}idevice)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__event}{mx\+\_\+event}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries get\+Source\+Id} ()
+\item 
+void {\bfseries set\+Source\+Id} (int isource\+Id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__expose__event_adc20352769b069361120b2ab8a10b4a5}\label{classmx__expose__event_adc20352769b069361120b2ab8a10b4a5} 
+\index{mx\_expose\_event@{mx\_expose\_event}!convert@{convert}}
+\index{convert@{convert}!mx\_expose\_event@{mx\_expose\_event}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily void mx\+\_\+expose\+\_\+event\+::convert (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{int}]{dest\+Id,  }\item[{\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}}]{destination\+Target,  }\item[{\mbox{\hyperlink{classmx__event}{mx\+\_\+event}} \texorpdfstring{$\ast$}{*}}]{out\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__event}{mx\+\_\+event}}.
+
+\Hypertarget{classmx__expose__event_a269418ecb8f561c75a23ff6b6f453e44}\label{classmx__expose__event_a269418ecb8f561c75a23ff6b6f453e44} 
+\index{mx\_expose\_event@{mx\_expose\_event}!getType@{getType}}
+\index{getType@{getType}!mx\_expose\_event@{mx\_expose\_event}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily unsigned long int mx\+\_\+expose\+\_\+event\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__event}{mx\+\_\+event}}.
+
+\Hypertarget{classmx__expose__event_a4a893fa204b02ad781565dc8495f8b88}\label{classmx__expose__event_a4a893fa204b02ad781565dc8495f8b88} 
+\index{mx\_expose\_event@{mx\_expose\_event}!propagate@{propagate}}
+\index{propagate@{propagate}!mx\_expose\_event@{mx\_expose\_event}}
+\doxysubsubsection{\texorpdfstring{propagate()}{propagate()}}
+{\footnotesize\ttfamily void mx\+\_\+expose\+\_\+event\+::propagate (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__callback__target}{mx\+\_\+callback\+\_\+target}} \texorpdfstring{$\ast$}{*}}]{destination\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__event}{mx\+\_\+event}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/mx\+\_\+event.\+h\end{DoxyCompactItemize}

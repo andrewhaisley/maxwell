@@ -1,0 +1,95 @@
+\doxysection{mx\+\_\+db\+\_\+cc.\+h}
+\hypertarget{mx__db__cc_8h_source}{}\label{mx__db__cc_8h_source}\index{db/mx\_db\_cc.h@{db/mx\_db\_cc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_db\_cc}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ MX\_DB\_CLIENT\_CACHE\_H}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MX\_DB\_CLIENT\_CACHE\_H}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx\_file.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__db__object}{mx\_db\_object}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__attribute}{mx\_attribute}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_DB\_OBJECT\_DOCUMENT\_ID\ 1}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ a\ cache\ of\ objects/object\ IDs}}
+\DoxyCodeLine{00044\ uint32\ mx\_db\_cc\_add\_oid(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ o);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_add\_known\_oid(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ o,\ uint32\ oid);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_delete\_oid(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid);}
+\DoxyCodeLine{00047\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ mx\_db\_cc\_get\_obj\_from\_oid(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ a\ cache\ of\ attributes}}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_set\_attribute(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ a);}
+\DoxyCodeLine{00051\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ mx\_db\_cc\_get\_attribute\_ro(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_del\_attribute(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ blobs}}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_create\_blob(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_delete\_blob(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00057\ uint32\ mx\_db\_cc\_get\_blob\_size(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_set\_blob\_size(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ size);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_get\_blob\_data(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ index,\ uint32\ n\_bytes,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_set\_blob\_data(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ index,\ uint32\ n\_bytes,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data);}
+\DoxyCodeLine{00061\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ mx\_db\_cc\_get\_blob\_readonly(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ uint32\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ uint32\ index,\ uint32\ n\_bytes);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ initialisation}}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_init(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ database\ type\ things\ -\/\ open,\ close,\ commit\ etc}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_open\_doc(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name,\ \textcolor{keywordtype}{bool}\ recover,\ mx\_file\_create\_type\_t\ t\ =\ mx\_file\_simple\_e);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_close\_doc(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid);}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_commit(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_commit\_as(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ \textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ size}}
+\DoxyCodeLine{00073\ uint32\ mx\_db\_cc\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ document\ description\ info}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_set\_info(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid,\ \textcolor{keywordtype}{char}*\ description,\ \textcolor{keywordtype}{char}*\ author,\ \textcolor{keywordtype}{char}*\ version);}
+\DoxyCodeLine{00077\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_db\_cc\_get\_description(uint32\ docid);}
+\DoxyCodeLine{00078\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_db\_cc\_get\_author(uint32\ docid);}
+\DoxyCodeLine{00079\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_db\_cc\_get\_version(uint32\ docid);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ modification\ test}}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{bool}\ mx\_db\_cc\_doc\_modified(\textcolor{keywordtype}{int}\&\ err,\ uint32\ docid);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ move\ an\ object\ between\ document\ -\/\ moves\ blobs\ and\ attributes.}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ the\ oid\ will\ change\ as\ a\ result.\ This\ function\ will\ only\ work\ properly\ if}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ all\ attributes\ and\ blobs\ are\ at\ least\ partly\ in\ the\ cache.}}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ mx\_db\_cc\_move\_object(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__db__object}{mx\_db\_object}}*\ o,\ \textcolor{keywordtype}{int}\ source\_doc,\ \textcolor{keywordtype}{int}\ dest\_doc,\ \textcolor{keywordtype}{int}\&\ oid);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,16 @@
+<map id="mx_dg_toolbar" name="mx_dg_toolbar">
+<area shape="rect" id="Node000001" title=" " alt="" coords="146,317,265,343"/>
+<area shape="rect" id="Node000002" href="$classmx__bar.html" title=" " alt="" coords="97,243,167,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,276,195,315,192,319,152,280"/>
+<area shape="rect" id="Node000003" href="$classmx__ui__object.html" title=" " alt="" coords="5,80,115,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,119,64,149,72,179,94,214,120,241,116,244,90,218,67,181,58,150,56,120"/>
+<area shape="rect" id="Node000005" href="$classmx__window.html" title=" " alt="" coords="82,155,182,180"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="83,113,122,152,118,156,79,117"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="25,5,95,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="63,45,63,80,57,80,57,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="135,194,135,242,129,242,129,194"/>
+<area shape="rect" id="Node000006" href="$classmx__frame__target.html" title=" " alt="" coords="203,243,338,268"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="253,281,218,319,214,315,249,277"/>
+<area shape="rect" id="Node000007" href="$classmx__callback__target.html" title=" " alt="" coords="206,155,357,180"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="281,194,275,242,270,242,276,194"/>
+</map>

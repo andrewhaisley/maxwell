@@ -1,0 +1,9 @@
+<map id="mx_device" name="mx_device">
+<area shape="rect" id="Node000001" title=" " alt="" coords="104,79,197,104"/>
+<area shape="rect" id="Node000003" href="$classmx__print__device.html" title=" " alt="" coords="5,152,136,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,115,86,154,82,150,126,111"/>
+<area shape="rect" id="Node000004" href="$classmx__screen__device.html" title=" " alt="" coords="161,152,303,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,111,220,150,217,154,172,115"/>
+<area shape="rect" id="Node000002" href="$classmx__rtti.html" title=" " alt="" coords="116,5,185,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,44,153,79,148,79,148,44"/>
+</map>

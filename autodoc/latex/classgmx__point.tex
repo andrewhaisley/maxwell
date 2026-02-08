@@ -1,0 +1,300 @@
+\doxysection{gmx\+\_\+point Class Reference}
+\hypertarget{classgmx__point}{}\label{classgmx__point}\index{gmx\_point@{gmx\_point}}
+
+
+Inheritance diagram for gmx\+\_\+point\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classgmx__point__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gmx\+\_\+point\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classgmx__point__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgmx__point_a4b979b21723a0f0537065485534fe0e7}\label{classgmx__point_a4b979b21723a0f0537065485534fe0e7} 
+{\bfseries gmx\+\_\+point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p)
+\item 
+\Hypertarget{classgmx__point_aaadf7b3d916fc8bc6ec34bf42b114b8c}\label{classgmx__point_aaadf7b3d916fc8bc6ec34bf42b114b8c} 
+{\bfseries gmx\+\_\+point} (const \mbox{\hyperlink{classgmx__point}{gmx\+\_\+point}} \&p)
+\item 
+int \mbox{\hyperlink{classgmx__point_a83aeacc6d224984d87153ac3e42e59ff}{dimension}} ()
+\item 
+bool \mbox{\hyperlink{classgmx__point_a4bdfc3ce2ef387bb6ae76a9f7687d26d}{store\+Box}} ()
+\item 
+\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \mbox{\hyperlink{classgmx__point_a97fed3cb318399da6a21a4391d259159}{box}} (int \&err)
+\item 
+virtual GEOM\+\_\+\+INTERSECT\+\_\+\+TYPE \mbox{\hyperlink{classgmx__point_a1c4222afa15597d49016cda82e1d02ed}{intersect\+Box}} (int \&err, \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&r, double tolerance=GEOM\+\_\+\+SMALL)
+\item 
+double \mbox{\hyperlink{classgmx__point_a8f646f8e407d057e6c8f593bac4e11da}{dist2snap}} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&pi, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&snap\+Info=default\+Snap\+Info, double tolerance=GEOM\+\_\+\+SMALL) const
+\item 
+void \mbox{\hyperlink{classgmx__point_abecad31615738974013c35a765780d36}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classgmx__point_afafb3c48110b587ed9ccaee7a608accb}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classgmx__point_a0b83001edf042aed99d979afe9b6c0f0}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+\mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgmx__point_a4226c33715aabda730383d4fed30ceac}{duplicate}} () const
+\item 
+int \mbox{\hyperlink{classgmx__point_a275894affbc9aae5ac233f0bfa87b925}{whole\+Select\+Count}} ()
+\item 
+bool \mbox{\hyperlink{classgmx__point_afd62c05441bd2140a1097e01cd3dc71e}{merge\+Select\+Count}} (int nselect\+Counts, int \texorpdfstring{$\ast$}{*}select\+Counts)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries get\+Details} (int32 \&s, int32 \&c)
+\item 
+void {\bfseries set\+Details} (int32 s, int32 c)
+\item 
+double {\bfseries dist} (\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p) const
+\item 
+MX\+\_\+\+GEOM\+\_\+\+TYPE {\bfseries get\+Type} ()
+\item 
+virtual bool {\bfseries is\+Segmentable} ()
+\item 
+virtual int {\bfseries segment} (int \&err, int32 max\+Size, int32 segment\+Id, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}split\+Geometry)
+\item 
+virtual int {\bfseries fuse} (int \&err, \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*}rest\+Geometry, bool is\+First)
+\item 
+virtual bool {\bfseries require\+All\+Segments} ()
+\item 
+virtual bool {\bfseries join\+End\+Segments} ()
+\item 
+virtual bool {\bfseries is\+Closed} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgmx__point_aa35ccac1d3ca4459972cd3106d5666cb}\label{classgmx__point_aa35ccac1d3ca4459972cd3106d5666cb} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries p}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+MX\+\_\+\+GEOM\+\_\+\+TYPE {\bfseries type}
+\item 
+int32 {\bfseries style\+Id}
+\item 
+int32 {\bfseries colour\+Id}
+\item 
+int {\bfseries select\+Count}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}}
+\begin{DoxyCompactItemize}
+\item 
+static double {\bfseries fac1}
+\item 
+static double {\bfseries fac2}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgmx__point_a97fed3cb318399da6a21a4391d259159}\label{classgmx__point_a97fed3cb318399da6a21a4391d259159} 
+\index{gmx\_point@{gmx\_point}!box@{box}}
+\index{box@{box}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{box()}{box()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} gmx\+\_\+point\+::box (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a83aeacc6d224984d87153ac3e42e59ff}\label{classgmx__point_a83aeacc6d224984d87153ac3e42e59ff} 
+\index{gmx\_point@{gmx\_point}!dimension@{dimension}}
+\index{dimension@{dimension}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{dimension()}{dimension()}}
+{\footnotesize\ttfamily int gmx\+\_\+point\+::dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a8f646f8e407d057e6c8f593bac4e11da}\label{classgmx__point_a8f646f8e407d057e6c8f593bac4e11da} 
+\index{gmx\_point@{gmx\_point}!dist2snap@{dist2snap}}
+\index{dist2snap@{dist2snap}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{dist2snap()}{dist2snap()}}
+{\footnotesize\ttfamily double gmx\+\_\+point\+::dist2snap (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&}]{pi,  }\item[{\mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&}]{snap\+Info = {\ttfamily defaultSnapInfo},  }\item[{double}]{tolerance = {\ttfamily GEOM\+\_\+SMALL} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a4226c33715aabda730383d4fed30ceac}\label{classgmx__point_a4226c33715aabda730383d4fed30ceac} 
+\index{gmx\_point@{gmx\_point}!duplicate@{duplicate}}
+\index{duplicate@{duplicate}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{duplicate()}{duplicate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}} \texorpdfstring{$\ast$}{*} gmx\+\_\+point\+::duplicate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a0b83001edf042aed99d979afe9b6c0f0}\label{classgmx__point_a0b83001edf042aed99d979afe9b6c0f0} 
+\index{gmx\_point@{gmx\_point}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 gmx\+\_\+point\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a1c4222afa15597d49016cda82e1d02ed}\label{classgmx__point_a1c4222afa15597d49016cda82e1d02ed} 
+\index{gmx\_point@{gmx\_point}!intersectBox@{intersectBox}}
+\index{intersectBox@{intersectBox}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{intersectBox()}{intersectBox()}}
+{\footnotesize\ttfamily virtual GEOM\+\_\+\+INTERSECT\+\_\+\+TYPE gmx\+\_\+point\+::intersect\+Box (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{\mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&}]{r,  }\item[{double}]{tolerance = {\ttfamily GEOM\+\_\+SMALL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_afd62c05441bd2140a1097e01cd3dc71e}\label{classgmx__point_afd62c05441bd2140a1097e01cd3dc71e} 
+\index{gmx\_point@{gmx\_point}!mergeSelectCount@{mergeSelectCount}}
+\index{mergeSelectCount@{mergeSelectCount}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{mergeSelectCount()}{mergeSelectCount()}}
+{\footnotesize\ttfamily bool gmx\+\_\+point\+::merge\+Select\+Count (\begin{DoxyParamCaption}\item[{int}]{nselect\+Counts,  }\item[{int \texorpdfstring{$\ast$}{*}}]{select\+Counts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_abecad31615738974013c35a765780d36}\label{classgmx__point_abecad31615738974013c35a765780d36} 
+\index{gmx\_point@{gmx\_point}!serialise@{serialise}}
+\index{serialise@{serialise}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void gmx\+\_\+point\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a4bdfc3ce2ef387bb6ae76a9f7687d26d}\label{classgmx__point_a4bdfc3ce2ef387bb6ae76a9f7687d26d} 
+\index{gmx\_point@{gmx\_point}!storeBox@{storeBox}}
+\index{storeBox@{storeBox}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{storeBox()}{storeBox()}}
+{\footnotesize\ttfamily bool gmx\+\_\+point\+::store\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_afafb3c48110b587ed9ccaee7a608accb}\label{classgmx__point_afafb3c48110b587ed9ccaee7a608accb} 
+\index{gmx\_point@{gmx\_point}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void gmx\+\_\+point\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+\Hypertarget{classgmx__point_a275894affbc9aae5ac233f0bfa87b925}\label{classgmx__point_a275894affbc9aae5ac233f0bfa87b925} 
+\index{gmx\_point@{gmx\_point}!wholeSelectCount@{wholeSelectCount}}
+\index{wholeSelectCount@{wholeSelectCount}!gmx\_point@{gmx\_point}}
+\doxysubsubsection{\texorpdfstring{wholeSelectCount()}{wholeSelectCount()}}
+{\footnotesize\ttfamily int gmx\+\_\+point\+::whole\+Select\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__geom}{mx\+\_\+geom}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/geometry.\+h\end{DoxyCompactItemize}

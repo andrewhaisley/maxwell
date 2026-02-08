@@ -1,0 +1,67 @@
+\doxysection{mx\+\_\+snap\+\_\+info Class Reference}
+\hypertarget{classmx__snap__info}{}\label{classmx__snap__info}\index{mx\_snap\_info@{mx\_snap\_info}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__snap__info_a1ef55006db9e0b8f4737c50bf1b19bda}\label{classmx__snap__info_a1ef55006db9e0b8f4737c50bf1b19bda} 
+{\bfseries mx\+\_\+snap\+\_\+info} (bool isnap\+Mode=FALSE, double isnap\+Tolerance=0)
+\item 
+\Hypertarget{classmx__snap__info_a4a9f47e199b0ac1c34deabe21df32e02}\label{classmx__snap__info_a4a9f47e199b0ac1c34deabe21df32e02} 
+void {\bfseries set\+Mode} (bool im)
+\item 
+\Hypertarget{classmx__snap__info_a201eae0f217cd1c020680619cb12b597}\label{classmx__snap__info_a201eae0f217cd1c020680619cb12b597} 
+void {\bfseries set\+Tolerance} (double t)
+\item 
+\Hypertarget{classmx__snap__info_a5c30605e8f67f713284260c41d5de766}\label{classmx__snap__info_a5c30605e8f67f713284260c41d5de766} 
+void {\bfseries copy\+Basics} (const \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&isnap\+Info)
+\item 
+\Hypertarget{classmx__snap__info_aad9524a23a202cb79ce0bfd9c86012df}\label{classmx__snap__info_aad9524a23a202cb79ce0bfd9c86012df} 
+void {\bfseries set\+Count} (int icount)
+\item 
+\Hypertarget{classmx__snap__info_ac5dc1c153b1b9d363d1c68e1464a647f}\label{classmx__snap__info_ac5dc1c153b1b9d363d1c68e1464a647f} 
+int {\bfseries get\+Count} ()
+\item 
+\Hypertarget{classmx__snap__info_a4e9b988c374717d7ac5c9dcf2083cd12}\label{classmx__snap__info_a4e9b988c374717d7ac5c9dcf2083cd12} 
+bool {\bfseries is\+Snapping} ()
+\item 
+\Hypertarget{classmx__snap__info_abfd1339ac7b39bbd71b4b445621386b4}\label{classmx__snap__info_abfd1339ac7b39bbd71b4b445621386b4} 
+bool {\bfseries set\+Point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&snap\+Point, double distance, int count, double offset)
+\item 
+\Hypertarget{classmx__snap__info_a95258fda5dace952a3ad079a200453b6}\label{classmx__snap__info_a95258fda5dace952a3ad079a200453b6} 
+bool {\bfseries already\+Failed} (int test\+Count)
+\item 
+\Hypertarget{classmx__snap__info_aeee44967ddfe1712a857eab0e679ce9c}\label{classmx__snap__info_aeee44967ddfe1712a857eab0e679ce9c} 
+double {\bfseries get\+Distance} ()
+\item 
+\Hypertarget{classmx__snap__info_a31dd33859adf02fdc48a3c57f7469360}\label{classmx__snap__info_a31dd33859adf02fdc48a3c57f7469360} 
+double {\bfseries get\+Snap\+Tolerance} ()
+\item 
+\Hypertarget{classmx__snap__info_a369514f66d2497b375deeb9e15a5bf1d}\label{classmx__snap__info_a369514f66d2497b375deeb9e15a5bf1d} 
+double {\bfseries get\+Snap\+Tolerance2} ()
+\item 
+\Hypertarget{classmx__snap__info_a44306056d313969454a44b9933dce7cd}\label{classmx__snap__info_a44306056d313969454a44b9933dce7cd} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Point} ()
+\item 
+\Hypertarget{classmx__snap__info_ac5510061241398c2a2410c302f5b7fff}\label{classmx__snap__info_ac5510061241398c2a2410c302f5b7fff} 
+void {\bfseries set\+Point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&ip)
+\item 
+\Hypertarget{classmx__snap__info_a47365b25c4ec0208a061df798b28f45e}\label{classmx__snap__info_a47365b25c4ec0208a061df798b28f45e} 
+bool {\bfseries dist2point} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&test\+Point, int test\+Count, double tolerance, double \&dist\+Val)
+\item 
+\Hypertarget{classmx__snap__info_a56ebf6dbcdf7c487765dddefda466963}\label{classmx__snap__info_a56ebf6dbcdf7c487765dddefda466963} 
+bool {\bfseries dist2span} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, const \mbox{\hyperlink{classmx__rect}{mx\+\_\+rect}} \&test\+Span, int test\+Count, double tolerance, double \&dist\+Val)
+\item 
+\Hypertarget{classmx__snap__info_a025ab558069d4fe5e74420bbdf7a25f5}\label{classmx__snap__info_a025ab558069d4fe5e74420bbdf7a25f5} 
+bool {\bfseries dist2arc} (const \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&p, const \mbox{\hyperlink{classmx__arc}{mx\+\_\+arc}} \&test\+Arc, int test\+Count, double tolerance, double \&dist\+Val)
+\item 
+\Hypertarget{classmx__snap__info_a8ab423b3caede393588ebe4561e15bec}\label{classmx__snap__info_a8ab423b3caede393588ebe4561e15bec} 
+bool {\bfseries transfer\+Snap} (\mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \&test\+Snap, int success\+Count, int new\+Count)
+\item 
+\Hypertarget{classmx__snap__info_afd5a287e08f99a263f3c198f5adbfbf8}\label{classmx__snap__info_afd5a287e08f99a263f3c198f5adbfbf8} 
+double {\bfseries combine} (int num\+Snap\+Infos, \mbox{\hyperlink{classmx__snap__info}{mx\+\_\+snap\+\_\+info}} \texorpdfstring{$\ast$}{*}snap\+Infos)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+geometry/geometry.\+h\end{DoxyCompactItemize}

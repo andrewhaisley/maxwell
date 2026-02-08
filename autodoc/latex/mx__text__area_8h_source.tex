@@ -1,0 +1,185 @@
+\doxysection{mx\+\_\+text\+\_\+area.\+h}
+\hypertarget{mx__text__area_8h_source}{}\label{mx__text__area_8h_source}\index{document/mx\_text\_area.h@{document/mx\_text\_area.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_TEXT\_AREA\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_TEXT\_AREA\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_text\_area}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Areas\ specifically\ for\ holding\ text}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx\_area.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_complex\_w.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_TEXT\_AREA\_PARAS\ "{}paras"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MX\_TEXT\_AREA\_NPARAS\ "{}nparas"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_TEXT\_AREA\_PARA\_INDICES\ "{}paraindices"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__list}{mx\_list}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__area}{mx\_area}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ MX\_RTTI(mx\_text\_area\_class\_e)}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}(uint32\ docid,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ style,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}(uint32\ docid,\ uint32\ oid,\ \textcolor{keywordtype}{bool}\ is\_controlled\ =\ FALSE);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}(\mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}\&\ a);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__text__area}{\string~mx\_text\_area}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ duplicate();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ clears\ all\ the\ contents\ leaving\ an\ empty\ area\ with\ one\ paragraph}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_contents(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ move\ into\ another\ document}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ document\ about\ to\ be\ committed\ \ -\/\ put\ attributes\ into\ blobs\ etc}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ not\ part\ of\ the\ required\ stuff\ for\ a\ db\_object\ but\ a\ sensible\ extra}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise\_attributes(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ free\ some\ memory}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ uncache(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ memory\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00076\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ text\ areas\ are\ flowable}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_flowable()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ mx\_object\_buffer*\ force\_height(}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ requested,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ actual);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ iterates\ through\ paragraphs\ and\ replaces\ any\ references\ to\ the\ given}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ base\ style\ with\ the\ new\ reference.\ It\ also\ calls\ the\ superclasses\ method.}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ replace\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ style\_to\_replace,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ replacement\_style);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ reformat\ a\ given\ range.\ This\ is\ the\ smallest\ range\ within\ the\ area}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ that\ will\ be\ reformatted\ -\/\ changes\ may\ filter\ down\ as\ a\ result\ of}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ size\ changes\ etc.}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ reformat(}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ start,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ end,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ reformat\ the\ whole\ area}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ reformat(}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_paragraphs(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{float}\ paragraph\_y\_offset(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ get(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ remove(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ swap(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ remove(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ insert\_new\_paragraph(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ ap);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_adjust\_position(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ para,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ append(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ split\ at\ a\ given\ position\ -\/\ the\ next\ text\ area\ created\ is\ added}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ to\ the\ sheet\ (and\ index)\ in\ the\ appropriate\ postion\ and\ a\ pointer}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ to\ it\ is\ returned}}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}\&\ p);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ can\ this\ area\ be\ joined\ with\ the\ other?}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ can\_join(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ join\ this\ area\ with\ another.\ The\ second\ area\ is\ deleted\ as\ part\ of\ this}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ process.\ Throws\ an\ error\ if\ the\ areas\ are\ incompatible.}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ join(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ get\ the\ full\ paragraph\ style\ at\ the\ given\ position\ -\/\ this\ is\ not}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ a\ copy\ so\ you\ don't\ have\ to\ free\ it\ afterwards.\ The\ position\ must}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ be\ a\ text\ area\ position\ of\ course.}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}*\ get\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area__pos}{mx\_area\_pos}}*\ p);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ delete\ the\ thing\ to\ the\ left\ of\ the\ position}}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ delete\_to\_left(}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}*\ p,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ paragraph\_deleted);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ character\ -\/\ may\ be\ space\ or\ tab\ as\ well\ as\ printing\ character}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_char(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}*\ p);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ complex\ word\ item.\ The\ item\ is\ NOT\ copied,\ so\ do\ not\ delete\ it.}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_cw\_item(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}*\ p);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ line\ break}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_line\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}*\ p);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ paragraph\ break}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_para\_break(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area__pos}{mx\_text\_area\_pos}}*\ p);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ work\ out\ the\ new\ outline\ following\ a\ reformat}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ recalculate\_outline(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\&\ height\_changed);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ find\ the\ index\ of\ a\ paragraph}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_index(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ rejoin\ adjacent\ paragraphs\ where\ they\ are\ extensions\ of\ the}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ same\ logical\ one}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_logical\_paras(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ print\ debug\ information}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ print\_debug();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{virtual}\ mx\_db\_mem\_state\_t\ get\_mem\_state();}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_mem\_state(mx\_db\_mem\_state\_t\ s);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{//\ has\ this\ area\ got\ a\ bage\ break\ before\ it}}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ has\_page\_break\_before(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ paragraphs;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ rejoin\_from\_position(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\&\ para\_index);}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_TEXT\_AREA\_H}}
+
+\end{DoxyCode}

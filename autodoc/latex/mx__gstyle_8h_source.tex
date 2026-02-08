@@ -1,0 +1,273 @@
+\doxysection{mx\+\_\+gstyle.\+h}
+\hypertarget{mx__gstyle_8h_source}{}\label{mx__gstyle_8h_source}\index{geomstyle/mx\_gstyle.h@{geomstyle/mx\_gstyle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <mx\_style.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ CLASS:\ mx\_geomstyle}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ general\ class\ for\ geometry\ style}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ types,\ holding\ the\ name\ and\ type\ of\ the\ style}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}()}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ -\/1;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ name\ =\ NULL;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ styleType\ =\ mx\_gstyle\_unknown;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ isPrivate\ =\ FALSE;}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ mx\_gstyle\_type\_t\ stype,\ \textcolor{keywordtype}{int}\ iid\ =\ -\/1);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__geomstyle}{\string~mx\_geomstyle}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ getName()\ \{\ \textcolor{keywordflow}{return}\ name;\ \};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getId()\ \{\ \textcolor{keywordflow}{return}\ id;\ \};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{inline}\ mx\_gstyle\_type\_t\ getType()\ \{\ \textcolor{keywordflow}{return}\ styleType;\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ setName(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ iname);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setId(\textcolor{keywordtype}{int}\ iid)\ \{\ \textcolor{keywordtype}{id}\ =\ iid;\ \};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setType(mx\_gstyle\_type\_t\ type)\ \{\ styleType\ =\ type;\ \};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setPrivate(\textcolor{keywordtype}{bool}\ iisPrivate)\ \{\ isPrivate\ =\ iisPrivate;\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00062\ \ \ \ \ int32\ id;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{00064\ \ \ \ \ mx\_gstyle\_type\_t\ styleType;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ some\ styles\ may\ not\ be\ viewable\ to\ the\ public\ but}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ used\ internally\ by\ a\ style\ device}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPrivate;}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ CLASS:\ mx\_single\_styles}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ collection\ of\ styles\ to\ store}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ with\ a\ diagram}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00079\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}(mx\_gstyle\_type\_t\ istyleType);}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{\string~mx\_single\_styles}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ gstyle);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ gstyle);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ insertColour(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ gstyle);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00089\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ getStyleById(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ getStyleByName(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \ \ int32\ currentId;}
+\DoxyCodeLine{00096\ \ \ \ \ mx\_gstyle\_type\_t\ styleType;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::map<int,\ mx\_geomstyle\ *>\ m\_stylesById;}
+\DoxyCodeLine{00099\ \ \ \ \ std::map<std::string,\ mx\_geomstyle\ *>\ m\_stylesByName;}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *\ CLASS:\ mx\_all\_styles}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ collection\ of\ styles\ to\ store}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ with\ a\ diagram}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__all__styles}{mx\_all\_styles}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00111\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classmx__all__styles}{mx\_all\_styles}}();}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classmx__all__styles}{\string~mx\_all\_styles}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00117\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ insert(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ gstyle);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{int}\ insertColour(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ colour);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}*\ get(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ mx\_gstyle\_type\_t\ styleType,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ styleId);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classmx__colour}{mx\_colour}}*\ getColour(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ colourId);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00132\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ dashStyles;}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ lineStyles;}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ fillStyles;}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ pointStyles;}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ borderStyles;}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ areaStyles;}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{classmx__single__styles}{mx\_single\_styles}}\ hatchStyles;}
+\DoxyCodeLine{00140\ \ \ \ \ std::map<int,\ mx\_colour\ *>\ m\_colours;}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ *\ CLASS:\ mx\_gpoint\_style}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__gpoint__style}{mx\_gpoint\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00152\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{classmx__gpoint__style}{mx\_gpoint\_style}}()\ \{\ \};}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{classmx__gpoint__style}{mx\_gpoint\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{classmx__point__style}{mx\_point\_style}}\ style;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00158\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00159\ \};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ *\ CLASS:\ mx\_gdash\_style}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__gdash__style}{mx\_gdash\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00170\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{classmx__gdash__style}{mx\_gdash\_style}}()\ \{\ \};}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{classmx__gdash__style}{mx\_gdash\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{classmx__dash__style}{mx\_dash\_style}}\ style;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00176\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ *\ CLASS:\ mx\_gline\_style}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00185\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__gline__style}{mx\_gline\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00188\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00189\ \ \ \ \ \mbox{\hyperlink{classmx__gline__style}{mx\_gline\_style}}()\ \{\ \};}
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{classmx__gline__style}{mx\_gline\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\ style;}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00194\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00195\ \};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ *\ CLASS:\ mx\_ghatch\_style}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ghatch__style}{mx\_ghatch\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00206\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{classmx__ghatch__style}{mx\_ghatch\_style}}()\ \{\ \};}
+\DoxyCodeLine{00208\ \ \ \ \ \mbox{\hyperlink{classmx__ghatch__style}{mx\_ghatch\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{classmx__hatch__style}{mx\_hatch\_style}}\ style;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00212\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00213\ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ *\ CLASS:\ mx\_fill\_style}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__gfill__style}{mx\_gfill\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00224\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classmx__gfill__style}{mx\_gfill\_style}}()\ \{\ \};}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{classmx__gfill__style}{mx\_gfill\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{classmx__fill__style}{mx\_fill\_style}}\ style;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00230\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00231\ \};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ *\ CLASS:\ mx\_gbd\_style}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__gborder__style}{mx\_gborder\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00242\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classmx__gborder__style}{mx\_gborder\_style}}()\ \{\ \};}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{classmx__gborder__style}{mx\_gborder\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{classmx__border__style}{mx\_border\_style}}\ style;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00248\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00249\ \};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ *\ CLASS:\ mx\_area\_style}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__garea__style}{mx\_garea\_style}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__geomstyle}{mx\_geomstyle}}\ \{}
+\DoxyCodeLine{00260\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{classmx__garea__style}{mx\_garea\_style}}()\ \{\ \};}
+\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{classmx__garea__style}{mx\_garea\_style}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{classmx__area__style}{mx\_area\_style}}\ style;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00266\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00267\ \};}
+
+\end{DoxyCode}

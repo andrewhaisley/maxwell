@@ -1,0 +1,1500 @@
+\doxysection{rtf.\+h}
+\hypertarget{rtf_8h_source}{}\label{rtf_8h_source}\index{rtf/rtf.h@{rtf/rtf.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <mx\_list.h>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font}{mx\_font}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__colour}{mx\_colour}};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__table__area}{mx\_table\_area}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__line__style}{mx\_line\_style}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__fill__style}{mx\_fill\_style}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFcontrol}{RTFcontrol}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ The\ types\ of\ tables}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ RTFTunknown,}
+\DoxyCodeLine{00047\ \ \ \ \ RTFTfonts,}
+\DoxyCodeLine{00048\ \ \ \ \ RTFTcolours,}
+\DoxyCodeLine{00049\ \ \ \ \ RTFTfiles,}
+\DoxyCodeLine{00050\ \ \ \ \ RTFTsectionStyle,}
+\DoxyCodeLine{00051\ \ \ \ \ RTFTparagraphStyle,}
+\DoxyCodeLine{00052\ \ \ \ \ RTFTcharacterStyle,}
+\DoxyCodeLine{00053\ \ \ \ \ RTFTnumberTables}
+\DoxyCodeLine{00054\ \}\ rtfTableType;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ The\ types\ of\ control\ word}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ RTFCflag,}
+\DoxyCodeLine{00060\ \ \ \ \ RTFCvalue,}
+\DoxyCodeLine{00061\ \ \ \ \ RTFCdestination,}
+\DoxyCodeLine{00062\ \ \ \ \ RTFCtoggle,}
+\DoxyCodeLine{00063\ \ \ \ \ RTFCsymbol}
+\DoxyCodeLine{00064\ \}\ rtfControlType;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ An\ enumeration\ for\ charsets}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ RTF\_CHARSET\_ANSI\ =\ 0,}
+\DoxyCodeLine{00070\ \ \ \ \ RTF\_CHARSET\_SYMBOL\ =\ 2,}
+\DoxyCodeLine{00071\ \ \ \ \ RTF\_CHARSET\_SHIFTJIS\ =\ 128,}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ RTF\_CHARSET\_GREEK\ =\ 161,}
+\DoxyCodeLine{00074\ \ \ \ \ RTF\_CHARSET\_TURKISH,}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ RTF\_CHARSET\_HEBREW\ =\ 177,}
+\DoxyCodeLine{00077\ \ \ \ \ RTF\_CHARSET\_ARABICSIMPLIFIED,}
+\DoxyCodeLine{00078\ \ \ \ \ RTF\_CHARSET\_ARABICTRDITIONAL,}
+\DoxyCodeLine{00079\ \ \ \ \ RTF\_CHARSET\_ARABICUSER,}
+\DoxyCodeLine{00080\ \ \ \ \ RTF\_CHARSET\_HEBREWUSER,}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ RTF\_CHARSET\_CYRILLIC\ =\ 204,}
+\DoxyCodeLine{00083\ \ \ \ \ RTF\_CHARSET\_EASTERNEUROPE\ =\ 238,}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ RTF\_CHARSET\_PC437\ =\ 254,}
+\DoxyCodeLine{00086\ \ \ \ \ RTF\_CHARSET\_OEM}
+\DoxyCodeLine{00087\ \}\ RTFEcharset;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ An\ enumeration\ for\ pitches}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ RTF\_DEFAULT\_PITCH,}
+\DoxyCodeLine{00093\ \ \ \ \ RTF\_FIXED\_PITCH,}
+\DoxyCodeLine{00094\ \ \ \ \ RTF\_VARIABLE\_PITCH}
+\DoxyCodeLine{00095\ \}\ RTFEpitch;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ An\ enumeration\ for\ code\ page\ support\ types}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ RTF\_CPG\_USIBM\ =\ 437,}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ RTF\_CPG\_ARABIC\_ASMO708\ =\ 708,}
+\DoxyCodeLine{00103\ \ \ \ \ RTF\_CPG\_ARABIC\_ASMO449,}
+\DoxyCodeLine{00104\ \ \ \ \ RTF\_CPG\_ARABIC\_TRANSPARENT,}
+\DoxyCodeLine{00105\ \ \ \ \ RTF\_CPG\_ARABIC\_NAFITHA,}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ RTF\_CPG\_ARABIC\_TRANSPARENT\_ASMO\ =\ 720,}
+\DoxyCodeLine{00108\ \ \ \ \ RTF\_CPG\_WINDOW31\ =\ 819,}
+\DoxyCodeLine{00109\ \ \ \ \ RTF\_CPG\_IBM\_MULTILINGUAL\ =\ 850,}
+\DoxyCodeLine{00110\ \ \ \ \ RTF\_CPG\_EASTERNEUROPE\ =\ 852,}
+\DoxyCodeLine{00111\ \ \ \ \ RTF\_CPG\_PORTUGESE\ =\ 860,}
+\DoxyCodeLine{00112\ \ \ \ \ RTF\_CPG\_HEBREW\ =\ 862,}
+\DoxyCodeLine{00113\ \ \ \ \ RTF\_CPG\_FRENCH\_CANADIAN\ =\ 863,}
+\DoxyCodeLine{00114\ \ \ \ \ RTF\_CPG\_ARABIC\ =\ 864,}
+\DoxyCodeLine{00115\ \ \ \ \ RTF\_CPG\_NORWEGIAN\ =\ 865,}
+\DoxyCodeLine{00116\ \ \ \ \ RTF\_CPG\_SOVIETUNION\ =\ 866,}
+\DoxyCodeLine{00117\ \ \ \ \ RTF\_CPG\_JAPANESE\ =\ 932,}
+\DoxyCodeLine{00118\ \ \ \ \ RTF\_CPG\_WINDOWS31\_EASTERNEUROPE\ =\ 1250,}
+\DoxyCodeLine{00119\ \ \ \ \ RTF\_CPG\_WINDOWS31\_CYRILLIC\ =\ 1251}
+\DoxyCodeLine{00120\ \}\ RTFEcpg;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ Footnote\ type}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ RTF\_FTN\_NONE,}
+\DoxyCodeLine{00126\ \ \ \ \ RTF\_FTN\_ENDNOTES,}
+\DoxyCodeLine{00127\ \ \ \ \ RTF\_FTN\_BOTH}
+\DoxyCodeLine{00128\ \}\ RTFEfootnote;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ Revision\ marks}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ RTF\_REV\_NONE,}
+\DoxyCodeLine{00134\ \ \ \ \ RTF\_REV\_BOLD,}
+\DoxyCodeLine{00135\ \ \ \ \ RTF\_REV\_ITALIC,}
+\DoxyCodeLine{00136\ \ \ \ \ RTF\_REV\_UNDERLINE,}
+\DoxyCodeLine{00137\ \ \ \ \ RTF\_REV\_DUNDERLINE}
+\DoxyCodeLine{00138\ \}\ RTFErevision;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ RTF\_REVBAR\_NONE,}
+\DoxyCodeLine{00142\ \ \ \ \ RTF\_REVBAR\_LEFT,}
+\DoxyCodeLine{00143\ \ \ \ \ RTF\_REVBAR\_RIGHT,}
+\DoxyCodeLine{00144\ \ \ \ \ RTF\_REVBAR\_OUTSIDE}
+\DoxyCodeLine{00145\ \}\ RTFErevisionBar;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ Dropcaps}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ RTF\_DROPCAP\_INTEXT,}
+\DoxyCodeLine{00151\ \ \ \ \ RTF\_DROPCAP\_MARGIN}
+\DoxyCodeLine{00152\ \}\ RTFEdropcap;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ Language}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ RTF\_LANG\_NONE\ =\ 0x0400,}
+\DoxyCodeLine{00158\ \ \ \ \ RTF\_LANG\_ALBANIAN\ =\ 0x041c,}
+\DoxyCodeLine{00159\ \ \ \ \ RTF\_LANG\_ARABIC\ =\ 0x0401,}
+\DoxyCodeLine{00160\ \ \ \ \ RTF\_LANG\_BAHASA\ =\ 0x0421,}
+\DoxyCodeLine{00161\ \ \ \ \ RTF\_LANG\_BELGIUM\_DUTCH\ =\ 0x0813,}
+\DoxyCodeLine{00162\ \ \ \ \ RTF\_LANG\_BELGIAN\_FRENCH\ =\ 0x080c,}
+\DoxyCodeLine{00163\ \ \ \ \ RTF\_LANG\_BRAZILIAN\_PORTUGESE\ =\ 0x0416,}
+\DoxyCodeLine{00164\ \ \ \ \ RTF\_LANG\_BULGARIAN\ =\ 0x0402,}
+\DoxyCodeLine{00165\ \ \ \ \ RTF\_LANG\_CATALAN\ =\ 0x0403,}
+\DoxyCodeLine{00166\ \ \ \ \ RTF\_LANG\_CROATO\_SERBIAN\ =\ 0x041a,}
+\DoxyCodeLine{00167\ \ \ \ \ RTF\_LANG\_CZECH\ =\ 0x0405,}
+\DoxyCodeLine{00168\ \ \ \ \ RTF\_LANG\_DANISH\ =\ 0x0406,}
+\DoxyCodeLine{00169\ \ \ \ \ RTF\_LANG\_ENGLISH\_AUSTRALIAN\ =\ 0x0c09,}
+\DoxyCodeLine{00170\ \ \ \ \ RTF\_LANG\_ENGLISH\_UK\ =\ 0x0809,}
+\DoxyCodeLine{00171\ \ \ \ \ RTF\_LANG\_ENGLISH\_US\ =\ 0x0409,}
+\DoxyCodeLine{00172\ \ \ \ \ RTF\_LANG\_FINNISH\ =\ 0x040b,}
+\DoxyCodeLine{00173\ \ \ \ \ RTF\_LANG\_FRENCH\ =\ 0x040c,}
+\DoxyCodeLine{00174\ \ \ \ \ RTF\_LANG\_FRENCH\_CANADIAN\ =\ 0x0c0c,}
+\DoxyCodeLine{00175\ \ \ \ \ RTF\_LANG\_GERMAN\ =\ 0x0407,}
+\DoxyCodeLine{00176\ \ \ \ \ RTF\_LANG\_GREEK\ =\ 0x0408,}
+\DoxyCodeLine{00177\ \ \ \ \ RTF\_LANG\_HEBREW\ =\ 0x040d,}
+\DoxyCodeLine{00178\ \ \ \ \ RTF\_LANG\_HUNGARIAN\ =\ 0x040e,}
+\DoxyCodeLine{00179\ \ \ \ \ RTF\_LANG\_ICELANDIC\ =\ 0x040f,}
+\DoxyCodeLine{00180\ \ \ \ \ RTF\_LANG\_ITALIAN\ =\ 0x0410,}
+\DoxyCodeLine{00181\ \ \ \ \ RTF\_LANG\_JAPANSES\ =\ 0x0411,}
+\DoxyCodeLine{00182\ \ \ \ \ RTF\_LANG\_KOREAN\ =\ 0x0412,}
+\DoxyCodeLine{00183\ \ \ \ \ RTF\_LANG\_NORWEGIAN\_BOKMAL\ =\ 0x0414,}
+\DoxyCodeLine{00184\ \ \ \ \ RTF\_LANG\_NORWEGIAN\_NYNORSK\ =\ 0x0814,}
+\DoxyCodeLine{00185\ \ \ \ \ RTF\_LANG\_POLISH\ =\ 0x0415,}
+\DoxyCodeLine{00186\ \ \ \ \ RTF\_LANG\_PORTUGESE\ =\ 0x0816,}
+\DoxyCodeLine{00187\ \ \ \ \ RTF\_LANG\_RHAETO\_ROMANIC\ =\ 0x0417,}
+\DoxyCodeLine{00188\ \ \ \ \ RTF\_LANG\_ROMANIAN\ =\ 0x0418,}
+\DoxyCodeLine{00189\ \ \ \ \ RTF\_LANG\_RUSSIAN\ =\ 0x0419,}
+\DoxyCodeLine{00190\ \ \ \ \ RTF\_LANG\_SERBO\_CROATIAN\ =\ 0x081a,}
+\DoxyCodeLine{00191\ \ \ \ \ RTF\_LANG\_SIMPLIFIED\_CHINESE\ =\ 0x0804,}
+\DoxyCodeLine{00192\ \ \ \ \ RTF\_LANG\_SLOVAK\ =\ 0x041b,}
+\DoxyCodeLine{00193\ \ \ \ \ RTF\_LANG\_SPANISH\_CASTILLIAN\ =\ 0x040a,}
+\DoxyCodeLine{00194\ \ \ \ \ RTF\_LANG\_SPANISH\_MEXICAN\ =\ 0x080a,}
+\DoxyCodeLine{00195\ \ \ \ \ RTF\_LANG\_SWEDISH\ =\ 0x041d,}
+\DoxyCodeLine{00196\ \ \ \ \ RTF\_LANG\_SWISS\_FRENCH\ =\ 0x100c,}
+\DoxyCodeLine{00197\ \ \ \ \ RTF\_LANG\_SWISS\_GERMAN\ =\ 0x0807,}
+\DoxyCodeLine{00198\ \ \ \ \ RTF\_LANG\_SWISS\_ITALIAN\ =\ 0x0810,}
+\DoxyCodeLine{00199\ \ \ \ \ RTF\_LANG\_THAI\ =\ 0x041e,}
+\DoxyCodeLine{00200\ \ \ \ \ RTF\_LANG\_TRADITIONAL\_CHINESE\ =\ 0x0404,}
+\DoxyCodeLine{00201\ \ \ \ \ RTF\_LANG\_TURKISH\ =\ 0x041f,}
+\DoxyCodeLine{00202\ \ \ \ \ RTF\_LANG\_URDU\ =\ 0x0420}
+\DoxyCodeLine{00203\ \}\ RTFElang;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ Windows\ metafile\ type}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ RTF\_MM\_TEXT\ =\ 1,}
+\DoxyCodeLine{00209\ \ \ \ \ RTF\_MM\_LOMETRIC\ =\ 2,}
+\DoxyCodeLine{00210\ \ \ \ \ RTF\_MM\_HIMETRIC\ =\ 3,}
+\DoxyCodeLine{00211\ \ \ \ \ RTF\_MM\_LOENGLISH\ =\ 4,}
+\DoxyCodeLine{00212\ \ \ \ \ RTF\_MM\_HIENGLISH\ =\ 5,}
+\DoxyCodeLine{00213\ \ \ \ \ RTF\_MM\_TWIPS\ =\ 6,}
+\DoxyCodeLine{00214\ \ \ \ \ RTF\_MM\_ISOTROPIC\ =\ 7,}
+\DoxyCodeLine{00215\ \ \ \ \ RTF\_MM\_ANISOTROPIC\ =\ 8}
+\DoxyCodeLine{00216\ \}\ RTFEmetafile;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ OS/2\ metafile\ type}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ RTF\_PU\_ARBITRARY\ =\ 0x0004,}
+\DoxyCodeLine{00222\ \ \ \ \ RTF\_PU\_PELS\ =\ 0x0008,}
+\DoxyCodeLine{00223\ \ \ \ \ RTF\_PU\_LOMETRIC\ =\ 0x000c,}
+\DoxyCodeLine{00224\ \ \ \ \ RTF\_PU\_HIMETRIC\ =\ 0x0010,}
+\DoxyCodeLine{00225\ \ \ \ \ RTF\_PU\_LOENGLISH\ =\ 0x0014,}
+\DoxyCodeLine{00226\ \ \ \ \ RTF\_PU\_HIENGLISH\ =\ 0x0018,}
+\DoxyCodeLine{00227\ \ \ \ \ RTF\_PU\_TWIPS\ =\ 0x001c}
+\DoxyCodeLine{00228\ \}\ RTFEos2metafile;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{comment}{//\ An\ enumeration\ for\ all\ the\ RTF\ keywords\ recognised}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ RTFunknownControl,}
+\DoxyCodeLine{00234\ \ \ \ \ RTFrtf,}
+\DoxyCodeLine{00235\ \ \ \ \ RTFdeff,}
+\DoxyCodeLine{00236\ \ \ \ \ RTFansi,}
+\DoxyCodeLine{00237\ \ \ \ \ RTFmac,}
+\DoxyCodeLine{00238\ \ \ \ \ RTFpc,}
+\DoxyCodeLine{00239\ \ \ \ \ RTFpca,}
+\DoxyCodeLine{00240\ \ \ \ \ RTFfonttbl,}
+\DoxyCodeLine{00241\ \ \ \ \ RTFf,}
+\DoxyCodeLine{00242\ \ \ \ \ RTFfnil,}
+\DoxyCodeLine{00243\ \ \ \ \ RTFfroman,}
+\DoxyCodeLine{00244\ \ \ \ \ RTFfswiss,}
+\DoxyCodeLine{00245\ \ \ \ \ RTFfmodern,}
+\DoxyCodeLine{00246\ \ \ \ \ RTFfscript,}
+\DoxyCodeLine{00247\ \ \ \ \ RTFfdecor,}
+\DoxyCodeLine{00248\ \ \ \ \ RTFftech,}
+\DoxyCodeLine{00249\ \ \ \ \ RTFfbidi,}
+\DoxyCodeLine{00250\ \ \ \ \ RTFfcharset,}
+\DoxyCodeLine{00251\ \ \ \ \ RTFfprq,}
+\DoxyCodeLine{00252\ \ \ \ \ RTFfalt,}
+\DoxyCodeLine{00253\ \ \ \ \ RTFfontemb,}
+\DoxyCodeLine{00254\ \ \ \ \ RTFftnil,}
+\DoxyCodeLine{00255\ \ \ \ \ RTFfttruetype,}
+\DoxyCodeLine{00256\ \ \ \ \ RTFfontfile,}
+\DoxyCodeLine{00257\ \ \ \ \ RTFcpg,}
+\DoxyCodeLine{00258\ \ \ \ \ RTFfiletbl,}
+\DoxyCodeLine{00259\ \ \ \ \ RTFfile,}
+\DoxyCodeLine{00260\ \ \ \ \ RTFfid,}
+\DoxyCodeLine{00261\ \ \ \ \ RTFfrelative,}
+\DoxyCodeLine{00262\ \ \ \ \ RTFfosnum,}
+\DoxyCodeLine{00263\ \ \ \ \ RTFfvalidmac,}
+\DoxyCodeLine{00264\ \ \ \ \ RTFfvaliddos,}
+\DoxyCodeLine{00265\ \ \ \ \ RTFfvalidntfs,}
+\DoxyCodeLine{00266\ \ \ \ \ RTFfvalidhpfs,}
+\DoxyCodeLine{00267\ \ \ \ \ RTFfnetwork,}
+\DoxyCodeLine{00268\ \ \ \ \ RTFcolortbl,}
+\DoxyCodeLine{00269\ \ \ \ \ RTFred,}
+\DoxyCodeLine{00270\ \ \ \ \ RTFgreen,}
+\DoxyCodeLine{00271\ \ \ \ \ RTFblue,}
+\DoxyCodeLine{00272\ \ \ \ \ RTFstylesheet,}
+\DoxyCodeLine{00273\ \ \ \ \ RTFs,}
+\DoxyCodeLine{00274\ \ \ \ \ RTFcs,}
+\DoxyCodeLine{00275\ \ \ \ \ RTFds,}
+\DoxyCodeLine{00276\ \ \ \ \ RTFkeycode,}
+\DoxyCodeLine{00277\ \ \ \ \ RTFadditive,}
+\DoxyCodeLine{00278\ \ \ \ \ RTFsbasedon,}
+\DoxyCodeLine{00279\ \ \ \ \ RTFsnext,}
+\DoxyCodeLine{00280\ \ \ \ \ RTFshift,}
+\DoxyCodeLine{00281\ \ \ \ \ RTFctrl,}
+\DoxyCodeLine{00282\ \ \ \ \ RTFalt,}
+\DoxyCodeLine{00283\ \ \ \ \ RTFfn,}
+\DoxyCodeLine{00284\ \ \ \ \ RTFrevtbl,}
+\DoxyCodeLine{00285\ \ \ \ \ RTFinfo,}
+\DoxyCodeLine{00286\ \ \ \ \ RTFtitle,}
+\DoxyCodeLine{00287\ \ \ \ \ RTFsubject,}
+\DoxyCodeLine{00288\ \ \ \ \ RTFauthor,}
+\DoxyCodeLine{00289\ \ \ \ \ RTFoperator,}
+\DoxyCodeLine{00290\ \ \ \ \ RTFkeywords,}
+\DoxyCodeLine{00291\ \ \ \ \ RTFcomment,}
+\DoxyCodeLine{00292\ \ \ \ \ RTFdoccomm,}
+\DoxyCodeLine{00293\ \ \ \ \ RTFcreatim,}
+\DoxyCodeLine{00294\ \ \ \ \ RTFrevtim,}
+\DoxyCodeLine{00295\ \ \ \ \ RTFprintim,}
+\DoxyCodeLine{00296\ \ \ \ \ RTFbuptim,}
+\DoxyCodeLine{00297\ \ \ \ \ RTFversion,}
+\DoxyCodeLine{00298\ \ \ \ \ RTFvern,}
+\DoxyCodeLine{00299\ \ \ \ \ RTFedmins,}
+\DoxyCodeLine{00300\ \ \ \ \ RTFnofpages,}
+\DoxyCodeLine{00301\ \ \ \ \ RTFnofwords,}
+\DoxyCodeLine{00302\ \ \ \ \ RTFnofchars,}
+\DoxyCodeLine{00303\ \ \ \ \ RTFid,}
+\DoxyCodeLine{00304\ \ \ \ \ RTFyr,}
+\DoxyCodeLine{00305\ \ \ \ \ RTFmo,}
+\DoxyCodeLine{00306\ \ \ \ \ RTFdy,}
+\DoxyCodeLine{00307\ \ \ \ \ RTFhr,}
+\DoxyCodeLine{00308\ \ \ \ \ RTFmin,}
+\DoxyCodeLine{00309\ \ \ \ \ RTFsec,}
+\DoxyCodeLine{00310\ \ \ \ \ RTFdeftab,}
+\DoxyCodeLine{00311\ \ \ \ \ RTFhyphhotz,}
+\DoxyCodeLine{00312\ \ \ \ \ RTFhyphconsec,}
+\DoxyCodeLine{00313\ \ \ \ \ RTFlinestart,}
+\DoxyCodeLine{00314\ \ \ \ \ RTFdeflang,}
+\DoxyCodeLine{00315\ \ \ \ \ RTFhyphcaps,}
+\DoxyCodeLine{00316\ \ \ \ \ RTFhyphauto,}
+\DoxyCodeLine{00317\ \ \ \ \ RTFfracwidth,}
+\DoxyCodeLine{00318\ \ \ \ \ RTFmakebackup,}
+\DoxyCodeLine{00319\ \ \ \ \ RTFdefformat,}
+\DoxyCodeLine{00320\ \ \ \ \ RTFpsover,}
+\DoxyCodeLine{00321\ \ \ \ \ RTFdoctemp,}
+\DoxyCodeLine{00322\ \ \ \ \ RTFnextfile,}
+\DoxyCodeLine{00323\ \ \ \ \ RTFtemplate,}
+\DoxyCodeLine{00324\ \ \ \ \ RTFfet,}
+\DoxyCodeLine{00325\ \ \ \ \ RTFftnstart,}
+\DoxyCodeLine{00326\ \ \ \ \ RTFaftnstart,}
+\DoxyCodeLine{00327\ \ \ \ \ RTFftnsep,}
+\DoxyCodeLine{00328\ \ \ \ \ RTFftnsepc,}
+\DoxyCodeLine{00329\ \ \ \ \ RTFftncn,}
+\DoxyCodeLine{00330\ \ \ \ \ RTFaftnsepc,}
+\DoxyCodeLine{00331\ \ \ \ \ RTFaftncn,}
+\DoxyCodeLine{00332\ \ \ \ \ RTFendnotes,}
+\DoxyCodeLine{00333\ \ \ \ \ RTFenddoc,}
+\DoxyCodeLine{00334\ \ \ \ \ RTFftntj,}
+\DoxyCodeLine{00335\ \ \ \ \ RTFftnbj,}
+\DoxyCodeLine{00336\ \ \ \ \ RTFaendnotes,}
+\DoxyCodeLine{00337\ \ \ \ \ RTFaenddoc,}
+\DoxyCodeLine{00338\ \ \ \ \ RTFaftntj,}
+\DoxyCodeLine{00339\ \ \ \ \ RTFaftnbj,}
+\DoxyCodeLine{00340\ \ \ \ \ RTFftnrstpg,}
+\DoxyCodeLine{00341\ \ \ \ \ RTFftnrestart,}
+\DoxyCodeLine{00342\ \ \ \ \ RTFftnrstcont,}
+\DoxyCodeLine{00343\ \ \ \ \ RTFaftnrestart,}
+\DoxyCodeLine{00344\ \ \ \ \ RTFaftnrstcont,}
+\DoxyCodeLine{00345\ \ \ \ \ RTFftnnar,}
+\DoxyCodeLine{00346\ \ \ \ \ RTFftnnalc,}
+\DoxyCodeLine{00347\ \ \ \ \ RTFftnnauc,}
+\DoxyCodeLine{00348\ \ \ \ \ RTFftnnrlc,}
+\DoxyCodeLine{00349\ \ \ \ \ RTFftnnruc,}
+\DoxyCodeLine{00350\ \ \ \ \ RTFftnnchi,}
+\DoxyCodeLine{00351\ \ \ \ \ RTFaftnnar,}
+\DoxyCodeLine{00352\ \ \ \ \ RTFaftnnalc,}
+\DoxyCodeLine{00353\ \ \ \ \ RTFaftnnauc,}
+\DoxyCodeLine{00354\ \ \ \ \ RTFaftnnrlc,}
+\DoxyCodeLine{00355\ \ \ \ \ RTFaftnnruc,}
+\DoxyCodeLine{00356\ \ \ \ \ RTFaftnnchi,}
+\DoxyCodeLine{00357\ \ \ \ \ RTFpaperw,}
+\DoxyCodeLine{00358\ \ \ \ \ RTFpaperh,}
+\DoxyCodeLine{00359\ \ \ \ \ RTFpsz,}
+\DoxyCodeLine{00360\ \ \ \ \ RTFmargl,}
+\DoxyCodeLine{00361\ \ \ \ \ RTFmargr,}
+\DoxyCodeLine{00362\ \ \ \ \ RTFmargt,}
+\DoxyCodeLine{00363\ \ \ \ \ RTFmargb,}
+\DoxyCodeLine{00364\ \ \ \ \ RTFfacingp,}
+\DoxyCodeLine{00365\ \ \ \ \ RTFgutter,}
+\DoxyCodeLine{00366\ \ \ \ \ RTFpgnstart,}
+\DoxyCodeLine{00367\ \ \ \ \ RTFmargmirror,}
+\DoxyCodeLine{00368\ \ \ \ \ RTFlandscape,}
+\DoxyCodeLine{00369\ \ \ \ \ RTFwidowctrl,}
+\DoxyCodeLine{00370\ \ \ \ \ RTFlinkstyles,}
+\DoxyCodeLine{00371\ \ \ \ \ RTFnotabind,}
+\DoxyCodeLine{00372\ \ \ \ \ RTFwraptrsp,}
+\DoxyCodeLine{00373\ \ \ \ \ RTFprcolbl,}
+\DoxyCodeLine{00374\ \ \ \ \ RTFnoextrasprl,}
+\DoxyCodeLine{00375\ \ \ \ \ RTFnocolbal,}
+\DoxyCodeLine{00376\ \ \ \ \ RTFcvmme,}
+\DoxyCodeLine{00377\ \ \ \ \ RTFsprstsp,}
+\DoxyCodeLine{00378\ \ \ \ \ RTFsprsspbf,}
+\DoxyCodeLine{00379\ \ \ \ \ RTFotblrul,}
+\DoxyCodeLine{00380\ \ \ \ \ RTFtransmf,}
+\DoxyCodeLine{00381\ \ \ \ \ RTFswpbdr,}
+\DoxyCodeLine{00382\ \ \ \ \ RTFbrkfrm,}
+\DoxyCodeLine{00383\ \ \ \ \ RTFformprot,}
+\DoxyCodeLine{00384\ \ \ \ \ RTFallprot,}
+\DoxyCodeLine{00385\ \ \ \ \ RTFformshade,}
+\DoxyCodeLine{00386\ \ \ \ \ RTFformdisp,}
+\DoxyCodeLine{00387\ \ \ \ \ RTFprintdata,}
+\DoxyCodeLine{00388\ \ \ \ \ RTFrevprot,}
+\DoxyCodeLine{00389\ \ \ \ \ RTFrevisions,}
+\DoxyCodeLine{00390\ \ \ \ \ RTFrevprop,}
+\DoxyCodeLine{00391\ \ \ \ \ RTFrevbar,}
+\DoxyCodeLine{00392\ \ \ \ \ RTFannotprot,}
+\DoxyCodeLine{00393\ \ \ \ \ RTFrtldoc,}
+\DoxyCodeLine{00394\ \ \ \ \ RTFltrdoc,}
+\DoxyCodeLine{00395\ \ \ \ \ RTFsect,}
+\DoxyCodeLine{00396\ \ \ \ \ RTFsectd,}
+\DoxyCodeLine{00397\ \ \ \ \ RTFendnhere,}
+\DoxyCodeLine{00398\ \ \ \ \ RTFsetunlocked,}
+\DoxyCodeLine{00399\ \ \ \ \ RTFsbknone,}
+\DoxyCodeLine{00400\ \ \ \ \ RTFsbkcol,}
+\DoxyCodeLine{00401\ \ \ \ \ RTFsbkpage,}
+\DoxyCodeLine{00402\ \ \ \ \ RTFsbkeven,}
+\DoxyCodeLine{00403\ \ \ \ \ RTFsbkodd,}
+\DoxyCodeLine{00404\ \ \ \ \ RTFlinebetcol,}
+\DoxyCodeLine{00405\ \ \ \ \ RTFlinerestart,}
+\DoxyCodeLine{00406\ \ \ \ \ RTFlineppage,}
+\DoxyCodeLine{00407\ \ \ \ \ RTFlinecont,}
+\DoxyCodeLine{00408\ \ \ \ \ RTFlndscpsxn,}
+\DoxyCodeLine{00409\ \ \ \ \ RTFtitlepg,}
+\DoxyCodeLine{00410\ \ \ \ \ RTFpgncont,}
+\DoxyCodeLine{00411\ \ \ \ \ RTFpgnrestart,}
+\DoxyCodeLine{00412\ \ \ \ \ RTFpgndec,}
+\DoxyCodeLine{00413\ \ \ \ \ RTFpgnucrm,}
+\DoxyCodeLine{00414\ \ \ \ \ RTFpgnlcrm,}
+\DoxyCodeLine{00415\ \ \ \ \ RTFpgnucltr,}
+\DoxyCodeLine{00416\ \ \ \ \ RTFpgnlcltr,}
+\DoxyCodeLine{00417\ \ \ \ \ RTFpgnhnsh,}
+\DoxyCodeLine{00418\ \ \ \ \ RTFpgnhnsp,}
+\DoxyCodeLine{00419\ \ \ \ \ RTFpgnhnsc,}
+\DoxyCodeLine{00420\ \ \ \ \ RTFpgnhnsm,}
+\DoxyCodeLine{00421\ \ \ \ \ RTFpgnhnsn,}
+\DoxyCodeLine{00422\ \ \ \ \ RTFvertalb,}
+\DoxyCodeLine{00423\ \ \ \ \ RTFvertalt,}
+\DoxyCodeLine{00424\ \ \ \ \ RTFvertalc,}
+\DoxyCodeLine{00425\ \ \ \ \ RTFvertalj,}
+\DoxyCodeLine{00426\ \ \ \ \ RTFrtlsect,}
+\DoxyCodeLine{00427\ \ \ \ \ RTFltrsect,}
+\DoxyCodeLine{00428\ \ \ \ \ RTFbinfsxn,}
+\DoxyCodeLine{00429\ \ \ \ \ RTFbinsxn,}
+\DoxyCodeLine{00430\ \ \ \ \ RTFpnseclvl,}
+\DoxyCodeLine{00431\ \ \ \ \ RTFcols,}
+\DoxyCodeLine{00432\ \ \ \ \ RTFcolsx,}
+\DoxyCodeLine{00433\ \ \ \ \ RTFcolno,}
+\DoxyCodeLine{00434\ \ \ \ \ RTFcolsr,}
+\DoxyCodeLine{00435\ \ \ \ \ RTFcolw,}
+\DoxyCodeLine{00436\ \ \ \ \ RTFlinemod,}
+\DoxyCodeLine{00437\ \ \ \ \ RTFlinex,}
+\DoxyCodeLine{00438\ \ \ \ \ RTFlinestarts,}
+\DoxyCodeLine{00439\ \ \ \ \ RTFpgwsxn,}
+\DoxyCodeLine{00440\ \ \ \ \ RTFpghsxn,}
+\DoxyCodeLine{00441\ \ \ \ \ RTFmarglsxn,}
+\DoxyCodeLine{00442\ \ \ \ \ RTFmargrsxn,}
+\DoxyCodeLine{00443\ \ \ \ \ RTFmargtsxn,}
+\DoxyCodeLine{00444\ \ \ \ \ RTFmargbsxn,}
+\DoxyCodeLine{00445\ \ \ \ \ RTFguttersxn,}
+\DoxyCodeLine{00446\ \ \ \ \ RTFheadery,}
+\DoxyCodeLine{00447\ \ \ \ \ RTFfootery,}
+\DoxyCodeLine{00448\ \ \ \ \ RTFpgnstarts,}
+\DoxyCodeLine{00449\ \ \ \ \ RTFpgnx,}
+\DoxyCodeLine{00450\ \ \ \ \ RTFpgny,}
+\DoxyCodeLine{00451\ \ \ \ \ RTFpgnhn,}
+\DoxyCodeLine{00452\ \ \ \ \ RTFheader,}
+\DoxyCodeLine{00453\ \ \ \ \ RTFfooter,}
+\DoxyCodeLine{00454\ \ \ \ \ RTFheaderl,}
+\DoxyCodeLine{00455\ \ \ \ \ RTFfooterl,}
+\DoxyCodeLine{00456\ \ \ \ \ RTFheaderr,}
+\DoxyCodeLine{00457\ \ \ \ \ RTFfooterr,}
+\DoxyCodeLine{00458\ \ \ \ \ RTFheaderf,}
+\DoxyCodeLine{00459\ \ \ \ \ RTFfooterf,}
+\DoxyCodeLine{00460\ \ \ \ \ RTFpar,}
+\DoxyCodeLine{00461\ \ \ \ \ RTFcell,}
+\DoxyCodeLine{00462\ \ \ \ \ RTFrow,}
+\DoxyCodeLine{00463\ \ \ \ \ RTFpard,}
+\DoxyCodeLine{00464\ \ \ \ \ RTFhyphpar,}
+\DoxyCodeLine{00465\ \ \ \ \ RTFintbl,}
+\DoxyCodeLine{00466\ \ \ \ \ RTFkeep,}
+\DoxyCodeLine{00467\ \ \ \ \ RTFwidctlpar,}
+\DoxyCodeLine{00468\ \ \ \ \ RTFnowidctlpar,}
+\DoxyCodeLine{00469\ \ \ \ \ RTFkeepn,}
+\DoxyCodeLine{00470\ \ \ \ \ RTFnoline,}
+\DoxyCodeLine{00471\ \ \ \ \ RTFpagebb,}
+\DoxyCodeLine{00472\ \ \ \ \ RTFsbys,}
+\DoxyCodeLine{00473\ \ \ \ \ RTFql,}
+\DoxyCodeLine{00474\ \ \ \ \ RTFqr,}
+\DoxyCodeLine{00475\ \ \ \ \ RTFqj,}
+\DoxyCodeLine{00476\ \ \ \ \ RTFqc,}
+\DoxyCodeLine{00477\ \ \ \ \ RTFrltpar,}
+\DoxyCodeLine{00478\ \ \ \ \ RTFltrpar,}
+\DoxyCodeLine{00479\ \ \ \ \ RTFlevel,}
+\DoxyCodeLine{00480\ \ \ \ \ RTFfi,}
+\DoxyCodeLine{00481\ \ \ \ \ RTFli,}
+\DoxyCodeLine{00482\ \ \ \ \ RTFri,}
+\DoxyCodeLine{00483\ \ \ \ \ RTFsb,}
+\DoxyCodeLine{00484\ \ \ \ \ RTFsa,}
+\DoxyCodeLine{00485\ \ \ \ \ RTFsl,}
+\DoxyCodeLine{00486\ \ \ \ \ RTFslmult,}
+\DoxyCodeLine{00487\ \ \ \ \ RTFsubdocument,}
+\DoxyCodeLine{00488\ \ \ \ \ RTFtx,}
+\DoxyCodeLine{00489\ \ \ \ \ RTFtb,}
+\DoxyCodeLine{00490\ \ \ \ \ RTFtqr,}
+\DoxyCodeLine{00491\ \ \ \ \ RTFtqc,}
+\DoxyCodeLine{00492\ \ \ \ \ RTFtqdec,}
+\DoxyCodeLine{00493\ \ \ \ \ RTFtldot,}
+\DoxyCodeLine{00494\ \ \ \ \ RTFtlhyph,}
+\DoxyCodeLine{00495\ \ \ \ \ RTFtlul,}
+\DoxyCodeLine{00496\ \ \ \ \ RTFtlth,}
+\DoxyCodeLine{00497\ \ \ \ \ RTFtleq,}
+\DoxyCodeLine{00498\ \ \ \ \ RTFpntext,}
+\DoxyCodeLine{00499\ \ \ \ \ RTFpn,}
+\DoxyCodeLine{00500\ \ \ \ \ RTFpnlvl,}
+\DoxyCodeLine{00501\ \ \ \ \ RTFpnlvbit,}
+\DoxyCodeLine{00502\ \ \ \ \ RTFpnlvlbody,}
+\DoxyCodeLine{00503\ \ \ \ \ RTFpnlvlcont,}
+\DoxyCodeLine{00504\ \ \ \ \ RTFpncard,}
+\DoxyCodeLine{00505\ \ \ \ \ RTFpndec,}
+\DoxyCodeLine{00506\ \ \ \ \ RTFpnucltr,}
+\DoxyCodeLine{00507\ \ \ \ \ RTFpnucrm,}
+\DoxyCodeLine{00508\ \ \ \ \ RTFpnlctr,}
+\DoxyCodeLine{00509\ \ \ \ \ RTFpnlcrm,}
+\DoxyCodeLine{00510\ \ \ \ \ RTFpnord,}
+\DoxyCodeLine{00511\ \ \ \ \ RTFpnordt,}
+\DoxyCodeLine{00512\ \ \ \ \ RTFpnuld,}
+\DoxyCodeLine{00513\ \ \ \ \ RTFpnuldb,}
+\DoxyCodeLine{00514\ \ \ \ \ RTFpnulnone,}
+\DoxyCodeLine{00515\ \ \ \ \ RTFpnulw,}
+\DoxyCodeLine{00516\ \ \ \ \ RTFpnnumonce,}
+\DoxyCodeLine{00517\ \ \ \ \ RTFpnacross,}
+\DoxyCodeLine{00518\ \ \ \ \ RTFpnprev,}
+\DoxyCodeLine{00519\ \ \ \ \ RTFpnhang,}
+\DoxyCodeLine{00520\ \ \ \ \ RTFpnrestart,}
+\DoxyCodeLine{00521\ \ \ \ \ RTFpnqc,}
+\DoxyCodeLine{00522\ \ \ \ \ RTFpnql,}
+\DoxyCodeLine{00523\ \ \ \ \ RTFpnqr,}
+\DoxyCodeLine{00524\ \ \ \ \ RTFpnf,}
+\DoxyCodeLine{00525\ \ \ \ \ RTFpnfs,}
+\DoxyCodeLine{00526\ \ \ \ \ RTFpncf,}
+\DoxyCodeLine{00527\ \ \ \ \ RTFpnindent,}
+\DoxyCodeLine{00528\ \ \ \ \ RTFpnsp,}
+\DoxyCodeLine{00529\ \ \ \ \ RTFpnstart,}
+\DoxyCodeLine{00530\ \ \ \ \ RTFpnb,}
+\DoxyCodeLine{00531\ \ \ \ \ RTFpni,}
+\DoxyCodeLine{00532\ \ \ \ \ RTFpncaps,}
+\DoxyCodeLine{00533\ \ \ \ \ RTFpnscaps,}
+\DoxyCodeLine{00534\ \ \ \ \ RTFpnul,}
+\DoxyCodeLine{00535\ \ \ \ \ RTFpnstrike,}
+\DoxyCodeLine{00536\ \ \ \ \ RTFpntxta,}
+\DoxyCodeLine{00537\ \ \ \ \ RTFpntxtb,}
+\DoxyCodeLine{00538\ \ \ \ \ RTFbrdrt,}
+\DoxyCodeLine{00539\ \ \ \ \ RTFbrdrb,}
+\DoxyCodeLine{00540\ \ \ \ \ RTFbrdrl,}
+\DoxyCodeLine{00541\ \ \ \ \ RTFbrdrr,}
+\DoxyCodeLine{00542\ \ \ \ \ RTFbrdrbtw,}
+\DoxyCodeLine{00543\ \ \ \ \ RTFbrdrbar,}
+\DoxyCodeLine{00544\ \ \ \ \ RTFbox,}
+\DoxyCodeLine{00545\ \ \ \ \ RTFbrdrs,}
+\DoxyCodeLine{00546\ \ \ \ \ RTFbrdrth,}
+\DoxyCodeLine{00547\ \ \ \ \ RTFbrdrsh,}
+\DoxyCodeLine{00548\ \ \ \ \ RTFbrdrdb,}
+\DoxyCodeLine{00549\ \ \ \ \ RTFbrdrdot,}
+\DoxyCodeLine{00550\ \ \ \ \ RTFbrdrdash,}
+\DoxyCodeLine{00551\ \ \ \ \ RTFbrdrhair,}
+\DoxyCodeLine{00552\ \ \ \ \ RTFbrdrw,}
+\DoxyCodeLine{00553\ \ \ \ \ RTFbrsp,}
+\DoxyCodeLine{00554\ \ \ \ \ RTFbrdrcf,}
+\DoxyCodeLine{00555\ \ \ \ \ RTFshading,}
+\DoxyCodeLine{00556\ \ \ \ \ RTFcfpat,}
+\DoxyCodeLine{00557\ \ \ \ \ RTFcbpat,}
+\DoxyCodeLine{00558\ \ \ \ \ RTFbghoriz,}
+\DoxyCodeLine{00559\ \ \ \ \ RTFbgvert,}
+\DoxyCodeLine{00560\ \ \ \ \ RTFbgfdiag,}
+\DoxyCodeLine{00561\ \ \ \ \ RTFbgbdiag,}
+\DoxyCodeLine{00562\ \ \ \ \ RTFbgcross,}
+\DoxyCodeLine{00563\ \ \ \ \ RTFbgdcross,}
+\DoxyCodeLine{00564\ \ \ \ \ RTFbgdkhoriz,}
+\DoxyCodeLine{00565\ \ \ \ \ RTFbgdkvert,}
+\DoxyCodeLine{00566\ \ \ \ \ RTFbgdkfdiag,}
+\DoxyCodeLine{00567\ \ \ \ \ RTFbgdkbdiag,}
+\DoxyCodeLine{00568\ \ \ \ \ RTFbgdkcross,}
+\DoxyCodeLine{00569\ \ \ \ \ RTFbgdkdcross,}
+\DoxyCodeLine{00570\ \ \ \ \ RTFabsw,}
+\DoxyCodeLine{00571\ \ \ \ \ RTFabsh,}
+\DoxyCodeLine{00572\ \ \ \ \ RTFposx,}
+\DoxyCodeLine{00573\ \ \ \ \ RTFposnegx,}
+\DoxyCodeLine{00574\ \ \ \ \ RTFposy,}
+\DoxyCodeLine{00575\ \ \ \ \ RTFposnegy,}
+\DoxyCodeLine{00576\ \ \ \ \ RTFdxfrtext,}
+\DoxyCodeLine{00577\ \ \ \ \ RTFdfrmtxtx,}
+\DoxyCodeLine{00578\ \ \ \ \ RTFdfrmtxty,}
+\DoxyCodeLine{00579\ \ \ \ \ RTFdropcapli,}
+\DoxyCodeLine{00580\ \ \ \ \ RTFdropcapt,}
+\DoxyCodeLine{00581\ \ \ \ \ RTFphmrg,}
+\DoxyCodeLine{00582\ \ \ \ \ RTFphpg,}
+\DoxyCodeLine{00583\ \ \ \ \ RTFphcol,}
+\DoxyCodeLine{00584\ \ \ \ \ RTFposxc,}
+\DoxyCodeLine{00585\ \ \ \ \ RTFposxi,}
+\DoxyCodeLine{00586\ \ \ \ \ RTFposxo,}
+\DoxyCodeLine{00587\ \ \ \ \ RTFposxr,}
+\DoxyCodeLine{00588\ \ \ \ \ RTFposxl,}
+\DoxyCodeLine{00589\ \ \ \ \ RTFpvmrg,}
+\DoxyCodeLine{00590\ \ \ \ \ RTFpvpg,}
+\DoxyCodeLine{00591\ \ \ \ \ RTFpvpara,}
+\DoxyCodeLine{00592\ \ \ \ \ RTFposyc,}
+\DoxyCodeLine{00593\ \ \ \ \ RTFposyil,}
+\DoxyCodeLine{00594\ \ \ \ \ RTFposyt,}
+\DoxyCodeLine{00595\ \ \ \ \ RTFposyb,}
+\DoxyCodeLine{00596\ \ \ \ \ RTFnowrap,}
+\DoxyCodeLine{00597\ \ \ \ \ RTFtrgaph,}
+\DoxyCodeLine{00598\ \ \ \ \ RTFtrleft,}
+\DoxyCodeLine{00599\ \ \ \ \ RTFtrrh,}
+\DoxyCodeLine{00600\ \ \ \ \ RTFcellx,}
+\DoxyCodeLine{00601\ \ \ \ \ RTFclcfpat,}
+\DoxyCodeLine{00602\ \ \ \ \ RTFclcbpat,}
+\DoxyCodeLine{00603\ \ \ \ \ RTFclshdng,}
+\DoxyCodeLine{00604\ \ \ \ \ RTFtrowd,}
+\DoxyCodeLine{00605\ \ \ \ \ RTFtrql,}
+\DoxyCodeLine{00606\ \ \ \ \ RTFtrqr,}
+\DoxyCodeLine{00607\ \ \ \ \ RTFtrqc,}
+\DoxyCodeLine{00608\ \ \ \ \ RTFtrhdr,}
+\DoxyCodeLine{00609\ \ \ \ \ RTFtrkeep,}
+\DoxyCodeLine{00610\ \ \ \ \ RTFltrrow,}
+\DoxyCodeLine{00611\ \ \ \ \ RTFrtlrow,}
+\DoxyCodeLine{00612\ \ \ \ \ RTFtrbrdrt,}
+\DoxyCodeLine{00613\ \ \ \ \ RTFtrbrdrl,}
+\DoxyCodeLine{00614\ \ \ \ \ RTFtrbrdrb,}
+\DoxyCodeLine{00615\ \ \ \ \ RTFtrbrdrr,}
+\DoxyCodeLine{00616\ \ \ \ \ RTFtrbrdrh,}
+\DoxyCodeLine{00617\ \ \ \ \ RTFtrbrdrv,}
+\DoxyCodeLine{00618\ \ \ \ \ RTFclmgf,}
+\DoxyCodeLine{00619\ \ \ \ \ RTFclmrg,}
+\DoxyCodeLine{00620\ \ \ \ \ RTFclbrdrt,}
+\DoxyCodeLine{00621\ \ \ \ \ RTFclbrdrl,}
+\DoxyCodeLine{00622\ \ \ \ \ RTFclbrdrb,}
+\DoxyCodeLine{00623\ \ \ \ \ RTFclbrdrr,}
+\DoxyCodeLine{00624\ \ \ \ \ RTFclbghoriz,}
+\DoxyCodeLine{00625\ \ \ \ \ RTFclbgvert,}
+\DoxyCodeLine{00626\ \ \ \ \ RTFclbgfdiag,}
+\DoxyCodeLine{00627\ \ \ \ \ RTFclbgbdiag,}
+\DoxyCodeLine{00628\ \ \ \ \ RTFclbgcross,}
+\DoxyCodeLine{00629\ \ \ \ \ RTFclbgdcross,}
+\DoxyCodeLine{00630\ \ \ \ \ RTFclbgdkhor,}
+\DoxyCodeLine{00631\ \ \ \ \ RTFclbgdkvert,}
+\DoxyCodeLine{00632\ \ \ \ \ RTFclbgdkfdiag,}
+\DoxyCodeLine{00633\ \ \ \ \ RTFclbgdkbdiag,}
+\DoxyCodeLine{00634\ \ \ \ \ RTFclbgdkcross,}
+\DoxyCodeLine{00635\ \ \ \ \ RTFclbgdkdcross,}
+\DoxyCodeLine{00636\ \ \ \ \ RTFdn,}
+\DoxyCodeLine{00637\ \ \ \ \ RTFexpnd,}
+\DoxyCodeLine{00638\ \ \ \ \ RTFexpndtw,}
+\DoxyCodeLine{00639\ \ \ \ \ RTFfs,}
+\DoxyCodeLine{00640\ \ \ \ \ RTFrevauth,}
+\DoxyCodeLine{00641\ \ \ \ \ RTFrevdttm,}
+\DoxyCodeLine{00642\ \ \ \ \ RTFkerning,}
+\DoxyCodeLine{00643\ \ \ \ \ RTFup,}
+\DoxyCodeLine{00644\ \ \ \ \ RTFcf,}
+\DoxyCodeLine{00645\ \ \ \ \ RTFcb,}
+\DoxyCodeLine{00646\ \ \ \ \ RTFcchs,}
+\DoxyCodeLine{00647\ \ \ \ \ RTFlang,}
+\DoxyCodeLine{00648\ \ \ \ \ RTFplain,}
+\DoxyCodeLine{00649\ \ \ \ \ RTFsub,}
+\DoxyCodeLine{00650\ \ \ \ \ RTFsuper,}
+\DoxyCodeLine{00651\ \ \ \ \ RTFnosupersub,}
+\DoxyCodeLine{00652\ \ \ \ \ RTFrevised,}
+\DoxyCodeLine{00653\ \ \ \ \ RTFuld,}
+\DoxyCodeLine{00654\ \ \ \ \ RTFulnone,}
+\DoxyCodeLine{00655\ \ \ \ \ RTFuldb,}
+\DoxyCodeLine{00656\ \ \ \ \ RTFulw,}
+\DoxyCodeLine{00657\ \ \ \ \ RTFrtlch,}
+\DoxyCodeLine{00658\ \ \ \ \ RTFltrch,}
+\DoxyCodeLine{00659\ \ \ \ \ RTFb,}
+\DoxyCodeLine{00660\ \ \ \ \ RTFcaps,}
+\DoxyCodeLine{00661\ \ \ \ \ RTFdeleted,}
+\DoxyCodeLine{00662\ \ \ \ \ RTFi,}
+\DoxyCodeLine{00663\ \ \ \ \ RTFoutl,}
+\DoxyCodeLine{00664\ \ \ \ \ RTFscaps,}
+\DoxyCodeLine{00665\ \ \ \ \ RTFshad,}
+\DoxyCodeLine{00666\ \ \ \ \ RTFstrike,}
+\DoxyCodeLine{00667\ \ \ \ \ RTFul,}
+\DoxyCodeLine{00668\ \ \ \ \ RTFv,}
+\DoxyCodeLine{00669\ \ \ \ \ RTFadn,}
+\DoxyCodeLine{00670\ \ \ \ \ RTFaexpnd,}
+\DoxyCodeLine{00671\ \ \ \ \ RTFaf,}
+\DoxyCodeLine{00672\ \ \ \ \ RTFafs,}
+\DoxyCodeLine{00673\ \ \ \ \ RTFaup,}
+\DoxyCodeLine{00674\ \ \ \ \ RTFacf,}
+\DoxyCodeLine{00675\ \ \ \ \ RTFalang,}
+\DoxyCodeLine{00676\ \ \ \ \ RTFauld,}
+\DoxyCodeLine{00677\ \ \ \ \ RTFaulnone,}
+\DoxyCodeLine{00678\ \ \ \ \ RTFauldb,}
+\DoxyCodeLine{00679\ \ \ \ \ RTFaulw,}
+\DoxyCodeLine{00680\ \ \ \ \ RTFab,}
+\DoxyCodeLine{00681\ \ \ \ \ RTFacaps,}
+\DoxyCodeLine{00682\ \ \ \ \ RTFai,}
+\DoxyCodeLine{00683\ \ \ \ \ RTFaoutl,}
+\DoxyCodeLine{00684\ \ \ \ \ RTFascaps,}
+\DoxyCodeLine{00685\ \ \ \ \ RTFashad,}
+\DoxyCodeLine{00686\ \ \ \ \ RTFastrike,}
+\DoxyCodeLine{00687\ \ \ \ \ RTFaul,}
+\DoxyCodeLine{00688\ \ \ \ \ RTFchdate,}
+\DoxyCodeLine{00689\ \ \ \ \ RTFchdpl,}
+\DoxyCodeLine{00690\ \ \ \ \ RTFchdpa,}
+\DoxyCodeLine{00691\ \ \ \ \ RTFchtime,}
+\DoxyCodeLine{00692\ \ \ \ \ RTFchpgn,}
+\DoxyCodeLine{00693\ \ \ \ \ RTFsectnum,}
+\DoxyCodeLine{00694\ \ \ \ \ RTFchftn,}
+\DoxyCodeLine{00695\ \ \ \ \ RTFchatn,}
+\DoxyCodeLine{00696\ \ \ \ \ RTFchftnsep,}
+\DoxyCodeLine{00697\ \ \ \ \ RTFchftnsepc,}
+\DoxyCodeLine{00698\ \ \ \ \ RTFpage,}
+\DoxyCodeLine{00699\ \ \ \ \ RTFcolumn,}
+\DoxyCodeLine{00700\ \ \ \ \ RTFline,}
+\DoxyCodeLine{00701\ \ \ \ \ RTFtab,}
+\DoxyCodeLine{00702\ \ \ \ \ RTFemdash,}
+\DoxyCodeLine{00703\ \ \ \ \ RTFendash,}
+\DoxyCodeLine{00704\ \ \ \ \ RTFemspace,}
+\DoxyCodeLine{00705\ \ \ \ \ RTFenspace,}
+\DoxyCodeLine{00706\ \ \ \ \ RTFbullet,}
+\DoxyCodeLine{00707\ \ \ \ \ RTFlquote,}
+\DoxyCodeLine{00708\ \ \ \ \ RTFrquote,}
+\DoxyCodeLine{00709\ \ \ \ \ RTFldblquote,}
+\DoxyCodeLine{00710\ \ \ \ \ RTFrdblquote,}
+\DoxyCodeLine{00711\ \ \ \ \ RTFsymbar,}
+\DoxyCodeLine{00712\ \ \ \ \ RTFsymtilda,}
+\DoxyCodeLine{00713\ \ \ \ \ RTFsymhyphen,}
+\DoxyCodeLine{00714\ \ \ \ \ RTFsymunderbar,}
+\DoxyCodeLine{00715\ \ \ \ \ RTFsymcolon,}
+\DoxyCodeLine{00716\ \ \ \ \ RTFsymstar,}
+\DoxyCodeLine{00717\ \ \ \ \ RTFsymquote,}
+\DoxyCodeLine{00718\ \ \ \ \ RTFnewline,}
+\DoxyCodeLine{00719\ \ \ \ \ RTFcarriageReturn,}
+\DoxyCodeLine{00720\ \ \ \ \ RTFltrmark,}
+\DoxyCodeLine{00721\ \ \ \ \ RTFrtlmark,}
+\DoxyCodeLine{00722\ \ \ \ \ RTFzwj,}
+\DoxyCodeLine{00723\ \ \ \ \ RTFzwnj,}
+\DoxyCodeLine{00724\ \ \ \ \ RTFsoftpage,}
+\DoxyCodeLine{00725\ \ \ \ \ RTFsoftcol,}
+\DoxyCodeLine{00726\ \ \ \ \ RTFsoftline,}
+\DoxyCodeLine{00727\ \ \ \ \ RTFsoftlheight,}
+\DoxyCodeLine{00728\ \ \ \ \ RTFbkmkstart,}
+\DoxyCodeLine{00729\ \ \ \ \ RTFbkmkend,}
+\DoxyCodeLine{00730\ \ \ \ \ RTFbkmkcolf,}
+\DoxyCodeLine{00731\ \ \ \ \ RTFbkmkcoll,}
+\DoxyCodeLine{00732\ \ \ \ \ RTFpict,}
+\DoxyCodeLine{00733\ \ \ \ \ RTFmacpict,}
+\DoxyCodeLine{00734\ \ \ \ \ RTFpmmetafile,}
+\DoxyCodeLine{00735\ \ \ \ \ RTFwmetafile,}
+\DoxyCodeLine{00736\ \ \ \ \ RTFdibitmap,}
+\DoxyCodeLine{00737\ \ \ \ \ RTFwbitmap,}
+\DoxyCodeLine{00738\ \ \ \ \ RTFwbmbitspixel,}
+\DoxyCodeLine{00739\ \ \ \ \ RTFwbmplanes,}
+\DoxyCodeLine{00740\ \ \ \ \ RTFwbmwidthbytes,}
+\DoxyCodeLine{00741\ \ \ \ \ RTFpicw,}
+\DoxyCodeLine{00742\ \ \ \ \ RTFpich,}
+\DoxyCodeLine{00743\ \ \ \ \ RTFpicwgoal,}
+\DoxyCodeLine{00744\ \ \ \ \ RTFpichgoal,}
+\DoxyCodeLine{00745\ \ \ \ \ RTFpicscalex,}
+\DoxyCodeLine{00746\ \ \ \ \ RTFpicscaley,}
+\DoxyCodeLine{00747\ \ \ \ \ RTFpicscaled,}
+\DoxyCodeLine{00748\ \ \ \ \ RTFpiccropt,}
+\DoxyCodeLine{00749\ \ \ \ \ RTFpiccropb,}
+\DoxyCodeLine{00750\ \ \ \ \ RTFpiccropr,}
+\DoxyCodeLine{00751\ \ \ \ \ RTFpiccropl,}
+\DoxyCodeLine{00752\ \ \ \ \ RTFpicbmp,}
+\DoxyCodeLine{00753\ \ \ \ \ RTFpicbpp,}
+\DoxyCodeLine{00754\ \ \ \ \ RTFbin,}
+\DoxyCodeLine{00755\ \ \ \ \ RTFobject,}
+\DoxyCodeLine{00756\ \ \ \ \ RTFdo,}
+\DoxyCodeLine{00757\ \ \ \ \ RTFfootnote,}
+\DoxyCodeLine{00758\ \ \ \ \ RTFatrfstart,}
+\DoxyCodeLine{00759\ \ \ \ \ RTFatrfend,}
+\DoxyCodeLine{00760\ \ \ \ \ RTFatnid,}
+\DoxyCodeLine{00761\ \ \ \ \ RTFatnauthor,}
+\DoxyCodeLine{00762\ \ \ \ \ RTFannotation,}
+\DoxyCodeLine{00763\ \ \ \ \ RTFatnref,}
+\DoxyCodeLine{00764\ \ \ \ \ RTFatntime,}
+\DoxyCodeLine{00765\ \ \ \ \ RTFatnicn,}
+\DoxyCodeLine{00766\ \ \ \ \ RTFfield,}
+\DoxyCodeLine{00767\ \ \ \ \ RTFfldinst,}
+\DoxyCodeLine{00768\ \ \ \ \ RTFfldrslt,}
+\DoxyCodeLine{00769\ \ \ \ \ RTFdatafield,}
+\DoxyCodeLine{00770\ \ \ \ \ RTFxe,}
+\DoxyCodeLine{00771\ \ \ \ \ RTFtxe,}
+\DoxyCodeLine{00772\ \ \ \ \ RTFrxe,}
+\DoxyCodeLine{00773\ \ \ \ \ RTFtc,}
+\DoxyCodeLine{00774\ \ \ \ \ RTFftnalt,}
+\DoxyCodeLine{00775\ \ \ \ \ RTFflddirty,}
+\DoxyCodeLine{00776\ \ \ \ \ RTFfldedit,}
+\DoxyCodeLine{00777\ \ \ \ \ RTFfldlock,}
+\DoxyCodeLine{00778\ \ \ \ \ RTFfldpriv,}
+\DoxyCodeLine{00779\ \ \ \ \ RTFfldalt,}
+\DoxyCodeLine{00780\ \ \ \ \ RTFxef,}
+\DoxyCodeLine{00781\ \ \ \ \ RTFbxe,}
+\DoxyCodeLine{00782\ \ \ \ \ RTFixe,}
+\DoxyCodeLine{00783\ \ \ \ \ RTFtcf,}
+\DoxyCodeLine{00784\ \ \ \ \ RTFtcl,}
+\DoxyCodeLine{00785\ \ \ \ \ RTFtcn}
+\DoxyCodeLine{00786\ \}\ rtfControl;}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \textcolor{comment}{//\ An\ enumeration\ for\ all\ the\ RTF\ destinations\ recognised}}
+\DoxyCodeLine{00789\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00790\ \ \ \ \ RTFDunknownDestination,}
+\DoxyCodeLine{00791\ \ \ \ \ RTFDrtf,}
+\DoxyCodeLine{00792\ \ \ \ \ RTFDfonttbl,}
+\DoxyCodeLine{00793\ \ \ \ \ RTFDfalt,}
+\DoxyCodeLine{00794\ \ \ \ \ RTFDfontemb,}
+\DoxyCodeLine{00795\ \ \ \ \ RTFDfontfile,}
+\DoxyCodeLine{00796\ \ \ \ \ RTFDfiletbl,}
+\DoxyCodeLine{00797\ \ \ \ \ RTFDfile,}
+\DoxyCodeLine{00798\ \ \ \ \ RTFDcolortbl,}
+\DoxyCodeLine{00799\ \ \ \ \ RTFDstylesheet,}
+\DoxyCodeLine{00800\ \ \ \ \ RTFDtitle,}
+\DoxyCodeLine{00801\ \ \ \ \ RTFDsubject,}
+\DoxyCodeLine{00802\ \ \ \ \ RTFDauthor,}
+\DoxyCodeLine{00803\ \ \ \ \ RTFDoperator,}
+\DoxyCodeLine{00804\ \ \ \ \ RTFDkeywords,}
+\DoxyCodeLine{00805\ \ \ \ \ RTFDcomment,}
+\DoxyCodeLine{00806\ \ \ \ \ RTFDdoccomm,}
+\DoxyCodeLine{00807\ \ \ \ \ RTFDcreatim,}
+\DoxyCodeLine{00808\ \ \ \ \ RTFDrevtim,}
+\DoxyCodeLine{00809\ \ \ \ \ RTFDprintim,}
+\DoxyCodeLine{00810\ \ \ \ \ RTFDbuptim,}
+\DoxyCodeLine{00811\ \ \ \ \ RTFDkeycode,}
+\DoxyCodeLine{00812\ \ \ \ \ RTFDnextfile,}
+\DoxyCodeLine{00813\ \ \ \ \ RTFDtemplate,}
+\DoxyCodeLine{00814\ \ \ \ \ RTFDftnsep,}
+\DoxyCodeLine{00815\ \ \ \ \ RTFDftnsepc,}
+\DoxyCodeLine{00816\ \ \ \ \ RTFDftncn,}
+\DoxyCodeLine{00817\ \ \ \ \ RTFDaftnsepc,}
+\DoxyCodeLine{00818\ \ \ \ \ RTFDaftncn,}
+\DoxyCodeLine{00819\ \ \ \ \ RTFDrevtbl,}
+\DoxyCodeLine{00820\ \ \ \ \ RTFDinfo,}
+\DoxyCodeLine{00821\ \ \ \ \ RTFDpn,}
+\DoxyCodeLine{00822\ \ \ \ \ RTFDpnseclvl,}
+\DoxyCodeLine{00823\ \ \ \ \ RTFDpntext,}
+\DoxyCodeLine{00824\ \ \ \ \ RTFDheader,}
+\DoxyCodeLine{00825\ \ \ \ \ RTFDfooter,}
+\DoxyCodeLine{00826\ \ \ \ \ RTFDheaderl,}
+\DoxyCodeLine{00827\ \ \ \ \ RTFDfooterl,}
+\DoxyCodeLine{00828\ \ \ \ \ RTFDheaderr,}
+\DoxyCodeLine{00829\ \ \ \ \ RTFDfooterr,}
+\DoxyCodeLine{00830\ \ \ \ \ RTFDheaderf,}
+\DoxyCodeLine{00831\ \ \ \ \ RTFDfooterf,}
+\DoxyCodeLine{00832\ \ \ \ \ RTFDpntxta,}
+\DoxyCodeLine{00833\ \ \ \ \ RTFDpntxtb,}
+\DoxyCodeLine{00834\ \ \ \ \ RTFDbkmkstart,}
+\DoxyCodeLine{00835\ \ \ \ \ RTFDbkmkend,}
+\DoxyCodeLine{00836\ \ \ \ \ RTFDpict,}
+\DoxyCodeLine{00837\ \ \ \ \ RTFDobject,}
+\DoxyCodeLine{00838\ \ \ \ \ RTFDdo,}
+\DoxyCodeLine{00839\ \ \ \ \ RTFDfootnote,}
+\DoxyCodeLine{00840\ \ \ \ \ RTFDatrfstart,}
+\DoxyCodeLine{00841\ \ \ \ \ RTFDatrfend,}
+\DoxyCodeLine{00842\ \ \ \ \ RTFDatnid,}
+\DoxyCodeLine{00843\ \ \ \ \ RTFDatnauthor,}
+\DoxyCodeLine{00844\ \ \ \ \ RTFDannotation,}
+\DoxyCodeLine{00845\ \ \ \ \ RTFDatnref,}
+\DoxyCodeLine{00846\ \ \ \ \ RTFDatntime,}
+\DoxyCodeLine{00847\ \ \ \ \ RTFDatnicn,}
+\DoxyCodeLine{00848\ \ \ \ \ RTFDfield,}
+\DoxyCodeLine{00849\ \ \ \ \ RTFDfldinst,}
+\DoxyCodeLine{00850\ \ \ \ \ RTFDfldrslt,}
+\DoxyCodeLine{00851\ \ \ \ \ RTFDdatafield,}
+\DoxyCodeLine{00852\ \ \ \ \ RTFDxe,}
+\DoxyCodeLine{00853\ \ \ \ \ RTFDtxe,}
+\DoxyCodeLine{00854\ \ \ \ \ RTFDrxe,}
+\DoxyCodeLine{00855\ \ \ \ \ RTFDtc,}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{comment}{//\ Now\ use\ destinations\ which\ are\ not\ destinations}}
+\DoxyCodeLine{00858\ \ \ \ \ \textcolor{comment}{//\ in\ the\ RTF\ sense\ but\ are\ destinations\ in\ a\ broader}}
+\DoxyCodeLine{00859\ \ \ \ \ \textcolor{comment}{//\ sense.\ e.g.\ borders\ are\ part\ of\ the\ paragraph\ formatting}}
+\DoxyCodeLine{00860\ \ \ \ \ \textcolor{comment}{//\ and\ certain\ keywords\ relate\ to\ borders.\ These\ values}}
+\DoxyCodeLine{00861\ \ \ \ \ \textcolor{comment}{//\ are\ used\ as\ further\ qualifiers\ for\ controls\ which\ are\ not}}
+\DoxyCodeLine{00862\ \ \ \ \ \textcolor{comment}{//\ themseleves\ destinations}}
+\DoxyCodeLine{00863\ }
+\DoxyCodeLine{00864\ \ \ \ \ RTFDborder,}
+\DoxyCodeLine{00865\ \ \ \ \ RTFDshading,}
+\DoxyCodeLine{00866\ \ \ \ \ RTFDframe,}
+\DoxyCodeLine{00867\ \ \ \ \ RTFDtable,}
+\DoxyCodeLine{00868\ \ \ \ \ RTFDcell,}
+\DoxyCodeLine{00869\ \ \ \ \ RTFDchrfmt,}
+\DoxyCodeLine{00870\ \ \ \ \ RTFDachrfmt,}
+\DoxyCodeLine{00871\ \ \ \ \ RTFDtab,}
+\DoxyCodeLine{00872\ \ \ \ \ RTFDdocfmt,}
+\DoxyCodeLine{00873\ \ \ \ \ RTFDsecfmt,}
+\DoxyCodeLine{00874\ \ \ \ \ RTFDparfmt,}
+\DoxyCodeLine{00875\ \ \ \ \ RTFDdocfootnote,}
+\DoxyCodeLine{00876\ \ \ \ \ RTFDsectionpage,}
+\DoxyCodeLine{00877\ \ \ \ \ RTFDdocpage,}
+\DoxyCodeLine{00878\ \ \ \ \ RTFDpar}
+\DoxyCodeLine{00879\ \}\ rtfDestinationType;}
+\DoxyCodeLine{00880\ }
+\DoxyCodeLine{00881\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSstyle}{RTFSstyle}};}
+\DoxyCodeLine{00882\ }
+\DoxyCodeLine{00883\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSfont}{RTFSfont}}\ \{}
+\DoxyCodeLine{00884\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00885\ \ \ \ \ \mbox{\hyperlink{classRTFSfont}{RTFSfont}}();}
+\DoxyCodeLine{00886\ \ \ \ \ \mbox{\hyperlink{classRTFSfont}{\string~RTFSfont}}();}
+\DoxyCodeLine{00887\ }
+\DoxyCodeLine{00888\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ font\ spec\ into\ a\ maxwell\ font}}
+\DoxyCodeLine{00889\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ maxwell\_font);}
+\DoxyCodeLine{00890\ }
+\DoxyCodeLine{00891\ \ \ \ \ \textcolor{keywordtype}{char}*\ fontname;\ \textcolor{comment}{//\ Font\ name}}
+\DoxyCodeLine{00892\ \ \ \ \ \textcolor{keywordtype}{char}*\ falt;\ \textcolor{comment}{//\ Alternative\ font\ name}}
+\DoxyCodeLine{00893\ \ \ \ \ rtfControl\ fontfamily;\ \textcolor{comment}{//\ Font\ family}}
+\DoxyCodeLine{00894\ \ \ \ \ RTFEcharset\ fcharset;\ \textcolor{comment}{//\ Font\ character\ set}}
+\DoxyCodeLine{00895\ \ \ \ \ RTFEpitch\ fprq;\ \textcolor{comment}{//\ Pitch}}
+\DoxyCodeLine{00896\ \ \ \ \ \textcolor{keywordtype}{int}\ f;\ \textcolor{comment}{//\ Font\ number}}
+\DoxyCodeLine{00897\ \};}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFScolour}{RTFScolour}}\ \{}
+\DoxyCodeLine{00900\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00901\ \ \ \ \ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}();}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ paragraph\ style\ into\ a\ maxwell\ paragraph\ style}}
+\DoxyCodeLine{00904\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__colour}{mx\_colour}}\&\ maxwell\_colour);}
+\DoxyCodeLine{00905\ }
+\DoxyCodeLine{00906\ \ \ \ \ \textcolor{keywordtype}{int}\ red;}
+\DoxyCodeLine{00907\ \ \ \ \ \textcolor{keywordtype}{int}\ green;}
+\DoxyCodeLine{00908\ \ \ \ \ \textcolor{keywordtype}{int}\ blue;}
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{keywordtype}{int}\ offset;}
+\DoxyCodeLine{00910\ \};}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSfile}{RTFSfile}}\ \{}
+\DoxyCodeLine{00913\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00914\ \ \ \ \ \mbox{\hyperlink{classRTFSfile}{RTFSfile}}();}
+\DoxyCodeLine{00915\ \ \ \ \ \mbox{\hyperlink{classRTFSfile}{\string~RTFSfile}}();}
+\DoxyCodeLine{00916\ \ \ \ \ \textcolor{keywordtype}{char}*\ filename;\ \textcolor{comment}{//\ Filename}}
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keywordtype}{int}\ fid;\ \textcolor{comment}{//\ fileid}}
+\DoxyCodeLine{00918\ \ \ \ \ \textcolor{keywordtype}{int}\ frelative;\ \textcolor{comment}{//\ relative\ offset}}
+\DoxyCodeLine{00919\ \ \ \ \ rtfControl\ filesource;\ \textcolor{comment}{//\ File\ source}}
+\DoxyCodeLine{00920\ \};}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSdocfootnote}{RTFSdocfootnote}}\ \{}
+\DoxyCodeLine{00923\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00924\ \ \ \ \ \mbox{\hyperlink{classRTFSdocfootnote}{RTFSdocfootnote}}();}
+\DoxyCodeLine{00925\ \ \ \ \ \mbox{\hyperlink{classRTFSdocfootnote}{\string~RTFSdocfootnote}}();}
+\DoxyCodeLine{00926\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{00927\ }
+\DoxyCodeLine{00928\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ document\ info}}
+\DoxyCodeLine{00929\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}\&\ doc,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ doc\_pos);}
+\DoxyCodeLine{00930\ }
+\DoxyCodeLine{00931\ \ \ \ \ RTFEfootnote\ footnote;\ \textcolor{comment}{//\ 0,\ 1,\ or\ 2\ depending\ on\ presence\ or}}
+\DoxyCodeLine{00932\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ otherwise\ of\ footnotes}}
+\DoxyCodeLine{00933\ \ \ \ \ \textcolor{keywordtype}{char}*\ ftnsep;\ \textcolor{comment}{//\ Text\ seperator\ for\ footnotes}}
+\DoxyCodeLine{00934\ \ \ \ \ \textcolor{keywordtype}{char}*\ ftnsepc;\ \textcolor{comment}{//\ Text\ seperator\ for\ footnotes}}
+\DoxyCodeLine{00935\ \ \ \ \ \textcolor{keywordtype}{char}*\ ftncn;\ \textcolor{comment}{//\ Text\ seperator\ for\ footnotes}}
+\DoxyCodeLine{00936\ \ \ \ \ \textcolor{keywordtype}{char}*\ aftnsep;\ \textcolor{comment}{//\ Text\ seperator\ for\ endnotes}}
+\DoxyCodeLine{00937\ \ \ \ \ \textcolor{keywordtype}{char}*\ aftnsepc;\ \textcolor{comment}{//\ Text\ seperator\ for\ endnotes}}
+\DoxyCodeLine{00938\ \ \ \ \ \textcolor{keywordtype}{char}*\ aftncn;\ \textcolor{comment}{//\ Text\ seperator\ for\ endnotes}}
+\DoxyCodeLine{00939\ \ \ \ \ rtfControl\ endnotes;\ \textcolor{comment}{//\ Location\ of\ footnotes}}
+\DoxyCodeLine{00940\ \ \ \ \ rtfControl\ aendnotes;\ \textcolor{comment}{//\ Location\ of\ endnotes}}
+\DoxyCodeLine{00941\ \ \ \ \ \textcolor{keywordtype}{int}\ ftnstart;\ \textcolor{comment}{//\ Start\ footnote\ number}}
+\DoxyCodeLine{00942\ \ \ \ \ \textcolor{keywordtype}{int}\ aftnstart;\ \textcolor{comment}{//\ Start\ endnote\ number}}
+\DoxyCodeLine{00943\ \ \ \ \ rtfControl\ ftnr;\ \textcolor{comment}{//\ Restart\ footnote\ condition}}
+\DoxyCodeLine{00944\ \ \ \ \ rtfControl\ aftnr;\ \textcolor{comment}{//\ Restart\ endnote\ condition}}
+\DoxyCodeLine{00945\ \ \ \ \ rtfControl\ ftnn;\ \textcolor{comment}{//\ Footnote\ numbering\ type}}
+\DoxyCodeLine{00946\ \ \ \ \ rtfControl\ aftnn;\ \textcolor{comment}{//\ Endnote\ numbering\ type}}
+\DoxyCodeLine{00947\ \};}
+\DoxyCodeLine{00948\ }
+\DoxyCodeLine{00949\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSpage}{RTFSpage}}\ \{}
+\DoxyCodeLine{00950\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00951\ \ \ \ \ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}();}
+\DoxyCodeLine{00952\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00953\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{00954\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ document\ info}}
+\DoxyCodeLine{00955\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}\&\ doc,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ doc\_pos);}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keywordtype}{int}\ paperw;\ \textcolor{comment}{//\ Paper\ width}}
+\DoxyCodeLine{00958\ \ \ \ \ \textcolor{keywordtype}{int}\ paperh;\ \textcolor{comment}{//\ Paper\ height}}
+\DoxyCodeLine{00959\ \ \ \ \ \textcolor{keywordtype}{int}\ margl;\ \textcolor{comment}{//\ Margins}}
+\DoxyCodeLine{00960\ \ \ \ \ \textcolor{keywordtype}{int}\ margr;}
+\DoxyCodeLine{00961\ \ \ \ \ \textcolor{keywordtype}{int}\ margt;}
+\DoxyCodeLine{00962\ \ \ \ \ \textcolor{keywordtype}{int}\ margb;}
+\DoxyCodeLine{00963\ \ \ \ \ \textcolor{keywordtype}{bool}\ facingp;\ \textcolor{comment}{//\ Facing\ pages}}
+\DoxyCodeLine{00964\ \ \ \ \ \textcolor{keywordtype}{int}\ gutter;\ \textcolor{comment}{//\ Gutter\ width}}
+\DoxyCodeLine{00965\ \ \ \ \ \textcolor{keywordtype}{bool}\ margmirror;\ \textcolor{comment}{//\ Switches\ margin\ and\ gutter}}
+\DoxyCodeLine{00966\ \ \ \ \ \textcolor{keywordtype}{bool}\ landscape;\ \textcolor{comment}{//\ Landscape}}
+\DoxyCodeLine{00967\ \ \ \ \ \textcolor{keywordtype}{int}\ pgnstart;\ \textcolor{comment}{//\ Start\ page\ number}}
+\DoxyCodeLine{00968\ \ \ \ \ \textcolor{keywordtype}{bool}\ titlepg;\ \textcolor{comment}{//\ First\ page\ has\ a\ special\ format}}
+\DoxyCodeLine{00969\ \ \ \ \ \textcolor{keywordtype}{int}\ headery;\ \textcolor{comment}{//\ Distance\ of\ header\ from\ top\ of\ page}}
+\DoxyCodeLine{00970\ \ \ \ \ \textcolor{keywordtype}{int}\ footery;\ \textcolor{comment}{//\ Distance\ of\ header\ from\ bottom\ of\ page}}
+\DoxyCodeLine{00971\ \};}
+\DoxyCodeLine{00972\ }
+\DoxyCodeLine{00973\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSdocfmt}{RTFSdocfmt}}\ \{}
+\DoxyCodeLine{00974\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00975\ \ \ \ \ \mbox{\hyperlink{classRTFSdocfmt}{RTFSdocfmt}}();}
+\DoxyCodeLine{00976\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ document\ info}}
+\DoxyCodeLine{00979\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}\&\ doc,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}\&\ doc\_pos,}
+\DoxyCodeLine{00980\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ \ \ \ \ rtfControl\ charset;\ \textcolor{comment}{//\ ansi,\ mac,\ etc}}
+\DoxyCodeLine{00983\ \ \ \ \ \textcolor{keywordtype}{int}\ deff;\ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00984\ \ \ \ \ \textcolor{keywordtype}{int}\ deftab;\ \textcolor{comment}{//\ default\ tab}}
+\DoxyCodeLine{00985\ \ \ \ \ \textcolor{keywordtype}{int}\ hyphhotz;\ \textcolor{comment}{//\ Hypenation\ hot\ spot}}
+\DoxyCodeLine{00986\ \ \ \ \ \textcolor{keywordtype}{int}\ hyphconsec;\ \textcolor{comment}{//\ Hypenation\ number\ of\ consecutive}}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hypenated\ lines}}
+\DoxyCodeLine{00988\ \ \ \ \ \textcolor{keywordtype}{bool}\ hyphcaps;\ \textcolor{comment}{//\ toggle\ hypenation\ of\ capitalised}}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ words}}
+\DoxyCodeLine{00990\ \ \ \ \ \textcolor{keywordtype}{bool}\ hyphauto;\ \textcolor{comment}{//\ toggle\ automated\ hyphenation}}
+\DoxyCodeLine{00991\ \ \ \ \ \textcolor{keywordtype}{int}\ linestart;\ \textcolor{comment}{//\ start\ line\ number}}
+\DoxyCodeLine{00992\ \ \ \ \ RTFElang\ deflang;\ \textcolor{comment}{//\ Default\ language}}
+\DoxyCodeLine{00993\ \ \ \ \ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}\ page;\ \textcolor{comment}{//\ Page\ information}}
+\DoxyCodeLine{00994\ \ \ \ \ \mbox{\hyperlink{classRTFSdocfootnote}{RTFSdocfootnote}}\ footnote;\ \textcolor{comment}{//\ Footnote\ information}}
+\DoxyCodeLine{00995\ \};}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{00997\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSsecfmt}{RTFSsecfmt}}\ \{}
+\DoxyCodeLine{00998\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00999\ \ \ \ \ \mbox{\hyperlink{classRTFSsecfmt}{RTFSsecfmt}}(\mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01000\ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01001\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01002\ }
+\DoxyCodeLine{01003\ \ \ \ \ \textcolor{keywordtype}{bool}\ endnhere;\ \textcolor{comment}{//\ Section\ has\ footnotes}}
+\DoxyCodeLine{01004\ \ \ \ \ rtfControl\ sectionBreak;\ \textcolor{comment}{//\ Section\ break\ type}}
+\DoxyCodeLine{01005\ \ \ \ \ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}\ page;\ \textcolor{comment}{//\ Page\ data\ information\ for\ section}}
+\DoxyCodeLine{01006\ \ \ \ \ \textcolor{keywordtype}{int}\ cols;\ \textcolor{comment}{//\ Number\ of\ columns}}
+\DoxyCodeLine{01007\ \ \ \ \ \textcolor{keywordtype}{int}\ colsx;\ \textcolor{comment}{//\ Space\ betwenn\ columns}}
+\DoxyCodeLine{01008\ \ \ \ \ \textcolor{keywordtype}{int}\ colno;\ \textcolor{comment}{//\ Column\ nunber\ to\ be\ formatted}}
+\DoxyCodeLine{01009\ \ \ \ \ \textcolor{keywordtype}{int}\ colsr;\ \textcolor{comment}{//\ Space\ to\ right\ of\ columns}}
+\DoxyCodeLine{01010\ \ \ \ \ \textcolor{keywordtype}{int}\ colw;\ \textcolor{comment}{//\ Width\ of\ column\ in\ twips}}
+\DoxyCodeLine{01011\ \ \ \ \ \textcolor{keywordtype}{bool}\ linebetcol;\ \textcolor{comment}{//\ Line\ between\ columns}}
+\DoxyCodeLine{01012\ \ \ \ \ \textcolor{keywordtype}{int}\ linemod;\ \textcolor{comment}{//\ Line\ number\ modulus}}
+\DoxyCodeLine{01013\ \ \ \ \ \textcolor{keywordtype}{int}\ linex;\ \textcolor{comment}{//\ Line\ number\ distance\ offset}}
+\DoxyCodeLine{01014\ \ \ \ \ \textcolor{keywordtype}{int}\ linestarts;\ \textcolor{comment}{//\ Start\ line\ number}}
+\DoxyCodeLine{01015\ \ \ \ \ \textcolor{keywordtype}{bool}\ linerestart;\ \textcolor{comment}{//\ Line\ numbers\ restart\ at\ linestarts}}
+\DoxyCodeLine{01016\ \ \ \ \ rtfControl\ linerestartType;\ \textcolor{comment}{//\ Line\ numbers\ start\ type}}
+\DoxyCodeLine{01017\ \ \ \ \ \textcolor{keywordtype}{int}\ pgnrestart;\ \textcolor{comment}{//\ Page\ numbers\ restart\ at\ page\ restart}}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value}}
+\DoxyCodeLine{01019\ \ \ \ \ rtfControl\ pgnrestartType;\ \textcolor{comment}{//\ Page\ number\ start\ type}}
+\DoxyCodeLine{01020\ \ \ \ \ \textcolor{keywordtype}{int}\ pgnx;\ \textcolor{comment}{//\ Page\ number\ position}}
+\DoxyCodeLine{01021\ \ \ \ \ \textcolor{keywordtype}{int}\ pgny;\ \textcolor{comment}{//\ Page\ number\ position}}
+\DoxyCodeLine{01022\ \ \ \ \ rtfControl\ pgntype;\ \textcolor{comment}{//\ Page\ number\ type}}
+\DoxyCodeLine{01023\ \ \ \ \ \textcolor{keywordtype}{int}\ pgnhn;\ \textcolor{comment}{//\ Header\ number\ to\ go\ with\ page\ number}}
+\DoxyCodeLine{01024\ \ \ \ \ rtfControl\ pgnhns;\ \textcolor{comment}{//\ Heading/page\ number\ seperator}}
+\DoxyCodeLine{01025\ \ \ \ \ rtfControl\ verta;\ \textcolor{comment}{//\ Vertical\ alignment\ type}}
+\DoxyCodeLine{01026\ \ \ \ \ \textcolor{keywordtype}{int}\ ds;\ \textcolor{comment}{//\ Style}}
+\DoxyCodeLine{01027\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ dss;}
+\DoxyCodeLine{01028\ \};}
+\DoxyCodeLine{01029\ }
+\DoxyCodeLine{01030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSsection}{RTFSsection}}\ \{}
+\DoxyCodeLine{01031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01032\ \ \ \ \ \mbox{\hyperlink{classRTFSsection}{RTFSsection}}(\mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01033\ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01034\ \ \ \ \ \mbox{\hyperlink{classRTFSsecfmt}{RTFSsecfmt}}\ fmt;}
+\DoxyCodeLine{01035\ \};}
+\DoxyCodeLine{01036\ }
+\DoxyCodeLine{01037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ \{}
+\DoxyCodeLine{01038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01039\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}();}
+\DoxyCodeLine{01040\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01041\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01043\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ style}}
+\DoxyCodeLine{01044\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ maxwell\_line\_style,}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01046\ }
+\DoxyCodeLine{01047\ \ \ \ \ rtfControl\ brdrk;\ \textcolor{comment}{//\ Border\ type}}
+\DoxyCodeLine{01048\ \ \ \ \ \textcolor{keywordtype}{int}\ brdrw;\ \textcolor{comment}{//\ Border\ width}}
+\DoxyCodeLine{01049\ \ \ \ \ \textcolor{keywordtype}{int}\ brdrcf;\ \textcolor{comment}{//\ Border\ colour}}
+\DoxyCodeLine{01050\ \ \ \ \ \textcolor{keywordtype}{int}\ brsp;\ \textcolor{comment}{//\ Border\ space}}
+\DoxyCodeLine{01051\ \};}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSparfmt}{RTFSparfmt}}\ \{}
+\DoxyCodeLine{01054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01055\ \ \ \ \ \mbox{\hyperlink{classRTFSparfmt}{RTFSparfmt}}();}
+\DoxyCodeLine{01056\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01057\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01058\ }
+\DoxyCodeLine{01059\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ paragraph\ style\ into\ a\ maxwell\ paragraph\ style}}
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ maxwell\_para\_style,}
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01063\ \ \ \ \ \textcolor{keywordtype}{bool}\ hyphpar;\ \textcolor{comment}{//\ Automatic\ hyphenation}}
+\DoxyCodeLine{01064\ \ \ \ \ \textcolor{keywordtype}{bool}\ intbl;\ \textcolor{comment}{//\ Is\ a\ table\ paragraph}}
+\DoxyCodeLine{01065\ \ \ \ \ \textcolor{keywordtype}{bool}\ keep;\ \textcolor{comment}{//\ Keep\ intact}}
+\DoxyCodeLine{01066\ \ \ \ \ \textcolor{keywordtype}{bool}\ keepn;\ \textcolor{comment}{//\ keep\ with\ next}}
+\DoxyCodeLine{01067\ \ \ \ \ \textcolor{keywordtype}{int}\ level;\ \textcolor{comment}{//\ Outline\ level}}
+\DoxyCodeLine{01068\ \ \ \ \ \textcolor{keywordtype}{bool}\ noline;\ \textcolor{comment}{//\ No\ line\ numbering}}
+\DoxyCodeLine{01069\ \ \ \ \ \textcolor{keywordtype}{bool}\ pagebb;\ \textcolor{comment}{//\ Break\ page\ before\ paragraph}}
+\DoxyCodeLine{01070\ \ \ \ \ \textcolor{keywordtype}{bool}\ sbys;\ \textcolor{comment}{//\ Side\ by\ side\ paragraphs}}
+\DoxyCodeLine{01071\ \ \ \ \ rtfControl\ alignment;\ \textcolor{comment}{//\ Alignment\ type}}
+\DoxyCodeLine{01072\ \ \ \ \ \textcolor{keywordtype}{int}\ fi;\ \textcolor{comment}{//\ First\ line\ indent}}
+\DoxyCodeLine{01073\ \ \ \ \ \textcolor{keywordtype}{int}\ li;\ \textcolor{comment}{//\ Left\ indent}}
+\DoxyCodeLine{01074\ \ \ \ \ \textcolor{keywordtype}{int}\ ri;\ \textcolor{comment}{//\ Right\ indent}}
+\DoxyCodeLine{01075\ \ \ \ \ \textcolor{keywordtype}{int}\ sb;\ \textcolor{comment}{//\ Space\ before}}
+\DoxyCodeLine{01076\ \ \ \ \ \textcolor{keywordtype}{int}\ sa;\ \textcolor{comment}{//\ Space\ after}}
+\DoxyCodeLine{01077\ \ \ \ \ \textcolor{keywordtype}{int}\ sl;\ \textcolor{comment}{//\ Space\ between\ lines}}
+\DoxyCodeLine{01078\ \ \ \ \ \textcolor{keywordtype}{int}\ slmult;\ \textcolor{comment}{//\ Line\ spacing\ multiple}}
+\DoxyCodeLine{01079\ \ \ \ \ \textcolor{keywordtype}{int}\ s;\ \textcolor{comment}{//\ Style}}
+\DoxyCodeLine{01080\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ ss;}
+\DoxyCodeLine{01081\ \};}
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01083\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSparFrame}{RTFSparFrame}}\ \{}
+\DoxyCodeLine{01084\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01085\ \ \ \ \ \mbox{\hyperlink{classRTFSparFrame}{RTFSparFrame}}();}
+\DoxyCodeLine{01086\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01087\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01088\ }
+\DoxyCodeLine{01089\ \ \ \ \ \textcolor{keywordtype}{int}\ absw;\ \textcolor{comment}{//\ width}}
+\DoxyCodeLine{01090\ \ \ \ \ \textcolor{keywordtype}{int}\ absh;\ \textcolor{comment}{//\ height}}
+\DoxyCodeLine{01091\ \ \ \ \ \textcolor{keywordtype}{bool}\ nowrap;\ \textcolor{comment}{//\ outside\ text\ does\ not\ wrap\ around\ object}}
+\DoxyCodeLine{01092\ \ \ \ \ \textcolor{keywordtype}{int}\ dxfrtext;\ \textcolor{comment}{//\ Distances\ between\ text\ in\ frame\ and\ outside}}
+\DoxyCodeLine{01093\ \ \ \ \ \textcolor{keywordtype}{int}\ dfrmtxtx;}
+\DoxyCodeLine{01094\ \ \ \ \ \textcolor{keywordtype}{int}\ dfrmtxty;}
+\DoxyCodeLine{01095\ \ \ \ \ \textcolor{keywordtype}{int}\ dropcapli;\ \textcolor{comment}{//\ Number\ of\ lines\ capital\ drops}}
+\DoxyCodeLine{01096\ \ \ \ \ RTFEdropcap\ dropcapt;\ \textcolor{comment}{//\ Type\ of\ dropped\ capital}}
+\DoxyCodeLine{01097\ \ \ \ \ \textcolor{keywordtype}{int}\ posx;\ \textcolor{comment}{//\ Distance\ of\ frame\ from\ left\ edge\ of\ reference}}
+\DoxyCodeLine{01098\ \ \ \ \ \textcolor{keywordtype}{int}\ posy;\ \textcolor{comment}{//\ Distance\ of\ frame\ from\ top\ edge\ of\ reference}}
+\DoxyCodeLine{01099\ \ \ \ \ rtfControl\ hframe;\ \textcolor{comment}{//\ Horizontal\ Frame\ reference}}
+\DoxyCodeLine{01100\ \ \ \ \ rtfControl\ hdist;\ \textcolor{comment}{//\ Horizontal\ position\ of\ paragraph}}
+\DoxyCodeLine{01101\ \ \ \ \ rtfControl\ vframe;\ \textcolor{comment}{//\ Vertical\ frame\ reference}}
+\DoxyCodeLine{01102\ \ \ \ \ rtfControl\ vdist;\ \textcolor{comment}{//\ Vertical\ position\ of\ paragraph}}
+\DoxyCodeLine{01103\ \};}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01105\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSparTab}{RTFSparTab}}\ \{}
+\DoxyCodeLine{01106\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01107\ \ \ \ \ \mbox{\hyperlink{classRTFSparTab}{RTFSparTab}}();}
+\DoxyCodeLine{01108\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01109\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01110\ }
+\DoxyCodeLine{01111\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ tabstop\ into\ a\ maxwell\ tabstop}}
+\DoxyCodeLine{01112\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}\&\ mx\_t);}
+\DoxyCodeLine{01113\ }
+\DoxyCodeLine{01114\ \ \ \ \ \textcolor{keywordtype}{int}\ tx;\ \textcolor{comment}{//\ Tab\ position}}
+\DoxyCodeLine{01115\ \ \ \ \ \textcolor{keywordtype}{int}\ tb;\ \textcolor{comment}{//\ Bar\ tab\ poistion}}
+\DoxyCodeLine{01116\ \ \ \ \ rtfControl\ tabkind;\ \textcolor{comment}{//\ Tab\ justification}}
+\DoxyCodeLine{01117\ \ \ \ \ rtfControl\ tablead;\ \textcolor{comment}{//\ Tab\ leader}}
+\DoxyCodeLine{01118\ \};}
+\DoxyCodeLine{01119\ }
+\DoxyCodeLine{01120\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSparShading}{RTFSparShading}}\ \{}
+\DoxyCodeLine{01121\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01123\ \ \ \ \ \mbox{\hyperlink{classRTFSparShading}{RTFSparShading}}();}
+\DoxyCodeLine{01124\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01126\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ fill\ style}}
+\DoxyCodeLine{01127\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__fill__style}{mx\_fill\_style}}\&\ maxwell\_fill\_style,}
+\DoxyCodeLine{01128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01129\ }
+\DoxyCodeLine{01130\ \ \ \ \ \textcolor{keywordtype}{int}\ shading;\ \textcolor{comment}{//\ Shading\ in\ hundredths\ of\ percent}}
+\DoxyCodeLine{01131\ \ \ \ \ \textcolor{keywordtype}{int}\ cfpat;\ \textcolor{comment}{//\ Foreground\ colour}}
+\DoxyCodeLine{01132\ \ \ \ \ \textcolor{keywordtype}{int}\ cbpat;\ \textcolor{comment}{//\ Background\ colour}}
+\DoxyCodeLine{01133\ \ \ \ \ rtfControl\ pat;\ \textcolor{comment}{//\ Pattern\ type}}
+\DoxyCodeLine{01134\ \};}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01136\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSpar}{RTFSpar}}\ \{}
+\DoxyCodeLine{01137\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01138\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01139\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ par);}
+\DoxyCodeLine{01140\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ operator=(\mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ par);}
+\DoxyCodeLine{01141\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ equate(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\&\ par);}
+\DoxyCodeLine{01142\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01143\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{\string~RTFSpar}}();}
+\DoxyCodeLine{01144\ \ \ \ \ \mbox{\hyperlink{classRTFSparTab}{RTFSparTab}}\ currentTab;}
+\DoxyCodeLine{01145\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01146\ \ \ \ \ \textcolor{keywordtype}{void}\ processEndTab(rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01147\ \ \ \ \ \textcolor{keywordtype}{void}\ getCurrentBorder(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}**\ pcurrentBorder);}
+\DoxyCodeLine{01148\ }
+\DoxyCodeLine{01149\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteTabs();}
+\DoxyCodeLine{01150\ }
+\DoxyCodeLine{01151\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ paragraph\ style\ into\ a\ maxwell\ paragraph\ style}}
+\DoxyCodeLine{01152\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ maxwell\_para\_style,\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01154\ \ \ \ \ rtfControl\ currentBorder;}
+\DoxyCodeLine{01155\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrt;}
+\DoxyCodeLine{01156\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrb;}
+\DoxyCodeLine{01157\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrl;}
+\DoxyCodeLine{01158\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrr;}
+\DoxyCodeLine{01159\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrbtw;}
+\DoxyCodeLine{01160\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ brdrbar;}
+\DoxyCodeLine{01161\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ box;}
+\DoxyCodeLine{01162\ }
+\DoxyCodeLine{01163\ \ \ \ \ \textcolor{comment}{//\ are\ the\ tabs\ in\ this\ formatting\ from\ a\ style\ in\ the\ style\ table?\ If\ so}}
+\DoxyCodeLine{01164\ \ \ \ \ \textcolor{comment}{//\ then\ before\ new\ tabs\ are\ added\ the\ old\ ones\ should\ be\ deleted\ and\ this}}
+\DoxyCodeLine{01165\ \ \ \ \ \textcolor{comment}{//\ variable\ should\ be\ set\ to\ false;}}
+\DoxyCodeLine{01166\ \ \ \ \ \textcolor{keywordtype}{bool}\ tabsAreStyleTabs;}
+\DoxyCodeLine{01167\ \ \ \ \ std::map<int,\ RTFSparTab\ *>\ tabs;\ \textcolor{comment}{//\ List\ of\ the\ paragraph\ tabs}}
+\DoxyCodeLine{01168\ \ \ \ \ \mbox{\hyperlink{classRTFSparfmt}{RTFSparfmt}}\ fmt;\ \textcolor{comment}{//\ Paragraph\ format}}
+\DoxyCodeLine{01169\ \ \ \ \ \mbox{\hyperlink{classRTFSparFrame}{RTFSparFrame}}\ frame;\ \textcolor{comment}{//\ Paragraph\ frame}}
+\DoxyCodeLine{01170\ \ \ \ \ \mbox{\hyperlink{classRTFSparShading}{RTFSparShading}}\ shading;\ \textcolor{comment}{//\ Paragraph\ shading}}
+\DoxyCodeLine{01171\ \};}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFScell}{RTFScell}}\ \{}
+\DoxyCodeLine{01174\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01175\ \ \ \ \ \mbox{\hyperlink{classRTFScell}{RTFScell}}();}
+\DoxyCodeLine{01176\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01177\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01178\ }
+\DoxyCodeLine{01179\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ table\ cell\ format\ into\ a\ maxwell\ table\ cell}}
+\DoxyCodeLine{01180\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}\&\ ta,\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups,}
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{01182\ }
+\DoxyCodeLine{01183\ \ \ \ \ \textcolor{comment}{//\ merge\ two\ cells\ contents}}
+\DoxyCodeLine{01184\ \ \ \ \ \textcolor{keywordtype}{void}\ merge(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFScell}{RTFScell}}\&\ a\_cell);}
+\DoxyCodeLine{01185\ }
+\DoxyCodeLine{01186\ \ \ \ \ \textcolor{keywordtype}{int}\ cellx;\ \textcolor{comment}{//\ Right\ boundary\ of\ the\ cells}}
+\DoxyCodeLine{01187\ \ \ \ \ \textcolor{keywordtype}{bool}\ clmgf;\ \textcolor{comment}{//\ Cell\ to\ be\ merged\ start}}
+\DoxyCodeLine{01188\ \ \ \ \ \textcolor{keywordtype}{bool}\ clmrg;\ \textcolor{comment}{//\ Contents\ to\ be\ merged}}
+\DoxyCodeLine{01189\ \ \ \ \ rtfControl\ currentBorder;}
+\DoxyCodeLine{01190\ \ \ \ \ \textcolor{keywordtype}{void}\ getCurrentBorder(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}**\ pcurrentBorder);}
+\DoxyCodeLine{01192\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ clbrdrt;\ \textcolor{comment}{//\ Border}}
+\DoxyCodeLine{01193\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ clbrdrl;}
+\DoxyCodeLine{01194\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ clbrdrb;}
+\DoxyCodeLine{01195\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ clbrdrr;}
+\DoxyCodeLine{01196\ \ \ \ \ \mbox{\hyperlink{classRTFSparShading}{RTFSparShading}}\ cellshad;\ \textcolor{comment}{//\ Shading}}
+\DoxyCodeLine{01197\ \};}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01199\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFStable}{RTFStable}}\ \{}
+\DoxyCodeLine{01200\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01201\ \ \ \ \ \mbox{\hyperlink{classRTFStable}{RTFStable}}();}
+\DoxyCodeLine{01202\ \ \ \ \ \mbox{\hyperlink{classRTFStable}{\string~RTFStable}}();}
+\DoxyCodeLine{01203\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01204\ \ \ \ \ \textcolor{keywordtype}{void}\ getCurrentBorder(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}**\ pcurrentBorder);}
+\DoxyCodeLine{01206\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01207\ }
+\DoxyCodeLine{01208\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ table\ format\ into\ a\ maxwell\ table}}
+\DoxyCodeLine{01209\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}\&\ ta,\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups,}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ merged\_cells);}
+\DoxyCodeLine{01211\ }
+\DoxyCodeLine{01212\ \ \ \ \ \textcolor{keywordtype}{bool}\ inTable;}
+\DoxyCodeLine{01213\ \ \ \ \ \textcolor{keywordtype}{bool}\ inCell;}
+\DoxyCodeLine{01214\ \ \ \ \ \textcolor{keywordtype}{int}\ cellCount;}
+\DoxyCodeLine{01215\ \ \ \ \ \mbox{\hyperlink{classRTFScell}{RTFScell}}\ currentCell;}
+\DoxyCodeLine{01216\ \ \ \ \ rtfControl\ currentBorder;\ \textcolor{comment}{//\ The\ border\ currently\ being\ populated}}
+\DoxyCodeLine{01217\ \ \ \ \ \textcolor{keywordtype}{int}\ trgaph;\ \textcolor{comment}{//\ Spacing\ between\ cells}}
+\DoxyCodeLine{01218\ \ \ \ \ \textcolor{keywordtype}{int}\ trleft;\ \textcolor{comment}{//\ Postion\ of\ left\ row}}
+\DoxyCodeLine{01219\ \ \ \ \ \textcolor{keywordtype}{int}\ trrh;\ \textcolor{comment}{//\ Row\ height}}
+\DoxyCodeLine{01220\ \ \ \ \ \textcolor{keywordtype}{bool}\ trhdr;\ \textcolor{comment}{//\ Row\ header}}
+\DoxyCodeLine{01221\ \ \ \ \ \textcolor{keywordtype}{bool}\ trkeep;\ \textcolor{comment}{//\ Keep\ row\ together}}
+\DoxyCodeLine{01222\ \ \ \ \ rtfControl\ rowjust;\ \textcolor{comment}{//\ Row\ justification}}
+\DoxyCodeLine{01223\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrt;\ \textcolor{comment}{//\ Table\ borders}}
+\DoxyCodeLine{01224\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrl;}
+\DoxyCodeLine{01225\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrb;}
+\DoxyCodeLine{01226\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrr;}
+\DoxyCodeLine{01227\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrh;}
+\DoxyCodeLine{01228\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ trbrdrv;}
+\DoxyCodeLine{01229\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ cells;}
+\DoxyCodeLine{01230\ \};}
+\DoxyCodeLine{01231\ }
+\DoxyCodeLine{01232\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSfield}{RTFSfield}}\ \{}
+\DoxyCodeLine{01233\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01234\ \ \ \ \ \mbox{\hyperlink{classRTFSfield}{RTFSfield}}();}
+\DoxyCodeLine{01235\ }
+\DoxyCodeLine{01236\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01237\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01238\ }
+\DoxyCodeLine{01239\ \ \ \ \ \textcolor{keywordtype}{bool}\ dirty;\ \textcolor{comment}{//\ format\ change\ since\ last\ update}}
+\DoxyCodeLine{01240\ \ \ \ \ \textcolor{keywordtype}{bool}\ edit;\ \textcolor{comment}{//\ text\ of\ field\ result\ has\ been\ modified}}
+\DoxyCodeLine{01241\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock;\ \textcolor{comment}{//\ field\ is\ locked,\ cannot\ be\ updated}}
+\DoxyCodeLine{01242\ \ \ \ \ \textcolor{keywordtype}{bool}\ priv;\ \textcolor{comment}{//\ result\ cannot\ be\ displayed\ (eg\ binary\ data)}}
+\DoxyCodeLine{01243\ \};}
+\DoxyCodeLine{01244\ }
+\DoxyCodeLine{01245\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSchrfmt}{RTFSchrfmt}}\ \{}
+\DoxyCodeLine{01246\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01247\ \ \ \ \ \mbox{\hyperlink{classRTFSchrfmt}{RTFSchrfmt}}();}
+\DoxyCodeLine{01248\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01249\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01250\ }
+\DoxyCodeLine{01251\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ character\ format\ into\ a\ maxwell\ character\ style}}
+\DoxyCodeLine{01252\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ maxwell\_style,\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01254\ \ \ \ \ \textcolor{keywordtype}{bool}\ caps;\ \textcolor{comment}{//\ Capitals}}
+\DoxyCodeLine{01255\ \ \ \ \ \textcolor{keywordtype}{bool}\ b;\ \textcolor{comment}{//\ Bold}}
+\DoxyCodeLine{01256\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleted;\ \textcolor{comment}{//\ Deleted}}
+\DoxyCodeLine{01257\ \ \ \ \ \textcolor{keywordtype}{bool}\ i;\ \textcolor{comment}{//\ Italic}}
+\DoxyCodeLine{01258\ \ \ \ \ \textcolor{keywordtype}{bool}\ outl;\ \textcolor{comment}{//\ Outline}}
+\DoxyCodeLine{01259\ \ \ \ \ \textcolor{keywordtype}{bool}\ scaps;\ \textcolor{comment}{//\ Small\ capitals}}
+\DoxyCodeLine{01260\ \ \ \ \ \textcolor{keywordtype}{bool}\ shad;\ \textcolor{comment}{//\ Shadow}}
+\DoxyCodeLine{01261\ \ \ \ \ \textcolor{keywordtype}{bool}\ strike;\ \textcolor{comment}{//\ Strike\ through}}
+\DoxyCodeLine{01262\ \ \ \ \ \textcolor{keywordtype}{bool}\ v;\ \textcolor{comment}{//\ Hidden}}
+\DoxyCodeLine{01263\ \ \ \ \ \textcolor{keywordtype}{bool}\ ul;\ \textcolor{comment}{//\ Underline\ on\ (standard)}}
+\DoxyCodeLine{01264\ \ \ \ \ rtfControl\ ult;\ \textcolor{comment}{//\ Underline\ type}}
+\DoxyCodeLine{01265\ \ \ \ \ \textcolor{keywordtype}{int}\ dn;\ \textcolor{comment}{//\ Subscript\ postiton}}
+\DoxyCodeLine{01266\ \ \ \ \ \textcolor{keywordtype}{int}\ up;\ \textcolor{comment}{//\ Superscript\ position}}
+\DoxyCodeLine{01267\ \ \ \ \ \textcolor{keywordtype}{bool}\ sub;\ \textcolor{comment}{//\ Subscript}}
+\DoxyCodeLine{01268\ \ \ \ \ \textcolor{keywordtype}{bool}\ super;\ \textcolor{comment}{//\ Supercsript}}
+\DoxyCodeLine{01269\ \ \ \ \ \textcolor{keywordtype}{bool}\ nosupersub;\ \textcolor{comment}{//\ Super,\ subscript\ off}}
+\DoxyCodeLine{01270\ \ \ \ \ \textcolor{keywordtype}{int}\ expnd;\ \textcolor{comment}{//\ Expansion\ of\ spaces}}
+\DoxyCodeLine{01271\ \ \ \ \ \textcolor{keywordtype}{int}\ expndtw;}
+\DoxyCodeLine{01272\ \ \ \ \ \textcolor{keywordtype}{int}\ kerning;\ \textcolor{comment}{//\ Kerning\ space}}
+\DoxyCodeLine{01273\ \ \ \ \ \textcolor{keywordtype}{int}\ f;\ \textcolor{comment}{//\ Font\ number}}
+\DoxyCodeLine{01274\ \ \ \ \ \mbox{\hyperlink{classRTFSfont}{RTFSfont}}*\ font;\ \textcolor{comment}{//\ Font\ details}}
+\DoxyCodeLine{01275\ \ \ \ \ \textcolor{keywordtype}{int}\ fs;\ \textcolor{comment}{//\ Font\ size}}
+\DoxyCodeLine{01276\ \ \ \ \ \textcolor{keywordtype}{int}\ cf;\ \textcolor{comment}{//\ Foreground\ colour}}
+\DoxyCodeLine{01277\ \ \ \ \ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}*\ cfs;\ \textcolor{comment}{//\ Character\ foreground\ colour}}
+\DoxyCodeLine{01278\ \ \ \ \ \textcolor{keywordtype}{int}\ cb;\ \textcolor{comment}{//\ Background\ colour}}
+\DoxyCodeLine{01279\ \ \ \ \ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}*\ cbs;\ \textcolor{comment}{//\ Character\ background\ colour}}
+\DoxyCodeLine{01280\ \ \ \ \ RTFElang\ lang;\ \textcolor{comment}{//\ Language}}
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{keywordtype}{int}\ cs;\ \textcolor{comment}{//\ Style}}
+\DoxyCodeLine{01282\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ css;}
+\DoxyCodeLine{01283\ \};}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01285\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFScharacter}{RTFScharacter}}\ \{}
+\DoxyCodeLine{01286\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01287\ \ \ \ \ \mbox{\hyperlink{classRTFScharacter}{RTFScharacter}}();}
+\DoxyCodeLine{01288\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01289\ }
+\DoxyCodeLine{01290\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ character\ format\ into\ a\ maxwell\ character\ style}}
+\DoxyCodeLine{01291\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ maxwell\_style,}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01293\ }
+\DoxyCodeLine{01294\ \ \ \ \ \mbox{\hyperlink{classRTFSchrfmt}{RTFSchrfmt}}\ fmt;}
+\DoxyCodeLine{01295\ \};}
+\DoxyCodeLine{01296\ }
+\DoxyCodeLine{01297\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\ \{}
+\DoxyCodeLine{01298\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01299\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01300\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\&\ formatting);}
+\DoxyCodeLine{01301\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\&\ operator=(\mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\&\ formatting);}
+\DoxyCodeLine{01302\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\&\ equate(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\&\ formatting);}
+\DoxyCodeLine{01303\ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01304\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ std::map<rtfTableType,\ void\ *>\ \&tables,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01305\ }
+\DoxyCodeLine{01306\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ thing\ into\ a\ maxwell\ paragraph\ style}}
+\DoxyCodeLine{01307\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ maxwell\_para\_style,\ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01308\ }
+\DoxyCodeLine{01309\ \ \ \ \ \mbox{\hyperlink{classRTFSsection}{RTFSsection}}\ section;\ \textcolor{comment}{//\ Section\ formatting}}
+\DoxyCodeLine{01310\ \ \ \ \ \mbox{\hyperlink{classRTFSpar}{RTFSpar}}\ paragraph;\ \textcolor{comment}{//\ Paragraph\ formatting}}
+\DoxyCodeLine{01311\ \ \ \ \ \mbox{\hyperlink{classRTFScharacter}{RTFScharacter}}\ character;\ \textcolor{comment}{//\ Character\ formatting}}
+\DoxyCodeLine{01312\ \};}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01314\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}\ \{}
+\DoxyCodeLine{01315\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01316\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01317\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{\string~RTFSstyle}}();}
+\DoxyCodeLine{01318\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{int}\&\ err,\ std::map<rtfTableType,\ void\ *>\ \&tables);}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01320\ \ \ \ \ \textcolor{comment}{//\ convert\ this\ rtf\ style\ into\ a\ maxwell\ paragraph\ style}}
+\DoxyCodeLine{01321\ \ \ \ \ \textcolor{keywordtype}{void}\ convertTo(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}}\&\ maxwell\_para\_style,}
+\DoxyCodeLine{01322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rtf__importer}{mx\_rtf\_importer}}\&\ lookups);}
+\DoxyCodeLine{01323\ }
+\DoxyCodeLine{01324\ \ \ \ \ \textcolor{keywordtype}{char}*\ stylename;\ \textcolor{comment}{//\ Stylename}}
+\DoxyCodeLine{01325\ \ \ \ \ rtfControl\ styledef;\ \textcolor{comment}{//\ Styletype\ (paragraph,\ section\ or\ character)}}
+\DoxyCodeLine{01326\ \ \ \ \ rtfTableType\ styleType;\ \textcolor{comment}{//\ The\ style\ table\ type}}
+\DoxyCodeLine{01327\ \ \ \ \ \textcolor{keywordtype}{bool}\ additive;\ \textcolor{comment}{//\ Additive\ (for\ character\ sytles)}}
+\DoxyCodeLine{01328\ \ \ \ \ \textcolor{keywordtype}{int}\ snext;\ \textcolor{comment}{//\ The\ style\ to\ be\ applied\ to\ the\ next\ paragraph}}
+\DoxyCodeLine{01329\ \ \ \ \ \textcolor{keywordtype}{int}\ styleNumber;\ \textcolor{comment}{//\ The\ number\ of\ the\ sytle}}
+\DoxyCodeLine{01330\ \ \ \ \ \textcolor{keywordtype}{int}\ sbasedon;\ \textcolor{comment}{//\ The\ style\ it\ is\ based\ on}}
+\DoxyCodeLine{01331\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ setControls;\ \textcolor{comment}{//\ Values\ set\ in\ the\ style}}
+\DoxyCodeLine{01332\ \ \ \ \ \textcolor{keywordtype}{bool}\ updated;\ \textcolor{comment}{//\ Formatting\ is\ updated}}
+\DoxyCodeLine{01333\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\ formatting;\ \textcolor{comment}{//\ Formatting\ data\ for\ the\ style}}
+\DoxyCodeLine{01334\ \};}
+\DoxyCodeLine{01335\ }
+\DoxyCodeLine{01336\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSpict}{RTFSpict}}\ \{}
+\DoxyCodeLine{01337\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01338\ \ \ \ \ \mbox{\hyperlink{classRTFSpict}{RTFSpict}}();}
+\DoxyCodeLine{01339\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01341\ \ \ \ \ \textcolor{keywordtype}{bool}\ inPict;}
+\DoxyCodeLine{01342\ }
+\DoxyCodeLine{01343\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01345\ \ \ \ \ \mbox{\hyperlink{classRTFSparBorder}{RTFSparBorder}}\ border;}
+\DoxyCodeLine{01346\ \ \ \ \ \mbox{\hyperlink{classRTFSparShading}{RTFSparShading}}\ shading;}
+\DoxyCodeLine{01347\ \ \ \ \ rtfControl\ picttype;}
+\DoxyCodeLine{01348\ \ \ \ \ \textcolor{keywordtype}{int}\ picttypeQualifier;}
+\DoxyCodeLine{01349\ \ \ \ \ \textcolor{keywordtype}{int}\ wbmbitspixel;}
+\DoxyCodeLine{01350\ \ \ \ \ \textcolor{keywordtype}{int}\ wbmplanes;}
+\DoxyCodeLine{01351\ \ \ \ \ \textcolor{keywordtype}{int}\ wbmwidthbytes;}
+\DoxyCodeLine{01352\ \ \ \ \ \textcolor{keywordtype}{int}\ picw;}
+\DoxyCodeLine{01353\ \ \ \ \ \textcolor{keywordtype}{int}\ pich;}
+\DoxyCodeLine{01354\ \ \ \ \ \textcolor{keywordtype}{int}\ picwgoal;}
+\DoxyCodeLine{01355\ \ \ \ \ \textcolor{keywordtype}{int}\ pichgoal;}
+\DoxyCodeLine{01356\ \ \ \ \ \textcolor{keywordtype}{int}\ picscalex;}
+\DoxyCodeLine{01357\ \ \ \ \ \textcolor{keywordtype}{int}\ picscaley;}
+\DoxyCodeLine{01358\ \ \ \ \ \textcolor{keywordtype}{bool}\ picscaled;}
+\DoxyCodeLine{01359\ \ \ \ \ \textcolor{keywordtype}{int}\ piccropt;}
+\DoxyCodeLine{01360\ \ \ \ \ \textcolor{keywordtype}{int}\ piccropb;}
+\DoxyCodeLine{01361\ \ \ \ \ \textcolor{keywordtype}{int}\ piccropl;}
+\DoxyCodeLine{01362\ \ \ \ \ \textcolor{keywordtype}{int}\ piccropr;}
+\DoxyCodeLine{01363\ \ \ \ \ \textcolor{keywordtype}{bool}\ picbmp;}
+\DoxyCodeLine{01364\ \ \ \ \ \textcolor{keywordtype}{int}\ picbpp;}
+\DoxyCodeLine{01365\ \ \ \ \ \textcolor{keywordtype}{bool}\ bin;}
+\DoxyCodeLine{01366\ \};}
+\DoxyCodeLine{01367\ }
+\DoxyCodeLine{01368\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\ \{}
+\DoxyCodeLine{01369\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01370\ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSpage}{RTFSpage}}*\ documentPage\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01371\ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\&\ group);}
+\DoxyCodeLine{01372\ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\&\ operator=(\mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\&\ group);}
+\DoxyCodeLine{01373\ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\&\ equate(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}\&\ group);}
+\DoxyCodeLine{01374\ \ \ \ \ rtfDestinationType\ destination;}
+\DoxyCodeLine{01375\ \ \ \ \ \textcolor{keywordtype}{bool}\ skippingRoot;}
+\DoxyCodeLine{01376\ \ \ \ \ \mbox{\hyperlink{classRTFSformatting}{RTFSformatting}}\ formatting;}
+\DoxyCodeLine{01377\ \};}
+\DoxyCodeLine{01378\ }
+\DoxyCodeLine{01379\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{01380\ \ \ \ \ RTFreadingControl,}
+\DoxyCodeLine{01381\ \ \ \ \ RTFreadingText}
+\DoxyCodeLine{01382\ \}\ RTFreadingType;}
+\DoxyCodeLine{01383\ }
+\DoxyCodeLine{01384\ \textcolor{preprocessor}{\#define\ MAX\_RTF\_CONTROL\_BUFFER\ 128}}
+\DoxyCodeLine{01385\ }
+\DoxyCodeLine{01386\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__rtf}{mx\_rtf}}\ \{}
+\DoxyCodeLine{01387\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01388\ \ \ \ \ \mbox{\hyperlink{classmx__rtf}{mx\_rtf}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{01389\ \ \ \ \ \textcolor{keywordtype}{void}\ read(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01390\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__rtf}{\string~mx\_rtf}}();}
+\DoxyCodeLine{01391\ }
+\DoxyCodeLine{01392\ \ \ \ \ \textcolor{comment}{//\ update\ a\ given\ style\ with\ our\ style\ tables}}
+\DoxyCodeLine{01393\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ st);}
+\DoxyCodeLine{01394\ }
+\DoxyCodeLine{01395\ \ \ \ \ \mbox{\hyperlink{classRTFSdocfmt}{RTFSdocfmt}}\ documentData;\ \textcolor{comment}{//\ Current\ document\ data}}
+\DoxyCodeLine{01396\ }
+\DoxyCodeLine{01397\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01398\ \ \ \ \ \textcolor{keywordtype}{char}*\ textBuffer;}
+\DoxyCodeLine{01399\ \ \ \ \ \textcolor{keywordtype}{int}\ allocTextBufferSize;}
+\DoxyCodeLine{01400\ \ \ \ \ \textcolor{keywordtype}{int}\ textBufferSize;}
+\DoxyCodeLine{01401\ }
+\DoxyCodeLine{01402\ \ \ \ \ \mbox{\hyperlink{classRTFStable}{RTFStable}}\ tableData;\ \textcolor{comment}{//\ Current\ table\ data}}
+\DoxyCodeLine{01403\ \ \ \ \ \mbox{\hyperlink{classRTFSfield}{RTFSfield}}\ fieldData;\ \textcolor{comment}{//\ Current\ field\ data}}
+\DoxyCodeLine{01404\ \ \ \ \ \mbox{\hyperlink{classRTFSpict}{RTFSpict}}\ pictData;\ \textcolor{comment}{//\ Current\ picture\ data}}
+\DoxyCodeLine{01405\ }
+\DoxyCodeLine{01406\ \ \ \ \ \textcolor{keywordtype}{int}\ file\_offset;\ \textcolor{comment}{//\ how\ many\ characters\ of\ the\ file\ have}}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ been\ read}}
+\DoxyCodeLine{01408\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01409\ \ \ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ RTFcontrol\ *>\ m\_controls;\ \textcolor{comment}{//\ Control\ dictionary}}
+\DoxyCodeLine{01410\ }
+\DoxyCodeLine{01411\ \ \ \ \ std::map<rtfTableType,\ void\ *>\ m\_tables;\ \textcolor{comment}{//\ Fonts,\ colours,\ sytles,\ files}}
+\DoxyCodeLine{01412\ \ \ \ \ FILE*\ iif;\ \textcolor{comment}{//\ datastream}}
+\DoxyCodeLine{01413\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ groups;\ \textcolor{comment}{//\ List\ of\ groups}}
+\DoxyCodeLine{01414\ }
+\DoxyCodeLine{01415\ \ \ \ \ RTFreadingType\ readingType;}
+\DoxyCodeLine{01416\ \ \ \ \ \textcolor{keywordtype}{bool}\ readingStarredDestination;}
+\DoxyCodeLine{01417\ \ \ \ \ \textcolor{keywordtype}{bool}\ skippingGroup;}
+\DoxyCodeLine{01418\ }
+\DoxyCodeLine{01419\ \ \ \ \ \textcolor{keywordtype}{int}\ controlBufferSize;}
+\DoxyCodeLine{01420\ \ \ \ \ \textcolor{keywordtype}{char}\ controlBuffer[MAX\_RTF\_CONTROL\_BUFFER];}
+\DoxyCodeLine{01421\ }
+\DoxyCodeLine{01422\ \ \ \ \ \textcolor{keywordtype}{int}\ controlValueSize;}
+\DoxyCodeLine{01423\ \ \ \ \ \textcolor{keywordtype}{char}\ controlValueBuffer[MAX\_RTF\_CONTROL\_BUFFER];}
+\DoxyCodeLine{01424\ }
+\DoxyCodeLine{01425\ \ \ \ \ \textcolor{keywordtype}{bool}\ putLast(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{01426\ \ \ \ \ \textcolor{keywordtype}{bool}\ readNext(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\&\ c);}
+\DoxyCodeLine{01427\ }
+\DoxyCodeLine{01428\ \ \ \ \ \textcolor{keywordtype}{void}\ addText(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{01429\ \ \ \ \ \textcolor{keywordtype}{void}\ findControl(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01430\ \ \ \ \ \textcolor{keywordtype}{void}\ openGroup(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01431\ \ \ \ \ \textcolor{keywordtype}{void}\ closeGroup(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01432\ \ \ \ \ rtfDestinationType\ currentDestination(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01433\ }
+\DoxyCodeLine{01434\ \ \ \ \ \mbox{\hyperlink{classRTFSfont}{RTFSfont}}*\ currentFont;}
+\DoxyCodeLine{01435\ \ \ \ \ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ currentStyle;}
+\DoxyCodeLine{01436\ \ \ \ \ \mbox{\hyperlink{classRTFSfile}{RTFSfile}}*\ currentFile;}
+\DoxyCodeLine{01437\ \ \ \ \ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}*\ currentColour;}
+\DoxyCodeLine{01438\ \ \ \ \ \textcolor{keywordtype}{int}\ currentColourCount;}
+\DoxyCodeLine{01439\ }
+\DoxyCodeLine{01440\ \ \ \ \ \textcolor{keywordtype}{void}\ processOutput(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{01441\ }
+\DoxyCodeLine{01442\ \ \ \ \ \textcolor{keywordtype}{void}\ processFontControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01443\ \ \ \ \ \textcolor{keywordtype}{void}\ processFileControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01444\ \ \ \ \ \textcolor{keywordtype}{void}\ processMainControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01445\ \ \ \ \ \textcolor{keywordtype}{void}\ processStyleControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01446\ \ \ \ \ \textcolor{keywordtype}{void}\ processColourControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfDestinationType\ destination,\ rtfControl\ control,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01447\ \ \ \ \ \textcolor{keywordtype}{void}\ processControl(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,\ rtfControl\ control,\ rtfControlType\ controlType,\ rtfDestinationType\ controlDestination,\ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01448\ }
+\DoxyCodeLine{01449\ \ \ \ \ \textcolor{keywordtype}{void}\ processFontOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);\ \textcolor{keywordtype}{void}\ processFileOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{01450\ \ \ \ \ \textcolor{keywordtype}{void}\ processColourOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);\ \textcolor{keywordtype}{void}\ processStyleOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{01451\ }
+\DoxyCodeLine{01452\ \ \ \ \ \textcolor{comment}{//\ Virtual\ functions\ to\ process\ particular\ output}}
+\DoxyCodeLine{01453\ }
+\DoxyCodeLine{01454\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processFieldInstOutput(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{01456\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processMainOutput(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01457\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{01458\ }
+\DoxyCodeLine{01459\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processPictOutput(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01460\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group);}
+\DoxyCodeLine{01461\ }
+\DoxyCodeLine{01462\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processNewParagraph(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01463\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{01465\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processNewTableCell(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01466\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{01467\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{01468\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processNewTableRow(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01469\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{01470\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{01471\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processNewTab(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01472\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{01473\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination);}
+\DoxyCodeLine{01474\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSpecialCharacter(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{01475\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRTFSgroup}{RTFSgroup}}*\ group,}
+\DoxyCodeLine{01476\ \ \ \ \ \ \ \ \ rtfDestinationType\ destination,}
+\DoxyCodeLine{01477\ \ \ \ \ \ \ \ \ rtfControl\ control,}
+\DoxyCodeLine{01478\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ controlValue);}
+\DoxyCodeLine{01479\ }
+\DoxyCodeLine{01480\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ userProcessFontOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSfont}{RTFSfont}}*\ f)\ \{\ \};}
+\DoxyCodeLine{01481\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ userProcessFileOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSfile}{RTFSfile}}*\ f)\ \{\ \};}
+\DoxyCodeLine{01482\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ userProcessColourOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFScolour}{RTFScolour}}*\ c)\ \{\ \};}
+\DoxyCodeLine{01483\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ userProcessStyleOutput(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classRTFSstyle}{RTFSstyle}}*\ s)\ \{\ \};}
+\DoxyCodeLine{01484\ \};}
+\DoxyCodeLine{01485\ }
+\DoxyCodeLine{01486\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRTFcontrol}{RTFcontrol}}}
+\DoxyCodeLine{01487\ \{}
+\DoxyCodeLine{01488\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01489\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{01490\ \ \ \ \ rtfControl\ control;}
+\DoxyCodeLine{01491\ \ \ \ \ rtfDestinationType\ destination;}
+\DoxyCodeLine{01492\ \ \ \ \ rtfControlType\ controlType;}
+\DoxyCodeLine{01493\ \ \ \ \ \textcolor{keywordtype}{int}\ value;}
+\DoxyCodeLine{01494\ \};}
+
+\end{DoxyCode}

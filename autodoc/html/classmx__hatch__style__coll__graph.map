@@ -1,0 +1,19 @@
+<map id="mx_hatch_style" name="mx_hatch_style">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,341,131,367"/>
+<area shape="rect" id="Node000002" href="$classmx__serialisable__object.html" title=" " alt="" coords="41,80,213,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,116,61,154,42,178,28,205,23,224,23,243,31,281,47,315,62,340,57,343,42,317,26,283,17,243,18,223,23,203,37,175,57,150,97,112"/>
+<area shape="rect" id="Node000004" href="$classmx__point.html" title=" " alt="" coords="27,204,109,229"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="116,119,110,131,76,205,71,202,106,128,112,116"/>
+<area shape="rect" id="Node000005" href="$classmx__line__style.html" title=" " alt="" coords="150,253,263,279"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="134,118,154,179,177,220,200,252,196,255,173,223,150,181,129,119"/>
+<area shape="rect" id="Node000006" href="$classmx__dash__style.html" title=" " alt="" coords="164,155,284,180"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="155,112,210,152,206,156,152,116"/>
+<area shape="rect" id="Node000007" href="$classmx__colour.html" title=" " alt="" coords="308,155,399,180"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="177,107,318,152,317,157,175,112"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="92,5,161,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="129,45,129,80,124,80,124,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="71,243,71,341,65,341,65,243"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="178,288,88,343,85,339,175,284"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="222,194,211,254,206,253,217,193"/>
+<area shape="poly" id="edge9_Node000005_Node000007" title=" " alt="" coords="339,193,322,213,300,232,275,245,250,256,248,251,273,241,297,227,318,209,335,190"/>
+</map>

@@ -1,0 +1,212 @@
+\doxysection{mx\+\_\+word.\+h}
+\hypertarget{mx__word_8h_source}{}\label{mx__word_8h_source}\index{document/mx\_word.h@{document/mx\_word.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_WORD\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_WORD\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_word}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Words\ are\ things\ in\ paragraphs.\ They\ have\ some\ very\ simple\ required}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ methods\ but\ everything\ else\ is\ likely\ to\ change\ per\ derived\ class.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ mx\_word}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ \ \ mx\_simple\_word}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ \ \ mx\_complex\_word}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ \ \ mx\_space\_word\ \ \ \ -\/\ hard\ spaces\ and\ tabs}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ \ \ mx\_break\_word\ \ \ \ -\/\ line\ break\ \&\ page\ break}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ \#include\ <mx.h>}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ \#include\ <mx\_db.h>}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \#include\ <mx\_style.h>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ forward\ definitions}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ruler}{mx\_ruler}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}};}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__word}{mx\_word}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ MX\_RTTI(mx\_word\_class\_e)}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ print\_debug();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classmx__word}{mx\_word}}(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ s);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{\string~mx\_word}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ no\ copy\ of\ the\ style\ is\ kept,\ so\ it\ must\ not\ be\ deleted}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_style(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ s);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ get\ a\ pointer\ to\ the\ word's\ style}}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ get\_style();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ the\ width\ according\ to\ the\ underlying\ outline\ font.}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width()\ \{\ \textcolor{keywordflow}{return}\ 0.0;\ \};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s)\ \{\ \textcolor{keywordflow}{return}\ 0.0;\ \};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ width(\textcolor{keywordtype}{int}\ index)\ \{\ \textcolor{keywordflow}{return}\ 0.0;\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ the\ width\ up\ to\ a\ character\ index}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ virtual\ float\ width(int\ index);}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ calculate\ the\ style\ at\ the\ end\ of\ the\ word\ by\ adding\ in\ any}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ embedded\ style\ changes\ to\ the\ style\ given}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ get\_end\_style(\mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ get\ the\ style\ at\ given\ character\ index}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ get\_index\_style(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ s);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ a\ string\ representation\ of\ thw\ word}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ cstring();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ the\ metrics\ according\ to\ the\ underlying\ character\ style(s)}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ the\ style\ may\ be\ modified\ as\ a\ result\ of\ this\ call.}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ metrics(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ spacing,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ ascender,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ descender);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer)\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer,\ uint32\ docid)\ =\ 0;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ calculated\ and\ used\ by\ owning\ object\ reformat\ routine}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ virtual\ function\ for\ moving\ the\ x\ position\ of\ a\ word\ by\ a\ given}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ (positive\ or\ negative)\ offset.\ Overridden\ by\ subclasses\ if\ necessary}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_x(\textcolor{keywordtype}{float}\ x\_offset);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ things\ for\ reformatting\ etc}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ duplicate()\ =\ 0;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ move\ the\ last\ N\ visible\ items\ out\ of\ another\ word\ into\ the\ start}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ of\ this\ one.\ You\ have\ to\ use\ the\ pointer\ returned\ to\ replace\ the}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ word\ you\ were\ using\ as\ this\ operation\ can\ change\ the\ class\ of}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ the\ word}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ move\_last\_in\_start(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ w);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ move\ the\ first\ N\ visible\ items\ from\ another\ word\ into\ the\ end}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ of\ this\ word.\ You\ have\ to\ use\ the\ pointer\ returned\ to\ replace\ the}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ word\ you\ were\ using\ as\ this\ operation\ can\ change\ the\ class\ of}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ the\ word.}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ move\_first\_in\_end(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ w);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ style\ change\ to\ the\ left\ of\ the\ given\ character\ index\ -\/\ throw}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ an\ error\ if\ word\ cannot\ have\ a\ style\ mod,\ or\ if\ index\ is\ out\ of\ range}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}\&\ s,\ \textcolor{keywordtype}{int}\ index\ =\ 0);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}\ c,\ \textcolor{keywordtype}{int}\ index\ =\ 0)\ \{\ \};}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ insert(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ s,\ \textcolor{keywordtype}{int}\ index\ =\ 0)\ \{\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ if\ the\ last\ item\ in\ this\ word\ is\ a\ style\ mod,\ move\ it\ to\ the}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ beginning\ of\ the\ second\ word.\ If\ the\ second\ word\ cannot\ have\ a}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ style\ mod,\ throw\ an\ error}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_style\_mod\_out\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ w);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ has\ the\ word\ got\ any\ character\ style\ mods\ in\ it?}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ has\_style\_mod();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ get\ the\ style\ mod\ at\ a\ given\ character\ index.\ If\ there\ is\ none,\ then}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ return\ NULL,\ but\ not\ an\ error.\ Return\ errors\ if\ the\ index\ is\ out\ of}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ range}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__char__style__mod}{mx\_char\_style\_mod}}*\ get\_style\_mod(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ character\_index);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ is\ there\ anything\ in\ the\ word?}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_empty();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ split\ the\ word\ at\ a\ given\ index}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ cut\ a\ bit\ of\ a\ word\ out}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ cut(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ remove\ a\ bit\ of\ a\ word\ -\/\ return\ is\ NULL\ except\ when}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ end\ ==\ start\ +\ 1}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__cw__t}{mx\_cw\_t}}*\ remove(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ split\ the\ word\ at\ a\ given\ width\ -\/\ returns\ NULL\ if\ the\ word\ cannot}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ be\ made\ to\ split\ that\ small}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__word}{mx\_word}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ width);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ how\ may\ space\ consuming\ items\ does\ the\ word\ have}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ get\_num\_visible\_items();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ this\ word\ results\ in\ something\ being\ printed}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_printable()\ \{\ \textcolor{keywordflow}{return}\ TRUE;\ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ returns\ TRUE\ if\ this\ word\ can\ be\ part\ of\ a\ long\ word\ broken\ over\ a}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{comment}{//\ number\ of\ lines}}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ can\_be\_part\_of\_long\_word();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ page\ number\ on\ words\ which\ need\ to\ know\ about\ it}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ virtual\ void\ set\_page\_number(uint32\ n)\{\};}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ move\ this\ word\ to\ another\ document.\ Moves\ any\ underlying\ database}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ objects\ to\ the\ new\ document\ database}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ move\_to\_document(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ doc)\ \{\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ removes\ unecessary\ mods\ from\ this\ word}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ minimise\_mods()\ \{\ \};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ looks\ through\ style\ modifications\ to\ see\ if\ they\ have\ the}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ revert\_to\_default\ flag\ set,\ and\ if\ they\ do\ then\ change\ the\ mod\ to}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ revert\ to\ the\ new\ base\ style}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ replace\_base\_style(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ cs)\ \{\ \};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ goes\ through\ a\ word\ and\ sets\ the\ revert\_to\_default\ flag\ on\ any\ style}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ mods\ which\ modify\ the\ style\ to\ the\ one\ given\ (cs)}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_style\_mod\_revert\_flags(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}\&\ cs)\ \{\ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ sets\ a\ variable\ which\ determines\ whether\ operations\ on\ words\ apply\ to}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ the\ left\ of\ style\ mods,\ or\ to\ the\ right\ (obviously\ only\ applies\ to}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ words\ which\ can\ have\ style\ mods}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_operations\_to\_left\_of\_mods();}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_operations\_to\_right\_of\_mods();}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ are\ we\ performing\ operations\ to\ left/right\ of\ mods?}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ get\_operations\_to\_left\_of\_mods();}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ get\_operations\_to\_right\_of\_mods();}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{classmx__char__style}{mx\_char\_style}}*\ style;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ operations\_to\_left\_of\_mods;}
+\DoxyCodeLine{00204\ \};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

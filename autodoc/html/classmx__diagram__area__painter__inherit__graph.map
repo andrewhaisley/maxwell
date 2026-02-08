@@ -1,0 +1,9 @@
+<map id="mx_diagram_area_painter" name="mx_diagram_area_painter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,225,199,251"/>
+<area shape="rect" id="Node000002" href="$classmx__area__painter.html" title=" " alt="" coords="36,152,168,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,191,105,225,99,225,99,191"/>
+<area shape="rect" id="Node000003" href="$classmx__painter.html" title=" " alt="" coords="54,79,150,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,118,105,152,99,152,99,118"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="67,5,137,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="105,44,105,79,99,79,99,44"/>
+</map>

@@ -1,0 +1,21 @@
+<map id="mx_dg_editor" name="mx_dg_editor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="221,317,332,343"/>
+<area shape="rect" id="Node000002" href="$classmx__editor.html" title=" " alt="" coords="233,243,321,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,282,279,317,274,317,274,282"/>
+<area shape="rect" id="Node000003" href="$classmx__frame__target.html" title=" " alt="" coords="13,155,148,180"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,183,251,240,249,245,118,188"/>
+<area shape="rect" id="Node000004" href="$classmx__callback__target.html" title=" " alt="" coords="5,80,156,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="83,120,83,154,78,154,78,120"/>
+<area shape="rect" id="Node000005" href="$classmx__window.html" title=" " alt="" coords="172,155,272,180"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="232,192,244,217,265,241,261,244,240,220,227,194"/>
+<area shape="rect" id="Node000006" href="$classmx__ui__object.html" title=" " alt="" coords="278,80,387,105"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="305,115,241,157,238,152,302,111"/>
+<area shape="rect" id="Node000008" href="$classmx__app.html" title=" " alt="" coords="295,155,370,180"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="335,120,335,154,330,154,330,120"/>
+<area shape="rect" id="Node000009" href="$classmx__dialog__manager.html" title=" " alt="" coords="394,155,549,180"/>
+<area shape="poly" id="edge10_Node000009_Node000006" title=" " alt="" coords="368,110,450,152,448,157,366,114"/>
+<area shape="rect" id="Node000007" href="$classmx__rtti.html" title=" " alt="" coords="298,5,367,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="335,45,335,80,330,80,330,45"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="320,193,287,244,282,241,315,190"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="433,188,304,245,302,240,431,183"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="mx_db_object" name="mx_db_object">
+<area shape="rect" id="Node000001" title=" " alt="" coords="35,152,148,177"/>
+<area shape="rect" id="Node000002" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,79,177,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,118,94,152,89,152,89,118"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,44,94,79,89,79,89,44"/>
+</map>

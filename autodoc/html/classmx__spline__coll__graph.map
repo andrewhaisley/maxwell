@@ -1,0 +1,13 @@
+<map id="mx_spline" name="mx_spline">
+<area shape="rect" id="Node000001" title=" " alt="" coords="17,375,107,400"/>
+<area shape="rect" id="Node000002" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,80,177,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,120,69,287,65,374,59,374,63,286,85,119"/>
+<area shape="rect" id="Node000004" href="$classmx__bezier.html" title=" " alt="" coords="78,287,169,312"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="98,119,124,286,119,287,93,120"/>
+<area shape="rect" id="Node000005" href="$classmx__point.html" title=" " alt="" coords="129,155,211,180"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="116,113,159,152,155,156,112,117"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,45,94,80,89,80,89,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="109,325,73,376,68,373,105,322"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="164,194,130,287,125,285,159,192"/>
+</map>

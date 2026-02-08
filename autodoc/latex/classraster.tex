@@ -1,0 +1,210 @@
+\doxysection{raster Class Reference}
+\hypertarget{classraster}{}\label{classraster}\index{raster@{raster}}
+
+
+Inheritance diagram for raster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classraster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for raster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classraster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classraster_af094bd396df66b6a21fcbf58695d3472}\label{classraster_af094bd396df66b6a21fcbf58695d3472} 
+{\bfseries raster} (int \&err)
+\item 
+\Hypertarget{classraster_a77a108a948d8d7b1b73faa0ad8f34fa2}\label{classraster_a77a108a948d8d7b1b73faa0ad8f34fa2} 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries tile} (int \&err, bool get\+For\+Edit, bool \&unknown, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Pos, \mbox{\hyperlink{structrasterItem}{ras\+Item}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}item=NULL)
+\item 
+\Hypertarget{classraster_ab54149a3b17228d5f583821c5299b0de}\label{classraster_ab54149a3b17228d5f583821c5299b0de} 
+void {\bfseries put} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}data, bool flush, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Pos)
+\item 
+\Hypertarget{classraster_a2e98bc1778edce5ceba7aa08c7a6743f}\label{classraster_a2e98bc1778edce5ceba7aa08c7a6743f} 
+virtual unsigned char \texorpdfstring{$\ast$}{*} {\bfseries get\+Tile} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}buffer, bool get\+For\+Edit, bool \&unknown, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile)=0
+\item 
+\Hypertarget{classraster_abb1b687e8f6f690be30af8382c396eb7}\label{classraster_abb1b687e8f6f690be30af8382c396eb7} 
+virtual void {\bfseries put\+Tile} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}buffer, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile)
+\item 
+\Hypertarget{classraster_aea5dd757f99380fa438293b17ab7ebbc}\label{classraster_aea5dd757f99380fa438293b17ab7ebbc} 
+virtual uint32 {\bfseries get\+\_\+serialised\+\_\+size} (int \&err)
+\item 
+\Hypertarget{classraster_ab33bbc0faa10d93e8e2cf9cf8c6fc2be}\label{classraster_ab33bbc0faa10d93e8e2cf9cf8c6fc2be} 
+virtual void {\bfseries serialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+\Hypertarget{classraster_a1b10effae3843c629ba01f58cf5db4e9}\label{classraster_a1b10effae3843c629ba01f58cf5db4e9} 
+virtual void {\bfseries unserialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+\Hypertarget{classraster_a1d7796beaa966439bac4f5d42fade5ac}\label{classraster_a1d7796beaa966439bac4f5d42fade5ac} 
+virtual void {\bfseries set\+Size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&area\+Size)
+\item 
+\Hypertarget{classraster_a3df6dfcd5c7445cd1e0195ee262e1dbd}\label{classraster_a3df6dfcd5c7445cd1e0195ee262e1dbd} 
+virtual void {\bfseries set\+Size} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&isize)
+\item 
+\Hypertarget{classraster_adec66aabee1f80022b13bff519733357}\label{classraster_adec66aabee1f80022b13bff519733357} 
+void {\bfseries copy\+Data} (int \&err, \mbox{\hyperlink{classraster}{raster}} \&dest, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&extent)
+\item 
+\Hypertarget{classraster_a40083406ba1403dc618c340cf8f0372c}\label{classraster_a40083406ba1403dc618c340cf8f0372c} 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries get\+Buffer} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&pixel\+Coords)
+\item 
+\Hypertarget{classraster_a1711c61896140c66417e66262238f025}\label{classraster_a1711c61896140c66417e66262238f025} 
+void {\bfseries create\+Cache} (int \&err, RAST\+\_\+\+CACHE cache\+Type)
+\item 
+\Hypertarget{classraster_ac2d52abe96654b67c6319a3c6ec1cd64}\label{classraster_ac2d52abe96654b67c6319a3c6ec1cd64} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Size} ()
+\item 
+\Hypertarget{classraster_aa149584bcb663b7e5af9e2518031e360}\label{classraster_aa149584bcb663b7e5af9e2518031e360} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Tile\+Size} ()
+\item 
+\Hypertarget{classraster_a67edac03a12e29cac77888b689c3ad64}\label{classraster_a67edac03a12e29cac77888b689c3ad64} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Total\+Size} ()
+\item 
+\Hypertarget{classraster_a128c9ec9e07f1e8ecb9f0ea5541b6195}\label{classraster_a128c9ec9e07f1e8ecb9f0ea5541b6195} 
+int32 {\bfseries tile\+Pixels} ()
+\item 
+\Hypertarget{classraster_a6a59c6d68d726ab60374547953bad940}\label{classraster_a6a59c6d68d726ab60374547953bad940} 
+RAST\+\_\+\+PACK {\bfseries get\+Pack} ()
+\item 
+\Hypertarget{classraster_a9887048870eb8e3b6556dd12b0dd3478}\label{classraster_a9887048870eb8e3b6556dd12b0dd3478} 
+RAST\+\_\+\+DATA {\bfseries get\+Data} ()
+\item 
+\Hypertarget{classraster_aee54c4d6f8ad2d32c7df1c0ff4170340}\label{classraster_aee54c4d6f8ad2d32c7df1c0ff4170340} 
+int32 {\bfseries get\+Planes} (int32 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}isigbits=NULL)
+\item 
+\Hypertarget{classraster_a2343fab3dd46158a7f34cebb799fbc2d}\label{classraster_a2343fab3dd46158a7f34cebb799fbc2d} 
+int32 {\bfseries tile\+Byte\+Size} ()
+\item 
+\Hypertarget{classraster_a65907a9fad1d0d943295ea560693b2b9}\label{classraster_a65907a9fad1d0d943295ea560693b2b9} 
+int32 {\bfseries pixel\+Byte\+Size} ()
+\item 
+\Hypertarget{classraster_a26747ac538a4d55e0749dbc15752df45}\label{classraster_a26747ac538a4d55e0749dbc15752df45} 
+int32 {\bfseries pixel\+Bit\+Size} ()
+\item 
+\Hypertarget{classraster_aeccbd884291ccceff2f41e7f9e50e6ad}\label{classraster_aeccbd884291ccceff2f41e7f9e50e6ad} 
+int32 \texorpdfstring{$\ast$}{*} {\bfseries get\+Sigbits} ()
+\item 
+\Hypertarget{classraster_ac90cd59f579a6fc803c4bc96ea87ac7b}\label{classraster_ac90cd59f579a6fc803c4bc96ea87ac7b} 
+int32 {\bfseries get\+Sigbits} (int offset)
+\item 
+\Hypertarget{classraster_aa63ad344e1c84b22e21a2335431df296}\label{classraster_aa63ad344e1c84b22e21a2335431df296} 
+bool {\bfseries in\+Tile\+Range} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&itile)
+\item 
+\Hypertarget{classraster_afcf94d420b9f53b31388c9499c32f66f}\label{classraster_afcf94d420b9f53b31388c9499c32f66f} 
+int32 {\bfseries get\+Colours} (\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}colours)
+\item 
+\Hypertarget{classraster_a93bb50a5d19b6f4daa1cd4c526e188dd}\label{classraster_a93bb50a5d19b6f4daa1cd4c526e188dd} 
+\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Colours} ()
+\item 
+\Hypertarget{classraster_af7695d22b7c81b3950bbfdc694027d84}\label{classraster_af7695d22b7c81b3950bbfdc694027d84} 
+int32 {\bfseries get\+Num\+Colours} ()
+\item 
+\Hypertarget{classraster_aaf445e30b61d5fb5b1b094db1cab67a0}\label{classraster_aaf445e30b61d5fb5b1b094db1cab67a0} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Stored\+MMsize} ()
+\item 
+\Hypertarget{classraster_a1fd0094f4801c5d00ef736405f68d514}\label{classraster_a1fd0094f4801c5d00ef736405f68d514} 
+bool {\bfseries get\+Has\+Stored\+MMsize} ()
+\item 
+\Hypertarget{classraster_a0bdb82047307fcbd8189735f5ebb987f}\label{classraster_a0bdb82047307fcbd8189735f5ebb987f} 
+RAST\+\_\+\+CACHE {\bfseries get\+Cache\+Type} ()
+\item 
+\Hypertarget{classraster_a14efccf2ef6a96ec5b30d37a43bce948}\label{classraster_a14efccf2ef6a96ec5b30d37a43bce948} 
+void {\bfseries point\+To\+Tile} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&pixel\+Coord, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+\Hypertarget{classraster_ae2e855a3df5c0460e94a5e90da7a6fed}\label{classraster_ae2e855a3df5c0460e94a5e90da7a6fed} 
+void {\bfseries tile\+To\+Pixels} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&ipixel\+Coords)
+\item 
+\Hypertarget{classraster_aa5e30174fda2d94cef8d4d3a09781438}\label{classraster_aa5e30174fda2d94cef8d4d3a09781438} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries tile\+Coord} (int32 index)
+\item 
+\Hypertarget{classraster_a9a43a53830d799c55ec684443d7cf70a}\label{classraster_a9a43a53830d799c55ec684443d7cf70a} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Tiles} ()
+\item 
+\Hypertarget{classraster_a38846c97b898bdd993a7d887af9117e2}\label{classraster_a38846c97b898bdd993a7d887af9117e2} 
+int {\bfseries total\+Tiles} ()
+\item 
+\Hypertarget{classraster_ab56206ce4f1c10579775265f9f5e553a}\label{classraster_ab56206ce4f1c10579775265f9f5e553a} 
+void {\bfseries remove\+Tile} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}buffer, int32 tile\+Index, bool is\+Edited)
+\item 
+\Hypertarget{classraster_a411679f4d3544f725a32c0c6de41106c}\label{classraster_a411679f4d3544f725a32c0c6de41106c} 
+void {\bfseries set\+Iterator} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&input)
+\item 
+\Hypertarget{classraster_a8d15564fedefbf96580295c76fb9830c}\label{classraster_a8d15564fedefbf96580295c76fb9830c} 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries next} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&current\+Pixels, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+\Hypertarget{classraster_ab807c2498e2cf396340bc1f72c994962}\label{classraster_ab807c2498e2cf396340bc1f72c994962} 
+int32 {\bfseries tile\+Index} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+\Hypertarget{classraster_a8d437fd201b9405c08b0c8358a09348b}\label{classraster_a8d437fd201b9405c08b0c8358a09348b} 
+void {\bfseries copy\+Basics} (int \&err, \mbox{\hyperlink{classraster}{raster}} \&base)
+\item 
+\Hypertarget{classraster_ae8d1634411725844b078ca247aa121f1}\label{classraster_ae8d1634411725844b078ca247aa121f1} 
+void {\bfseries default\+MMsize} ()
+\item 
+\Hypertarget{classraster_af4f3d6ca2eeba8cd6a814cce052ff362}\label{classraster_af4f3d6ca2eeba8cd6a814cce052ff362} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries area\+Size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&page\+Size, double pixel\+Resolution)
+\item 
+\Hypertarget{classraster_a5ffae4d67981b90df44972299b424a10}\label{classraster_a5ffae4d67981b90df44972299b424a10} 
+int {\bfseries sigbits\+From\+Colours} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classraster_adb04f51880306b5a89be2e0bef1a552a}\label{classraster_adb04f51880306b5a89be2e0bef1a552a} 
+static \mbox{\hyperlink{classrascache}{rascache}} {\bfseries global\+Rascache}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classraster_a32aaa7327404e3ae97d0b401a7730a55}\label{classraster_a32aaa7327404e3ae97d0b401a7730a55} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries size}
+\item 
+\Hypertarget{classraster_a896242d00cad2c832e64498acd460750}\label{classraster_a896242d00cad2c832e64498acd460750} 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries tile\+Size}
+\item 
+\Hypertarget{classraster_a3b8de3bee586481d3f1dbc8fe1fb0bb8}\label{classraster_a3b8de3bee586481d3f1dbc8fe1fb0bb8} 
+RAST\+\_\+\+PACK {\bfseries pack}
+\item 
+\Hypertarget{classraster_ae56a742c7f5c39be63aa8e40466bbc62}\label{classraster_ae56a742c7f5c39be63aa8e40466bbc62} 
+RAST\+\_\+\+DATA {\bfseries data}
+\item 
+\Hypertarget{classraster_af457838d1a50f9e8f7f95619f40f91a5}\label{classraster_af457838d1a50f9e8f7f95619f40f91a5} 
+int32 {\bfseries nplanes}
+\item 
+\Hypertarget{classraster_a5de94e83e86c2441b89dddeafabe14f2}\label{classraster_a5de94e83e86c2441b89dddeafabe14f2} 
+int32 {\bfseries sigbits} \mbox{[}RAST\+\_\+\+NUMPLANES\mbox{]}
+\item 
+\Hypertarget{classraster_a0f356c48ef7cc4bcbdd7bf52bcef8ce9}\label{classraster_a0f356c48ef7cc4bcbdd7bf52bcef8ce9} 
+int32 {\bfseries num\+Colours}
+\item 
+\Hypertarget{classraster_a400b690234c12c2d642092446cce6154}\label{classraster_a400b690234c12c2d642092446cce6154} 
+\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*} {\bfseries colours}
+\item 
+\Hypertarget{classraster_a81400ae6268fcfe093d6f1249d63f205}\label{classraster_a81400ae6268fcfe093d6f1249d63f205} 
+bool {\bfseries has\+Stored\+MMsize}
+\item 
+\Hypertarget{classraster_a2a59d0304dc8c1d356daa4f69177ab1d}\label{classraster_a2a59d0304dc8c1d356daa4f69177ab1d} 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries stored\+MMsize}
+\item 
+\Hypertarget{classraster_a4ae9caf81c8fa15d80bdef768dc59a34}\label{classraster_a4ae9caf81c8fa15d80bdef768dc59a34} 
+RAST\+\_\+\+CACHE {\bfseries cache\+Type}
+\item 
+\Hypertarget{classraster_a1b2b679fe65bd9eefcce85c977ac94b4}\label{classraster_a1b2b679fe65bd9eefcce85c977ac94b4} 
+std\+::map$<$ int, \mbox{\hyperlink{structrasterItem}{ras\+Item}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries tile\+Dict}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raster/raster.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,129 @@
+\doxysection{mx\+\_\+file.\+h}
+\hypertarget{mx__file_8h_source}{}\label{mx__file_8h_source}\index{db/mx\_file.h@{db/mx\_file.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_file}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ document\ file\ access}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_FILE\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_FILE\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_attribute.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_doc\_file.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_SIMPLE\_FILE\_SIGNATURE\ 0x3a13ef98}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_DESCRIPTION\_LENGTH\ 200}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_AUTHOR\_LENGTH\ 100}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MX\_BLOCK\_VERSION\_LENGTH\ 100}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ mx\_sfile\_attr\_e\ =\ 10,}
+\DoxyCodeLine{00049\ \ \ \ \ mx\_sfile\_blob\_e,}
+\DoxyCodeLine{00050\ \ \ \ \ mx\_sfile\_blob\_seg\_e,}
+\DoxyCodeLine{00051\ \ \ \ \ mx\_sfile\_none\_e}
+\DoxyCodeLine{00052\ \}\ mx\_sfile\_type\_t;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__file}{mx\_file}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__doc__file}{mx\_doc\_file}}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ MX\_RTTI(mx\_file\_class\_e)}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__file}{mx\_file}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classmx__file}{\string~mx\_file}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ open\ database\ file\ for\ reading}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ open(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ close\ file}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ close(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ start\ a\ transaction}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ start\_transaction(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ commits\ changes\ to\ disk}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ commit(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ change\ output\ file\ name}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ duplicate(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ what\ is\ the\ next\ thing\ available\ for\ reading?}}
+\DoxyCodeLine{00077\ \ \ \ \ mx\_sfile\_type\_t\ next\_type(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ get\ the\ next\ thing\ as\ an\ attribute}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ next\_attribute(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\&\ oid);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ get\ the\ next\ thing\ as\ blob}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ next\_blob(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\&\ oid,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\&\ length);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ get\ the\ next\ thing\ as\ a\ blob\ segment}}
+\DoxyCodeLine{00086\ \ \ \ \ std::shared\_ptr<unsigned\ char[]>\ next\_blob\_segment(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\&\ oid,\ \textcolor{keywordtype}{int}\&\ seg\_num,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\ \&len);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ write\ an\ attribute}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_attribute(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ oid,\ \mbox{\hyperlink{classmx__attribute}{mx\_attribute}}*\ a);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ write\ a\ blob}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_blob(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ oid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ write\ a\ blob\ segment}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_blob\_segment(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ oid,\ \textcolor{keywordtype}{int}\ seg\_num,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_next\_id();}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_description();}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_author();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ get\_version();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set\_info(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ description,\ \textcolor{keywordtype}{char}*\ author,\ \textcolor{keywordtype}{char}*\ version);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ in\_file,\ out\_file;}
+\DoxyCodeLine{00106\ \ \ \ \ uint32\ next\_id;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{char}\ description[MX\_BLOCK\_DESCRIPTION\_LENGTH];}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{char}\ author[MX\_BLOCK\_AUTHOR\_LENGTH];}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{char}\ version[MX\_BLOCK\_VERSION\_LENGTH];}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ uint32\ read\_uint32(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00113\ \ \ \ \ uint8\ read\_uint8(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{char}*\ read\_string(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_uint32(\textcolor{keywordtype}{int}\&\ err,\ uint32\ i);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_uint8(\textcolor{keywordtype}{int}\&\ err,\ uint8\ i);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ write\_string(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{char}\ file\_name[MAX\_PATH\_LEN];}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ temp\_buf[4096];}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

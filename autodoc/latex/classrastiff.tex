@@ -1,0 +1,172 @@
+\doxysection{rastiff Class Reference}
+\hypertarget{classrastiff}{}\label{classrastiff}\index{rastiff@{rastiff}}
+
+
+Inheritance diagram for rastiff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{classrastiff__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for rastiff\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classrastiff__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrastiff_a9da00c418b0e2308743a0611f28051fb}\label{classrastiff_a9da00c418b0e2308743a0611f28051fb} 
+{\bfseries rastiff} (int \&err, char \texorpdfstring{$\ast$}{*}filename, RAST\+\_\+\+CACHE cache\+Type=RCACHE\+\_\+\+DICT)
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrastiff_ab568b058f712e69337cf848c3c2f158e}{get\+Tile}} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}this\+Buffer, bool get\+For\+Edit, bool \&unknown, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classraster}{raster}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries raster} (int \&err)
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries tile} (int \&err, bool get\+For\+Edit, bool \&unknown, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Pos, \mbox{\hyperlink{structrasterItem}{ras\+Item}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}item=NULL)
+\item 
+void {\bfseries put} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}data, bool flush, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Pos)
+\item 
+virtual void {\bfseries put\+Tile} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}buffer, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile)
+\item 
+virtual uint32 {\bfseries get\+\_\+serialised\+\_\+size} (int \&err)
+\item 
+virtual void {\bfseries serialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual void {\bfseries unserialise} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+virtual void {\bfseries set\+Size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&area\+Size)
+\item 
+virtual void {\bfseries set\+Size} (int \&err, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&isize)
+\item 
+void {\bfseries copy\+Data} (int \&err, \mbox{\hyperlink{classraster}{raster}} \&dest, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&extent)
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries get\+Buffer} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&pixel\+Coords)
+\item 
+void {\bfseries create\+Cache} (int \&err, RAST\+\_\+\+CACHE cache\+Type)
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Size} ()
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Tile\+Size} ()
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Total\+Size} ()
+\item 
+int32 {\bfseries tile\+Pixels} ()
+\item 
+RAST\+\_\+\+PACK {\bfseries get\+Pack} ()
+\item 
+RAST\+\_\+\+DATA {\bfseries get\+Data} ()
+\item 
+int32 {\bfseries get\+Planes} (int32 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}isigbits=NULL)
+\item 
+int32 {\bfseries tile\+Byte\+Size} ()
+\item 
+int32 {\bfseries pixel\+Byte\+Size} ()
+\item 
+int32 {\bfseries pixel\+Bit\+Size} ()
+\item 
+int32 \texorpdfstring{$\ast$}{*} {\bfseries get\+Sigbits} ()
+\item 
+int32 {\bfseries get\+Sigbits} (int offset)
+\item 
+bool {\bfseries in\+Tile\+Range} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&itile)
+\item 
+int32 {\bfseries get\+Colours} (\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}colours)
+\item 
+\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Colours} ()
+\item 
+int32 {\bfseries get\+Num\+Colours} ()
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries get\+Stored\+MMsize} ()
+\item 
+bool {\bfseries get\+Has\+Stored\+MMsize} ()
+\item 
+RAST\+\_\+\+CACHE {\bfseries get\+Cache\+Type} ()
+\item 
+void {\bfseries point\+To\+Tile} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&pixel\+Coord, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+void {\bfseries tile\+To\+Pixels} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&ipixel\+Coords)
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries tile\+Coord} (int32 index)
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries get\+Tiles} ()
+\item 
+int {\bfseries total\+Tiles} ()
+\item 
+void {\bfseries remove\+Tile} (int \&err, unsigned char \texorpdfstring{$\ast$}{*}buffer, int32 tile\+Index, bool is\+Edited)
+\item 
+void {\bfseries set\+Iterator} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&input)
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} {\bfseries next} (int \&err, \mbox{\hyperlink{classmx__irect}{mx\+\_\+irect}} \&current\+Pixels, \mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+int32 {\bfseries tile\+Index} (\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&tile\+Coord)
+\item 
+void {\bfseries copy\+Basics} (int \&err, \mbox{\hyperlink{classraster}{raster}} \&base)
+\item 
+void {\bfseries default\+MMsize} ()
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries area\+Size} (int \&err, \mbox{\hyperlink{classmx__point}{mx\+\_\+point}} \&page\+Size, double pixel\+Resolution)
+\item 
+int {\bfseries sigbits\+From\+Colours} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classraster}{raster}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classrascache}{rascache}} {\bfseries global\+Rascache}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classraster}{raster}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries size}
+\item 
+\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} {\bfseries tile\+Size}
+\item 
+RAST\+\_\+\+PACK {\bfseries pack}
+\item 
+RAST\+\_\+\+DATA {\bfseries data}
+\item 
+int32 {\bfseries nplanes}
+\item 
+int32 {\bfseries sigbits} \mbox{[}RAST\+\_\+\+NUMPLANES\mbox{]}
+\item 
+int32 {\bfseries num\+Colours}
+\item 
+\mbox{\hyperlink{classmx__colour}{mx\+\_\+colour}} \texorpdfstring{$\ast$}{*} {\bfseries colours}
+\item 
+bool {\bfseries has\+Stored\+MMsize}
+\item 
+\mbox{\hyperlink{classmx__point}{mx\+\_\+point}} {\bfseries stored\+MMsize}
+\item 
+RAST\+\_\+\+CACHE {\bfseries cache\+Type}
+\item 
+std\+::map$<$ int, \mbox{\hyperlink{structrasterItem}{ras\+Item}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries tile\+Dict}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrastiff_ab568b058f712e69337cf848c3c2f158e}\label{classrastiff_ab568b058f712e69337cf848c3c2f158e} 
+\index{rastiff@{rastiff}!getTile@{getTile}}
+\index{getTile@{getTile}!rastiff@{rastiff}}
+\doxysubsubsection{\texorpdfstring{getTile()}{getTile()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} rastiff\+::get\+Tile (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{this\+Buffer,  }\item[{bool}]{get\+For\+Edit,  }\item[{bool \&}]{unknown,  }\item[{\mbox{\hyperlink{classmx__ipoint}{mx\+\_\+ipoint}} \&}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classraster}{raster}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raster/rastiff.\+h\end{DoxyCompactItemize}

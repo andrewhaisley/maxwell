@@ -1,0 +1,65 @@
+{
+   Motif Stuff 1
+   Memcheck:Param
+   writev(vector[0])
+   fun:writev
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   fun:xcb_writev
+   fun:_XSend
+   fun:_XReply
+   fun:XQueryColor
+   fun:_XmPngGetImage
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:_XmGetScaledPixmap
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXt.so.6.0.0
+}
+{
+   Motif Stuff 2
+   Memcheck:Cond
+   fun:mblen
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:_XmTextEnableRedisplay
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:_XmStringSourceSetValue
+   fun:XmTextSetString
+   fun:activate_d
+   fun:_ZN12mx_support_d3runEv
+   fun:main
+}
+{
+   Motif Stuff 3
+   Memcheck:Cond
+   fun:mblen
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:_XmTextEnableRedisplay
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:_XmStringSourceSetValue
+   fun:XmTextSetString
+   fun:activate_d
+   fun:_ZN12mx_support_d3runEv
+   fun:main
+}
+{
+   Motif Stuff 4
+   Memcheck:Addr8
+   fun:_XmEntryTextGet
+   fun:_XmStringDrawSegment
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:XmStringDrawUnderline
+   fun:_XmRedisplayLabG
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   fun:XmeRedisplayGadgets
+   obj:/usr/lib/x86_64-linux-gnu/libXm.so.4.0.4
+   obj:/usr/lib/x86_64-linux-gnu/libXt.so.6.0.0
+}

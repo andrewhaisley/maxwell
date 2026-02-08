@@ -1,0 +1,102 @@
+\doxysection{mx\+\_\+word\+\_\+6.\+h}
+\hypertarget{mx__word__6_8h_source}{}\label{mx__word__6_8h_source}\index{document/mx\_word\_6.h@{document/mx\_word\_6.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_word6}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Support\ for\ reading\ and\ writing\ Word6\ document\ files.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ MX\_WORD\_6\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ MX\_WORD\_6\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <mx\_ole.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx\_para\_style.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_WORD\_BUFFER\_SIZE\ 500}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ uint16\ magic;}
+\DoxyCodeLine{00047\ \ \ \ \ uint8\ encrypted;}
+\DoxyCodeLine{00048\ \ \ \ \ uint8\ readonly;}
+\DoxyCodeLine{00049\ \ \ \ \ uint32\ start\_of\_text;}
+\DoxyCodeLine{00050\ \ \ \ \ uint32\ end\_of\_text;}
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{structmx__word__6__header}{mx\_word\_6\_header}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__word__6}{mx\_word\_6}}\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classmx__word__6}{mx\_word\_6}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{bool}\ plain\_file\ =\ FALSE);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classmx__word__6}{\string~mx\_word\_6}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ dump\_words(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ import\_into\_document(}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ doc\_cursor,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ pd\ =\ NULL);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classmx__ole}{mx\_ole}}*\ ole\_file;}
+\DoxyCodeLine{00066\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_header(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ uint32\ read\_uint32(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00072\ \ \ \ \ uint16\ read\_uint16(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00073\ \ \ \ \ uint8\ read\_uint8(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ uint16\ read\_uint16\_from\_buffer(uint8*\ buffer,\ \textcolor{keywordtype}{int}\&\ length);}
+\DoxyCodeLine{00076\ \ \ \ \ int16\ read\_int16\_from\_buffer(uint8*\ buffer,\ \textcolor{keywordtype}{int}\&\ length);}
+\DoxyCodeLine{00077\ \ \ \ \ uint32\ read\_uint32\_from\_buffer(uint8*\ buffer,\ \textcolor{keywordtype}{int}\&\ length);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structmx__word__6__header}{mx\_word\_6\_header}}\ header;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ plain\_file;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ seek(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ pos);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ tell(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[MX\_WORD\_BUFFER\_SIZE\ +\ 1];}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ buffer\_pos;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_char\_to\_buffer(\textcolor{keywordtype}{int}\&\ err,\ uint8\ c,\ \mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ cursor);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ update\_progress();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classmx__prog__d}{mx\_prog\_d}}*\ pd;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ stream\_length;}
+\DoxyCodeLine{00094\ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

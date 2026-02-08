@@ -1,0 +1,279 @@
+\doxysection{mx\+\_\+xframe.\+h}
+\hypertarget{mx__xframe_8h_source}{}\label{mx__xframe_8h_source}\index{view/mx\_xframe.h@{view/mx\_xframe.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_XFRAME\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_XFRAME\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_xframe.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_xframe.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_frame.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}mx\_ui\_object.h"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}mx\_xcb.h"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ CLASS:\ mx\_xframe}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ frame\ which\ has\ an\ x\ widget\ and}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ x\ callbacks.\ This\ is\ not\ a\ ui\ object\ as\ by\ default\ it}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ sets\ the\ active\ widget\ to\ be\ the\ parent\ widget.\ The}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ screen\ device\ is\ attached\ to\ the\ active\ widget}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__xframe}{mx\_xframe}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__frame}{mx\_frame}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__xcallback__target}{mx\_xcallback\_target}}\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmx__xframe}{mx\_xframe}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ initialTopLeft,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ initialSize,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ initialZoom,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ iframeTarget,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ Widget\ parentWidget);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ createDevice(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ resetSheetLayout(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__draw__event}{mx\_draw\_event}}\&\ event);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setTopLeft(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ itopLeft);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ defaultDeviceToFrame(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ source,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ dest,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ coord,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ isInRange);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ defaultFrameToFrameTarget(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ source,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__callback__target}{mx\_callback\_target}}*\ dest,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ coord,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ isInRange);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ frameScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doScroll);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ scroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ buttonMotion(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ buttonEvent);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ resize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ event);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setZoom(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{double}\ izoom);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ if\ true\ the\ frame\ will\ keep\ button\ motion\ events}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ within\ the\ displayed\ area}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setMouseScrolling(\textcolor{keywordtype}{bool}\ imouseScrolling)\ \{\ mouseScrolling\ =\ imouseScrolling;\ \};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getMouseScrolling()\ \{\ \textcolor{keywordflow}{return}\ mouseScrolling;\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ the\ low\ level\ scroll\ event}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ scroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ scrollEvent);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ the\ low\ level\ scroll\ event\ -\/\ used\ to\ set\ up\ the}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ event}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ scrollEvent);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ makeVisible(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ visiblePos,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ extra\_offset\ =\ 0.0);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ make\ an\ area\ visible\ as\ far\ as\ possible.}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ makeVisible(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ top\_left,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ bottom\_right,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ extra\_offset\ =\ 0.0);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ the\ parent\ widget\ of\ the\ frame}}
+\DoxyCodeLine{00130\ \ \ \ \ Widget\ parentWidget;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ the\ active\ widget\ to\ which\ the\ device\ is\ to\ be\ attached}}
+\DoxyCodeLine{00132\ \ \ \ \ Widget\ activeWidget;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ scrollEventToTL(\mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ scrollEvent,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPosition,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ sameX,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ sameY,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\&\ offset);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ whether\ the\ frame\ is\ to\ chase\ the\ mouse\ pointer}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ mouseScrolling;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ MX\_SCROLL\_OFFSET\ scrollOffsets[3][3];}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ makeVisibleInternal(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ top\_left,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ bottom\_right,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ extra\_offset);}
+\DoxyCodeLine{00150\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ CLASS:\ mx\_xfframe}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ frame\ which\ has\ an\ x\ widget\ and}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ *\ x\ callbacks.\ This\ is\ a\ ui\ object\ as\ the\ active}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ *\ widget\ is\ a\ frame\ widget}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__xfframe}{mx\_xfframe}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__xframe}{mx\_xframe}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00162\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classmx__xfframe}{mx\_xfframe}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ initialTopLeft,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ initialSize,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ initialZoom,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ iframeTarget,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ Widget\ parentWidget);}
+\DoxyCodeLine{00169\ \};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ *\ CLASS:\ mx\_scrollable\_frame}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ *\ DESCRIPTION:\ An\ xframe\ which\ is\ scrollable}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__scrollable__frame}{mx\_scrollable\_frame}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__xframe}{mx\_xframe}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__ui__object}{mx\_ui\_object}}\ \{}
+\DoxyCodeLine{00180\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classmx__scrollable__frame}{mx\_scrollable\_frame}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ initialTopLeft,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ initialSize,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ initialZoom,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ iframeTarget,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ Widget\ parentWidget,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ createframeWidget,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ scrollIncrement,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isAutomatic,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}*\ iscrollAdd\ =\ NULL);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ scrollDrag(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__scroll__event}{mx\_scroll\_event}}\&\ scrollEvent);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ resize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ event);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getScrollIncrement()\ \{\ \textcolor{keywordflow}{return}\ scrollIncrement;\ \};}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ setScrollIncrement(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ iscrollIncrement);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ setScrollAdd(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ sadd);}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ getScrollAdd()\ \{\ \textcolor{keywordflow}{return}\ scrollAdd;\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ resetSheetLayout(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ get\ the\ current\ external\ selection}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ requestSelection(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ tell\ the\ frame\ an\ external\ selection\ is\ available}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ externalSelectionAvailable();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{void}\ scroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{void}\ setTopLeft(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ itopLeft);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ isize);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{void}\ setZoom(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{double}\ izoom);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{void}\ frameScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doScroll);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{comment}{//\ the\ frame\ widget}}
+\DoxyCodeLine{00237\ \ \ \ \ Widget\ frameWidget;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ whether\ the\ frame\ is\ automatic}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{bool}\ isAutomatic;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ scrollIncrement;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{void}\ setScrollBars(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ scrollAdd;}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ externalSelectionCB(\textcolor{keywordtype}{char}*\ s);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{static}\ Bool\ convert\_selection\_proc(}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ Widget\ w,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ Atom*\ selection,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ Atom*\ target,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ Atom*\ type\_return,}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ XtPointer*\ value\_return,}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}*\ length\_return,}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ format\_return);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ getExternalSelection(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ selection\_cb(}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ Widget\ w,}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ XtPointer\ client\_data,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ Atom*\ selection,}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ Atom*\ type,}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ XtPointer\ value,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}*\ value\_length,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ format);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classmx__scrollable__frame}{mx\_scrollable\_frame}}*\ frame\_owning\_selection;}
+\DoxyCodeLine{00271\ \};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

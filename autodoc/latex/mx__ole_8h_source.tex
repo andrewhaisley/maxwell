@@ -1,0 +1,134 @@
+\doxysection{mx\+\_\+ole.\+h}
+\hypertarget{mx__ole_8h_source}{}\label{mx__ole_8h_source}\index{document/mx\_ole.h@{document/mx\_ole.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_ole}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Support\ for\ reading\ and\ writing\ OLE-\/2\ data\ stream\ files.\ Data\ can}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ only\ be\ read\ from\ or\ written\ to\ the\ primary\ stream.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ MX\_OLE\_H}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MX\_OLE\_H}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MX\_BIGBLOCK\_SIZE\ 512}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MX\_SMALLBLOCK\_SIZE\ 64}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_BIGDEPOT\_ENTRIES\ 128}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MX\_PPS\_NAME\_LEN\ 64}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_PPS\_SIZE\ 128}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_NUM\_PPS\_PER\_BLOCK\ (MX\_BIGBLOCK\_SIZE\ /\ MX\_PPS\_SIZE)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_OLE\_CACHE\_SIZE\ 20}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ MX\_NUM\_SB\_PER\_BB\ (MX\_BIGBLOCK\_SIZE\ /\ MX\_SMALLBLOCK\_SIZE)}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{char}\ name[MX\_PPS\_NAME\_LEN\ +\ 1];}
+\DoxyCodeLine{00049\ \ \ \ \ uint8\ type;}
+\DoxyCodeLine{00050\ \ \ \ \ int32\ prev;}
+\DoxyCodeLine{00051\ \ \ \ \ int32\ next;}
+\DoxyCodeLine{00052\ \ \ \ \ int32\ dir;}
+\DoxyCodeLine{00053\ \ \ \ \ uint32\ start\_block;}
+\DoxyCodeLine{00054\ \ \ \ \ uint32\ size;}
+\DoxyCodeLine{00055\ \}\ \mbox{\hyperlink{structmx__ole__pps}{mx\_ole\_pps}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ole}{mx\_ole}}\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ mode\ is\ either\ "{}r"{}\ for\ readonly\ or\ "{}w"{}\ for\ write\ only.}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__ole}{mx\_ole}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mode);}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classmx__ole}{\string~mx\_ole}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ find\ the\ size\ of\ a\ named\ stream\ -\/\ WordDocument\ is\ an\ example}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ of\ a\ suitable\ name}}
+\DoxyCodeLine{00065\ \ \ \ \ uint32\ size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ open\ a\ named\ stream}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ open(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ read\ from\ the\ current\ position}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ read(\textcolor{keywordtype}{int}\&\ err,\ uint8*\ buf,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ write\ to\ the\ current\ position}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ write(\textcolor{keywordtype}{int}\&\ err,\ int8*\ buf,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ seek\ to\ absolute\ position}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ seek(\textcolor{keywordtype}{int}\&\ err,\ uint32\ pos);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ get\ current\ absolute\ position}}
+\DoxyCodeLine{00080\ \ \ \ \ uint32\ tell(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_write;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ uint8*\ bigblock;}
+\DoxyCodeLine{00087\ \ \ \ \ uint8\ bigblock\_cache[MX\_OLE\_CACHE\_SIZE][MX\_BIGBLOCK\_SIZE];}
+\DoxyCodeLine{00088\ \ \ \ \ int32\ bigblock\_nums[MX\_OLE\_CACHE\_SIZE];}
+\DoxyCodeLine{00089\ \ \ \ \ int32\ bigblock\_touch[MX\_OLE\_CACHE\_SIZE];}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ uint8\ smallblock[MX\_SMALLBLOCK\_SIZE];}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ touch;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_big\_depots;}
+\DoxyCodeLine{00096\ \ \ \ \ int32*\ big\_depot\_nums;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{int}\ root\_block;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ small\_block\_depot\_num;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_bigblock(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ bn);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_header(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ int32\ read\_int32(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00104\ \ \ \ \ int16\ read\_int16(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{structmx__ole__pps}{mx\_ole\_pps}}\ find\_pps(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\ i\ =\ 0);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_chain(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_small\_chain(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_smallblock(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{structmx__ole__pps}{mx\_ole\_pps}}\ current\_stream;}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structmx__ole__pps}{mx\_ole\_pps}}\ root\_pps;}
+\DoxyCodeLine{00113\ \ \ \ \ uint32\ current\_position;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ get\ the\ number\ of\ items\ in\ the\ root\ chain}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_root\_blocks(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ reads\ block\ root\_chain[i]}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_root\_chain(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ read\ an\ indexed\ pps\ block}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_pps(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i,\ \mbox{\hyperlink{structmx__ole__pps}{mx\_ole\_pps}}\&\ pps);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_start;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_index;}
+\DoxyCodeLine{00126\ \};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

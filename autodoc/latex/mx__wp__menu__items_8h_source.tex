@@ -1,0 +1,99 @@
+\doxysection{mx\+\_\+wp\+\_\+menu\+\_\+items.\+h}
+\hypertarget{mx__wp__menu__items_8h_source}{}\label{mx__wp__menu__items_8h_source}\index{ui/mx\_wp\_menu\_items.h@{ui/mx\_wp\_menu\_items.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ MX\_WP\_MENU\_ITEMS\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MX\_WP\_MENU\_ITEMS\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ these\ are\ codes\ for\ menu\ items\ whose\ visibility\ may\ be\ changed}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ mx\_file\_new\_e,}
+\DoxyCodeLine{00026\ \ \ \ \ mx\_file\_open\_e,}
+\DoxyCodeLine{00027\ \ \ \ \ mx\_file\_close\_e,}
+\DoxyCodeLine{00028\ \ \ \ \ mx\_file\_save\_e,}
+\DoxyCodeLine{00029\ \ \ \ \ mx\_file\_save\_as\_e,}
+\DoxyCodeLine{00030\ \ \ \ \ mx\_file\_print\_e,}
+\DoxyCodeLine{00031\ \ \ \ \ mx\_file\_print\_one\_e,}
+\DoxyCodeLine{00032\ \ \ \ \ mx\_edit\_undo\_e,}
+\DoxyCodeLine{00033\ \ \ \ \ mx\_edit\_redo\_e,}
+\DoxyCodeLine{00034\ \ \ \ \ mx\_edit\_cut\_e,}
+\DoxyCodeLine{00035\ \ \ \ \ mx\_edit\_copy\_e,}
+\DoxyCodeLine{00036\ \ \ \ \ mx\_edit\_paste\_e,}
+\DoxyCodeLine{00037\ \ \ \ \ mx\_edit\_select\_all\_e,}
+\DoxyCodeLine{00038\ \ \ \ \ mx\_edit\_find\_e,}
+\DoxyCodeLine{00039\ \ \ \ \ mx\_edit\_find\_again\_e,}
+\DoxyCodeLine{00040\ \ \ \ \ mx\_edit\_replace\_e,}
+\DoxyCodeLine{00041\ \ \ \ \ mx\_edit\_goto\_e,}
+\DoxyCodeLine{00042\ \ \ \ \ mx\_edit\_goto\_start\_e,}
+\DoxyCodeLine{00043\ \ \ \ \ mx\_edit\_goto\_end\_e,}
+\DoxyCodeLine{00044\ \ \ \ \ mx\_table\_delete\_rows\_e,}
+\DoxyCodeLine{00045\ \ \ \ \ mx\_table\_delete\_columns\_e,}
+\DoxyCodeLine{00046\ \ \ \ \ mx\_table\_rows\_e,}
+\DoxyCodeLine{00047\ \ \ \ \ mx\_table\_columns\_e,}
+\DoxyCodeLine{00048\ \ \ \ \ mx\_view\_outline\_e,}
+\DoxyCodeLine{00049\ \ \ \ \ mx\_view\_header\_e,}
+\DoxyCodeLine{00050\ \ \ \ \ mx\_view\_footer\_e,}
+\DoxyCodeLine{00051\ \ \ \ \ mx\_view\_styles\_e,}
+\DoxyCodeLine{00052\ \ \ \ \ mx\_view\_table\_guides\_e,}
+\DoxyCodeLine{00053\ \ \ \ \ mx\_view\_tools\_e,}
+\DoxyCodeLine{00054\ \ \ \ \ mx\_view\_ruler\_e,}
+\DoxyCodeLine{00055\ \ \ \ \ mx\_view\_zoom\_e,}
+\DoxyCodeLine{00056\ \ \ \ \ mx\_insert\_break\_e,}
+\DoxyCodeLine{00057\ \ \ \ \ mx\_insert\_page\_number\_e,}
+\DoxyCodeLine{00058\ \ \ \ \ mx\_insert\_date\_time\_e,}
+\DoxyCodeLine{00059\ \ \ \ \ mx\_insert\_symbol\_e,}
+\DoxyCodeLine{00060\ \ \ \ \ mx\_insert\_bullets\_e,}
+\DoxyCodeLine{00061\ \ \ \ \ mx\_insert\_image\_e,}
+\DoxyCodeLine{00062\ \ \ \ \ mx\_insert\_diagram\_e,}
+\DoxyCodeLine{00063\ \ \ \ \ mx\_insert\_table\_e,}
+\DoxyCodeLine{00064\ \ \ \ \ mx\_insert\_file\_e,}
+\DoxyCodeLine{00065\ \ \ \ \ mx\_insert\_toc\_e,}
+\DoxyCodeLine{00066\ \ \ \ \ mx\_insert\_index\_e,}
+\DoxyCodeLine{00067\ \ \ \ \ mx\_insert\_index\_entry\_e,}
+\DoxyCodeLine{00068\ \ \ \ \ mx\_format\_paragraph\_e,}
+\DoxyCodeLine{00069\ \ \ \ \ mx\_format\_character\_e,}
+\DoxyCodeLine{00070\ \ \ \ \ mx\_format\_border\_e,}
+\DoxyCodeLine{00071\ \ \ \ \ mx\_format\_tabs\_e,}
+\DoxyCodeLine{00072\ \ \ \ \ mx\_format\_style\_e,}
+\DoxyCodeLine{00073\ \ \ \ \ mx\_format\_page\_setup\_e,}
+\DoxyCodeLine{00074\ \ \ \ \ mx\_format\_columns\_e,}
+\DoxyCodeLine{00075\ \ \ \ \ mx\_format\_table\_e,}
+\DoxyCodeLine{00076\ \ \ \ \ mx\_format\_table\_style\_e,}
+\DoxyCodeLine{00077\ \ \ \ \ mx\_format\_make\_normal\_e,}
+\DoxyCodeLine{00078\ \ \ \ \ mx\_format\_make\_bold\_e,}
+\DoxyCodeLine{00079\ \ \ \ \ mx\_format\_make\_italic\_e,}
+\DoxyCodeLine{00080\ \ \ \ \ mx\_format\_make\_underline\_e,}
+\DoxyCodeLine{00081\ \ \ \ \ mx\_tools\_spelling\_e,}
+\DoxyCodeLine{00082\ \ \ \ \ mx\_tools\_repaginate\_e,}
+\DoxyCodeLine{00083\ \ \ \ \ mx\_tools\_options\_e,}
+\DoxyCodeLine{00084\ \ \ \ \ mx\_tools\_envelope\_e,}
+\DoxyCodeLine{00085\ \ \ \ \ mx\_help\_help\_index\_e,}
+\DoxyCodeLine{00086\ \ \ \ \ mx\_help\_product\_support\_e,}
+\DoxyCodeLine{00087\ \ \ \ \ mx\_help\_about\_e,}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ this\ item\ is\ used\ to\ terminate\ vararg\ lists}}
+\DoxyCodeLine{00090\ \ \ \ \ mx\_end\_item\_e}
+\DoxyCodeLine{00091\ \}\ menu\_item\_name\_t;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

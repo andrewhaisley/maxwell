@@ -1,0 +1,63 @@
+<map id="mx_callback_target" name="mx_callback_target">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,621,156,647"/>
+<area shape="rect" id="Node000002" href="$classmx__dg__state.html" title=" " alt="" coords="230,276,337,301"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,608,272,300,277,303,99,611"/>
+<area shape="rect" id="Node000017" href="$classmx__frame__target.html" title=" " alt="" coords="216,572,351,597"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="146,616,230,595,231,600,147,621"/>
+<area shape="rect" id="Node000025" href="$classmx__print__device.html" title=" " alt="" coords="218,621,349,647"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="170,631,218,631,218,637,170,637"/>
+<area shape="rect" id="Node000026" href="$classmx__print__frame.html" title=" " alt="" coords="220,671,347,696"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="147,647,231,668,230,673,146,652"/>
+<area shape="rect" id="Node000027" href="$classmx__xcallback__target.html" title=" " alt="" coords="204,720,363,745"/>
+<area shape="poly" id="edge26_Node000001_Node000027" title=" " alt="" coords="113,653,155,680,205,706,235,717,233,722,203,711,153,685,110,657"/>
+<area shape="rect" id="Node000003" href="$classmx__dg__arc__state.html" title=" " alt="" coords="431,79,565,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,262,312,229,337,188,370,148,409,113,431,102,434,106,412,118,374,151,342,191,316,231,298,265"/>
+<area shape="rect" id="Node000010" href="$classmx__dg__point__state.html" title=" " alt="" coords="425,128,571,153"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="301,263,346,212,376,185,409,162,435,151,437,156,412,167,380,189,350,216,305,267"/>
+<area shape="rect" id="Node000011" href="$classmx__dg__polypoint__state.html" title=" " alt="" coords="411,177,585,203"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="312,266,357,238,410,212,442,200,444,205,412,216,360,243,315,271"/>
+<area shape="rect" id="Node000012" href="$classmx__dg__rect__state.html" title=" " alt="" coords="429,227,567,252"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="350,271,441,249,443,255,351,276"/>
+<area shape="rect" id="Node000013" href="$classmx__dg__select__state.html" title=" " alt="" coords="422,276,574,301"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="351,286,422,286,422,291,351,291"/>
+<area shape="rect" id="Node000014" href="$classmx__dg__snap__state.html" title=" " alt="" coords="426,325,570,351"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="351,301,443,323,441,328,350,307"/>
+<area shape="rect" id="Node000015" href="$classmx__dg__span__state.html" title=" " alt="" coords="426,375,570,400"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="316,307,360,334,412,360,447,372,445,377,410,364,358,338,313,311"/>
+<area shape="rect" id="Node000016" href="$classmx__dg__top__state.html" title=" " alt="" coords="431,424,565,449"/>
+<area shape="poly" id="edge15_Node000002_Node000016" title=" " alt="" coords="305,310,350,360,380,387,412,409,440,421,438,426,409,414,376,391,346,364,301,314"/>
+<area shape="rect" id="Node000004" href="$classmx__dg__farc__state.html" title=" " alt="" coords="643,55,782,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,80,643,72,644,78,579,85"/>
+<area shape="rect" id="Node000007" href="$classmx__dg__parc__state.html" title=" " alt="" coords="642,104,783,129"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="578,98,642,106,641,111,578,103"/>
+<area shape="rect" id="Node000005" href="$classmx__dg__fcircle__state.html" title=" " alt="" coords="845,5,999,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="780,49,867,28,868,33,781,54"/>
+<area shape="rect" id="Node000006" href="$classmx__dg__fellipse__state.html" title=" " alt="" coords="841,55,1003,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="796,65,841,65,841,70,796,70"/>
+<area shape="rect" id="Node000008" href="$classmx__dg__pcircle__state.html" title=" " alt="" coords="844,104,1000,129"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="797,114,844,114,844,119,797,119"/>
+<area shape="rect" id="Node000009" href="$classmx__dg__pellipse__state.html" title=" " alt="" coords="840,153,1004,179"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="781,130,868,151,867,156,780,135"/>
+<area shape="rect" id="Node000018" href="$classmx__dg__toolbar.html" title=" " alt="" coords="439,473,557,499"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="312,562,357,534,410,508,442,496,444,501,412,512,360,539,315,567"/>
+<area shape="rect" id="Node000019" href="$classmx__editor.html" title=" " alt="" coords="454,523,542,548"/>
+<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="352,566,453,543,455,548,353,571"/>
+<area shape="rect" id="Node000022" href="$classmx__print__target.html" title=" " alt="" coords="435,572,561,597"/>
+<area shape="poly" id="edge21_Node000017_Node000022" title=" " alt="" coords="365,582,434,582,434,587,365,587"/>
+<area shape="rect" id="Node000023" href="$classmx__ruler__bar.html" title=" " alt="" coords="444,621,552,647"/>
+<area shape="poly" id="edge22_Node000017_Node000023" title=" " alt="" coords="353,598,444,619,443,624,352,603"/>
+<area shape="rect" id="Node000024" href="$classmx__wp__toolbar.html" title=" " alt="" coords="437,671,559,696"/>
+<area shape="poly" id="edge23_Node000017_Node000024" title=" " alt="" coords="352,600,364,606,379,619,389,632,398,644,412,656,440,668,437,673,409,660,394,648,384,635,376,623,361,611,350,605"/>
+<area shape="rect" id="Node000020" href="$classmx__dg__editor.html" title=" " alt="" coords="657,497,768,523"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="555,526,657,514,657,519,556,531"/>
+<area shape="rect" id="Node000021" href="$classmx__wp__editor.html" title=" " alt="" coords="655,547,770,572"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="556,539,656,550,655,556,556,544"/>
+<area shape="rect" id="Node000028" href="$classmx__screen__device.html" title=" " alt="" coords="427,720,569,745"/>
+<area shape="poly" id="edge27_Node000027_Node000028" title=" " alt="" coords="377,730,426,730,426,735,377,735"/>
+<area shape="rect" id="Node000029" href="$classmx__xframe.html" title=" " alt="" coords="449,769,547,795"/>
+<area shape="poly" id="edge28_Node000027_Node000029" title=" " alt="" coords="353,746,450,768,448,774,352,751"/>
+<area shape="rect" id="Node000030" href="$classmx__scrollable__frame.html" title=" " alt="" coords="633,744,792,769"/>
+<area shape="poly" id="edge29_Node000029_Node000030" title=" " alt="" coords="560,772,633,763,633,769,561,777"/>
+<area shape="rect" id="Node000031" href="$classmx__xfframe.html" title=" " alt="" coords="662,793,763,819"/>
+<area shape="poly" id="edge30_Node000029_Node000031" title=" " alt="" coords="561,786,662,798,661,803,560,792"/>
+</map>

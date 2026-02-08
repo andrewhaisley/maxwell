@@ -1,0 +1,12 @@
+<map id="mx_menubar" name="mx_menubar">
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,317,119,343"/>
+<area shape="rect" id="Node000002" href="$classmx__bar.html" title=" " alt="" coords="30,243,101,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,282,68,317,63,317,63,282"/>
+<area shape="rect" id="Node000003" href="$classmx__ui__object.html" title=" " alt="" coords="5,80,115,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="64,119,68,243,62,243,58,119"/>
+<area shape="rect" id="Node000005" href="$classmx__window.html" title=" " alt="" coords="82,155,182,180"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="83,113,122,152,118,156,79,117"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="25,5,95,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="63,45,63,80,57,80,57,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="117,193,77,244,73,240,112,189"/>
+</map>

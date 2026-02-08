@@ -1,0 +1,121 @@
+\doxysection{mx\+\_\+stdio.\+h}
+\hypertarget{mx__stdio_8h_source}{}\label{mx__stdio_8h_source}\index{shared/mx\_stdio.h@{shared/mx\_stdio.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_stdio}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ MX\_STDIO\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MX\_STDIO\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MAX\_PATH\_LEN\ 1024}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MAX\_FILE\_NAME\_LEN\ 1024}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MAX\_DIR\_FILES\ 512}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mx\_tmpnam(\textcolor{keywordtype}{char}*\ res);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ mx\_copy\_file(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ in,\ \textcolor{keywordtype}{char}*\ out);}
+\DoxyCodeLine{00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ \ OUT\ \ \ -\/\ err\ \ what\ went\ wrong}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ s\ \ \ \ the\ file\ to\ copy\ from}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ t\ \ \ \ the\ file\ to\ copy\ to}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ ACTION\ \ :\ copies\ the\ file}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ RETURNS\ :\ none}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ mx\_translate\_file\_error(\textcolor{keywordtype}{int}\ e);}
+\DoxyCodeLine{00058\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ e\ \ the\ error\ code\ from\ errno}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ ACTION\ \ :\ translates\ errno\ value\ for\ file\ error\ into\ maxwell\ code}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ maxwell\ code}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ uint32\ mx\_file\_size(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name);}
+\DoxyCodeLine{00069\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ file\_name\ the\ name\ of\ the\ file}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ ACTION\ \ :\ gets\ the\ size\ of\ a\ file}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ size\ in\ bytes\ of\ the\ file}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ NOTE:\ if\ the\ file\ specified\ is\ open\ and\ being\ used\ with\ the\ stdio\ routines,}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ \ \ \ \ \ \ then\ the\ value\ returned\ here\ may\ be\ incorrect.}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ FILE*\ mx\_fopen(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mode);}
+\DoxyCodeLine{00082\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ file\_name\ the\ name\ of\ the\ file}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ mode\ stdio\ open\ mode}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ ACTION\ \ :\ opens\ the\ file}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ RETURNS\ :\ the\ file\ pointer}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{int}\ mx\_fprintf(\textcolor{keywordtype}{int}\&\ err,\ FILE*\ f,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00093\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ same\ kinds\ of\ stuff\ as\ printf...}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *\ ACTION\ \ :\ sends\ stuff\ to\ a\ file....}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ *\ RETURNS\ :\ same\ as\ fprintf}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ mx\_printf\_warning(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00104\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *\ PARAMS\ \ :}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ \ \ IN\ \ \ \ -\/\ same\ kinds\ of\ stuff\ as\ printf...}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *\ ACTION\ \ :\ prints\ a\ warning\ message.\ Prepends\ the\ string\ "{}WARNING:\ "{}\ to\ the}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ string\ passed\ to\ it\ and\ appends\ a\ newline\ character.}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *\ RETURNS\ :\ nothing}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

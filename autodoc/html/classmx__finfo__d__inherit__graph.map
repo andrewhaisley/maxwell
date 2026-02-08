@@ -1,0 +1,9 @@
+<map id="mx_finfo_d" name="mx_finfo_d">
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,225,107,251"/>
+<area shape="rect" id="Node000002" href="$classmx__dialog.html" title=" " alt="" coords="15,152,105,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,191,63,225,57,225,57,191"/>
+<area shape="rect" id="Node000003" href="$classmx__ui__object.html" title=" " alt="" coords="5,79,115,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="63,118,63,152,57,152,57,118"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="25,5,95,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="63,44,63,79,57,79,57,44"/>
+</map>

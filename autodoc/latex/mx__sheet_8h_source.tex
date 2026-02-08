@@ -1,0 +1,227 @@
+\doxysection{mx\+\_\+sheet.\+h}
+\hypertarget{mx__sheet_8h_source}{}\label{mx__sheet_8h_source}\index{document/mx\_sheet.h@{document/mx\_sheet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_sheet}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ Sheets\ are\ containment\ objects\ for\ areas.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ MX\_SHEET\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_db.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_dg\_area.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_doc\_coord.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_doc\_rect.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_image\_area.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <mx\_paintable.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <mx\_painter.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <mx\_spline.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <mx\_table\_area.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <mx\_text\_area.h>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <mx\_wp\_sh\_pos.h>}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__document}{mx\_document}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_WIDTH\ "{}width"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_HEIGHT\ "{}height"{}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_IMAGE\_AREAS\ "{}ia"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TEXT\_AREAS\ "{}ta"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_DIAGRAM\_AREAS\ "{}da"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TABLE\_AREAS\ "{}tba"{}}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_LEFT\_MARGIN\ "{}lmargin"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_RIGHT\_MARGIN\ "{}rmargin"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_TOP\_MARGIN\ "{}tmargin"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_BOTTOM\_MARGIN\ "{}bmargin"{}}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ MX\_SHEET\_ORIENTATION\ "{}orient"{}}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__sheet}{mx\_sheet}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__paintable}{mx\_paintable}}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ MX\_RTTI(mx\_sheet\_class\_e)}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__sheet__painter}{mx\_sheet\_painter}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}(uint32\ docid);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ constructor\ for\ when\ the\ oid\ is\ known}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}(uint32\ docid,\ uint32\ oid);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{\string~mx\_sheet}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_text\_areas(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_table\_areas(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_image\_areas(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_diagram\_areas(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ get\ a\ single\ area\ by\ index}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ text\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ table\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ image\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ diagram\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ delete\ a\ single\ area\ by\ index}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_text\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_table\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_image\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_diagram\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ remove\ a\ single\ area\ by\ index}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_text\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_table\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_image\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_diagram\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ delete\ a\ single\ area\ by\ object}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_text\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ o);}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_table\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ o);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_image\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ o);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_diagram\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ o);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ remove\ -\/\ just\ unlinks,\ doesn't\ delete}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_text\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ o);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_table\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ o);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_image\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ o);}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_diagram\_area\_ref(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ o);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ methods\ for\ adding\ all\ the\ different\ area\ types}}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ add\_text\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index\_position\ =\ -\/1);}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ add\_table\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index\_position\ =\ -\/1);}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ add\_image\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index\_position\ =\ -\/1);}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ add\_diagram\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index\_position\ =\ -\/1);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ methods\ for\ moving\ areas\ between\ sheets}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_text\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ area,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_table\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__table__area}{mx\_table\_area}}*\ area,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_image\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__image__area}{mx\_image\_area}}*\ area,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_diagram\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__diagram__area}{mx\_diagram\_area}}*\ area,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ moves\ the\ given\ area\ (of\ whatever\ type)\ into\ the\ start\ of\ another\ sheet}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_area\_out(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ area\_index,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_area\_out(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ moves\ the\ given\ area\ (of\ whatever\ type)\ from\ another\ sheet\ into\ the}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ the\ end\ of\ this\ one}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_area\_in(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ area\_index,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ src);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_area\_in(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ src);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ some\ pre-\/defined\ attributes.\ These\ are\ just\ simple}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ wrappers\ around\ the\ normal\ attribute\ access}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ mechanism\ (see\ mx\_db\_object)}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_width(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_width(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ w);}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_height(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ get\ width\ minus\ margins}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_width\_minus\_margins(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//\ get\ height\ minus\ margins}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height\_minus\_margins(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ get\ the\ width\ and\ height\ of\ the\ visible\ component\ in\ different\ paint}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ modes.}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height(\textcolor{keywordtype}{int}\&\ err,\ mx\_painter\_mode\_t\ mode);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_width(\textcolor{keywordtype}{int}\&\ err,\ mx\_painter\_mode\_t\ mode);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ delete\_areas(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ get\_area\_index(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ get\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_areas();}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_index\_position(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ get\_bottom\_area(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ get\_top\_area(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ add\_text\_area\_to\_top(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ add\_text\_area\_to\_bottom(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_bottom\_area\_text();}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_top\_area\_text();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ set/get\ \ the\ paper\ margins}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_margins(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ left,\ \textcolor{keywordtype}{float}\ right,\ \textcolor{keywordtype}{float}\ top,\ \textcolor{keywordtype}{float}\ bottom);}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_margins(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\&\ left,\ \textcolor{keywordtype}{float}\&\ right,\ \textcolor{keywordtype}{float}\&\ top,\ \textcolor{keywordtype}{float}\&\ bottom);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ get\ the\ owning\ document}}
+\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{classmx__document}{mx\_document}}*\ get\_document(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ unlink\ the\ area\ from\ the\ various\ indexes\ and\ stuff,\ but\ don't\ delete\ it}}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ remove\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//\ set/unset\ landcape\ mode\ (default\ is\ portrait)}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_landscape(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ b);}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_landscape(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ pre-\/existing\ area.\ This\ adds\ it\ to\ the\ area\ index\ at\ the}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{//\ specified\ index\ and\ also\ to\ the\ appropriate\ area\ type\ list}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ if\ possible,\ joins\ the\ areas\ at\ index\ i\ and\ index\ i\ +\ 1.\ If\ it\ cannot}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ join\ areas\ because\ they\ are\ incompatible,\ then\ the\ routine\ returns}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ without\ error.\ If\ an\ error\ occurs\ it\ is\ returned\ in\ the\ usual\ way.}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ join\_areas(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ highlight\_from\_start\_of\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ end);}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ highlight\_whole\_sheet(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ highlight\_in\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ start,\ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ end);}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ highlight\_to\_end\_of\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__sheet__pos}{mx\_wp\_sheet\_pos}}\&\ start);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ the\ areas\ stored\ as\ described\ below}}
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ areas;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{bool}\ index\_built;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ move\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ area,\ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ dest,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ attr\_name);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ builds\ an\ index\ of\ areas\ on\ position.\ The\ format\ is\ a\ list\ of\ lists}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ if\ areas.\ Each\ item\ in\ the\ first\ list\ is\ further\ down\ the\ page\ and}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ each\ item\ in\ the\ nested\ list\ is\ further\ across}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ build\_area\_index(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_area\_to\_index(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_image\_areas;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_text\_areas;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_table\_areas;}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_diagram\_areas;}
+\DoxyCodeLine{00219\ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

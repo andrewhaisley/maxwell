@@ -1,0 +1,137 @@
+\doxysection{mx\+\_\+aa.\+h}
+\hypertarget{mx__aa_8h_source}{}\label{mx__aa_8h_source}\index{edit/mx\_aa.h@{edit/mx\_aa.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_AA\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_AA\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_active\_area}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Tom\ Newton}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ object\ for\ handle\ active\ areas\ (ones\ within\ resize\ handles\ active\ around}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ their\ edges}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx\_doc\_coord.h>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__button__event}{mx\_button\_event}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__device}{mx\_device}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__screen__device}{mx\_screen\_device}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__active__area}{mx\_active\_area}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__active__area}{mx\_active\_area}}(\mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ my\_cursor);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_active()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_dragging()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_active\_handles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ undraw\_active\_handles(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ single\_click(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ be);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ button\_motion(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ be);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ button\_motion\_end(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ be);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ deactivate();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ area\ at\ the\ given\ position.\ Position\ must\ be\ on\ an}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ area\ complex\ word\ item\ or\ this\ method\ fails.}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_area(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__wp__doc__pos}{mx\_wp\_doc\_pos}}*\ pos,\ \mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}}*\ doc);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ pre\_scroll();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ post\_scroll();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ pre\_redraw();}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ post\_redraw();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ are\ the\ active\ handles\ on\ the\ screen}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ handles\_are\_drawn;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ is\ the\ screen\ currently\ being\ scrolled}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ scrolling;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ toggle\_active\_handles(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{bool}\ on);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{enum}\ mx\_active\_area\_state\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ mx\_aas\_normal\_e\ =\ 25,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ mx\_aas\_active\_e,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ mx\_aas\_drag\_e}
+\DoxyCodeLine{00086\ \ \ \ \ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ the\ state\ of\ this\ active\ area.\ If\ the\ area\ is\ not\ active,\ the\ state\ is}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ normal.\ After\ a\ single\ click\ inside\ the\ area,\ the\ state\ is\ active.\ A}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ single\ click\ outside\ the\ area\ returns\ the\ state\ to\ normal.\ A\ click}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ inside\ the\ area\ may\ move\ the\ state\ to\ drag\ if\ the\ click\ is\ in\ one\ of\ the}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ resize/crop\ "{}handles"{}.\ Button\ motion\ events\ then\ maintain\ the\ drag\ state}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ until\ a\ button\ motion\ end\ event.}}
+\DoxyCodeLine{00094\ \ \ \ \ mx\_active\_area\_state\ state;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ the\ area\ which\ is\ active}}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ active\_opaque\_area;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ the\ origin\ in\ document\ coordinates\ of\ the\ active\ area}}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ active\_area\_origin;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ the\ cursor\ for\ this\ active\ area}}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{classmx__wp__cursor}{mx\_wp\_cursor}}*\ cursor;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{enum}\ mx\_aah\_type\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ mx\_aah\_top\_left\_e,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ mx\_aah\_top\_e,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ mx\_aah\_top\_right\_e,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ mx\_aah\_left\_e,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ mx\_aah\_right\_e,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ mx\_aah\_bottom\_left\_e,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ mx\_aah\_bottom\_e,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ mx\_aah\_bottom\_right\_e}
+\DoxyCodeLine{00114\ \ \ \ \ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ object\ for\ dragging\ with}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{struct\ }mx\_aa\_handle\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ drag\_to\_point(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ dev,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ c);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ mx\_aah\_type\ type;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ tl,\ br;}
+\DoxyCodeLine{00122\ \ \ \ \ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_drag\_handle\_object(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__button__event}{mx\_button\_event}}\&\ be,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__screen__device}{mx\_screen\_device}}*\ dev);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ the\ handle\ which\ is\ being\ held}}
+\DoxyCodeLine{00128\ \ \ \ \ mx\_aa\_handle\ drag\_handle;}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MX\_AA\_H}}
+
+\end{DoxyCode}

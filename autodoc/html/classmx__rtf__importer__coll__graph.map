@@ -1,0 +1,33 @@
+<map id="mx_rtf_importer" name="mx_rtf_importer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="263,451,391,476"/>
+<area shape="rect" id="Node000002" href="$classmx__importer.html" title=" " alt="" coords="89,376,195,401"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,404,299,448,297,453,183,409"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="33,288,102,313"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,322,134,374,130,377,84,326"/>
+<area shape="rect" id="Node000004" href="$classmx__rtf.html" title=" " alt="" coords="295,376,360,401"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="330,416,330,450,325,450,325,416"/>
+<area shape="rect" id="Node000005" href="$classRTFSdocfmt.html" title=" " alt="" coords="511,288,610,313"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="554,328,545,342,533,354,501,367,455,377,361,388,360,382,454,371,499,362,530,350,541,339,549,325"/>
+<area shape="rect" id="Node000006" href="$classRTFSpage.html" title=" " alt="" coords="517,169,602,194"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="562,208,563,288,558,288,557,208"/>
+<area shape="rect" id="Node000007" href="$classRTFSdocfootnote.html" title=" " alt="" coords="626,169,757,194"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="670,206,604,266,576,290,572,286,600,262,667,202"/>
+<area shape="rect" id="Node000008" href="$classRTFStable.html" title=" " alt="" coords="235,288,321,313"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="276,327,280,351,290,364,304,374,301,378,287,367,276,353,271,328"/>
+<area shape="rect" id="Node000009" href="$classRTFScell.html" title=" " alt="" coords="213,169,289,194"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="251,207,250,235,255,263,269,287,265,289,250,265,245,235,245,207"/>
+<area shape="rect" id="Node000010" href="$classRTFSparBorder.html" title=" " alt="" coords="219,5,337,31"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="316,37,330,53,341,81,347,105,345,149,337,194,331,249,332,257,331,265,320,280,305,290,302,286,316,276,326,263,327,257,326,249,331,193,340,148,342,106,336,82,325,56,312,41"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="277,45,256,169,251,168,271,44"/>
+<area shape="rect" id="Node000014" href="$classRTFSpict.html" title=" " alt="" coords="111,169,189,194"/>
+<area shape="poly" id="edge15_Node000014_Node000010" title=" " alt="" coords="236,39,213,57,191,85,175,117,155,169,150,168,170,114,187,82,209,53,233,35"/>
+<area shape="rect" id="Node000011" href="$classRTFSparShading.html" title=" " alt="" coords="5,5,132,31"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="81,42,99,85,113,111,134,123,154,126,176,127,202,135,225,150,243,167,239,171,221,154,199,140,175,132,154,131,133,128,109,115,94,88,76,44"/>
+<area shape="poly" id="edge16_Node000014_Node000011" title=" " alt="" coords="40,41,28,56,19,85,21,97,28,112,45,132,66,148,112,168,110,173,63,152,41,136,24,115,16,99,14,84,24,53,35,38"/>
+<area shape="rect" id="Node000012" href="$classmx__list.html" title=" " alt="" coords="421,169,492,194"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="460,208,455,276,447,316,431,353,411,384,387,412,344,452,340,448,383,408,406,381,426,351,441,314,450,275,455,208"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="439,206,407,236,367,266,316,290,313,286,365,262,403,232,435,202"/>
+<area shape="rect" id="Node000013" href="$classRTFSfield.html" title=" " alt="" coords="345,288,427,313"/>
+<area shape="poly" id="edge13_Node000004_Node000013" title=" " alt="" coords="373,326,338,377,333,374,368,323"/>
+<area shape="poly" id="edge14_Node000004_Node000014" title=" " alt="" coords="148,207,147,259,152,287,164,312,192,339,227,359,263,372,295,380,294,385,261,377,224,364,189,344,160,315,147,288,141,260,143,207"/>
+</map>

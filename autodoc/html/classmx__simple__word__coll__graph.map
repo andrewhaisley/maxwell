@@ -1,0 +1,15 @@
+<map id="mx_simple_word" name="mx_simple_word">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,405,139,431"/>
+<area shape="rect" id="Node000002" href="$classmx__word.html" title=" " alt="" coords="31,331,113,356"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,370,75,405,69,405,69,370"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="15,80,187,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,119,79,243,75,330,69,330,73,242,93,118"/>
+<area shape="rect" id="Node000005" href="$classmx__char__style.html" title=" " alt="" coords="88,243,205,268"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="111,118,146,242,141,243,106,119"/>
+<area shape="rect" id="Node000006" href="$classmx__colour.html" title=" " alt="" coords="139,155,229,180"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="127,113,172,152,169,156,123,117"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="67,5,136,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="104,45,104,80,99,80,99,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="130,280,84,332,80,328,126,277"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="176,193,154,243,149,241,171,191"/>
+</map>

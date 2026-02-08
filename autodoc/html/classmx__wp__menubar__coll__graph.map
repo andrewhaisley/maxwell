@@ -1,0 +1,14 @@
+<map id="mx_wp_menubar" name="mx_wp_menubar">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,392,140,417"/>
+<area shape="rect" id="Node000002" href="$classmx__menubar.html" title=" " alt="" coords="19,317,127,343"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,357,75,392,70,392,70,357"/>
+<area shape="rect" id="Node000003" href="$classmx__bar.html" title=" " alt="" coords="37,243,108,268"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,282,75,317,70,317,70,282"/>
+<area shape="rect" id="Node000004" href="$classmx__ui__object.html" title=" " alt="" coords="13,80,122,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="71,119,75,243,70,243,66,119"/>
+<area shape="rect" id="Node000006" href="$classmx__window.html" title=" " alt="" coords="89,155,189,180"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="91,113,130,152,126,156,87,117"/>
+<area shape="rect" id="Node000005" href="$classmx__rtti.html" title=" " alt="" coords="33,5,102,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="70,45,70,80,65,80,65,45"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="124,193,84,244,80,240,120,189"/>
+</map>

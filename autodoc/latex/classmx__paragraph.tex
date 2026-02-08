@@ -1,0 +1,364 @@
+\doxysection{mx\+\_\+paragraph Class Reference}
+\hypertarget{classmx__paragraph}{}\label{classmx__paragraph}\index{mx\_paragraph@{mx\_paragraph}}
+
+
+Inheritance diagram for mx\+\_\+paragraph\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__paragraph__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+paragraph\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classmx__paragraph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__paragraph_ab7efc0421acd0840b2647a5c74aae623}\label{classmx__paragraph_ab7efc0421acd0840b2647a5c74aae623} 
+{\bfseries mx\+\_\+paragraph} (\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \&para)
+\item 
+\Hypertarget{classmx__paragraph_ab65f302ec3e488970a374b50b5ed9e30}\label{classmx__paragraph_ab65f302ec3e488970a374b50b5ed9e30} 
+void {\bfseries set\+\_\+width} (float f)
+\item 
+\Hypertarget{classmx__paragraph_a44c244fdbd8e15c59f8f3ece36f5aa37}\label{classmx__paragraph_a44c244fdbd8e15c59f8f3ece36f5aa37} 
+float {\bfseries get\+\_\+format\+\_\+width} ()
+\item 
+\Hypertarget{classmx__paragraph_a97cba6ef25293113407e482696a309d2}\label{classmx__paragraph_a97cba6ef25293113407e482696a309d2} 
+\mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+word} (int \&err, int line\+\_\+index, int word\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_ace4b74dcf3ac0d8c4764059cc5c9d86a}\label{classmx__paragraph_ace4b74dcf3ac0d8c4764059cc5c9d86a} 
+\mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+word} (int \&err, const \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_a002d98a9c1eaf7193d6aa40bc4bd87f8}\label{classmx__paragraph_a002d98a9c1eaf7193d6aa40bc4bd87f8} 
+void {\bfseries delete\+\_\+word} (int \&err, int line\+\_\+index, int word\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_a5a55e714822adb1580a0b2a916d38594}\label{classmx__paragraph_a5a55e714822adb1580a0b2a916d38594} 
+void {\bfseries delete\+\_\+word} (int \&err, const \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a92bb68b86b8ec9602436e23c3a6105fe}\label{classmx__paragraph_a92bb68b86b8ec9602436e23c3a6105fe} 
+\mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*} {\bfseries remove\+\_\+word} (int \&err, int line\+\_\+index, int word\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_ab27debf012cacb17389b64d6ef5c4908}\label{classmx__paragraph_ab27debf012cacb17389b64d6ef5c4908} 
+\mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*} {\bfseries remove\+\_\+word} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_afb03c90d1437e7790c6f20670b40e900}\label{classmx__paragraph_afb03c90d1437e7790c6f20670b40e900} 
+void {\bfseries insert\+\_\+word} (int \&err, \mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*}a\+\_\+word, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a324dc33662ad12be1f0da3c8285d2e25}\label{classmx__paragraph_a324dc33662ad12be1f0da3c8285d2e25} 
+void {\bfseries insert\+\_\+mod} (int \&err, \mbox{\hyperlink{classmx__char__style__mod}{mx\+\_\+char\+\_\+style\+\_\+mod}} \&m, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_aec77e651309f3b53c6809b420ae86dad}\label{classmx__paragraph_aec77e651309f3b53c6809b420ae86dad} 
+void {\bfseries insert\+\_\+char} (int \&err, char c, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a090e86e7e0a7e92f5ecd8c779336d11c}\label{classmx__paragraph_a090e86e7e0a7e92f5ecd8c779336d11c} 
+void {\bfseries insert\+\_\+cw\+\_\+item} (int \&err, \mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a31e9fffd79c720b5e8ff6c6e8d7cffb2}\label{classmx__paragraph_a31e9fffd79c720b5e8ff6c6e8d7cffb2} 
+void {\bfseries insert\+\_\+ascii\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}\&string, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_af38c0bb1de533c92f3f9017c47ed9b23}\label{classmx__paragraph_af38c0bb1de533c92f3f9017c47ed9b23} 
+void {\bfseries append\+\_\+word} (int \&err, \mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*}a\+\_\+word)
+\item 
+\Hypertarget{classmx__paragraph_a786043142ffb98fdce6d631959440118}\label{classmx__paragraph_a786043142ffb98fdce6d631959440118} 
+void {\bfseries append\+\_\+mod} (int \&err, \mbox{\hyperlink{classmx__char__style__mod}{mx\+\_\+char\+\_\+style\+\_\+mod}} \&a\+\_\+mod)
+\item 
+void \mbox{\hyperlink{classmx__paragraph_ad6cc09e3e164c96beb7d944ea56d4599}{serialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classmx__paragraph_afb067b40202ca01ff3466b1d711529f6}{unserialise}} (int \&err, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+uint32 \mbox{\hyperlink{classmx__paragraph_a3600dccdcd11047433cfc07be3365cf3}{get\+\_\+serialised\+\_\+size}} (int \&err)
+\item 
+\Hypertarget{classmx__paragraph_aef7d3cb0d83b7e6766b2595c4e64cb37}\label{classmx__paragraph_aef7d3cb0d83b7e6766b2595c4e64cb37} 
+int {\bfseries num\+\_\+lines} ()
+\item 
+\Hypertarget{classmx__paragraph_a37492e2d9dcd874f89467a0c030d5243}\label{classmx__paragraph_a37492e2d9dcd874f89467a0c030d5243} 
+int {\bfseries num\+\_\+words} (int \&err, int line\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_a5bcf4f937dc7ac5ccab4747aee71f3c1}\label{classmx__paragraph_a5bcf4f937dc7ac5ccab4747aee71f3c1} 
+uint32 {\bfseries total\+\_\+num\+\_\+words} ()
+\item 
+\Hypertarget{classmx__paragraph_ad852bcca3487ed490adcb4abde05016a}\label{classmx__paragraph_ad852bcca3487ed490adcb4abde05016a} 
+void {\bfseries reformat} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&start, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&end, bool \&height\+\_\+changed)
+\item 
+\Hypertarget{classmx__paragraph_ac932751a09d7db76b617c01e63158884}\label{classmx__paragraph_ac932751a09d7db76b617c01e63158884} 
+void {\bfseries reformat} (int \&err, bool \&height\+\_\+changed)
+\item 
+\Hypertarget{classmx__paragraph_a0b973424eb30d4ffed0cabe388b995f6}\label{classmx__paragraph_a0b973424eb30d4ffed0cabe388b995f6} 
+void {\bfseries reformat\+\_\+styles} (int \&err)
+\item 
+\Hypertarget{classmx__paragraph_a762812c36b6ea78c3e3e118da84422e4}\label{classmx__paragraph_a762812c36b6ea78c3e3e118da84422e4} 
+void {\bfseries minimise\+\_\+style\+\_\+mods} (int \&err)
+\item 
+\Hypertarget{classmx__paragraph_a173c6e9a6fbf66dd29f3ed1ff770fcf3}\label{classmx__paragraph_a173c6e9a6fbf66dd29f3ed1ff770fcf3} 
+void {\bfseries set\+\_\+style\+\_\+mod\+\_\+revert\+\_\+flags} (int \&err)
+\item 
+\Hypertarget{classmx__paragraph_ac58c6591a2aaea3e0fd681569926af3b}\label{classmx__paragraph_ac58c6591a2aaea3e0fd681569926af3b} 
+void {\bfseries set\+\_\+paragraph\+\_\+style} (\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*}s)
+\item 
+\Hypertarget{classmx__paragraph_a7867f1e558bfae75b204602d2f979d7d}\label{classmx__paragraph_a7867f1e558bfae75b204602d2f979d7d} 
+void {\bfseries modify\+\_\+paragraph\+\_\+style} (const \mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \&new\+\_\+style)
+\item 
+\Hypertarget{classmx__paragraph_aaf7b15a6bed461750b02877c6737e98b}\label{classmx__paragraph_aaf7b15a6bed461750b02877c6737e98b} 
+void {\bfseries modify\+\_\+paragraph\+\_\+style} (const \mbox{\hyperlink{classmx__paragraph__style__mod}{mx\+\_\+paragraph\+\_\+style\+\_\+mod}} \&difference)
+\item 
+\Hypertarget{classmx__paragraph_a701c601add0b3c694c112e390d4251eb}\label{classmx__paragraph_a701c601add0b3c694c112e390d4251eb} 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+paragraph\+\_\+style} ()
+\item 
+\Hypertarget{classmx__paragraph_ace697ae65ea8474436754d0c789da67c}\label{classmx__paragraph_ace697ae65ea8474436754d0c789da67c} 
+\mbox{\hyperlink{classmx__paragraph__style}{mx\+\_\+paragraph\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+base\+\_\+paragraph\+\_\+style} ()
+\item 
+\Hypertarget{classmx__paragraph_abb3590c728ff2e2a2c08245e48c4fcb9}\label{classmx__paragraph_abb3590c728ff2e2a2c08245e48c4fcb9} 
+float {\bfseries get\+\_\+height} ()
+\item 
+\Hypertarget{classmx__paragraph_a942850b1b4e93f1f4311f2baf059c462}\label{classmx__paragraph_a942850b1b4e93f1f4311f2baf059c462} 
+bool {\bfseries is\+\_\+empty} (int \&err)
+\item 
+\Hypertarget{classmx__paragraph_a76801c23ef23f3c688241e164f464758}\label{classmx__paragraph_a76801c23ef23f3c688241e164f464758} 
+void {\bfseries adjust\+\_\+line\+\_\+ypositions} (int \&err, int from\+\_\+line)
+\item 
+\Hypertarget{classmx__paragraph_a89942de746a82fd9ff87851ec1b2c03e}\label{classmx__paragraph_a89942de746a82fd9ff87851ec1b2c03e} 
+mx\+\_\+paragraph\+\_\+type\+\_\+t {\bfseries get\+\_\+type} ()
+\item 
+\Hypertarget{classmx__paragraph_a1740f019a96125203077ef0a773b02ec}\label{classmx__paragraph_a1740f019a96125203077ef0a773b02ec} 
+void {\bfseries set\+\_\+type} (mx\+\_\+paragraph\+\_\+type\+\_\+t t)
+\item 
+\Hypertarget{classmx__paragraph_a46cb019e38a9902773cdf0fe9c247067}\label{classmx__paragraph_a46cb019e38a9902773cdf0fe9c247067} 
+void {\bfseries set\+\_\+document} (\mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}doc)
+\item 
+\Hypertarget{classmx__paragraph_a7f9b73880c3c114e4d4f6fc050b87b64}\label{classmx__paragraph_a7f9b73880c3c114e4d4f6fc050b87b64} 
+\mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+style} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_a1b4a8610760abbad22da2479475a31b2}\label{classmx__paragraph_a1b4a8610760abbad22da2479475a31b2} 
+\mbox{\hyperlink{classmx__char__style__mod}{mx\+\_\+char\+\_\+style\+\_\+mod}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+style\+\_\+mod} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_a9b4f0352fdbf060d604c5cd3369b1b7d}\label{classmx__paragraph_a9b4f0352fdbf060d604c5cd3369b1b7d} 
+\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*} {\bfseries split} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a9f191c5f806a38dc060332710c9b49ef}\label{classmx__paragraph_a9f191c5f806a38dc060332710c9b49ef} 
+\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*} {\bfseries split} (int \&err, int line\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_a7cfbd94b1388290fe8444bd94de0e84d}\label{classmx__paragraph_a7cfbd94b1388290fe8444bd94de0e84d} 
+\mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} {\bfseries join} (int \&err, \mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*}para)
+\item 
+\Hypertarget{classmx__paragraph_af35f7c041bb5c557ae9c9dbe9000bf85}\label{classmx__paragraph_af35f7c041bb5c557ae9c9dbe9000bf85} 
+bool {\bfseries join\+\_\+words} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_a873c29d6d64f589c90757a7dd3dd0fde}\label{classmx__paragraph_a873c29d6d64f589c90757a7dd3dd0fde} 
+float {\bfseries line\+\_\+ypos} (int \&err, int line\+\_\+index)
+\item 
+\Hypertarget{classmx__paragraph_a46d3f6c3f0aca544d371ae9d29183edf}\label{classmx__paragraph_a46d3f6c3f0aca544d371ae9d29183edf} 
+\mbox{\hyperlink{classmx__cw__t}{mx\+\_\+cw\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries delete\+\_\+to\+\_\+left} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{classmx__paragraph_ae8634b2995ad580a74113c45d7991a12}\label{classmx__paragraph_ae8634b2995ad580a74113c45d7991a12} 
+void {\bfseries insert\+\_\+line\+\_\+break} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a149193d09b00d3b34f2620fe48916d2f}\label{classmx__paragraph_a149193d09b00d3b34f2620fe48916d2f} 
+int {\bfseries get\+\_\+num\+\_\+non\+\_\+space\+\_\+words} (int \&err, int line\+\_\+index, int word\+\_\+index=0)
+\item 
+\Hypertarget{classmx__paragraph_a00a4af5cfad003887998022d731772c9}\label{classmx__paragraph_a00a4af5cfad003887998022d731772c9} 
+void {\bfseries move\+\_\+to\+\_\+document} (int \&err, \mbox{\hyperlink{classmx__document}{mx\+\_\+document}} \texorpdfstring{$\ast$}{*}doc)
+\item 
+\Hypertarget{classmx__paragraph_aa6e15a1219fa2a0a3ec8f79b3cad5556}\label{classmx__paragraph_aa6e15a1219fa2a0a3ec8f79b3cad5556} 
+int {\bfseries get\+\_\+break\+\_\+line\+\_\+for\+\_\+height} (int \&err, float f)
+\item 
+\Hypertarget{classmx__paragraph_aea6c06fcc5897bc96bfb830f353528d8}\label{classmx__paragraph_aea6c06fcc5897bc96bfb830f353528d8} 
+float {\bfseries get\+\_\+height\+\_\+from\+\_\+line} (int \&err, int line\+\_\+num)
+\item 
+\Hypertarget{classmx__paragraph_a6c856a9bd2f17af3854f4d80c41118dd}\label{classmx__paragraph_a6c856a9bd2f17af3854f4d80c41118dd} 
+bool {\bfseries get\+\_\+height\+\_\+changed} ()
+\item 
+\Hypertarget{classmx__paragraph_abd0f886dc6e134962c36892e08ed319a}\label{classmx__paragraph_abd0f886dc6e134962c36892e08ed319a} 
+void {\bfseries reformat\+\_\+range} (int \&err, int \&upper\+\_\+line, int \&lower\+\_\+line)
+\item 
+\Hypertarget{classmx__paragraph_ad9f6ffba51f556fb5b45872076a4aecd}\label{classmx__paragraph_ad9f6ffba51f556fb5b45872076a4aecd} 
+void {\bfseries reformat\+\_\+range} (int \&err, float \&upper\+\_\+pos, float \&lower\+\_\+pos)
+\item 
+\Hypertarget{classmx__paragraph_a4b16dc5541d816365d0430e0002eba20}\label{classmx__paragraph_a4b16dc5541d816365d0430e0002eba20} 
+void {\bfseries highlight\+\_\+height\+\_\+for\+\_\+line} (int \&err, int line\+\_\+index, float \&height, float \&descender)
+\item 
+\Hypertarget{classmx__paragraph_a651ad28223fccc455264279f2a2a8c43}\label{classmx__paragraph_a651ad28223fccc455264279f2a2a8c43} 
+void {\bfseries metrics\+\_\+for\+\_\+line} (int \&err, int line\+\_\+index, float \&ascender, float \&descender, float \&spacing)
+\item 
+\Hypertarget{classmx__paragraph_ac09148cca6e4fd94792f90be544a6fcb}\label{classmx__paragraph_ac09148cca6e4fd94792f90be544a6fcb} 
+void {\bfseries aka\+\_\+insert\+\_\+space} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a108fda3b0e2adf33a5984b6ccdde6556}\label{classmx__paragraph_a108fda3b0e2adf33a5984b6ccdde6556} 
+void {\bfseries aka\+\_\+insert\+\_\+tab} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a89f9385f602925ee6cd9d75fdf832893}\label{classmx__paragraph_a89f9385f602925ee6cd9d75fdf832893} 
+void {\bfseries aka\+\_\+insert\+\_\+char} (int \&err, char c, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a8def586f45b3af267260017e7831f042}\label{classmx__paragraph_a8def586f45b3af267260017e7831f042} 
+void {\bfseries aka\+\_\+insert\+\_\+word} (int \&err, \mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*}a\+\_\+word, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_aeb0c914f826a34a4987048019a56602a}\label{classmx__paragraph_aeb0c914f826a34a4987048019a56602a} 
+void {\bfseries aka\+\_\+insert\+\_\+mod} (int \&err, \mbox{\hyperlink{classmx__char__style__mod}{mx\+\_\+char\+\_\+style\+\_\+mod}} \&m, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a4d58746f56b6a5cf198a6013a7a0de01}\label{classmx__paragraph_a4d58746f56b6a5cf198a6013a7a0de01} 
+void {\bfseries aka\+\_\+insert\+\_\+ascii\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}\&string, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&p)
+\item 
+\Hypertarget{classmx__paragraph_a121dd58ab65cddf4ea9d24127d5685b8}\label{classmx__paragraph_a121dd58ab65cddf4ea9d24127d5685b8} 
+\mbox{\hyperlink{classmx__char__style}{mx\+\_\+char\+\_\+style}} \texorpdfstring{$\ast$}{*} {\bfseries aka\+\_\+get\+\_\+style} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_ada7a7e3d0c3a4e29ddd15fb5529c18aa}\label{classmx__paragraph_ada7a7e3d0c3a4e29ddd15fb5529c18aa} 
+\mbox{\hyperlink{classmx__char__style__mod}{mx\+\_\+char\+\_\+style\+\_\+mod}} \texorpdfstring{$\ast$}{*} {\bfseries aka\+\_\+get\+\_\+style\+\_\+mod} (int \&err, \mbox{\hyperlink{classmx__para__pos}{mx\+\_\+para\+\_\+pos}} \&pp)
+\item 
+\Hypertarget{classmx__paragraph_a2164521e47a434457700c12cd0a28771}\label{classmx__paragraph_a2164521e47a434457700c12cd0a28771} 
+mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t {\bfseries get\+\_\+mem\+\_\+state} ()
+\item 
+\Hypertarget{classmx__paragraph_a1353ff4df3d37afafe10b8570fe79cbb}\label{classmx__paragraph_a1353ff4df3d37afafe10b8570fe79cbb} 
+void {\bfseries set\+\_\+mem\+\_\+state} (mx\+\_\+db\+\_\+mem\+\_\+state\+\_\+t s)
+\item 
+\Hypertarget{classmx__paragraph_aed453caf97f98a97367b4025f4d761d7}\label{classmx__paragraph_aed453caf97f98a97367b4025f4d761d7} 
+bool {\bfseries has\+\_\+split\+\_\+long\+\_\+word\+\_\+at\+\_\+end} (int \&err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries serialise\+\_\+int32} (int32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint32} (uint32 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int16} (int16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8} (int8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+char} (char c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint8} (uint8 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float} (float i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+double} (double d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+bool} (bool b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+string} (const char \texorpdfstring{$\ast$}{*}, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+enum} (uint16 i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32} (int32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint32} (uint32 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int16} (int16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8} (int8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+char} (char \&c, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint8} (uint8 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float} (float \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+double} (double \&d, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+bool} (bool \&b, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+string} (char \texorpdfstring{$\ast$}{*}s, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+enum} (uint16 \&i, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int32\+\_\+a} (int32 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+uint16\+\_\+a} (uint16 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+int8\+\_\+a} (int8 \texorpdfstring{$\ast$}{*}i, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries serialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\item 
+void {\bfseries unserialise\+\_\+float\+\_\+a} (float \texorpdfstring{$\ast$}{*}f, int n, uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__paragraph_a4cea144afd7c384f25a20849dfb56a39}\label{classmx__paragraph_a4cea144afd7c384f25a20849dfb56a39} 
+static \mbox{\hyperlink{classmx__word}{mx\+\_\+word}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+word\+\_\+from\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}\&string)
+\item 
+\Hypertarget{classmx__paragraph_a4b37359fa0dd7cd4455af6dfd6620420}\label{classmx__paragraph_a4b37359fa0dd7cd4455af6dfd6620420} 
+static void {\bfseries set\+\_\+page\+\_\+number} (uint32 page\+\_\+num)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__paragraph_a7220dbff6a1c9fb4479f73495e0c5495}\label{classmx__paragraph_a7220dbff6a1c9fb4479f73495e0c5495} 
+class {\bfseries mx\+\_\+text\+\_\+area\+\_\+painter}
+\item 
+\Hypertarget{classmx__paragraph_ab9b6d645ba78e45a83a863d49d77b962}\label{classmx__paragraph_ab9b6d645ba78e45a83a863d49d77b962} 
+class {\bfseries mx\+\_\+text\+\_\+buffer}
+\item 
+\Hypertarget{classmx__paragraph_ac3a96859546a766052bf9657de4fc9da}\label{classmx__paragraph_ac3a96859546a766052bf9657de4fc9da} 
+class {\bfseries mx\+\_\+para\+\_\+pos}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+static uint8 {\bfseries temp\+\_\+buffer} \mbox{[}MX\+\_\+\+SL\+\_\+\+OBJ\+\_\+\+TEMP\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__paragraph_a3600dccdcd11047433cfc07be3365cf3}\label{classmx__paragraph_a3600dccdcd11047433cfc07be3365cf3} 
+\index{mx\_paragraph@{mx\_paragraph}!get\_serialised\_size@{get\_serialised\_size}}
+\index{get\_serialised\_size@{get\_serialised\_size}!mx\_paragraph@{mx\_paragraph}}
+\doxysubsubsection{\texorpdfstring{get\_serialised\_size()}{get\_serialised\_size()}}
+{\footnotesize\ttfamily uint32 mx\+\_\+paragraph\+::get\+\_\+serialised\+\_\+size (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__paragraph_ad6cc09e3e164c96beb7d944ea56d4599}\label{classmx__paragraph_ad6cc09e3e164c96beb7d944ea56d4599} 
+\index{mx\_paragraph@{mx\_paragraph}!serialise@{serialise}}
+\index{serialise@{serialise}!mx\_paragraph@{mx\_paragraph}}
+\doxysubsubsection{\texorpdfstring{serialise()}{serialise()}}
+{\footnotesize\ttfamily void mx\+\_\+paragraph\+::serialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+\Hypertarget{classmx__paragraph_afb067b40202ca01ff3466b1d711529f6}\label{classmx__paragraph_afb067b40202ca01ff3466b1d711529f6} 
+\index{mx\_paragraph@{mx\_paragraph}!unserialise@{unserialise}}
+\index{unserialise@{unserialise}!mx\_paragraph@{mx\_paragraph}}
+\doxysubsubsection{\texorpdfstring{unserialise()}{unserialise()}}
+{\footnotesize\ttfamily void mx\+\_\+paragraph\+::unserialise (\begin{DoxyParamCaption}\item[{int \&}]{err,  }\item[{uint8 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__serialisable__object}{mx\+\_\+serialisable\+\_\+object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+document/mx\+\_\+paragraph.\+h\end{DoxyCompactItemize}

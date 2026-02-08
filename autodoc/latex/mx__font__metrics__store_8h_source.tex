@@ -1,0 +1,93 @@
+\doxysection{mx\+\_\+font\+\_\+metrics\+\_\+store.\+h}
+\hypertarget{mx__font__metrics__store_8h_source}{}\label{mx__font__metrics__store_8h_source}\index{font/mx\_font\_metrics\_store.h@{font/mx\_font\_metrics\_store.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <mx\_font.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <mx\_font\_family.h>}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font__metrics}{mx\_font\_metrics}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ This\ class\ is\ a\ storage\ mechanism\ for\ keeping\ track\ of\ font\ families.\ It\ is}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ basically\ a\ wrapper\ for\ a\ map\ of\ font\ families,\ keyed\ by\ the\ family}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ name.}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font__metrics__store}{mx\_font\_metrics\_store}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classmx__font__metrics__store}{mx\_font\_metrics\_store}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classmx__font__metrics__store}{\string~mx\_font\_metrics\_store}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ named\ font\ family.\ Returns\ nullptr\ if\ the\ named\ font\ family\ does}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ not\ exist}}
+\DoxyCodeLine{00043\ \ \ \ \ std::shared\_ptr<mx\_font\_family>\ get\_font\_family(\textcolor{keyword}{const}\ std::string\ \&font\_family\_name);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ gets\ a\ family\ whose\ named\ contains\ the\ given\ string\ (case\ insensitive)}}
+\DoxyCodeLine{00046\ \ \ \ \ std::shared\_ptr<mx\_font\_family>\ get\_nearest\_font\_family(std::string\ name);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ metrics\ for\ a\ particular\ family\ and\ style}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classmx__font__metrics}{mx\_font\_metrics}}*\ get\_font\_metrics(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ std::string\ \&font\_family\_name,\ mx\_font\_style\_t\ style);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ number\ of\ font\ families\ stored\ here}}
+\DoxyCodeLine{00052\ \ \ \ \ uint32\ get\_num\_font\_families();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ gets\ a\ list\ of\ font\ family\ names}}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<std::string>\ get\_font\_family\_names();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ default\ roman\ font\ family\ name}}
+\DoxyCodeLine{00058\ \ \ \ \ std::string\ get\_default\_roman\_font\_family\_name()\ \{\ \textcolor{keywordflow}{return}\ m\_default\_roman\_font\_family\_name;\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ gets\ the\ default\ sans\ serif\ font\ family\ name}}
+\DoxyCodeLine{00061\ \ \ \ \ std::string\ get\_default\_symbol\_font\_family\_name()\ \{\ \textcolor{keywordflow}{return}\ m\_default\_symbol\_font\_family\_name;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_fm(\mbox{\hyperlink{classmx__font__metrics}{mx\_font\_metrics}}*\ fm,\ \textcolor{keyword}{const}\ std::string\ \&family\_name);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ init\_xft\_fm(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ init\_font\_config(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ load\_everything(\textcolor{keywordtype}{int}\ \&err);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::string\ get\_default\_from\_name(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_default(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ mx\_font\_style\_t\ translate\_style(\textcolor{keywordtype}{int}\ weight,\ \textcolor{keywordtype}{int}\ slant);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ a\ map\ of\ font\_familys.\ Each\ family\ contains\ up\ to\ four\ pointers\ to}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ mx\_font\_metrics\ instances,\ according\ to\ the\ bold/italic\ options.\ The}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ pointers\ are\ nullptr\ if\ a\ particular\ bold/italic\ style\ does\ not\ exist.}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::shared\_ptr<mx\_font\_family>>\ m\_font\_families;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ m\_default\_roman\_font\_family\_name;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ m\_default\_symbol\_font\_family\_name;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ FT\_Library\ m\_ft;}
+\DoxyCodeLine{00087\ \};}
+
+\end{DoxyCode}

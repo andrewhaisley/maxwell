@@ -1,0 +1,20 @@
+<map id="mx_field_word_cw_t" name="mx_field_word_cw_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,504,160,529"/>
+<area shape="rect" id="Node000002" href="$classmx__cw__t.html" title=" " alt="" coords="21,204,101,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,243,64,309,64,430,70,471,80,503,75,505,65,472,59,430,59,309,59,243"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="61,80,233,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,116,105,131,81,170,67,205,63,203,77,168,101,128,116,112"/>
+<area shape="rect" id="Node000006" href="$classmx__word.html" title=" " alt="" coords="116,341,199,367"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="148,119,147,191,149,278,158,341,153,342,144,279,141,191,143,119"/>
+<area shape="rect" id="Node000007" href="$classmx__char__style.html" title=" " alt="" coords="159,253,276,279"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="159,117,215,252,210,254,154,119"/>
+<area shape="rect" id="Node000008" href="$classmx__colour.html" title=" " alt="" coords="209,155,300,180"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="177,111,239,152,236,157,174,115"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="112,5,181,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,45,149,80,144,80,144,45"/>
+<area shape="rect" id="Node000005" href="$classmx__field__word.html" title=" " alt="" coords="99,416,216,441"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="140,454,95,505,91,502,136,450"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="160,381,160,416,155,416,155,381"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="203,292,168,342,164,339,199,289"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="248,194,224,254,219,252,243,192"/>
+</map>

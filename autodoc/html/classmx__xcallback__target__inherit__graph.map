@@ -1,0 +1,13 @@
+<map id="mx_xcallback_target" name="mx_xcallback_target">
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,79,228,104"/>
+<area shape="rect" id="Node000003" href="$classmx__screen__device.html" title=" " alt="" coords="5,152,148,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,116,90,154,86,150,125,112"/>
+<area shape="rect" id="Node000004" href="$classmx__xframe.html" title=" " alt="" coords="172,152,269,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,112,211,150,207,154,169,116"/>
+<area shape="rect" id="Node000002" href="$classmx__callback__target.html" title=" " alt="" coords="73,5,224,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,44,151,79,146,79,146,44"/>
+<area shape="rect" id="Node000005" href="$classmx__scrollable__frame.html" title=" " alt="" coords="64,225,223,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="200,189,158,227,154,223,196,185"/>
+<area shape="rect" id="Node000006" href="$classmx__xfframe.html" title=" " alt="" coords="247,225,349,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="245,185,287,223,284,227,241,189"/>
+</map>

@@ -1,0 +1,146 @@
+\doxysection{mx\+\_\+wp\+\_\+rp\+\_\+item.\+h}
+\hypertarget{mx__wp__rp__item_8h_source}{}\label{mx__wp__rp__item_8h_source}\index{document/mx\_wp\_rp\_item.h@{document/mx\_wp\_rp\_item.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_wp\_repagination\ item}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ Repagination\ items.\ These\ are\ groups\ of\ paragraphs\ or\ areas\ that\ share}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ contstraints.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ MX\_WP\_RP\_ITEM\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MX\_WP\_RP\_ITEM\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__sheet}{mx\_sheet}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__area}{mx\_area}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__text__area}{mx\_text\_area}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__paragraph__style}{mx\_paragraph\_style}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__list}{mx\_list}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__wp__document}{mx\_wp\_document}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__repagination__item}{mx\_repagination\_item}}\ \{}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ mx\_keep\_together\_e,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ mx\_keep\_with\_next\_e,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ mx\_none\_e,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ mx\_break\_before\_e}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ mx\_constraint\_e;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__repagination__item}{mx\_repagination\_item}}(mx\_constraint\_e\ c);}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classmx__repagination__item}{mx\_repagination\_item}}(mx\_constraint\_e\ c,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classmx__repagination__item}{\string~mx\_repagination\_item}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ mx\_constraint\_e\ get\_constraint()\ \{\ \textcolor{keywordflow}{return}\ constraint;\ \};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_constraint(mx\_constraint\_e\ c)\ \{\ constraint\ =\ c;\ \};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_height()\ \{\ \textcolor{keywordflow}{return}\ height;\ \};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_height(\textcolor{keywordtype}{float}\ f)\ \{\ height\ =\ f;\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ these\ reset\ or\ add\ to\ the\ height\ automatically}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_area(}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ s,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_para(}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ s,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ a,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ insert\ a\ paragraph\ -\/\ does\ not\ reset\ the\ height\ as\ the\ new\ paragraph}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ is\ assumed\ to\ be\ the\ result\ of\ a\ split}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_para(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_num,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ s,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__text__area}{mx\_text\_area}}*\ a,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ p);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ same\ for\ area}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ insert\_area(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_num,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sheet\_num,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ s,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ a);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ set/get\ the\ destination\ sheet\ number}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_dest(\textcolor{keywordtype}{int}\ n)\ \{\ dest\_sheet\ =\ n;\ \};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_dest()\ \{\ \textcolor{keywordflow}{return}\ dest\_sheet;\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ the\ number\ of\ bits\ in\ the\ item}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_bits();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ a\ bit\ is\ either\ a\ paragraph\ or\ an\ area}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_bit\_paragraph(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ get\ area\ of\ bit}}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__area}{mx\_area}}*\ get\_area(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ get\ paragraph\ of\ bit}}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classmx__paragraph}{mx\_paragraph}}*\ get\_para(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ get\ sheet\ of\ bit}}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{classmx__sheet}{mx\_sheet}}*\ get\_sheet(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ get\ sheet\ index\ of\ bit}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_sheet\_index(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ print\_debug();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ is\ the\ item\ overall\ a\ paragraph?}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_para(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ mx\_rtti\_class\_e\ get\_area\_class(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ split\ into\ two}}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{classmx__repagination__item}{mx\_repagination\_item}}*\ split(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ recalculate\_height(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ mx\_constraint\_e\ constraint;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}*\ bits;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ dest\_sheet;}
+\DoxyCodeLine{00138\ \};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

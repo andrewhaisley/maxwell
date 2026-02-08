@@ -1,0 +1,16 @@
+<map id="mx_print_frame" name="mx_print_frame">
+<area shape="rect" id="Node000001" title=" " alt="" coords="66,356,193,381"/>
+<area shape="rect" id="Node000002" href="$classmx__frame.html" title=" " alt="" coords="13,281,102,307"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,315,120,354,116,358,77,319"/>
+<area shape="rect" id="Node000003" href="$classmx__device.html" title=" " alt="" coords="5,129,99,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="51,169,51,179,52,236,58,280,53,281,47,236,45,179,46,168"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="41,5,111,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="74,45,57,130,52,129,68,44"/>
+<area shape="rect" id="Node000006" href="$classmx__serialisable__object.html" title=" " alt="" coords="102,80,274,105"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="107,36,171,78,169,82,104,40"/>
+<area shape="rect" id="Node000005" href="$classmx__point.html" title=" " alt="" coords="152,179,235,204"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="168,214,74,283,71,279,165,210"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="192,119,195,178,190,179,187,119"/>
+<area shape="rect" id="Node000007" href="$classmx__callback__target.html" title=" " alt="" coords="126,281,277,307"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="182,319,143,358,139,354,178,315"/>
+</map>

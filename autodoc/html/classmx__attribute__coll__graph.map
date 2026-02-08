@@ -1,0 +1,9 @@
+<map id="mx_attribute" name="mx_attribute">
+<area shape="rect" id="Node000001" title=" " alt="" coords="130,168,237,193"/>
+<area shape="rect" id="Node000002" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,80,177,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,113,172,166,169,169,112,117"/>
+<area shape="rect" id="Node000003" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,45,94,80,89,80,89,45"/>
+<area shape="rect" id="Node000004" href="$unionmx__attribute__value.html" title=" " alt="" coords="202,80,351,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,117,198,169,195,165,252,113"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="mx_doc_polypoint" name="mx_doc_polypoint">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,243,162,268"/>
+<area shape="rect" id="Node000002" href="$classmx__polypoint.html" title=" " alt="" coords="36,155,147,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,194,94,242,89,242,89,194"/>
+<area shape="rect" id="Node000003" href="$classmx__serialisable__object.html" title=" " alt="" coords="5,80,177,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,120,94,154,89,154,89,120"/>
+<area shape="rect" id="Node000004" href="$classmx__rtti.html" title=" " alt="" coords="57,5,126,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,45,94,80,89,80,89,45"/>
+</map>

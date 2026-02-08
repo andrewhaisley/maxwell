@@ -1,0 +1,22 @@
+<map id="mx_tile_array" name="mx_tile_array">
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,511,118,536"/>
+<area shape="rect" id="Node000002" href="$classmx__ipoint.html" title=" " alt="" coords="5,155,92,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,194,64,510,59,511,47,194"/>
+<area shape="rect" id="Node000004" href="$classraster.html" title=" " alt="" coords="135,257,195,283"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="69,189,112,231,146,255,143,260,108,235,66,193"/>
+<area shape="rect" id="Node000003" href="$structrasterItem.html" title=" " alt="" coords="90,421,181,446"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,458,74,512,70,509,115,455"/>
+<area shape="poly" id="edge11_Node000003_Node000003" title=" " alt="" coords="195,424,203,427,207,434,199,442,181,444,180,439,197,437,202,433,200,431,193,429"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="163,297,140,421,135,420,158,296"/>
+<area shape="rect" id="Node000005" href="$classrascache.html" title=" " alt="" coords="125,155,205,180"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="167,194,167,257,162,257,162,194"/>
+<area shape="rect" id="Node000006" href="$classmx__colour.html" title=" " alt="" coords="249,155,339,180"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="294,195,287,216,275,235,257,249,236,259,196,269,194,264,234,254,254,244,271,232,282,214,289,193"/>
+<area shape="rect" id="Node000007" href="$classmx__serialisable__object.html" title=" " alt="" coords="263,80,435,105"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="333,118,305,156,301,153,329,115"/>
+<area shape="rect" id="Node000009" href="$classmx__point.html" title=" " alt="" coords="363,155,446,180"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="368,115,398,153,393,156,364,118"/>
+<area shape="rect" id="Node000008" href="$classmx__rtti.html" title=" " alt="" coords="314,5,383,31"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="351,45,351,80,346,80,346,45"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="391,193,372,216,346,236,307,252,267,263,196,271,195,266,266,258,306,247,343,231,368,212,387,190"/>
+</map>

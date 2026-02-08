@@ -1,0 +1,20 @@
+<map id="save_file_type_callback_t" name="save_file_type_callback_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="47,449,236,475"/>
+<area shape="rect" id="Node000002" href="$classmx__save__d.html" title=" " alt="" coords="94,361,190,387"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,401,144,449,139,449,139,401"/>
+<area shape="rect" id="Node000003" href="$classmx__dialog.html" title=" " alt="" coords="102,155,192,180"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,182,48,200,30,214,16,231,9,250,11,269,21,287,37,305,78,336,118,359,116,364,75,341,33,309,16,291,6,271,3,249,11,228,27,210,46,196,88,177"/>
+<area shape="rect" id="Node000006" href="$classmx__inform__d.html" title=" " alt="" coords="26,229,134,255"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="129,192,93,231,89,227,125,189"/>
+<area shape="rect" id="Node000007" href="$classmx__yes__no__d.html" title=" " alt="" coords="158,229,269,255"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="169,189,205,227,201,231,165,192"/>
+<area shape="rect" id="Node000008" href="$classmx__finfo__d.html" title=" " alt="" coords="293,229,388,255"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="191,182,311,227,309,232,189,187"/>
+<area shape="rect" id="Node000004" href="$classmx__ui__object.html" title=" " alt="" coords="92,80,202,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,120,150,154,144,154,144,120"/>
+<area shape="rect" id="Node000005" href="$classmx__rtti.html" title=" " alt="" coords="112,5,182,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="150,45,150,80,144,80,144,45"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="82,269,85,302,97,336,108,349,122,359,118,363,104,353,93,339,80,303,77,269"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="210,269,199,303,181,339,159,363,155,359,177,336,194,301,205,268"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="336,269,321,306,309,324,294,339,270,354,243,364,190,374,189,369,241,359,267,349,291,335,305,321,316,303,331,267"/>
+</map>

@@ -1,0 +1,246 @@
+\doxysection{mx\+\_\+metafile.\+h}
+\hypertarget{mx__metafile_8h_source}{}\label{mx__metafile_8h_source}\index{rtf/mx\_metafile.h@{rtf/mx\_metafile.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_metafile.h}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Module\ mx\_metafile.h}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Revision\ 1.1\ \ 1996/10/06\ 13:15:45\ \ andrew}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ Initial\ revision}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ MX\_METAFILE\_HEADER}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_HEADER}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_HEADER\_WORD\_SIZE\ 9}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_WINDOWS\_VERSION\ 0x0300}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_HEADER\_SIZE\ 36}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_WORD\_SIZE\ 4}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MX\_METAFILE\_DWORD\_SIZE\ 8}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}mx\_error.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}mx\_geometry.h"{}}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ MX\_METAFILE\_Unhandled\ =\ 0xFFFF,}
+\DoxyCodeLine{00050\ \ \ \ \ MX\_METAFILE\_NullFunction\ =\ 0x0000,}
+\DoxyCodeLine{00051\ \ \ \ \ MX\_METAFILE\_SetWindowOrg\ =\ 0x020B,}
+\DoxyCodeLine{00052\ \ \ \ \ MX\_METAFILE\_SetWindowExt\ =\ 0x020C,}
+\DoxyCodeLine{00053\ \ \ \ \ MX\_METAFILE\_SetTextColor\ =\ 0x0209,}
+\DoxyCodeLine{00054\ \ \ \ \ MX\_METAFILE\_SetBkColor\ =\ 0x0201,}
+\DoxyCodeLine{00055\ \ \ \ \ MX\_METAFILE\_SetStretchBltMode\ =\ 0x0107,}
+\DoxyCodeLine{00056\ \ \ \ \ MX\_METAFILE\_StretchDIBits\ =\ 0x0F43,}
+\DoxyCodeLine{00057\ \ \ \ \ MX\_METAFILE\_SetMapMode\ =\ 0x0103}
+\DoxyCodeLine{00058\ \}\ MX\_METAFILE\_FUNCTION;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ readWord(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ readDWord(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__metafile__reader}{\string~mx\_metafile\_reader}}()\ \{\ \};}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__colour}{mx\_metafile\_colour}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}*\ params);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ red;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ green;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ blue;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__bitmapinfo}{mx\_bitmapinfo}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ biWidth;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ biHeight;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ biPlanes;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ biBitCount;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ biCompression;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ biSizeImage;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ biXPelsPerMeter;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ biYPelsPerMeter;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ biClrUsed;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ biClrImportant;}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__stretchDIBits}{mx\_stretchDIBits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00095\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ dwRop;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ Usag;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ srcYext;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ srcXext;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ srcY;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ srcX;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ dstYext;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ dstXext;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ dstY;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ dstX;}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{classmx__bitmapinfo}{mx\_bitmapinfo}}\ bitmapinfo;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ ncolours;}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__colour}{mx\_metafile\_colour}}\ DIBcolours[256];}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{char}*\ data;}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__header}{mx\_metafile\_header}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00115\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ mtType;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ mtHeaderSize;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ mtVersion;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{int}\ mtSize;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{int}\ mtNoObjects;}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ mtMaxRecord;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ mtNoParameters;}
+\DoxyCodeLine{00125\ \};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00128\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}();}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{\string~mx\_standard\_metafile\_record}}();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ setHeader(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ setParams(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\ isize,\ \textcolor{keywordtype}{int}\ ifunction,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ inparams,\ \textcolor{keywordtype}{int}*\ iparams);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ function;}
+\DoxyCodeLine{00140\ \ \ \ \ MX\_METAFILE\_FUNCTION\ handledFunction;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ nparams;}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ nallocParams;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}*\ params;}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__output}{mx\_metafile\_output}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00147\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__output}{mx\_metafile\_output}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ handleRecord(\mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ processStandardRecord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ processNonStandardRecord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetWindowOrg(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetMapMode(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetWindowExt(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetTextColor(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetBkColor(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processSetStretchBltMode(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ processStretchDIBits(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\&\ record,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}**\ buffer)\ \{\ err\ =\ MX\_ERROR\_OK;\ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setSize(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ isize)\ \{\ size\ =\ isize;\ \};}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setScale(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ iscale)\ \{\ scale\ =\ iscale;\ \};}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setCrop(\mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ icrop)\ \{\ crop\ =\ icrop;\ \};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ size;}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ scale;}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ crop;}
+\DoxyCodeLine{00184\ \};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__input}{mx\_metafile\_input}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__reader}{mx\_metafile\_reader}}\ \{}
+\DoxyCodeLine{00187\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{int}\ testRecordLength(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bufferWordSize,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ testBuffer);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ getHeaderData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ buffer)\ =\ 0;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ getNextRecordData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ bufferWordSize,\ \textcolor{keywordtype}{char}*\ buffer)\ =\ 0;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__metafile__input}{\string~mx\_metafile\_input}}()\ \{\ \};}
+\DoxyCodeLine{00195\ \};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__buffer__input}{mx\_metafile\_buffer\_input}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__input}{mx\_metafile\_input}}\ \{}
+\DoxyCodeLine{00198\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{char}*\ buffer;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{int}\ bufferSize;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{int}\ bufferOffset;}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__buffer__input}{mx\_metafile\_buffer\_input}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ ibufferSize,\ \textcolor{keywordtype}{char}*\ ibuffer);}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ getHeaderData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ buffer);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ getNextRecordData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ bufferWordSize,\ \textcolor{keywordtype}{char}*\ buffer);}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__metafile__buffer__input}{\string~mx\_metafile\_buffer\_input}}()\ \{\ \};}
+\DoxyCodeLine{00206\ \};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile__file__input}{mx\_metafile\_file\_input}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__metafile__input}{mx\_metafile\_input}}\ \{}
+\DoxyCodeLine{00209\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00210\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__file__input}{mx\_metafile\_file\_input}}(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ fileName);}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{void}\ getHeaderData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{char}*\ buffer);}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ getNextRecordData(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{int}\ bufferWordSize,\ \textcolor{keywordtype}{char}*\ buffer);}
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__metafile}{mx\_metafile}}\ \{}
+\DoxyCodeLine{00217\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{classmx__metafile}{mx\_metafile}}(\mbox{\hyperlink{classmx__metafile__input}{mx\_metafile\_input}}*\ iinput,\ \mbox{\hyperlink{classmx__metafile__output}{mx\_metafile\_output}}*\ ioutput);}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__metafile}{\string~mx\_metafile}}();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__header}{mx\_metafile\_header}}\ header;}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classmx__standard__metafile__record}{mx\_standard\_metafile\_record}}\ standardRecord;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ default\ method\ is\ just\ to\ read\ the\ whole\ file}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{//\ into\ memory}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{char}*\ buffer;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ allocBufferSize;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{int}\ bufferSize;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{bool}\ isStandardRecord();}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__input}{mx\_metafile\_input}}*\ input;}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{classmx__metafile__output}{mx\_metafile\_output}}*\ output;}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{void}\ setBufferSize(\textcolor{keywordtype}{int}\ newSize);}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{void}\ process(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{bool}\ processNextRecord(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00238\ \};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

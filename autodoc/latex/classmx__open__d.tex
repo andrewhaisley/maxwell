@@ -1,0 +1,222 @@
+\doxysection{mx\+\_\+open\+\_\+d Class Reference}
+\hypertarget{classmx__open__d}{}\label{classmx__open__d}\index{mx\_open\_d@{mx\_open\_d}}
+
+
+Inheritance diagram for mx\+\_\+open\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classmx__open__d__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+open\+\_\+d\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmx__open__d__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__open__d_a4ee50867a863dec29ea0430ddf1aed0e}\label{classmx__open__d_a4ee50867a863dec29ea0430ddf1aed0e} 
+{\bfseries mx\+\_\+open\+\_\+d} (const char \texorpdfstring{$\ast$}{*}name, Widget parent, mx\+\_\+file\+\_\+type\+\_\+t default\+\_\+type=mx\+\_\+document\+\_\+file\+\_\+e, mx\+\_\+file\+\_\+class\+\_\+t c=mx\+\_\+all\+\_\+file\+\_\+class\+\_\+e, bool want\+\_\+write\+\_\+permission=TRUE)
+\item 
+\Hypertarget{classmx__open__d_a6b9f7f79be38bc9ffdb4044cc964d175}\label{classmx__open__d_a6b9f7f79be38bc9ffdb4044cc964d175} 
+char \texorpdfstring{$\ast$}{*} {\bfseries file\+\_\+name} (bool \&writable)
+\item 
+virtual void \mbox{\hyperlink{classmx__open__d_a0ceaabcc823fa7e275fd6c4429d641b4}{activate}} ()
+\item 
+\Hypertarget{classmx__open__d_a3fa5ff261f30d2e8a990bd646f9f5a57}\label{classmx__open__d_a3fa5ff261f30d2e8a990bd646f9f5a57} 
+virtual void {\bfseries activate\+\_\+d} (mx\+\_\+file\+\_\+class\+\_\+t c, mx\+\_\+file\+\_\+type\+\_\+t default\+\_\+type)
+\item 
+\Hypertarget{classmx__open__d_ab87126704376e86083ca12ceb5cb3250}\label{classmx__open__d_ab87126704376e86083ca12ceb5cb3250} 
+virtual int {\bfseries run} (mx\+\_\+file\+\_\+class\+\_\+t c, mx\+\_\+file\+\_\+type\+\_\+t default\+\_\+type, bool we\+\_\+want\+\_\+write)
+\item 
+\Hypertarget{classmx__open__d_a2dd7889e950051d9655512531e9604a3}\label{classmx__open__d_a2dd7889e950051d9655512531e9604a3} 
+void {\bfseries load\+\_\+directory} ()
+\item 
+\Hypertarget{classmx__open__d_a1d91a39d5899c8ca943171aea31589c5}\label{classmx__open__d_a1d91a39d5899c8ca943171aea31589c5} 
+void {\bfseries set\+\_\+path\+\_\+menu} (Widget w)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+dialog} (const char \texorpdfstring{$\ast$}{*}name, Widget parent, bool do\+Modal=FALSE, bool resizable=FALSE)
+\item 
+void {\bfseries centre} ()
+\item 
+bool {\bfseries is\+\_\+active} ()
+\item 
+virtual void {\bfseries deactivate} ()
+\item 
+int {\bfseries run\+\_\+modal} ()
+\item 
+int {\bfseries run} ()
+\item 
+void {\bfseries set\+\_\+title} (char \texorpdfstring{$\ast$}{*}title)
+\item 
+Xm\+Toggle\+Button\+State {\bfseries Xm\+Toggle\+Button\+Get\+Value} (Widget w)
+\item 
+bool {\bfseries traverse\+\_\+widget\+\_\+tree} (Widget w, char \texorpdfstring{$\ast$}{*}mnemonic, XKey\+Event \texorpdfstring{$\ast$}{*}key\+\_\+event)
+\item 
+bool {\bfseries handle\+\_\+acc} (Widget w, XEvent \texorpdfstring{$\ast$}{*}event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+ui\+\_\+object} (const char \texorpdfstring{$\ast$}{*}object\+Name, Widget\+Class object\+Class, Widget object\+Parent, int n\+\_\+args=0, Arg \texorpdfstring{$\ast$}{*}args=NULL)
+\item 
+bool {\bfseries is\+\_\+managed} ()
+\item 
+void {\bfseries manage} ()
+\item 
+void {\bfseries unmanage} ()
+\item 
+virtual const Widget {\bfseries get\+\_\+widget} ()
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+name} ()
+\item 
+void {\bfseries destroy\+\_\+widget} ()
+\item 
+void {\bfseries set\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries clear\+\_\+busy} (Widget w=NULL)
+\item 
+void {\bfseries set\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries clear\+\_\+parent\+\_\+busy} ()
+\item 
+void {\bfseries Xt\+App\+Next\+Event} (Xt\+App\+Context app\+\_\+context, XEvent \texorpdfstring{$\ast$}{*}event\+\_\+return)
+\item 
+void {\bfseries bell} ()
+\item 
+bool {\bfseries get\+\_\+resource} (int \&err, const char \texorpdfstring{$\ast$}{*}in\+\_\+value\+\_\+name, String out\+\_\+value\+\_\+type, Xrm\+Value \texorpdfstring{$\ast$}{*}out\+\_\+value\+\_\+ptr)
+\item 
+void {\bfseries take\+\_\+focus} ()
+\item 
+void {\bfseries set\+\_\+cursor} (mx\+\_\+cursor\+\_\+type\+\_\+t icursor\+\_\+type, Widget w=NULL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+a} (mx\+\_\+rtti\+\_\+class\+\_\+e c) const =0
+\item 
+virtual bool {\bfseries is\+\_\+a} (const \mbox{\hyperlink{classmx__rtti}{mx\+\_\+rtti}} \&o) const =0
+\item 
+virtual mx\+\_\+rtti\+\_\+class\+\_\+e {\bfseries rtti\+\_\+class} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__open__d_ab5d5e4c7e7991f6e65631d780747c8fd}\label{classmx__open__d_ab5d5e4c7e7991f6e65631d780747c8fd} 
+Widget {\bfseries open\+\_\+button}
+\item 
+\Hypertarget{classmx__open__d_a7c107d9d48c213e5fbcacf018bf72a11}\label{classmx__open__d_a7c107d9d48c213e5fbcacf018bf72a11} 
+Widget {\bfseries cancel\+\_\+button}
+\item 
+\Hypertarget{classmx__open__d_a509a966ff4da539e2b9559d6b36c32c6}\label{classmx__open__d_a509a966ff4da539e2b9559d6b36c32c6} 
+Widget {\bfseries file\+\_\+list}
+\item 
+\Hypertarget{classmx__open__d_a853da52c508e70319970799868353386}\label{classmx__open__d_a853da52c508e70319970799868353386} 
+Widget {\bfseries type\+\_\+menu}
+\item 
+\Hypertarget{classmx__open__d_aa663c3ef4bf434e86aa14a754d08d2d9}\label{classmx__open__d_aa663c3ef4bf434e86aa14a754d08d2d9} 
+Widget {\bfseries path\+\_\+menu}
+\item 
+\Hypertarget{classmx__open__d_af83b4768204cfc227bf5ee0de2588d13}\label{classmx__open__d_af83b4768204cfc227bf5ee0de2588d13} 
+Widget {\bfseries path\+\_\+sub\+\_\+menu}
+\item 
+\Hypertarget{classmx__open__d_af4b5d98e43bd598a8036103def85b007}\label{classmx__open__d_af4b5d98e43bd598a8036103def85b007} 
+Widget {\bfseries file\+\_\+text}
+\item 
+\Hypertarget{classmx__open__d_a48ac829b67eb1aefa79aaa4d3492b837}\label{classmx__open__d_a48ac829b67eb1aefa79aaa4d3492b837} 
+Widget {\bfseries perm\+\_\+button}
+\item 
+\Hypertarget{classmx__open__d_a0fcd2a4f2924a1368b7d3c6b080f1ea6}\label{classmx__open__d_a0fcd2a4f2924a1368b7d3c6b080f1ea6} 
+bool {\bfseries want\+\_\+write}
+\item 
+\Hypertarget{classmx__open__d_a9b70b045d3890de7408bb659d80ce484}\label{classmx__open__d_a9b70b045d3890de7408bb659d80ce484} 
+\mbox{\hyperlink{classmx__yes__no__d}{mx\+\_\+yes\+\_\+no\+\_\+d}} \texorpdfstring{$\ast$}{*} {\bfseries no\+\_\+write\+\_\+d}
+\item 
+\Hypertarget{classmx__open__d_a2366ff61d2182fe8e3a4a88a0807cc79}\label{classmx__open__d_a2366ff61d2182fe8e3a4a88a0807cc79} 
+\mbox{\hyperlink{classmx__inform__d}{mx\+\_\+inform\+\_\+d}} \texorpdfstring{$\ast$}{*} {\bfseries no\+\_\+read\+\_\+d}
+\item 
+\Hypertarget{classmx__open__d_adf650b5446af5a3bac9dbd35f4c7db63}\label{classmx__open__d_adf650b5446af5a3bac9dbd35f4c7db63} 
+\mbox{\hyperlink{classmx__inform__d}{mx\+\_\+inform\+\_\+d}} \texorpdfstring{$\ast$}{*} {\bfseries no\+\_\+exist\+\_\+d}
+\item 
+\Hypertarget{classmx__open__d_a8873b366875bf43941b9e73ea855fdbb}\label{classmx__open__d_a8873b366875bf43941b9e73ea855fdbb} 
+\mbox{\hyperlink{classmx__inform__d}{mx\+\_\+inform\+\_\+d}} \texorpdfstring{$\ast$}{*} {\bfseries no\+\_\+exec\+\_\+d}
+\item 
+\Hypertarget{classmx__open__d_a2d52ede38843cd4e20852479b42f2b3c}\label{classmx__open__d_a2d52ede38843cd4e20852479b42f2b3c} 
+\mbox{\hyperlink{classmx__finfo__d}{mx\+\_\+finfo\+\_\+d}} \texorpdfstring{$\ast$}{*} {\bfseries finfo\+\_\+d}
+\item 
+\Hypertarget{classmx__open__d_af77ac7863243556fdeb27b8fdb70fc69}\label{classmx__open__d_af77ac7863243556fdeb27b8fdb70fc69} 
+bool {\bfseries dir\+\_\+loaded}
+\item 
+\Hypertarget{classmx__open__d_ae06c8d3ee39e9f703c4f1c9668bc10ca}\label{classmx__open__d_ae06c8d3ee39e9f703c4f1c9668bc10ca} 
+char {\bfseries current\+\_\+dir} \mbox{[}MAX\+\_\+\+PATH\+\_\+\+LEN\mbox{]}
+\item 
+\Hypertarget{classmx__open__d_a683fd99911169772789d2c88ce5c40f2}\label{classmx__open__d_a683fd99911169772789d2c88ce5c40f2} 
+char {\bfseries selected\+\_\+file\+\_\+name} \mbox{[}MAX\+\_\+\+PATH\+\_\+\+LEN\mbox{]}
+\item 
+\Hypertarget{classmx__open__d_a1f2531f98492002f431cdec5e49c1187}\label{classmx__open__d_a1f2531f98492002f431cdec5e49c1187} 
+bool {\bfseries selected\+\_\+write\+\_\+perm}
+\item 
+\Hypertarget{classmx__open__d_a8d4c001a69b8a17a3fe105e91582c7f4}\label{classmx__open__d_a8d4c001a69b8a17a3fe105e91582c7f4} 
+mx\+\_\+file\+\_\+type\+\_\+t {\bfseries default\+\_\+file\+\_\+type}
+\item 
+\Hypertarget{classmx__open__d_ae37313d3ab9f687a5fa7e0bd6bf7dd34}\label{classmx__open__d_ae37313d3ab9f687a5fa7e0bd6bf7dd34} 
+Widget {\bfseries path\+\_\+buttons} \mbox{[}MX\+\_\+\+FILE\+\_\+\+OPEN\+\_\+\+MAX\+\_\+\+DIR\+\_\+\+DEPTH\mbox{]}
+\item 
+\Hypertarget{classmx__open__d_acde39af054e05da09002ee51c5abf850}\label{classmx__open__d_acde39af054e05da09002ee51c5abf850} 
+int {\bfseries path\+\_\+indexes} \mbox{[}MX\+\_\+\+FILE\+\_\+\+OPEN\+\_\+\+MAX\+\_\+\+DIR\+\_\+\+DEPTH\mbox{]}
+\item 
+\Hypertarget{classmx__open__d_a9e84cb2d2bf92cabb5fc70f3e3e0f62e}\label{classmx__open__d_a9e84cb2d2bf92cabb5fc70f3e3e0f62e} 
+int {\bfseries num\+\_\+path\+\_\+buttons}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}}
+\begin{DoxyCompactItemize}
+\item 
+mx\+\_\+dialog\+\_\+result\+\_\+t {\bfseries modal\+\_\+result}
+\item 
+Widget {\bfseries dialog}
+\item 
+Widget {\bfseries dialog\+\_\+parent}
+\item 
+Widget {\bfseries pane}
+\item 
+Widget {\bfseries control\+\_\+area}
+\item 
+Widget {\bfseries action\+\_\+area}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__ui__object}{mx\+\_\+ui\+\_\+object}}}
+\begin{DoxyCompactItemize}
+\item 
+Widget {\bfseries widget}
+\item 
+mx\+\_\+cursor\+\_\+type\+\_\+t {\bfseries current\+\_\+cursor\+\_\+type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__open__d_a0ceaabcc823fa7e275fd6c4429d641b4}\label{classmx__open__d_a0ceaabcc823fa7e275fd6c4429d641b4} 
+\index{mx\_open\_d@{mx\_open\_d}!activate@{activate}}
+\index{activate@{activate}!mx\_open\_d@{mx\_open\_d}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily virtual void mx\+\_\+open\+\_\+d\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classmx__dialog}{mx\+\_\+dialog}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui/mx\+\_\+open\+\_\+d.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,105 @@
+\doxysection{mx\+\_\+font\+\_\+mod.\+h}
+\hypertarget{mx__font__mod_8h_source}{}\label{mx__font__mod_8h_source}\index{font/mx\_font\_mod.h@{font/mx\_font\_mod.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <mx\_db.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <mx\_list.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <mx\_sl\_obj.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__font}{mx\_font}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ MX\_RTTI(mx\_font\_mod\_class\_e)}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__font__mod}{\string~mx\_font\_mod}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ s1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ s2);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\&\ s);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ set\ all\ mods\ to\ TRUE}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ s);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\&\ other);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\&\ operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\&\ other);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00047\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_null()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ sets\ the\ revert\ to\ default\ flag\ for\ any\ part\ of\ the\ mod\ which\ is}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ changing\ to\ the\ given\ default\ paragraph\ style}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_revert\_to\_default\_flags(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ default\_para\_font);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ changes\ any\ mods\ with\ a\ revert\ flag\ set\ so\ that\ result\ of\ the}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ modification\ is\ the\ new\ default\ character\ style}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_new\_default\_cs(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font}{mx\_font}}\&\ default\_para\_font);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_revert\_to\_default\_flags();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ clears\ any\ mod\ flags\ in\ this\ mod\ which\ are\ set\ in\ the\ other\_mod}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_mods\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__font__mod}{mx\_font\_mod}}\&\ other\_mod);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ get/set/clear\ individual\ mods}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_family\_mod(std::string\ \&new\_family)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_size\_mod(\textcolor{keywordtype}{float}\ \&new\_size)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_bold\_mod(\textcolor{keywordtype}{bool}\ \&bold\_on)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ get\_italic\_mod(\textcolor{keywordtype}{bool}\ \&italic\_on)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_family\_mod(\textcolor{keyword}{const}\ std::string\ \&new\_family);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_size\_mod(\textcolor{keywordtype}{float}\ new\_size);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_bold\_mod(\textcolor{keywordtype}{bool}\ bold\_on);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_italic\_mod(\textcolor{keywordtype}{bool}\ italic\_on);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_family\_mod();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_size\_mod();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_bold\_mod();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_italic\_mod();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_family(\textcolor{keyword}{const}\ std::string\ \&s);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ values\ to\ change}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_family\_mod\ :\ 1;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_size\_mod\ :\ 1;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_bold\_mod\ :\ 1;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_italic\_mod\ :\ 1;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ revert\ to\ default\ flags}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_family\_mod\_rev\ :\ 1;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_size\_mod\_rev\ :\ 1;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_bold\_mod\_rev\ :\ 1;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_italic\_mod\_rev\ :\ 1;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ std::string\ m\_typeface\_family;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{float}\ typeface\_size;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_bold\ :\ 1;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ typeface\_italic\ :\ 1;}
+\DoxyCodeLine{00099\ \};}
+
+\end{DoxyCode}

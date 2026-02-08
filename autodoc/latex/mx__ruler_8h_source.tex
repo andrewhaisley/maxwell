@@ -1,0 +1,149 @@
+\doxysection{mx\+\_\+ruler.\+h}
+\hypertarget{mx__ruler_8h_source}{}\label{mx__ruler_8h_source}\index{document/mx\_ruler.h@{document/mx\_ruler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_RULER\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_RULER\_H}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_ruler}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ A\ ruler\ holds\ tabs}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <mx\_db.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_list.h>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ an\ mx\_tabstop\_type\_t\ describes\ what\ sort\ of\ tab\ you\ have.\ mx\_automatic\ is}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ returned\ (never\ set\ by\ the\ client)\ by\ the\ get\_tab\ functions\ in\ the\ ruler}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ class\ so\ that\ the\ ruler\ bar\ can\ distinguish\ between\ an\ "{}automatic"{}\ and}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ a\ left\ tab\ stop.\ Its\ behaviour\ is\ the\ same\ as\ an\ mx\_left\ tab.}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{enum}\ mx\_tabstop\_type\_t\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ mx\_automatic,\ \textcolor{comment}{//\ One\ of\ the\ rulers\ preset\ tabs}}
+\DoxyCodeLine{00048\ \ \ \ \ mx\_left,\ \textcolor{comment}{//\ Left\ (Normal)\ tab\ stop}}
+\DoxyCodeLine{00049\ \ \ \ \ mx\_right,\ \textcolor{comment}{//\ Right\ tab\ stop}}
+\DoxyCodeLine{00050\ \ \ \ \ mx\_centre,\ \textcolor{comment}{//\ Centres\ the\ text\ on\ the\ tab\ stop\ if\ possible}}
+\DoxyCodeLine{00051\ \ \ \ \ mx\_centre\_on\_dp,\ \textcolor{comment}{//\ Centres\ upon\ a\ decimal\ point}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ mx\_tabstop\_leader\_type\_t\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ mx\_leader\_space\_e,\ \textcolor{comment}{//\ whitespace\ (default)}}
+\DoxyCodeLine{00056\ \ \ \ \ mx\_leader\_dot\_e,}
+\DoxyCodeLine{00057\ \ \ \ \ mx\_leader\_hyphen\_e,}
+\DoxyCodeLine{00058\ \ \ \ \ mx\_leader\_underline\_e,}
+\DoxyCodeLine{00059\ \ \ \ \ mx\_leader\_thickline\_e,}
+\DoxyCodeLine{00060\ \ \ \ \ mx\_leader\_equals\_e,}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ MX\_RULER\_DEFAULT\_TABSTOP\ 6.0}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ MX\_RTTI(mx\_tabstop\_class\_e)}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ mx\_tabstop\_type\_t\ type;}
+\DoxyCodeLine{00070\ \ \ \ \ mx\_tabstop\_leader\_type\_t\ leader\_type;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{float}\ position;\ \textcolor{comment}{//\ in\ mm}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}(mx\_tabstop\_type\_t\ t\ =\ mx\_left,\ \textcolor{keywordtype}{float}\ p\ =\ 0.0,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ mx\_tabstop\_leader\_type\_t\ =\ mx\_leader\_space\_e);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ uint8**\ buffer);}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ CLASS:}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ Another\ "{}light"{}\ class\ where\ many\ of\ the\ values\ are\ stored\ as\ public}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ data\ members.\ This\ is\ a\ class\ for\ a\ ruler\ which\ just\ specifies\ indents}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ and\ tabstops\ etc..}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__serialisable__object}{mx\_serialisable\_object}}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ MX\_RTTI(mx\_ruler\_class\_e)}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ default\_tabstop\_space;\ \textcolor{comment}{//\ mm}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{float}\ left\_indent;\ \textcolor{comment}{//\ mm}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{float}\ right\_indent;\ \textcolor{comment}{//\ mm}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{float}\ first\_line\_indent;\ \textcolor{comment}{//\ mm}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}();}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__ruler}{\string~mx\_ruler}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ copy\ constructor}}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ rvalue);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ assignment\ operator}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ rvalue);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ r1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ r2);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ r1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__ruler}{mx\_ruler}}\&\ r2);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ adds\ and\ removes\ tabs\ at\ given\ positions.\ an\ error\ is\ generated\ for}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ removing\ tabs\ if\ there\ is\ no\ tab\ at\ the\ position\ specified.}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_tab(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}\&\ tab);}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_tab(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ position);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_tab\_tolerance(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ position,\ \textcolor{keywordtype}{float}\ t);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ gets\ nearest\ tab\ to\ the\ left/right\ of\ a\ given\ position.\ generates}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ an\ error\ if\ there\ are\ no\ more\ tabs\ in\ the\ direction\ specified.}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_left\_tab(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ position,\ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}\&\ result)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_right\_tab(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{float}\ position,\ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}\&\ result)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ do\ not\ delete\ the\ result\ of\ this\ since\ it\ points\ to\ an\ actual\ tab}}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classmx__tabstop}{mx\_tabstop}}*\ get\_nearest\_tab(\textcolor{keywordtype}{float}\ position)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ number\ of\ user\ defined\ tabs}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_user\_tabs();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ clear\ all\ tabs}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ clear\_user\_tabs();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{float}\ rightmost\_user\_tab(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ uint32\ get\_serialised\_size(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ serialise(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ unserialise(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ buffer);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ user\_tabs;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

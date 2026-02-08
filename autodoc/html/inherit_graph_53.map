@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classmx__rtfe__style__conv.html" title=" " alt="" coords="5,79,156,104"/>
+<area shape="rect" id="Node000001" href="$classmx__rtfe__border__style__conv.html" title=" " alt="" coords="204,29,403,55"/>
+<area shape="poly" id="edge232_Node000000_Node000001" title=" " alt="" coords="151,73,245,52,246,57,152,78"/>
+<area shape="rect" id="Node000004" href="$classmx__rtfe__char__style__conv.html" title=" " alt="" coords="211,79,396,104"/>
+<area shape="poly" id="edge235_Node000000_Node000004" title=" " alt="" coords="170,89,210,89,210,94,170,94"/>
+<area shape="rect" id="Node000005" href="$classmx__rtfe__para__style__conv.html" title=" " alt="" coords="210,128,397,153"/>
+<area shape="poly" id="edge236_Node000000_Node000005" title=" " alt="" coords="152,104,246,125,245,131,151,110"/>
+<area shape="rect" id="Node000002" href="$classmx__rtfe__para__bs__conv.html" title=" " alt="" coords="453,5,622,31"/>
+<area shape="poly" id="edge233_Node000001_Node000002" title=" " alt="" coords="416,28,452,24,453,29,417,33"/>
+<area shape="rect" id="Node000003" href="$classmx__rtfe__table__bs__conv.html" title=" " alt="" coords="451,55,624,80"/>
+<area shape="poly" id="edge234_Node000001_Node000003" title=" " alt="" coords="417,52,451,55,450,61,416,57"/>
+</map>

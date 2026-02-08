@@ -1,0 +1,9 @@
+<map id="mx_wp_editor" name="mx_wp_editor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,225,138,251"/>
+<area shape="rect" id="Node000002" href="$classmx__editor.html" title=" " alt="" coords="37,152,125,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,191,83,225,78,225,78,191"/>
+<area shape="rect" id="Node000003" href="$classmx__frame__target.html" title=" " alt="" coords="13,79,148,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,118,83,152,78,152,78,118"/>
+<area shape="rect" id="Node000004" href="$classmx__callback__target.html" title=" " alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
+</map>

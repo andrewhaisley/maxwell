@@ -1,0 +1,104 @@
+\doxysection{mx\+\_\+grid\+\_\+paint.\+h}
+\hypertarget{mx__grid__paint_8h_source}{}\label{mx__grid__paint_8h_source}\index{view/mx\_grid\_paint.h@{view/mx\_grid\_paint.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ \ mx\_grid\_paint}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ A\ class\ for\ drawing\ grids\ of\ horizontal\ and\ vertical\ lines.\ This\ is\ harder}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ than\ it\ sounds\ due\ to\ having\ to\ get\ the\ corners\ right.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ MX\_GRID\_PAINT\_H}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MX\_GRID\_PAINT\_H}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_geometry.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <mx\_rtti.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <mx\_style.h>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__point}{mx\_point}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__device}{mx\_device}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p1;}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ p2;}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\ s;}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__grid__paint}{mx\_grid\_paint}}\ \textcolor{comment}{//:\ public\ mx\_rtti}}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ MX\_RTTI(mx\_grid\_paint\_class\_e)}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmx__grid__paint}{mx\_grid\_paint}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__grid__paint}{\string~mx\_grid\_paint}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ set\ the\ device}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_device(\mbox{\hyperlink{classmx__device}{mx\_device}}*\ d)\ \{\ device\ =\ d;\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ empty\ the\ old\ contents\ out}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ add\ a\ line\ to\ be\ drawn\ -\/\ must\ be\ vertical\ or\ horizontal}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ ls,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__device}{mx\_device}}\&\ drawable);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_chain(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__device}{mx\_device}}\&\ drawable);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_line\_list(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}\&\ drawable,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ lines);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ find\_tolerance(\mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ t1,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ t2,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ ht,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\&\ vt);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ fix\_line\_list(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ lines);}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ get\_joining\_line(\mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ t);}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ get\_joining\_line(\mbox{\hyperlink{structmx__grid__paint__line__t}{mx\_grid\_paint\_line\_t}}*\ t1,\ \mbox{\hyperlink{classmx__list}{mx\_list}}\&\ lines);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ points\_match(\mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vertical\_tolerance,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ horizontal\_tolerance);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ vertical\_lines;}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classmx__list}{mx\_list}}\ horizontal\_lines;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_horizontal(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ ls,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2);}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_vertical(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ ls,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p1,\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ p2);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ device;}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

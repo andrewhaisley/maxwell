@@ -1,0 +1,123 @@
+\doxysection{mx\+\_\+border\+\_\+d.\+h}
+\hypertarget{mx__border__d_8h_source}{}\label{mx__border__d_8h_source}\index{ui/mx\_border\_d.h@{ui/mx\_border\_d.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MX\_BORDER\_D}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MX\_BORDER\_D}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MODULE/CLASS\ :\ mx\_border\_d}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHOR\ :\ Andrew\ Haisley}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ A\ border\ style\ dialog}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_dialog.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <Xm/Xm.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <mx\_line\_style.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <mx\_ui\_object.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__style}{mx\_border\_style}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__nlist}{mx\_nlist}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__border__d}{mx\_border\_d}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmx__dialog}{mx\_dialog}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classmx__border__d}{mx\_border\_d}}(Widget\ parent,\ \textcolor{keywordtype}{bool}\ has\_apply\ =\ TRUE);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classmx__border__d}{\string~mx\_border\_d}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ pass\ a\ 2D\ array\ of\ pointers\ to\ border\_style\ objects,\ of\ size}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ num\_style\_rows\ *\ num\_style\_columns}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ activate\_d(\mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\&\ initial\_styles,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ mx\_unit\_e\ u,\ \mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}}\&\ result);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ run(\mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\&\ initial\_styles,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ mx\_unit\_e\ u,\ \mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}}\&\ result);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ Widget\ ok\_button,\ apply\_button,\ cancel\_button;}
+\DoxyCodeLine{00060\ \ \ \ \ Widget\ dashed\_button,\ dotted\_button,\ solid\_button;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_sample();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_line\_colour(Widget\ w);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_bg\_colour(Widget\ w);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_options();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ get\_initial\_mod(\mbox{\hyperlink{classmx__nlist}{mx\_nlist}}\&\ border\_styles);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ handle\_input(XEvent*\ e);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ mx\_line\_type\_t\ line\_type;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmx__border__style__mod}{mx\_border\_style\_mod}}*\ result;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ Widget\ size\_text,\ size\_list;}
+\DoxyCodeLine{00076\ \ \ \ \ Widget\ bg\_colour\_buttons[MX\_NUM\_COLOURS\ +\ 1];}
+\DoxyCodeLine{00077\ \ \ \ \ Widget\ line\_colour\_buttons[MX\_NUM\_COLOURS];}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ Widget\ drawing\_area;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ Widget\ distance\_text,\ distance\_list;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_options();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_size();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_type();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_type\_menu(Widget\ w);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_line\_colour\_menu(Widget\ w);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_bg\_colour\_menu(Widget\ w);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ fill\_list(Widget\ w);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_line(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ Display*\ display,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ Drawable\ drawable,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\ style,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ind,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x1,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y1,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x2,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y2);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ GC\ gc;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ x1,\ x2,\ y1,\ y2;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ xmid,\ ymid;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_x,\ last\_y;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_horizontal,\ has\_vertical;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ line\_pos(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\ line\_style();}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ toggle\_style(\mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\&\ style,\ \mbox{\hyperlink{classmx__line__style}{mx\_line\_style}}\ new\_style,\ \textcolor{keywordtype}{bool}\ ind);}
+\DoxyCodeLine{00112\ \ \ \ \ mx\_unit\_e\ units;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ current\_colour\_name;}
+\DoxyCodeLine{00115\ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

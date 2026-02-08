@@ -1,0 +1,96 @@
+\doxysection{mx\+\_\+rtfe\+\_\+paragraph\+\_\+output Class Reference}
+\hypertarget{classmx__rtfe__paragraph__output}{}\label{classmx__rtfe__paragraph__output}\index{mx\_rtfe\_paragraph\_output@{mx\_rtfe\_paragraph\_output}}
+
+
+Inheritance diagram for mx\+\_\+rtfe\+\_\+paragraph\+\_\+output\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classmx__rtfe__paragraph__output__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mx\+\_\+rtfe\+\_\+paragraph\+\_\+output\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classmx__rtfe__paragraph__output__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__rtfe__paragraph__output_ab52ce6376666569390b24c7a9e1f6a1c}\label{classmx__rtfe__paragraph__output_ab52ce6376666569390b24c7a9e1f6a1c} 
+enum {\bfseries mx\+\_\+rtfe\+\_\+para\+\_\+type} \{ {\bfseries normal\+\_\+e}
+, {\bfseries in\+\_\+table\+\_\+e}
+, {\bfseries last\+\_\+in\+\_\+cell\+\_\+e}
+, {\bfseries last\+\_\+in\+\_\+row\+\_\+e}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmx__rtfe__paragraph__output_ac807eba2e139c55b4bc689dcbd1b1964}\label{classmx__rtfe__paragraph__output_ac807eba2e139c55b4bc689dcbd1b1964} 
+{\bfseries mx\+\_\+rtfe\+\_\+paragraph\+\_\+output} (FILE \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{classmx__rtfe__lookups}{mx\+\_\+rtfe\+\_\+lookups}} \texorpdfstring{$\ast$}{*}lu)
+\item 
+\Hypertarget{classmx__rtfe__paragraph__output_a79390b9500c43d3bee1b5fc2af7eedbb}\label{classmx__rtfe__paragraph__output_a79390b9500c43d3bee1b5fc2af7eedbb} 
+{\bfseries mx\+\_\+rtfe\+\_\+paragraph\+\_\+output} (const \mbox{\hyperlink{classmx__rtfe__paragraph__output}{mx\+\_\+rtfe\+\_\+paragraph\+\_\+output}} \&)
+\item 
+\Hypertarget{classmx__rtfe__paragraph__output_ace32b29676df63edf77e44b0f9035d73}\label{classmx__rtfe__paragraph__output_ace32b29676df63edf77e44b0f9035d73} 
+void {\bfseries set\+\_\+paragraph} (\mbox{\hyperlink{classmx__paragraph}{mx\+\_\+paragraph}} \texorpdfstring{$\ast$}{*}p, mx\+\_\+rtfe\+\_\+para\+\_\+type=normal\+\_\+e)
+\item 
+void \mbox{\hyperlink{classmx__rtfe__paragraph__output_aaac74f61582fe07166d75cc27dcb9de6}{output\+\_\+rtf}} (int \&err)
+\item 
+\Hypertarget{classmx__rtfe__paragraph__output_a79ea8fe7b2fea851c2017e66a003808a}\label{classmx__rtfe__paragraph__output_a79ea8fe7b2fea851c2017e66a003808a} 
+void {\bfseries invalidate\+\_\+current\+\_\+style} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+output} (FILE \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{classmx__rtfe__lookups}{mx\+\_\+rtfe\+\_\+lookups}} \texorpdfstring{$\ast$}{*}lu)
+\item 
+{\bfseries mx\+\_\+rtfe\+\_\+output} (const \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}} \&)
+\item 
+void {\bfseries open\+\_\+brace} (int \&err)
+\item 
+void {\bfseries close\+\_\+brace} (int \&err)
+\item 
+void {\bfseries close\+\_\+all\+\_\+braces} ()
+\item 
+void {\bfseries write\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries write\+\_\+char} (int \&err, char c)
+\item 
+void {\bfseries write\+\_\+rtf\+\_\+string} (int \&err, const char \texorpdfstring{$\ast$}{*}s)
+\item 
+void {\bfseries write\+\_\+rtf\+\_\+char} (int \&err, char c)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}}}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} {\bfseries file}
+\item 
+\mbox{\hyperlink{classmx__rtfe__lookups}{mx\+\_\+rtfe\+\_\+lookups}} \texorpdfstring{$\ast$}{*} {\bfseries lookups}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmx__rtfe__paragraph__output_aaac74f61582fe07166d75cc27dcb9de6}\label{classmx__rtfe__paragraph__output_aaac74f61582fe07166d75cc27dcb9de6} 
+\index{mx\_rtfe\_paragraph\_output@{mx\_rtfe\_paragraph\_output}!output\_rtf@{output\_rtf}}
+\index{output\_rtf@{output\_rtf}!mx\_rtfe\_paragraph\_output@{mx\_rtfe\_paragraph\_output}}
+\doxysubsubsection{\texorpdfstring{output\_rtf()}{output\_rtf()}}
+{\footnotesize\ttfamily void mx\+\_\+rtfe\+\_\+paragraph\+\_\+output\+::output\+\_\+rtf (\begin{DoxyParamCaption}\item[{int \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmx__rtfe__output}{mx\+\_\+rtfe\+\_\+output}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rtf/mx\+\_\+rtfe\+\_\+op.\+h\end{DoxyCompactItemize}

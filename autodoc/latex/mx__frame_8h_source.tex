@@ -1,0 +1,272 @@
+\doxysection{mx\+\_\+frame.\+h}
+\hypertarget{mx__frame_8h_source}{}\label{mx__frame_8h_source}\index{view/mx\_frame.h@{view/mx\_frame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ This\ file\ is\ part\ of\ the\ Maxwell\ Word\ Processor\ application.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (C)\ 1996,\ 1997,\ 1998\ Andrew\ Haisley,\ David\ Miller,\ Tom\ Newton}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ the\ Free\ Software\ Foundation;\ either\ version\ 2\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ along\ with\ this\ program;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Foundation,\ Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_MX\_FRAME\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_MX\_FRAME\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MODULE\ :\ mx\_frame.h}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ AUTHOR\ :\ David\ Miller}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ This\ file}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ DESCRIPTION:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Module\ mx\_frame.h}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}mx\_ftarget.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__device}{mx\_device}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ CLASS:\ mx\_frame}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ DESCRIPTION:\ A\ class\ for\ holding\ a\ screen\ device.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ The\ frame\ can\ be\ extended\ to\ be\ a\ scrollable\ frame}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ The\ important\ aspect\ of\ the\ frame\ is\ to\ allow}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ document\ coordinates\ to\ be\ turned\ into\ screen\ pixels}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ The\ frames\ coordinate\ system\ is\ as\ a\ single\ sheet}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ The\ basic\ frame\ can\ be\ used\ as\ a\ dummy\ frame\ to}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ place\ around\ a\ frameable\ object\ whilst\ it\ is}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ being\ printed.\ It\ is\ a\ light\ weight\ object}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ -\/\ different\ from\ the\ mx\_xframe\ and\ the}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ mx\_scrollable\_xframe\ which\ do\ a\ lot\ more\ work}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__device}{mx\_device}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmx__frame}{mx\_frame}}\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Constructors/destructors}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classmx__frame}{mx\_frame}}(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ initialTopLeft,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ initialSize,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ initialZoom,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ iframeTarget);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmx__frame}{\string~mx\_frame}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ force\ the\ frame\ to\ resize\ its\ scrollbars}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ this\ routine\ will\ get\ the\ sheet\ layout\ from}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ the\ frameable\ object\ and\ adjust\ the\ scrollbars}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ appropriately\ -\/\ this\ is\ called\ by\ an\ editor\ to}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ only\ chnage\ the\ size\ of\ the\ scrollbars\ and\ the}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ scrollbar\ position.}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ this\ routine\ will\ look\ at\ the\ sheet\ layout\ on}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ the\ frameable\ object}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ resetSheetLayout(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ a\ frame\ creates\ and\ uses\ a\ device\ -\/\ the\ device\ knows}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ such\ things\ as\ what\ is\ being\ displayed}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ get\ the\ (screen\ ?\ )\ device}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ getDevice()\ \{\ \textcolor{keywordflow}{return}\ outputDevice;\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ refresh\ the\ view}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ refresh(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}*\ topLeft\ =\ NULL,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}*\ bottomRight\ =\ NULL);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ create\ the\ device\ for\ this\ frame\ -\/\ the\ device\ could}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ be\ different\ for\ different\ devices\ -\/\ the\ device\ will}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ need\ to\ know\ about\ the\ frame\ as\ it\ needs\ to\ convert}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ events\ in\ its\ coordinate\ system\ to\ events\ in\ the}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ doc\ coord\ system}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ createDevice(\textcolor{keywordtype}{int}\&\ err)\ =\ 0;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ resize(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__resize__event}{mx\_resize\_event}}\&\ event);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ setTopLeftFrame(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ frameCoord);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ getTopLeftFrame(\textcolor{keywordtype}{int}\&\ err,\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ frameCoord)}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ coordToDocCoord(err,\ topLeft,\ frameCoord,\ MX\_COORD\_TL);}
+\DoxyCodeLine{00108\ \ \ \ \ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setTopLeft(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ itopLeft);}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setSize(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ isize);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setZoom(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keywordtype}{double}\ izoom);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getTopLeft()\ \{\ \textcolor{keywordflow}{return}\ topLeft;\ \};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getSize()\ \{\ \textcolor{keywordflow}{return}\ size;\ \};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ getZoom()\ \{\ \textcolor{keywordflow}{return}\ zoom;\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ get\ the\ current\ external\ selection}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ requestSelection(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ tell\ the\ frame\ an\ external\ selection\ is\ available}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ externalSelectionAvailable();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ coordinate\ in\ the\ set\ of\ sheets\ to\ a\ doc\ coord}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ coordToDocCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ MX\_COORD\_TYPE\ coordType)}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frameTarget.coordToDocCoord(err,\ coord,\ docCoord,\ coordType);}
+\DoxyCodeLine{00131\ \ \ \ \ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ convert\ a\ doc\ coord\ to\ a\ cumulative\ coord}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ docCoordToCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ coord)}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frameTarget.docCoordToCoord(err,\ docCoord,\ coord);}
+\DoxyCodeLine{00139\ \ \ \ \ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ getFrameTarget()\ \{\ \textcolor{keywordflow}{return}\ frameTarget;\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ clippedTopLeftCoord(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ topLeftCoord);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getApplyScrollLimitToTarget()}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ applyScrollLimitToTarget;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getApplyScrollLimit()\ \{\ \textcolor{keywordflow}{return}\ applyScrollLimit;\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ getScrollLimitBox()\ \{\ \textcolor{keywordflow}{return}\ scrollLimitBox;\ \};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ getTargetLimitAdd()\ \{\ \textcolor{keywordflow}{return}\ targetLimitAdd;\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setApplyScrollLimitToTarget(\textcolor{keywordtype}{bool}\ ilimit)}
+\DoxyCodeLine{00156\ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ applyScrollLimitToTarget\ =\ ilimit;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ applyScrollLimit\ =\ ilimit;}
+\DoxyCodeLine{00159\ \ \ \ \ \};}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setApplyScrollLimit(\textcolor{keywordtype}{bool}\ ilimit)}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ applyScrollLimit\ =\ ilimit;}
+\DoxyCodeLine{00163\ \ \ \ \ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setScrollLimitBox(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ irect)}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ scrollLimitBox\ =\ irect;}
+\DoxyCodeLine{00168\ \ \ \ \ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setTargetLimitAdd(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\&\ inrect)}
+\DoxyCodeLine{00171\ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ targetLimitAdd\ =\ inrect;}
+\DoxyCodeLine{00173\ \ \ \ \ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ force\ a\ scroll\ -\/\ here\ scroll\ position\ is}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ a\ coordinate\ that\ is\ to\ be\ scrolled\ to}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ offset\ is\ one\ of\ the\ values\ in\ MX\_SCROLL\_OFFSET}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ (e.g.\ if\ offset\ if\ MX\_SCROLL\_OFFSET\_C\ then}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//\ the\ scrolled\ position.\ For\ various\ reasons\ the}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ window\ may\ not\ be\ able\ to\ scroll\ to\ the\ position}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ required\ -\/\ it\ therefore\ returns\ the\ position\ it}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ actually\ has\ scrolled\ to}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ scroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setDrawPerSheet(\textcolor{keywordtype}{bool}\ idrawPerSheet)\ \{\ drawPerSheet\ =\ idrawPerSheet;\ \};}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getDrawPerSheet()\ \{\ \textcolor{keywordflow}{return}\ drawPerSheet;\ \};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{//\ routines\ for\ setting\ and\ clearing\ false\ origins}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{void}\ setFalseOrigin(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ ifalseOrigin);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{comment}{//\ routines\ for\ setting\ and\ clearing\ false\ origins}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setFalseOrigin(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ ifalseOrigin)}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ useFalseOrigin\ =\ TRUE;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ falseOrigin\ =\ ifalseOrigin;}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ getFalseOriginSet()\ \{\ \textcolor{keywordflow}{return}\ useFalseOrigin;\ \};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\ getFalseOrigin()\ \{\ \textcolor{keywordflow}{return}\ falseOrigin;\ \};}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\ getDocFalseOrigin(\textcolor{keywordtype}{int}\&\ err);}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ clearFalseOrigin()\ \{\ useFalseOrigin\ =\ FALSE;\ \};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ isetZoom(\textcolor{keywordtype}{double}\ izoom)\ \{\ zoom\ =\ izoom;\ \};}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ isetSize(\textcolor{keywordtype}{int}\&\ err,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmx__point}{mx\_point}}\&\ newSize);}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ isetTopLeft(\mbox{\hyperlink{classmx__point}{mx\_point}}\ \textcolor{keyword}{const}\&\ itopLeft)\ \{\ topLeft\ =\ itopLeft;\ \};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ shift\ some\ data\ -\/\ note\ gapSize\ can\ be\ negative\ -\/\ in\ which}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{comment}{//\ case\ the\ gap\ can\ eat\ old\ space}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ this\ routine\ works\ in\ document\ documents}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{void}\ makeGap(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doX,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ docGapSize);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ closeGap(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doX,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ docCoord,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ docGapSize);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ the\ output\ device}}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{classmx__device}{mx\_device}}*\ outputDevice;}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ the\ top\ left\ of\ the\ device\ in\ the}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ coordinates\ of\ the\ frame\ (e.g\ sheet\_number\ is\ always\ 0\ )}}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ topLeft;}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ size;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ frameScroll(\textcolor{keywordtype}{int}\&\ err,}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ scrollPostion,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ MX\_SCROLL\_OFFSET\ offset,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameX,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sameY,}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmx__doc__coord__t}{mx\_doc\_coord\_t}}\&\ actualScrollPosition,}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ doScroll);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\ the\ scale\ factor\ between\ the\ object\ and\ how\ it\ should\ be}}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ displayed}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{double}\ zoom;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ scroll\ limit\ box}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{bool}\ applyScrollLimit;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ applyScrollLimitToTarget;}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ scrollLimitBox;}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{classmx__rect}{mx\_rect}}\ targetLimitAdd;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{bool}\ drawPerSheet;}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{comment}{//\ false\ origins\ -\/\ used\ to\ convert\ from\ frame\ to\ device\ coordinates}}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ with\ an\ offset\ -\/\ not\ used\ for\ device\ to\ frame}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{bool}\ useFalseOrigin;}
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{classmx__point}{mx\_point}}\ falseOrigin;}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{comment}{//\ the\ thing\ in\ the\ frame}}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{classmx__frame__target}{mx\_frame\_target}}\&\ frameTarget;}
+\DoxyCodeLine{00264\ \};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
