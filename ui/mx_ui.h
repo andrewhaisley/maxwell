@@ -44,7 +44,6 @@
 #include <mx_page_d.h>
 #include <mx_para_d.h>
 #include <mx_print_d.h>
-#include <mx_printcap.h>
 #include <mx_prog_d.h>
 #include <mx_quit_d.h>
 #include <mx_replace_d.h>

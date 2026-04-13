@@ -119,7 +119,6 @@ mx_wp_document* mx_db_client_open_temporary_wp_doc(int& err, const char* page_si
  *
  */
 {
-    printf("HERE mx_db_client_open_temporary_wp_doc 1\n");
     mx_wp_document* res;
 
     const char* file_name = mx_tmpnam(nullptr);
@@ -138,11 +137,9 @@ mx_wp_document* mx_db_client_open_temporary_wp_doc(int& err, const char* page_si
 
     next_docid++;
 
-    printf("HERE mx_db_client_open_temporary_wp_doc 2\n");
     return res;
 
 abort:
-    printf("HERE mx_db_client_open_temporary_wp_doc 3\n");
     return nullptr;
 }
 

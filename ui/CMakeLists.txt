@@ -41,7 +41,6 @@ add_library(ui
     mx_opt_d.C
     mx_page_d.C
     mx_para_d.C
-    mx_printcap.C
     mx_print_d.C
     mx_prog_d.C
     mx_quit_d.C

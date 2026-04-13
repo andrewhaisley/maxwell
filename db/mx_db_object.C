@@ -974,6 +974,7 @@ mx_db_mem_state_t mx_db_object::get_mem_state()
 
 void mx_db_object::set_mem_state(mx_db_mem_state_t s)
 {
+#if 0
     switch (s) {
     case mx_on_disk_e:
         printf("set_memstate %d, %d: on disk\n", doc_id, db_id);
@@ -988,6 +989,7 @@ void mx_db_object::set_mem_state(mx_db_mem_state_t s)
         printf("set_memstate %d, %d: unknown\n", doc_id, db_id);
         break;
     }
+#endif
     mem_state = s;
 }
 

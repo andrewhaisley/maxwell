@@ -41,6 +41,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <cups/cups.h>
 
 #include "mx_dialog.h"
 #include "mx_inform_d.h"
@@ -477,34 +478,27 @@ mx_print_d::mx_print_d(Widget parent)
 void mx_print_d::fill_list(Widget w)
 {
     XmString str[MAX_DIR_FILES];
-    int i = 0, j;
+    cups_dest_t *printers;
 
-    char* s;
+    int n, i = 0, j;
 
-    FILE* f;
+    n = cupsGetDests(&printers);
 
-    f = fopen("/etc/printcap", "r");
-    if (f != NULL) {
-        while (TRUE) {
-            s = mx_print_d::get_next_printer(f);
-
-            if (s[0] == 0) {
-                break;
-            }
-            str[i++] = XmStringCreate(s, XmFONTLIST_DEFAULT_TAG);
-        }
-        fclose(f);
+    for (j = 0; j < n; j++) {
+        str[i++] = XmStringCreate(printers[j].name, XmFONTLIST_DEFAULT_TAG);
+#if 0
+        printf("Printer %d:\n", i + 1);
+        printf("  Name: %s\n", dests[i].name);
+        printf("  Instance: %s\n", dests[i].instance ? dests[i].instance : "None");
+        printf("  Is Default: %s\n", dests[i].is_default ? "Yes" : "No");
+        printf("\n");
+#endif
     }
 
-    if (i == 0) {
-        i = 1;
-        str[0] = XmStringCreate(const_cast<char*>("lp"), XmFONTLIST_DEFAULT_TAG);
-    }
-
-    XtVaSetValues(w,
-        XmNitemCount, i,
-        XmNitems, str,
-        NULL);
+    // Free the memory allocated by cupsGetDests
+    cupsFreeDests(n, printers);
+    
+    XtVaSetValues(w, XmNitemCount, i, XmNitems, str, NULL);
 
     for (j = 0; j < i; j++) {
         XmStringFree(str[j]);

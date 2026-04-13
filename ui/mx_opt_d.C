@@ -32,6 +32,8 @@
  *
  */
 
+#include <cups/cups.h>
+
 #include <ctype.h>
 #include <dirent.h>
 #include <errno.h>
@@ -56,7 +58,6 @@
 #include <mx.h>
 #include <mx_std.h>
 #include <mx_ui_object.h>
-// #include "mx_yes_no_d.h"
 #include <mx_file_type.h>
 #include <mx_sizes.h>
 
@@ -337,9 +338,9 @@ abort:
 
 void mx_opt_d::create_menus()
 {
-    int i;
-    FILE* f;
-    char* s;
+    int i, n;
+
+    cups_dest_t *printers;
 
     for (i = 0; i < MX_NUM_LANGUAGES; i++) {
         language_buttons[i] = XtVaCreateManagedWidget(
@@ -373,8 +374,9 @@ void mx_opt_d::create_menus()
             NULL);
     }
 
-    f = fopen("/etc/printcap", "r");
-    if (f == NULL) {
+    n = cupsGetDests(&printers);
+
+    if (n == 0) {
         printer_buttons[0] = XtVaCreateManagedWidget(
             "lp",
             xmPushButtonGadgetClass,
@@ -382,19 +384,14 @@ void mx_opt_d::create_menus()
             NULL);
         num_printer_buttons = 1;
     } else {
-        i = 0;
-        while (TRUE) {
-            s = get_next_printer(f);
-            if (s[0] == 0) {
-                break;
-            }
-            printer_buttons[i++] = XtVaCreateManagedWidget(
-                s,
+        for (i = 0; i < n; i++) {
+            printer_buttons[i] = XtVaCreateManagedWidget(
+                printers[i].name,
                 xmPushButtonGadgetClass,
                 printer_sub_menu,
                 NULL);
         }
-        num_printer_buttons = i;
+        num_printer_buttons = n;
     }
 }
 

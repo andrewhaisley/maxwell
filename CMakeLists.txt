@@ -64,4 +64,4 @@ add_subdirectory(ui)
 add_subdirectory(view)
 
 add_executable(maxwell maxwell.C)
-target_link_libraries(maxwell collection db dgedit font dgui document edit geometry geomstyle raster rtf font shared ui view collection db dgedit dgui document edit geometry geomstyle raster rtf shared ui view xpm -lX11 -lXm -lXt -lfontconfig -lfreetype -lXft -ljpeg -lz -ltiff -lXpm)
+target_link_libraries(maxwell collection db dgedit font dgui document edit geometry geomstyle raster rtf font shared ui view collection db dgedit dgui document edit geometry geomstyle raster rtf shared ui view xpm -lX11 -lXm -lXt -lfontconfig -lfreetype -lXft -ljpeg -lz -ltiff -lXpm -lcups)

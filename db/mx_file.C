@@ -132,7 +132,6 @@ abort:
 
 void mx_file::start_transaction(int& err)
 {
-    printf("mx_file::start_transaction\n");
     char temp[MAX_PATH_LEN + 2];
 
     sprintf(temp, "%s~", file_name);
@@ -161,7 +160,6 @@ abort:;
 
 void mx_file::commit(int& err)
 {
-    printf("mx_file::commit\n");
     char temp[MAX_PATH_LEN + 2];
 
     write_uint8(err, mx_sfile_none_e);

@@ -72,7 +72,7 @@ static void set_io_timeout()
 {
     // set the timeout to be quite large, in case of a highly loaded or low
     // performance machine
-    signal(SIGALRM, (mx_sighandler_t)dummy_sigproc);
+    signal(SIGALRM, (sighandler_t)dummy_sigproc);
     alarm(10);
 }
 
@@ -475,8 +475,6 @@ void mx_spell_d::handle_button(Widget w)
 
 int mx_spell_d::run_modal(const char* word)
 {
-    printf("HERE %s\n", word);
-
     char buffer[202], *s, tmpbuf[1000];
     strcpy(original_word, word);
 

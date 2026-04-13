@@ -35,14 +35,12 @@
  */
 
 #include "mx_dialog.h"
-#include "mx_printcap.h"
 #include "mx_save_d.h"
 #include <Xm/Xm.h>
 
 #define MX_PRINT_MAX_PAGES 100
-#define MX_MAX_PRINTERS 50
 
-class mx_print_d : public mx_dialog, public mx_printcap {
+class mx_print_d : public mx_dialog {
 
 public:
     ~mx_print_d();

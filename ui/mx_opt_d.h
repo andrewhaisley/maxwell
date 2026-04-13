@@ -34,12 +34,11 @@
  */
 
 #include "mx_dialog.h"
-#include "mx_printcap.h"
 #include <Xm/Xm.h>
 #include <mx_config.h>
 #include <mx_sizes.h>
 
-class mx_opt_d : public mx_dialog, public mx_printcap {
+class mx_opt_d : public mx_dialog {
 
 public:
     mx_opt_d(Widget parent);
@@ -76,8 +75,7 @@ private:
 
     int num_printer_buttons;
 
-    // Widget printer_buttons[MX_MAX_PRINTERS];
-    Widget printer_buttons[50];
+    Widget printer_buttons[MX_MAX_PRINTERS];
     Widget unit_buttons[MX_NUM_UNIT_TYPES];
     Widget envelope_buttons[MX_NUM_ENVELOPE_SIZES];
     Widget paper_buttons[MX_NUM_PAPER_SIZES];

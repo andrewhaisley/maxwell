@@ -263,9 +263,7 @@ void mx_app::start_wp_cb(Widget w, XtPointer client_data, XtPointer call_data)
     s = global_user_config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
 
-    printf("start_wp_cb mx_db_client_open_temporary_wp_doc start\n");
     doc = mx_db_client_open_temporary_wp_doc(err, (char*)s);
-    printf("start_wp_cb mx_db_client_open_temporary_wp_doc end\n");
     MX_ERROR_CHECK(err);
 
     app->new_wp_editor(err, doc);

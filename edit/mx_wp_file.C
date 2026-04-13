@@ -319,8 +319,6 @@ abort:
 
 bool mx_wp_editor::file_force_close(int& err)
 {
-    printf("bool mx_wp_editor::file_force_close(int& err)\n");
-
     set_edit_component(err, mx_wp_editor_body_e);
     MX_ERROR_CHECK(err);
 
@@ -328,9 +326,7 @@ bool mx_wp_editor::file_force_close(int& err)
     MX_ERROR_CHECK(err);
 
     if (get_document()->is_modified()) {
-        printf("MODIFIED doc\n");
         if (get_document()->get_temp_flag()) {
-            printf("TEMP doc\n");
             file_save_as(err);
             MX_ERROR_CHECK(err);
         } else {

@@ -481,7 +481,6 @@ abort:;
 
 static void mx_db_cc_commit_to_file(int& err, std::shared_ptr<mx_file> &file, int docid)
 {
-    printf("enter mx_db_cc_commit_to_file\n");
     file->start_transaction(err);
     MX_ERROR_CHECK(err);
 
@@ -516,7 +515,6 @@ static void mx_db_cc_commit_to_file(int& err, std::shared_ptr<mx_file> &file, in
         }
 
         if (o->obj) {
-            printf("calling set_mem_state in mem for doc %d obj %d\n", docid, o->id);
             o->obj->set_mem_state(mx_in_mem_e);
         }
     }
@@ -525,7 +523,6 @@ static void mx_db_cc_commit_to_file(int& err, std::shared_ptr<mx_file> &file, in
     MX_ERROR_CHECK(err);
 
 abort:;
-    printf("return mx_db_cc_commit_to_file\n");
 }
 
 void mx_db_cc_commit(int& err, uint32 docid)

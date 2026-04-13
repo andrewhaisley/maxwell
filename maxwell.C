@@ -122,7 +122,7 @@ static int child_sigproc()
     // get rid of zombies
     (void)wait(&s);
 
-    signal(SIGCLD, (mx_sighandler_t)child_sigproc);
+    signal(SIGCLD, (sighandler_t)child_sigproc);
     return 0;
 }
 
@@ -345,7 +345,7 @@ abort:
  */
 static void set_signals()
 {
-    signal(SIGCLD, (mx_sighandler_t)child_sigproc);
+    signal(SIGCLD, (sighandler_t)child_sigproc);
     signal(SIGCLD, SIG_IGN);
 }
 

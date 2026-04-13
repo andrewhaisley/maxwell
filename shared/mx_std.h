@@ -106,7 +106,7 @@ typedef unsigned long int LUT_VALUE;
 
 #include <limits.h>
 
-// define our own signal handler type, since its not consistent across systems
-typedef void (*mx_sighandler_t)(int);
+// maximum number of printers
+#define MX_MAX_PRINTERS 50
 
 #endif
