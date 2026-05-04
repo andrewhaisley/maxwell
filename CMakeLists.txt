@@ -66,3 +66,23 @@ add_subdirectory(view)
 
 add_executable(maxwell maxwell.C)
 target_link_libraries(maxwell collection db dgedit font dgui document edit geometry geomstyle raster rtf font shared ui view collection db dgedit dgui document edit geometry geomstyle raster rtf shared ui view xpm -lX11 -lXm -lXt -lfontconfig -lfreetype -lXft -ljpeg -lz -ltiff -lXpm -lcups -lcairo)
+
+install(TARGETS maxwell RUNTIME DESTINATION bin)
+
+# ---- CPack (DEB package) ----
+set(CPACK_PACKAGE_NAME "maxwell")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Maxwell Word Processor")
+set(CPACK_PACKAGE_CONTACT "andrew@haisley.com")
+
+# Debian-specific settings
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Andrew Haisley") # required
+set(CPACK_DEBIAN_PACKAGE_DEPENDS
+    "libc6, libx11-6, libxm4, libxt6, libfontconfig1, libfreetype6, libxft2, libjpeg-turbo8, zlib1g, libtiff6, libxpm4, libcups2, libcairo2")
+
+# Optional but useful
+set(CPACK_DEBIAN_PACKAGE_SECTION "utils")
+set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+
+include(CPack)

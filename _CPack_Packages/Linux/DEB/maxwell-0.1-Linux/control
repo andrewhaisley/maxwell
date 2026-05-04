@@ -1,0 +1,10 @@
+Architecture: amd64
+Depends: libc6, libx11-6, libxm4, libxt6, libfontconfig1, libfreetype6, libxft2, libjpeg-turbo8, zlib1g, libtiff6, libxpm4, libcups2, libcairo2
+Description: Maxwell Word Processor
+Maintainer: Andrew Haisley
+Package: maxwell
+Priority: optional
+Section: utils
+Version: 0.1
+Installed-Size: 26415
+
