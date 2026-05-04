@@ -32,6 +32,9 @@
  *
  */
 
+#include <cairo.h>
+#include <cairo-pdf.h>
+
 #include <mx_cb.h>
 #include <mx_device.h>
 
@@ -53,10 +56,7 @@ public:
     //
     //***************************************************************
 
-    mx_print_device(int& err,
-        mx_frame& deviceFrame,
-        mx_point& deviceSize,
-        double deviceResolution);
+    mx_print_device(int& err, mx_frame& deviceFrame, mx_point& deviceSize);
 
     //***************************************************************
     //
@@ -212,7 +212,7 @@ public:
         const char* s,
         uint32 s_len,
         mx_ipoint pos,
-        const mx_char_style& charStyle);
+        mx_char_style& charStyle);
 
     // draw a line of text in one go
     virtual void pdrawTextLine(int& err,
@@ -307,39 +307,25 @@ public:
     //
     //***************************************************************
 
-    void setOutputFile(int& err, FILE* f);
-
-    void sendPreamble(int& err,
-        int numPages,
-        int numCopies,
-        const char* paperType,
-        float pageWidth,
-        float pageHeight,
-        const char* title,
-        bool includeFonts);
-
-    void sendPostamble(int& err);
+    void setOutputFile(const char *file_name);
 
     void startPage(int& err, int n, float page_width, float page_height, bool is_landscape);
     void endPage(int& err);
-
-    void sendProcset(int& err);
-
     void setFont(int& err);
-
     void setColour(int& err, const mx_colour& c);
-
-    void sendFonts(int& err);
-    void sendFontEncodings(int& err);
-    void sendFontResourceList(int& err);
-
     void setXor(int& err, bool setOn) { err = MX_ERROR_OK; };
+
+    void startPrint();
+    void endPrint();
 
 private:
     mx_ipoint printerSize;
-    FILE* outputFile;
-    FILE* tempFile;
 
+    cairo_surface_t *m_cairo_surface;
+    cairo_t *m_cairo;
+
+    std::string m_output_file_name;
+    
     void pushClipMask(int& err,
         bool doIntersect);
 

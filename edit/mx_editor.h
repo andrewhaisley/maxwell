@@ -97,7 +97,6 @@ public:
     virtual void tools_options(int& err);
 
     void file_print(int& err, int page_number, mx_print_frame* frame);
-    void file_print_one_copy(int& err, mx_print_frame* frame);
 
     // get the editor for a given window
     static mx_editor *get_editor_for_window(Window w);
@@ -118,8 +117,6 @@ protected:
     char* current_page_size;
     char* current_envelope_size;
     char* current_language;
-    int current_printer_x_res;
-    int current_printer_y_res;
 
     float current_zoom;
 
@@ -127,14 +124,7 @@ protected:
     virtual void print_page(int& err, int i, mx_print_frame* print_frame);
 
     void set_print_device_size(int& err, mx_print_frame* print_frame);
-    void send_print_preamble(
-        int& err,
-        mx_print_device* dev,
-        int num_pages,
-        int num_copies,
-        bool include_fonts);
-    void send_print_postamble(int& err, mx_print_device* dev);
-    void print_copies(int& err, char* name, char* printer, int num_copies);
+    void print_copies(int& err, const char* file_name, const char* printer_name, int num_copies);
 
     int get_num_pages_to_print(int& err, mx_print_d* d);
     int modify_for_parity(mx_print_d* d, int start, int end);

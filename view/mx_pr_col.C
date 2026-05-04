@@ -52,8 +52,6 @@ void mx_print_device::registerColour(mx_colour* colour, LUT_VALUE* pixel)
 
 void mx_print_device::setForegroundColour(int& err, LUT_VALUE pixel)
 {
-    err = MX_ERROR_OK;
-    return;
 }
 
 /*-------------------------------------------------
@@ -66,16 +64,12 @@ void mx_print_device::setForegroundColour(int& err, LUT_VALUE pixel)
 
 void mx_print_device::setBackgroundColour(int& err, LUT_VALUE pixel)
 {
-    err = MX_ERROR_OK;
-    return;
 }
 
 void mx_print_device::setForegroundColour(int& err, mx_colour& c)
 {
-    err = MX_ERROR_OK;
 }
 
 void mx_print_device::setBackgroundColour(int& err, mx_colour& c)
 {
-    err = MX_ERROR_OK;
 }

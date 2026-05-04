@@ -367,7 +367,7 @@ public:
     virtual void drawText(int& err,
         const char* s,
         const mx_doc_coord_t& pos,
-        const mx_char_style& charStyle);
+        mx_char_style& charStyle);
 
     // draw some text in a given character style, using a string of a given
     // length
@@ -375,14 +375,14 @@ public:
         const char* s,
         uint32 s_len,
         const mx_doc_coord_t& pos,
-        const mx_char_style& charStyle);
+        mx_char_style& charStyle);
 
     // returns the pixel width of the text drawn
     virtual int pdrawText(int& err,
         const char* s,
         uint32 s_len,
         mx_ipoint pos,
-        const mx_char_style& charStyle)
+        mx_char_style& charStyle)
         = 0;
 
     // draw a line of text in one go

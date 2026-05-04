@@ -210,7 +210,7 @@ public:
         const char* s,
         uint32 s_len,
         mx_ipoint pos,
-        const mx_char_style& charStyle);
+        mx_char_style& charStyle);
 
     // draw a line of text in one go
     virtual void pdrawTextLine(int& err,

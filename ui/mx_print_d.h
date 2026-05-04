@@ -87,25 +87,14 @@ public:
     // true -> print to file
     bool to_file;
 
-    // printer resolution
-    int x_res;
-    int y_res;
-
-    // true->include font files in file/print job
-    bool include_fonts;
-
     void activate_d(
         int num_pages,
         char* default_printer,
-        int default_x_res,
-        int default_y_res,
         bool options_sensitive = TRUE);
 
     virtual int run(
         int num_pages,
         char* default_printer,
-        int default_x_res,
-        int default_y_res,
         bool options_sensitive = TRUE);
 
     Widget print_button, cancel_button;
@@ -125,16 +114,12 @@ public:
     mx_inform_d* bad_copies_d;
     mx_inform_d* bad_first_page_d;
     mx_inform_d* bad_last_page_d;
-    mx_inform_d* bad_x_res_d;
-    mx_inform_d* bad_y_res_d;
 
 private:
     void fill_list(Widget w);
     void fill_res_list(Widget w);
     void get_print_list(char* s);
 
-    Widget x_res_text, x_res_list;
-    Widget y_res_text, y_res_list;
     Widget list;
 };
 

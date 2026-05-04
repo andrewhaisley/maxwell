@@ -11,6 +11,7 @@ add_compile_options(-g -Wall -Ofast -std=c++20)
 find_package(X11 REQUIRED)
 
 include_directories(
+        "/usr/include/cairo"
         "/usr/include/X11"
         "/usr/include/freetype2"
         "."
@@ -64,4 +65,4 @@ add_subdirectory(ui)
 add_subdirectory(view)
 
 add_executable(maxwell maxwell.C)
-target_link_libraries(maxwell collection db dgedit font dgui document edit geometry geomstyle raster rtf font shared ui view collection db dgedit dgui document edit geometry geomstyle raster rtf shared ui view xpm -lX11 -lXm -lXt -lfontconfig -lfreetype -lXft -ljpeg -lz -ltiff -lXpm -lcups)
+target_link_libraries(maxwell collection db dgedit font dgui document edit geometry geomstyle raster rtf font shared ui view collection db dgedit dgui document edit geometry geomstyle raster rtf shared ui view xpm -lX11 -lXm -lXt -lfontconfig -lfreetype -lXft -ljpeg -lz -ltiff -lXpm -lcups -lcairo)

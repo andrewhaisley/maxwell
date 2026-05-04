@@ -42,6 +42,7 @@
 
 mx_font_metrics_store* mx_font::m_font_metrics_store = nullptr;
 std::map<mx_font_key_t, XftFont *> mx_font::m_font_cache;
+std::map<mx_font_key_t, cairo_font_face_t *> mx_font::m_cairo_font_cache;
 FcConfig *mx_font::m_config = nullptr;
 
 extern char* global_maxhome;
@@ -456,13 +457,16 @@ XftFont *mx_font::get_xft_font(int &err, Display *dpy, float scale) const
         {
             XftFont *xft_font = XftFontOpenPattern(dpy, match);
 
+
             if (xft_font) {
                 m_font_cache[k] = xft_font;
+                m_cairo_font_cache[k] = cairo_ft_font_face_create_for_pattern(match);
                 return xft_font;
             } 
             else {
                 MX_ERROR_THROW(err, MX_XFT_FAILED);
             }
+
         }
         else
         {
@@ -531,4 +535,24 @@ int mx_font::get_xft_width(XftFont *f, Display *display, const char *s, int len)
     XGlyphInfo ext;
     XftTextExtentsUtf8(display, f, (const FcChar8*)s, len, &ext);
     return ext.width;
+}
+
+cairo_font_face_t *mx_font::get_cairo_font() const
+{
+    mx_font_key_t k;
+
+    k.m_family = get_family();
+    k.m_size = typeface_size;
+    k.m_style = typeface_style;
+    k.m_scale = 1.0;
+    k.m_resolution = get_resolution();
+
+    if (m_cairo_font_cache.find(k) != m_cairo_font_cache.end())
+    {
+        return m_cairo_font_cache[k];
+    }
+    else
+    {
+        return nullptr;
+    }
 }

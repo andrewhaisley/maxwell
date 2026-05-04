@@ -51,7 +51,6 @@ mx_wp_menubar::mx_wp_menubar(mx_window* w) : mx_menubar("wpMenuBar", w)
     menu->add_item("saveAsItem", &mx_wp_menubar::file_cb, this);
     menu->add_separator();
     menu->add_item("printItem", &mx_wp_menubar::file_cb, this);
-    menu->add_item("printCopyItem", &mx_wp_menubar::file_cb, this);
 
     menu = add_sub_menu("editItem");
     menu->add_item("undoItem", &mx_wp_menubar::edit_cb, this);
@@ -160,8 +159,6 @@ void mx_wp_menubar::file_cb(Widget w, XtPointer cd, XtPointer call_data)
         ed->file_save_as(err);
     else if (strcmp(name, "printItem") == 0)
         ed->file_print(err);
-    else if (strcmp(name, "printCopyItem") == 0)
-        ed->file_print_one_copy(err);
     else if (strcmp(name, "closeItem") != 0)
         ed->file_close(err);
 
@@ -501,11 +498,6 @@ void mx_wp_menubar::set_item_visible(menu_item_name_t item, bool s)
         menu_name = "fileItem";
         item_name = "printItem";
         break;
-    case mx_file_print_one_e:
-        menu_name = "fileItem";
-        item_name = "printCopyItem";
-        break;
-
     case mx_edit_undo_e:
         menu_name = "editItem";
         item_name = "undoItem";

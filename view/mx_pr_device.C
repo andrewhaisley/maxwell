@@ -39,38 +39,38 @@
  *
  */
 
-mx_print_device::mx_print_device(int& err,
-    mx_frame& deviceFrame,
-    mx_point& deviceSize,
-    double deviceResolution)
-    : mx_device(deviceFrame)
+mx_print_device::mx_print_device(int& err, mx_frame& deviceFrame, mx_point& deviceSize) : mx_device(deviceFrame)
 {
     err = MX_ERROR_OK;
 
-    // postscript copes with RGB
-    doesRGB = TRUE;
+    m_cairo_surface = nullptr;
+    m_cairo = nullptr;
 
-    // postscipt can join and fill any path
+    // cairo copes with RGB
+    doesRGB = true;
 
-    drawsChord = TRUE;
-    drawsSector = TRUE;
-    fillsSector = TRUE;
+    // cairo can join and fill any path
+    drawsChord = true;
+    drawsSector = true;
+    fillsSector = true;
 
-    drawsBeziers = TRUE;
-    fillsBeziers = TRUE;
+    // and beziers
+    drawsBeziers = true;
+    fillsBeziers = true;
 
-    clipsArc = TRUE;
-    clipsSector = TRUE;
+    // can clip too
+    clipsArc = true;
+    clipsSector = true;
 
-    doesRotate = TRUE;
-    doesAffine = TRUE;
+    // and transformations
+    doesRotate = true;
+    doesAffine = true;
 
-    setScreenResolution(deviceResolution);
+    // we don't need a resolution, everything is done with floats
+    setScreenResolution(1.0);
 
     document_fonts = new mx_list;
 
-    // set the printer size in pixels
-    printerSize = deviceSize * deviceResolution;
 }
 
 /*-------------------------------------------------
@@ -80,7 +80,6 @@ mx_print_device::mx_print_device(int& err,
  *
  *
  */
-
 mx_print_device::~mx_print_device()
 {
     mx_list_iterator iter(*document_fonts);
@@ -108,9 +107,7 @@ mx_print_device::~mx_print_device()
  * new areas.
  */
 
-void mx_print_device::setShiftOrigin(mx_doc_coord_t& wantedShiftOrigin,
-    mx_doc_coord_t& gotShiftOrigin,
-    bool doScroll)
+void mx_print_device::setShiftOrigin(mx_doc_coord_t& wantedShiftOrigin, mx_doc_coord_t& gotShiftOrigin, bool doScroll)
 {
     gotShiftOrigin = pixelSnapFrame(wantedShiftOrigin);
     return;
@@ -127,12 +124,8 @@ void mx_print_device::setShiftOrigin(mx_doc_coord_t& wantedShiftOrigin,
  * to disappear
  */
 
-void mx_print_device::closeGap(int& err,
-    bool doX,
-    mx_point& frameStartPoint,
-    double frameGapSize)
+void mx_print_device::closeGap(int& err, bool doX, mx_point& frameStartPoint, double frameGapSize)
 {
-    err = MX_ERROR_OK;
 }
 
 /*-------------------------------------------------
@@ -145,12 +138,8 @@ void mx_print_device::closeGap(int& err,
  * to be moved
  */
 
-void mx_print_device::makeGap(int& err,
-    bool doX,
-    mx_point& frameStartPoint,
-    double frameGapSize)
+void mx_print_device::makeGap(int& err, bool doX, mx_point& frameStartPoint, double frameGapSize)
 {
-    err = MX_ERROR_OK;
 }
 
 /*-------------------------------------------------
@@ -167,7 +156,6 @@ void mx_print_device::makeGap(int& err,
 
 void mx_print_device::shift(int& err)
 {
-    err = MX_ERROR_OK;
 }
 
 /*-------------------------------------------------
@@ -235,409 +223,34 @@ abort:
     return;
 }
 
-void mx_print_device::sendPreamble(
-    int& err,
-    int numPages,
-    int numCopies,
-    const char* paperType,
-    float pageWidth,
-    float pageHeight,
-    const char* title,
-    bool includeFonts)
-{
-    time_t t;
-    char hn[100];
-
-    struct passwd* pwd;
-
-    err = MX_ERROR_OK;
-
-    t = time(NULL);
-    gethostname(hn, 99);
-    hn[99] = 0;
-
-    pwd = getpwuid(getuid());
-
-    mx_print_device::includeFonts = includeFonts;
-
-    if (fprintf(outputFile, "%%!PS-Adobe-3.0\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%Creator: Maxwell Postscript Device\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%CreationDate: %s", ctime(&t)) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%DocumentMedia: %s %.0f %.0f 0 white ()\n",
-            paperType,
-            MX_MM_TO_POINTS(pageWidth),
-            MX_MM_TO_POINTS(pageHeight))
-        == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%DocumentPrinterRequired: () ()\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%DocumentData: Clean7Bit\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%For: %s\n", pwd->pw_name) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%Title: %s\n", title) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%Routing: %s@%s\n", pwd->pw_name, hn) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%Pages: %d\n", numPages) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%Copies: 1\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    delete document_fonts;
-    document_fonts = new mx_list;
-
-abort:;
-}
-
-void mx_print_device::sendProcset(int& err)
-{
-    if (fprintf(outputFile,
-
-            "/Maxwell10Dict 18 dict def\n"
-            "Maxwell10Dict begin\n"
-            "/ds { moveto show } def\n"
-            "/sf { findfont exch scalefont setfont } def\n"
-            "/sc { setcolor } def\n"
-            "/scs { /DeviceRGB setcolorspace } def\n"
-            "/mt { moveto } def\n"
-            "/lt { lineto } def\n"
-            "/st { stroke } def\n"
-            "/slw { setlinewidth } def\n"
-            "/slj { setlinejoin } def\n"
-            "/slc { setlinecap } def\n"
-            "/sd { setdash } def\n"
-            "/rf { rectfill } def\n"
-            "/cp { closepath } def\n"
-            "/ef { eofill } def\n"
-            "/ec { eoclip } def\n"
-            "/np { newpath } def\n"
-            "/rc { rectclip } def\n"
-            "/rs { rectstroke } def\n")
-        == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:;
-}
-
 void mx_print_device::startPage(int& err, int n, float page_width, float page_height, bool is_landscape)
 {
-    float scale;
-    float translate;
+    auto w = is_landscape ? page_height : page_width;
+    auto h = is_landscape ? page_width : page_height ;
 
-    err = MX_ERROR_OK;
+    w = MX_MM_TO_POINTS(w);
+    h = MX_MM_TO_POINTS(h);
 
-    charStyleSet = FALSE;
-
-    scale = 72.0 / (25.4 * getScreenResolution());
-
-    if (fprintf(tempFile, "%%%%Page: %d\n", n) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "%%%%BeginPageSetup\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "/pgsave save def\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "%%%%EndPageSetup\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (is_landscape) {
-        if (fprintf(tempFile, "90 rotate\n") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
+    if (!m_cairo_surface) {
+        m_cairo_surface = cairo_pdf_surface_create(m_output_file_name.c_str(), w, h);
+        m_cairo = cairo_create(m_cairo_surface);
     } else {
-        translate = MX_MM_TO_POINTS(page_height);
-        if (fprintf(tempFile, "0 %.2f translate\n", translate) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
+        cairo_pdf_surface_set_size(m_cairo_surface, w, h);
     }
-    if (fprintf(tempFile, "%.2f %.2f scale\n", scale, scale) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "scs\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    resetStyles();
-abort:;
 }
 
 void mx_print_device::endPage(int& err)
 {
-    err = MX_ERROR_OK;
-    if (fprintf(tempFile, "showpage\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "pgsave restore\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:;
+    cairo_show_page(m_cairo);
 }
 
-void mx_print_device::sendPostamble(int& err)
+void mx_print_device::setOutputFile(const char *file_name)
 {
-    char buffer[1024];
-    unsigned int n;
-
-    err = MX_ERROR_OK;
-
-    if (!includeFonts) {
-        if (fprintf(outputFile, "%%%%DocumentNeededResources:\n") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-        sendFontResourceList(err);
-        if (fprintf(outputFile, "\n") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-    if (fprintf(outputFile, "%%%%DocumentSuppliedResources: procset Maxwell10Dict\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (includeFonts) {
-        sendFontResourceList(err);
-        MX_ERROR_CHECK(err);
-    }
-
-    if (fprintf(outputFile, "%%%%BeginResource: procset Maxwell10Dict\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    sendProcset(err);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(outputFile, "%%%%EndResource\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (includeFonts) {
-        sendFonts(err);
-        MX_ERROR_CHECK(err);
-    }
-
-    if (fprintf(outputFile, "%%%%BeginProlog\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "%%%%EndProlog\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (fprintf(outputFile, "%%%%BeginSetup\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(outputFile, "Maxwell10Dict begin\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    sendFontEncodings(err);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(outputFile, "%%%%EndSetup\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (fprintf(tempFile, "%%%%Trailer\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-    if (fprintf(tempFile, "%%%%EOF\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (fseek(tempFile, 0, SEEK_SET) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    do {
-        n = fread(buffer, 1, 1024, tempFile);
-        if (n > 0) {
-            if (fwrite(buffer, 1, n, outputFile) != n) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-        } else {
-            if (ferror(tempFile)) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-        }
-    } while (n == 1024);
-
-    if (fclose(tempFile) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:;
+    m_output_file_name = file_name;
 }
 
-void mx_print_device::setOutputFile(int& err, FILE* f)
+void mx_print_device::setPolypointPath(int& err, const mx_ipolypoint& pp, bool doNotClosePath)
 {
-    char file_name[MAX_PATH_LEN];
-
-    (void)mx_tmpnam(file_name);
-    tempFile = fopen(file_name, "w+");
-
-    if (tempFile == NULL) {
-        MX_ERROR_THROW(err, mx_translate_file_error(errno));
-    }
-
-    outputFile = f;
-
-abort:;
-}
-
-void mx_print_device::sendFonts(int& err)
-{
-    mx_list_iterator iter(*document_fonts);
-
-    mx_font* f;
-
-    const char* file_name;
-    FILE* file;
-    char buffer[1024];
-    unsigned int n;
-
-    while (iter.more()) {
-        f = (mx_font*)iter.data();
-        file_name = f->get_filename().c_str();
-
-        if (strcmp(file_name + strlen(file_name) - 4, ".pfb") == 0) {
-            // it's a pfb - turn it into a temporary pfa
-            const char* tmp = mx_tmpnam(NULL);
-            //mx_pfb_2_pfa(err, file_name, tmp);
-            MX_ERROR_CHECK(err);
-            file_name = tmp;
-        }
-
-        file = fopen(file_name, "r");
-        if (file == NULL) {
-            continue;
-        } else {
-            //if (fprintf(outputFile, "%%%%BeginResource: font %s\n", f->get_ps_fontname() + 1) == EOF) {
-            if (fprintf(outputFile, "%%%%BeginResource: font %s\n", "NONE" + 1) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-
-            do {
-                n = fread(buffer, 1, 1024, file);
-                if (n > 0) {
-                    if (fwrite(buffer, 1, n, outputFile) != n) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                } else {
-                    if (ferror(outputFile)) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                }
-            } while (n == 1024);
-
-            if (fprintf(outputFile, "%%%%EndResource\n") == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-        }
-
-        if (fclose(file) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-abort:;
-}
-
-void mx_print_device::sendFontEncodings(int& err)
-{
-    mx_list_iterator iter(*document_fonts);
-
-    mx_font* f;
-    const char* latin_encoding_string = "/Encoding ISOLatin1Encoding def";
-    const char* no_change_encoding_string = "";
-    const char* encoding_string;
-    bool b;
-
-    while (iter.more()) {
-        f = (mx_font*)iter.data();
-
-        b = f->has_latin_encoding(err);
-        MX_ERROR_CHECK(err);
-
-        if (b) {
-            encoding_string = latin_encoding_string;
-        } else {
-            encoding_string = no_change_encoding_string;
-        }
-
-        // remap the font to maxwell font
-        if (fprintf(outputFile,
-                "%s findfont dup length dict begin\n"
-                "{1 index /FID ne {def} {pop pop} ifelse} forall\n"
-                "%s currentdict\n"
-                "end %s-Maxwell exch definefont pop\n",
-                //f->get_ps_fontname(),
-                "NONE",
-                encoding_string,
-                //f->get_ps_fontname())
-                "NONE") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-abort:;
-}
-
-void mx_print_device::sendFontResourceList(int& err)
-{
-    mx_list_iterator iter(*document_fonts);
-
-    mx_font* f;
-
-    while (iter.more()) {
-        f = (mx_font*)iter.data();
-
-        //if (fprintf(outputFile, "%%%%+ font %s\n", f->get_ps_fontname() + 1) == EOF) {
-        if (fprintf(outputFile, "%%%%+ font %s\n", "NONE" + 1) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-abort:;
-}
-
-void mx_print_device::setPolypointPath(int& err,
-    const mx_ipolypoint& pp,
-    bool doNotClosePath)
-{
-    int i;
-
-    err = MX_ERROR_OK;
-
-    for (i = 0; i < pp.get_num_points(); i++) {
-        if (i == 0) {
-            if (fprintf(tempFile, "%d %d mt\n", pp[i].x, -pp[i].y) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-        } else {
-            if (fprintf(tempFile, "%d %d lt\n", pp[i].x, -pp[i].y) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-        }
-    }
-
-    if ((!doNotClosePath) && (pp.get_closed())) {
-        if (fprintf(tempFile, "cp\n") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-abort:;
 }
 
 void mx_print_device::setTransform(int& err,
@@ -649,40 +262,23 @@ void mx_print_device::setTransform(int& err,
     bool doRotation,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    // save the old state
-    if (fprintf(tempFile, "/%s matrix currentmatrix def\n", saveName) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (doShift) {
-        if (fprintf(tempFile, "%.2f %.2f translate\n", shift.x, -shift.y) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-    if (doScale) {
-        if (fprintf(tempFile, "%.2f %.2f scale\n", scaleFactor.x, scaleFactor.y) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-    if (doRotation) {
-        if (fprintf(tempFile, "%.2f rotate\n", -angle.a() * RADTODEG) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-abort:;
 }
 
-void mx_print_device::resetTransform(int& err,
-    const char* saveName)
+void mx_print_device::resetTransform(int& err, const char* saveName)
 {
-    err = MX_ERROR_OK;
+}
 
-    if (fprintf(tempFile, "%s setmatrix\n", saveName) == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
+void mx_print_device::startPrint()
+{
+}
+
+void mx_print_device::endPrint()
+{
+    if (m_cairo != nullptr) {
+        cairo_destroy(m_cairo);
+        cairo_surface_destroy(m_cairo_surface);
+
+        m_cairo = nullptr;
+        m_cairo_surface = nullptr;
     }
-abort:;
 }

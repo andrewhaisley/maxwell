@@ -18,6 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <cairo-ft.h>
+
 #include <Xft/Xft.h>
 #include <fontconfig/fontconfig.h>
 
@@ -130,6 +132,9 @@ public:
 
     // get the Xft font for the family, size and style
     XftFont *get_xft_font(int &err, Display *dpy, float scale) const;
+
+    // get the Cairo font
+    cairo_font_face_t *get_cairo_font() const;
     
     static std::string get_default_roman_font();
     static std::string get_default_symbol_font();
@@ -146,6 +151,7 @@ private:
     float get_resolution() const;
 
     static std::map<mx_font_key_t, XftFont *> m_font_cache;
+    static std::map<mx_font_key_t, cairo_font_face_t *> m_cairo_font_cache;
 
     // This should be empty when it has an invalid value.
     std::string m_typeface_family;

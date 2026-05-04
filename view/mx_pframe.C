@@ -87,7 +87,8 @@ abort:
  *
  */
 
-mx_print_frame::mx_print_frame(int& err,
+mx_print_frame::mx_print_frame(
+    int& err,
     mx_doc_coord_t& initialTopLeft,
     mx_point& initialSize,
     double initialZoom,
@@ -99,7 +100,6 @@ mx_print_frame::mx_print_frame(int& err,
           initialZoom,
           iframeTarget)
 {
-    // check error code
     MX_ERROR_CHECK(err);
 
     currentSheet = 0;
@@ -180,8 +180,8 @@ void mx_print_frame::createDevice(int& err)
 {
     err = MX_ERROR_OK;
 
-    // create the print device with the given size and resolution
-    outputDevice = new mx_print_device(err, *this, printerSize, printerResolution);
+    // create the print device with the given size 
+    outputDevice = new mx_print_device(err, *this, printerSize);
     MX_ERROR_CHECK(err);
 
     // set this frame to receive events from the device

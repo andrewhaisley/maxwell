@@ -38,22 +38,8 @@
  *
  */
 
-void mx_print_device::pushClipMask(int& err,
-    bool doIntersect)
+void mx_print_device::pushClipMask(int& err, bool doIntersect)
 {
-    // here the current path has been set up as
-    // the new clip path to interact with the old
-    // clip mask - can only do intersect at the
-    // moment - that's the only one we currently need
-
-    err = MX_ERROR_OK;
-
-    // save the graphics state - clip to the current path
-    // and then clear the path
-    if (fprintf(tempFile, "gsave ec np\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:;
 }
 
 /*-------------------------------------------------
@@ -66,17 +52,6 @@ abort:;
 
 void mx_print_device::popClipMask(int& err)
 {
-    err = MX_ERROR_OK;
-
-    // restore the old clipping path and
-    // clear the path that was clipped
-    if (fprintf(tempFile, "grestore np\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    // need to reset all styles
-    resetStyles();
-abort:;
 }
 
 /*-------------------------------------------------
@@ -87,19 +62,8 @@ abort:;
  *              be turned off
  */
 
-void mx_print_device::pushClipPolypoint(int& err,
-    const mx_ipolypoint& pp,
-    bool doIntersect)
+void mx_print_device::pushClipPolypoint(int& err, const mx_ipolypoint& pp, bool doIntersect)
 {
-    err = MX_ERROR_OK;
-
-    setPolypointPath(err, pp, TRUE);
-    MX_ERROR_CHECK(err);
-
-    pushClipMask(err, doIntersect);
-    MX_ERROR_CHECK(err);
-abort:
-    return;
 }
 
 /*-------------------------------------------------
@@ -110,15 +74,8 @@ abort:
  *              be turned off
  */
 
-void mx_print_device::pushClipRect(int& err,
-    const mx_irect& coord,
-    const mx_angle& angle,
-    bool doIntersect)
+void mx_print_device::pushClipRect(int& err, const mx_irect& coord, const mx_angle& angle, bool doIntersect)
 {
-    err = MX_ERROR_OK;
-    poperRect(err, coord, angle, "rc");
-    MX_ERROR_CHECK(err);
-abort:;
 }
 
 /*-------------------------------------------------
@@ -137,23 +94,6 @@ void mx_print_device::pclipArc(int& err,
     const mx_angle& angle,
     bool doIntersect)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        FALSE,
-        FALSE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    pushClipMask(err, TRUE);
-    MX_ERROR_CHECK(err);
-abort:
-    return;
 }
 
 /*-------------------------------------------------
@@ -172,21 +112,4 @@ void mx_print_device::pclipSector(int& err,
     const mx_angle& angle,
     bool doIntersect)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        FALSE,
-        TRUE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    pushClipMask(err, TRUE);
-    MX_ERROR_CHECK(err);
-abort:
-    return;
 }

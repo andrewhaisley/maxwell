@@ -478,7 +478,7 @@ int mx_screen_device::pdrawText(int& err,
     const char* s,
     uint32 s_len,
     mx_ipoint pos,
-    const mx_char_style& charStyle)
+    mx_char_style& charStyle)
 {
     mx_ipoint end_pos(pos);
 

@@ -257,11 +257,6 @@ help.help.height:568
 *printItem.accelerator:Ctrl<Key>p
 *printItem.acceleratorText:Ctrl+P
 
-*printCopyItem.labelString:Print One Copy
-*printCopyItem.mnemonic:y
-*printCopyItem.accelerator:Ctrl<Key>1
-*printCopyItem.acceleratorText:Ctrl+1
-
 *undoItem.labelString:Undo
 *undoItem.mnemonic:U
 *undoItem.accelerator:Ctrl<Key>z

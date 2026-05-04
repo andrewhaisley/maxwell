@@ -158,7 +158,7 @@ void mx_device::drawText(int& err,
     const char* s,
     uint32 s_len,
     const mx_doc_coord_t& pos,
-    const mx_char_style& charStyle)
+    mx_char_style& charStyle)
 {
     mx_doc_coord_t ppos;
     mx_ipoint pppos;
@@ -184,7 +184,7 @@ abort:;
 void mx_device::drawText(int& err,
     const char* s,
     const mx_doc_coord_t& pos,
-    const mx_char_style& charStyle)
+    mx_char_style& charStyle)
 {
     drawText(err, s, strlen(s), pos, charStyle);
 }

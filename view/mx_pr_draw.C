@@ -59,31 +59,6 @@ void mx_print_device::poperRect(int& err,
     const mx_angle& angle,
     const char* op)
 {
-    bool doTransform;
-    mx_ipoint startCoord;
-    mx_ipoint size;
-
-    err = MX_ERROR_OK;
-
-    setRect(err, rect, angle, startCoord, size, doTransform, "smat");
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "%d %d %d %d %s\n",
-            startCoord.x,
-            -startCoord.y,
-            size.x,
-            size.y, op)
-        == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (doTransform) {
-        resetTransform(err, "smat");
-        MX_ERROR_CHECK(err);
-    }
-
-abort:
-    return;
 }
 
 /*-------------------------------------------------
@@ -140,15 +115,6 @@ void mx_print_device::pdrawLine(int& err,
     const mx_ipoint& start,
     const mx_ipoint& end)
 {
-    if (fprintf(tempFile, "%d %d mt %d %d lt st\n",
-            start.x,
-            -start.y,
-            end.x,
-            -end.y)
-        == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:;
 }
 
 /*-------------------------------------------------
@@ -163,105 +129,41 @@ int mx_print_device::pdrawText(int& err,
     const char* s,
     uint32 s_len,
     mx_ipoint pos,
-    const mx_char_style& charStyle)
+    mx_char_style& charStyle)
 {
-    uint32 i;
-    float w;
-    unsigned char* str = (unsigned char*)s;
-
     lastCharStyle = charStyle;
-
-    setFont(err);
-    MX_ERROR_CHECK(err);
 
     setColour(err, lastCharStyle.colour);
     MX_ERROR_CHECK(err);
 
-    // check alignment
+    // adjust alignment as needed
     if (lastCharStyle.alignment == mx_superscript) {
-        pos.y -= (int)MX_POINTS_TO_MM(
-            lastCharStyle.alignment_offset * getScreenResolution());
+        pos.y -= MX_POINTS_TO_MM(lastCharStyle.alignment_offset);
     } else {
         if (lastCharStyle.alignment == mx_subscript) {
-            pos.y += (int)MX_POINTS_TO_MM(
-                lastCharStyle.alignment_offset * getScreenResolution());
+            pos.y += MX_POINTS_TO_MM(lastCharStyle.alignment_offset);
         }
     }
+
+    cairo_set_font_face(m_cairo, lastCharStyle.get_font()->get_cairo_font());
+    cairo_set_font_size(m_cairo, lastCharStyle.get_font()->get_size());
 
     if (lastCharStyle.set_width_adjust == 0) {
-        if (fputc('(', tempFile) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
+        cairo_move_to(m_cairo, MX_MM_TO_POINTS(pos.x), MX_MM_TO_POINTS(pos.y));
+        cairo_show_text(m_cairo, std::string(s, s_len).c_str());
 
-        for (i = 0; i < s_len; i++) {
-            if (str[i] == '(' || str[i] == ')' || str[i] == '\\') {
-                if (fputc('\\', tempFile) == EOF) {
-                    MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                }
-                if (fputc(str[i], tempFile) == EOF) {
-                    MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                }
-            } else {
-                if (str[i] > 127) {
-                    if (fprintf(tempFile, "\\%03o", str[i]) == EOF) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                } else {
-                    if (fputc(str[i], tempFile) == EOF) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                }
-            }
-        }
-
-        if (fputc(')', tempFile) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-
-        if (fprintf(tempFile, " %d %d ds\n", pos.x, -pos.y) == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
     } else {
-        uint32 i, x = pos.x;
+        uint32 x = pos.x;
 
-        for (i = 0; i < s_len; i++) {
-            if (fputc('(', tempFile) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
+        for (uint32 i = 0; i < s_len; i++) {
+            cairo_move_to(m_cairo, MX_MM_TO_POINTS(x), MX_MM_TO_POINTS(pos.y));
+            cairo_show_text(m_cairo, std::string(s + i, 1).c_str());
 
-            if (str[i] == '(' || str[i] == ')' || str[i] == '\\') {
-                if (fputc('\\', tempFile) == EOF) {
-                    MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                }
-                if (fputc(str[i], tempFile) == EOF) {
-                    MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                }
-            } else {
-                if (str[i] > 127) {
-                    if (fprintf(tempFile, "\\%03o", str[i]) == EOF) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                } else {
-                    if (fputc(str[i], tempFile) == EOF) {
-                        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-                    }
-                }
-            }
-
-            if (fputc(')', tempFile) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-            if (fprintf(tempFile, " %d %d ds ", x, -pos.y) == EOF) {
-                MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-            }
-
-            x += (int)(0.5 + frame2dev(lastCharStyle.width(str[i])));
+            x += (int)(0.5 + frame2dev(lastCharStyle.width(s[i])));
         }
     }
 
-    w = lastCharStyle.width(s);
-
-    return (int)(w * getScreenResolution());
+    return (int)(lastCharStyle.width(s) * getScreenResolution());
 
 abort:
     return 0;
@@ -294,30 +196,10 @@ uint32 mx_print_device::pgetCharWidth(int& err,
 
 void mx_print_device::pfillPolypoint(int& err, const mx_ipolypoint& pp)
 {
-    err = MX_ERROR_OK;
-
-    setPolypointPath(err, pp, TRUE);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "ef\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-abort:
-    return;
 }
 
 void mx_print_device::pdrawPolypoint(int& err, const mx_ipolypoint& pp)
 {
-    err = MX_ERROR_OK;
-
-    setPolypointPath(err, pp, FALSE);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "st\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-abort:;
 }
 
 void mx_print_device::setRect(int& err,
@@ -364,85 +246,6 @@ void mx_print_device::pArcPath(int& err,
     bool isSector,
     const mx_angle& angle)
 {
-    mx_ipoint ocentre;
-    int osize;
-    double oendAng, ostartAng;
-    bool doScale = (size.x != size.y);
-    bool doRotate = (angle.a() != 0);
-    bool doTransform = (doScale || doRotate);
-
-    err = MX_ERROR_OK;
-
-    if (doTransform) {
-        // we need to scale
-        // save the old state
-
-        setTransform(err,
-            "smat",
-            TRUE,
-            centre,
-            doScale,
-            size,
-            doRotate,
-            angle);
-        MX_ERROR_CHECK(err);
-
-        ocentre.x = ocentre.y = 0;
-        osize = 1;
-    } else {
-        ocentre = centre;
-        osize = size.x;
-    }
-
-    if (isFull) {
-        ostartAng = 0;
-        oendAng = 360;
-    } else {
-        oendAng = 360.0 - (startAng * 360.0 / PITWO);
-        ostartAng = 360.0 - (endAng * 360.0 / PITWO);
-    }
-
-    if (isSector) {
-        // add initial point
-        if (fprintf(tempFile, "%d %d mv ",
-                ocentre.x,
-                -ocentre.y)
-            == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    } else {
-        // make sure we clear the path
-        if (fprintf(tempFile, "np ") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-    // add the arc
-    if (fprintf(tempFile, "%d %d %d %.2f %.2f arc ",
-            ocentre.x,
-            -ocentre.y,
-            osize,
-            ostartAng,
-            oendAng)
-        == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    if (isClosed) {
-        if (fprintf(tempFile, "cp\n") == EOF) {
-            MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-        }
-    }
-
-    // set the old transform back for drawing -
-    // otherwise line width is scaled
-
-    if (doTransform) {
-        resetTransform(err,
-            "smat");
-        MX_ERROR_CHECK(err);
-    }
-abort:;
 }
 
 void mx_print_device::pdrawArc(int& err,
@@ -453,26 +256,6 @@ void mx_print_device::pdrawArc(int& err,
     double endAng,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        FALSE,
-        FALSE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "st\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    return;
-abort:
-    return;
 }
 
 void mx_print_device::pfillArc(int& err,
@@ -483,26 +266,6 @@ void mx_print_device::pfillArc(int& err,
     double endAng,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        FALSE,
-        FALSE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "ef\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    return;
-abort:
-    return;
 }
 
 void mx_print_device::pdrawSector(int& err,
@@ -513,26 +276,6 @@ void mx_print_device::pdrawSector(int& err,
     double endAng,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        TRUE,
-        TRUE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "st\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    return;
-abort:
-    return;
 }
 
 void mx_print_device::pfillSector(int& err,
@@ -543,26 +286,6 @@ void mx_print_device::pfillSector(int& err,
     double endAng,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        FALSE,
-        TRUE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "ef\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    return;
-abort:
-    return;
 }
 
 void mx_print_device::pdrawChord(int& err,
@@ -573,44 +296,12 @@ void mx_print_device::pdrawChord(int& err,
     double endAng,
     const mx_angle& angle)
 {
-    err = MX_ERROR_OK;
-
-    pArcPath(err,
-        centre,
-        size,
-        isFull,
-        startAng,
-        endAng,
-        TRUE,
-        FALSE,
-        angle);
-    MX_ERROR_CHECK(err);
-
-    if (fprintf(tempFile, "st\n") == EOF) {
-        MX_ERROR_THROW(err, MX_PS_FILE_ERROR);
-    }
-
-    return;
-abort:
-    return;
 }
 
 void mx_print_device::pdrawCircle(int& err, const mx_ipoint& centre, int radius)
 {
-    mx_ipoint size(radius, radius);
-
-    pdrawArc(err, centre, size, TRUE, 0, 0, defaultAngle);
-    MX_ERROR_CHECK(err);
-
-abort:;
 }
 
 void mx_print_device::pfillCircle(int& err, const mx_ipoint& centre, int radius)
 {
-    mx_ipoint size(radius, radius);
-
-    pfillArc(err, centre, size, TRUE, 0, 0, defaultAngle);
-    MX_ERROR_CHECK(err);
-
-abort:;
 }

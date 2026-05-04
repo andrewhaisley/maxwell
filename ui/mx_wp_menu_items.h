@@ -28,7 +28,6 @@ typedef enum {
     mx_file_save_e,
     mx_file_save_as_e,
     mx_file_print_e,
-    mx_file_print_one_e,
     mx_edit_undo_e,
     mx_edit_redo_e,
     mx_edit_cut_e,

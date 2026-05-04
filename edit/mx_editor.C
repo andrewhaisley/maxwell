@@ -31,6 +31,9 @@
  *
  *
  */
+
+#include <cups/cups.h>
+
 #include "mx_editor.h"
 #include <mx.h>
 #include <mx_ui.h>
@@ -226,66 +229,6 @@ void mx_editor::set_print_device_size(int& err, mx_print_frame* print_frame)
 abort:;
 }
 
-void mx_editor::file_print_one_copy(int& err, mx_print_frame* print_frame)
-{
-    mx_print_device* d;
-
-    mx_prog_d* prog = dialog_man.get_prog_d();
-    char message[MAX_PATH_LEN];
-
-    int i, num_pages;
-    char outFileName[MAX_PATH_LEN];
-    FILE* out;
-
-    prog->centre();
-    prog->activate_d("Printing....");
-
-    set_print_device_size(err, print_frame);
-    MX_ERROR_CHECK(err);
-
-    num_pages = get_document()->get_num_sheets(err);
-    MX_ERROR_CHECK(err);
-
-    d = (mx_print_device*)print_frame->getDevice();
-
-    mx_tmpnam(outFileName);
-
-    out = fopen(outFileName, "w");
-    if (out == nullptr) {
-        MX_ERROR_THROW(err, mx_translate_file_error(errno));
-    }
-
-    d->setOutputFile(err, out);
-    MX_ERROR_CHECK(err);
-
-    send_print_preamble(err, d, num_pages, 1, true);
-    MX_ERROR_CHECK(err);
-
-    for (i = 0; i < num_pages; i++) {
-        sprintf(message, "Printing page %d", i + 1);
-        prog->set_message(message);
-
-        if (prog->peek_cancel()) {
-            dialog_man.reset_prog_d();
-            return;
-        }
-
-        print_page(err, i, print_frame);
-        MX_ERROR_CHECK(err);
-    }
-
-    send_print_postamble(err, d);
-    MX_ERROR_CHECK(err);
-
-    fclose(out);
-
-    print_copies(err, outFileName, current_printer_name, 1);
-    MX_ERROR_CHECK(err);
-
-abort:
-    dialog_man.reset_prog_d();
-}
-
 void mx_editor::print_page(int& err, int i, mx_print_frame* print_frame)
 {
     mx_print_device* dev;
@@ -320,22 +263,10 @@ void mx_editor::print_page(int& err, int i, mx_print_frame* print_frame)
 abort:;
 }
 
-void mx_editor::print_copies(int& err, char* name, char* printer, int num_copies)
+void mx_editor::print_copies(int& err, const char* file_name, const char* printer_name, int num_copies)
 {
-    char printer_arg[100];
-    char copies_arg[100];
-    char exec_name[MAX_PATH_LEN];
-
-    sprintf(printer_arg, "-P%s", printer);
-    sprintf(copies_arg, "-#%d", num_copies);
-
-    sprintf(exec_name, "%s/bin/lpr", global_maxhome);
-
-    if (vfork() == 0) {
-        execl(exec_name, "lpr", copies_arg, printer_arg, name, nullptr);
-
-        // only get here on disaster
-        exit(1);
+    if (cupsPrintFile(printer_name, file_name, "maxwell document", 0, nullptr) == 0) {
+        fprintf(stderr, "print job failed %s, %s: %s\n", printer_name, file_name, cupsLastErrorString());
     }
 }
 
@@ -344,37 +275,25 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
     mx_print_device* dev;
 
     mx_print_d* d;
-    FILE* out;
     char out_file_name[MAX_PATH_LEN];
-    int i, num_pages, num_copies = 0, copies = 0;
+    int i, num_pages, num_copies = 0;
 
     dev = (mx_print_device*)print_frame->getDevice();
+    dev->startPrint();
 
     d = dialog_man.get_print_d();
 
     num_pages = get_document()->get_num_sheets(err);
     MX_ERROR_CHECK(err);
 
-    if (d->run(
-            num_pages,
-            current_printer_name,
-            current_printer_x_res,
-            current_printer_y_res,
-            true)
-        == yes_e) {
+    if (d->run(num_pages, current_printer_name, true) == yes_e) {
         if (d->to_file) {
             strcpy(out_file_name, d->selected_file);
         } else {
             mx_tmpnam(out_file_name);
         }
 
-        out = fopen(out_file_name, "w");
-        if (out == nullptr) {
-            MX_ERROR_THROW(err, mx_translate_file_error(errno));
-        }
-
-        dev->setOutputFile(err, out);
-        MX_ERROR_CHECK(err);
+        dev->setOutputFile(out_file_name);
 
         set_print_device_size(err, print_frame);
         MX_ERROR_CHECK(err);
@@ -388,9 +307,6 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
         } else {
             num_copies = d->num_copies;
         }
-
-        send_print_preamble(err, dev, num_pages, copies, d->include_fonts);
-        MX_ERROR_CHECK(err);
 
         switch (d->range) {
         default:
@@ -417,10 +333,7 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
             break;
         }
 
-        send_print_postamble(err, dev);
-        MX_ERROR_CHECK(err);
-
-        fclose(out);
+        dev->endPrint();
 
         if (!d->to_file) {
             print_copies(err, out_file_name, d->selected_printer, num_copies);
@@ -429,6 +342,7 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
     }
 
 abort:;
+    dev->endPrint();
 }
 
 bool mx_editor::file_close(int& err)
@@ -439,49 +353,6 @@ bool mx_editor::file_close(int& err)
 bool mx_editor::file_force_close(int& err)
 {
     return false;
-}
-
-void mx_editor::send_print_preamble(
-    int& err,
-    mx_print_device* dev,
-    int num_pages,
-    int num_copies,
-    bool include_fonts)
-{
-    mx_sheet* s;
-    const char* paper;
-    float w, h;
-
-    s = get_document()->sheet(err, 0);
-    MX_ERROR_CHECK(err);
-
-    w = s->get_width(err);
-    MX_ERROR_CHECK(err);
-
-    h = s->get_height(err);
-    MX_ERROR_CHECK(err);
-
-    paper = mx_paper_size_name(w, h);
-
-    dev->sendPreamble(
-        err,
-        num_pages,
-        num_copies,
-        paper == nullptr ? "Custom" : paper,
-        w,
-        h,
-        get_document()->get_full_file_name().c_str(),
-        include_fonts);
-    MX_ERROR_CHECK(err);
-
-abort:;
-}
-
-void mx_editor::send_print_postamble(int& err, mx_print_device* dev)
-{
-    dev->sendPostamble(err);
-    MX_ERROR_CHECK(err);
-abort:;
 }
 
 void mx_editor::help_support(int& err)
@@ -550,12 +421,6 @@ void mx_editor::read_config()
     MX_ERROR_CHECK(err);
 
     current_language = mx_string_copy(s);
-
-    current_printer_x_res = global_user_config->get_default_int(err, "printer_x_res", 300);
-    MX_ERROR_CHECK(err);
-
-    current_printer_y_res = global_user_config->get_default_int(err, "printer_y_res", 300);
-    MX_ERROR_CHECK(err);
 
     return;
 

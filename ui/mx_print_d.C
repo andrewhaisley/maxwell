@@ -145,10 +145,9 @@ static void list_cb(Widget list, XtPointer client_data, XtPointer call_data)
 mx_print_d::mx_print_d(Widget parent)
     : mx_dialog("print", parent, TRUE, FALSE)
 {
-    Widget label1, label2, label3, label4, label7, sep;
+    Widget label1, label2, label3, label4, sep;
     Widget label5, label6;
-    Widget combo1, combo2;
-    Widget res_rc;
+    //Widget res_rc;
 
     int n;
     Arg args[10];
@@ -159,8 +158,6 @@ mx_print_d::mx_print_d(Widget parent)
     bad_copies_d = NULL;
     bad_first_page_d = NULL;
     bad_last_page_d = NULL;
-    bad_x_res_d = NULL;
-    bad_y_res_d = NULL;
 
     list = XmCreateScrolledList(control_area, const_cast<char*>("printerList"), NULL, 0);
 
@@ -385,50 +382,6 @@ mx_print_d::mx_print_d(Widget parent)
         XmNleftWidget, collate_button,
         NULL);
 
-    label7 = XtVaCreateManagedWidget(
-        "resLabel",
-        xmLabelGadgetClass,
-        control_area,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, to_file_button,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, XtParent(list),
-        NULL);
-
-    res_rc = XtVaCreateWidget(
-        "res",
-        xmRowColumnWidgetClass,
-        control_area,
-        XmNorientation, XmHORIZONTAL,
-        XmNpacking, XmPACK_COLUMN,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, XtParent(list),
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, label7,
-        NULL);
-
-    combo1 = XmCreateDropDownComboBox(res_rc, const_cast<char*>("combo1"), NULL, 0);
-
-    x_res_text = XtNameToWidget(combo1, "*Text");
-    x_res_list = XtNameToWidget(combo1, "*List");
-
-    combo2 = XmCreateDropDownComboBox(res_rc, const_cast<char*>("combo2"), NULL, 0);
-
-    y_res_text = XtNameToWidget(combo2, "*Text");
-    y_res_list = XtNameToWidget(combo2, "*List");
-
-    fill_res_list(x_res_list);
-    fill_res_list(y_res_list);
-
-    include_fonts_button = XtVaCreateManagedWidget("includeFontsButton", xmToggleButtonGadgetClass,
-        control_area,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, XtParent(list),
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, res_rc,
-        XmNset, XmSET,
-        NULL);
-
     // now, the action buttons
     print_button = XtVaCreateManagedWidget(
         "print",
@@ -465,9 +418,6 @@ mx_print_d::mx_print_d(Widget parent)
         (XtPointer)this);
 
     XtManageChild(list);
-    XtManageChild(combo1);
-    XtManageChild(combo2);
-    XtManageChild(res_rc);
     XtManageChild(print_range_radio);
     XtManageChild(parity_radio);
     XtManageChild(action_area);
@@ -480,25 +430,20 @@ void mx_print_d::fill_list(Widget w)
     XmString str[MAX_DIR_FILES];
     cups_dest_t *printers;
 
-    int n, i = 0, j;
+    int n, i = 0, j, d = 0;
 
     n = cupsGetDests(&printers);
 
     for (j = 0; j < n; j++) {
         str[i++] = XmStringCreate(printers[j].name, XmFONTLIST_DEFAULT_TAG);
-#if 0
-        printf("Printer %d:\n", i + 1);
-        printf("  Name: %s\n", dests[i].name);
-        printf("  Instance: %s\n", dests[i].instance ? dests[i].instance : "None");
-        printf("  Is Default: %s\n", dests[i].is_default ? "Yes" : "No");
-        printf("\n");
-#endif
+        if (printers[j].is_default) {
+            d = j;
+        }
     }
 
-    // Free the memory allocated by cupsGetDests
     cupsFreeDests(n, printers);
     
-    XtVaSetValues(w, XmNitemCount, i, XmNitems, str, NULL);
+    XtVaSetValues(w, XmNitemCount, i, XmNselectedPosition, d, XmNitems, str, NULL);
 
     for (j = 0; j < i; j++) {
         XmStringFree(str[j]);
@@ -508,24 +453,21 @@ void mx_print_d::fill_list(Widget w)
 void mx_print_d::activate_d(
     int num_pages,
     char* default_printer,
-    int default_x_res,
-    int default_y_res,
     bool options_sensitive)
 {
     char s[20];
     XmString str;
     int i;
-    Widget w[15] = {
+    Widget w[14] = {
         print_range_radio, all_button, current_button,
         range_button, list_button,
         start_text, end_text, list_text,
         to_file_button, collate_button,
         parity_radio, parity_all_button,
         parity_odd_button, parity_even_button,
-        include_fonts_button
     };
 
-    for (i = 0; i < 15; i++) {
+    for (i = 0; i < 14; i++) {
         XtVaSetValues(w[i], XmNsensitive, options_sensitive ? True : False, NULL);
     }
 
@@ -534,12 +476,6 @@ void mx_print_d::activate_d(
     sprintf(s, "%d", num_pages);
     XmTextSetString(end_text, s);
     XmTextSetString(list_text, const_cast<char*>(""));
-
-    sprintf(s, "%d dpi", default_x_res);
-    XmTextSetString(x_res_text, s);
-
-    sprintf(s, "%d dpi", default_y_res);
-    XmTextSetString(y_res_text, s);
 
     str = XmStringCreate(default_printer, XmFONTLIST_DEFAULT_TAG);
     XmListSelectItem(list, str, False);
@@ -603,38 +539,6 @@ bool mx_print_d::find_options()
         range = print_list_e;
     }
 
-    s = XmTextGetString(x_res_text);
-    x_res = atoi(s);
-    XtFree(s);
-    if (mx_is_blank(s) || (x_res < 50)) {
-        if (bad_x_res_d == NULL) {
-            bad_x_res_d = new mx_inform_d("badXres", dialog, error_e);
-        }
-        bad_x_res_d->centre();
-        bad_x_res_d->run_modal();
-        bad_x_res_d->deactivate();
-        return FALSE;
-    } else {
-        sprintf(temp, "%d dpi", x_res);
-        XmTextSetString(x_res_text, temp);
-    }
-
-    s = XmTextGetString(y_res_text);
-    y_res = atoi(s);
-    XtFree(s);
-    if (mx_is_blank(s) || (y_res < 50)) {
-        if (bad_y_res_d == NULL) {
-            bad_y_res_d = new mx_inform_d("badYres", dialog, error_e);
-        }
-        bad_y_res_d->centre();
-        bad_y_res_d->run_modal();
-        bad_y_res_d->deactivate();
-        return FALSE;
-    } else {
-        sprintf(temp, "%d dpi", y_res);
-        XmTextSetString(y_res_text, temp);
-    }
-
     s = XmTextGetString(num_copies_text);
     num_copies = atoi(s);
     XtFree(s);
@@ -653,7 +557,6 @@ bool mx_print_d::find_options()
 
     to_file = XmToggleButtonGetState(to_file_button);
     collate = XmToggleButtonGetState(collate_button);
-    include_fonts = XmToggleButtonGetState(include_fonts_button);
 
     if (XmToggleButtonGetState(parity_all_button)) {
         parity = print_both_e;
@@ -714,12 +617,6 @@ mx_print_d::~mx_print_d()
     if (bad_last_page_d != NULL) {
         delete bad_last_page_d;
     }
-    if (bad_x_res_d != NULL) {
-        delete bad_x_res_d;
-    }
-    if (bad_y_res_d != NULL) {
-        delete bad_y_res_d;
-    }
 }
 
 void mx_print_d::fill_res_list(Widget w)
@@ -750,14 +647,12 @@ void mx_print_d::fill_res_list(Widget w)
 int mx_print_d::run(
     int num_pages,
     char* default_printer,
-    int default_x_res,
-    int default_y_res,
     bool options_sensitive)
 {
     int res;
 
     centre();
-    activate_d(num_pages, default_printer, default_x_res, default_y_res, options_sensitive);
+    activate_d(num_pages, default_printer, options_sensitive);
     res = run_modal();
     deactivate();
 

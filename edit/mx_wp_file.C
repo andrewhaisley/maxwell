@@ -248,7 +248,7 @@ void mx_wp_editor::init_print_frame(int& err)
             top_left,
             size,
             1,
-            MX_MM_TO_INCHES(current_printer_x_res),
+            600, //MX_MM_TO_INCHES(current_printer_x_res),
             *print_target);
         MX_ERROR_CHECK(err);
     }
@@ -272,20 +272,6 @@ void mx_wp_editor::file_print(int& err)
     MX_ERROR_CHECK(err);
 
     w.set_page_number(1);
-
-abort:;
-}
-
-void mx_wp_editor::file_print_one_copy(int& err)
-{
-    set_edit_component(err, mx_wp_editor_body_e);
-    MX_ERROR_CHECK(err);
-
-    init_print_frame(err);
-    MX_ERROR_CHECK(err);
-
-    mx_editor::file_print_one_copy(err, print_frame);
-    MX_ERROR_CHECK(err);
 
 abort:;
 }

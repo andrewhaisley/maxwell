@@ -116,7 +116,6 @@ public:
     virtual void file_save(int& err);
     virtual void file_save_as(int& err);
     virtual void file_print(int& err);
-    virtual void file_print_one_copy(int& err);
     void help_about(int& err);
     virtual void help_support(int& err);
     void help_index(int& err);
