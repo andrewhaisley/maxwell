@@ -47,6 +47,8 @@
 #include <mx_wp_toolbar.h>
 #include <mx_xframe.h>
 
+using namespace std;
+
 mx_font* mx_ruler_bar::font = NULL;
 mx_char_style* mx_ruler_bar::cs = NULL;
 
@@ -69,8 +71,8 @@ float temp_ceil(float f)
 mx_ruler_bar::mx_ruler_bar(Widget parent, mx_wp_toolbar* notify)
     : mx_frame_target()
 {
+    string s;
     int err = MX_ERROR_OK;
-    const char* s;
     mx_doc_coord_t tl(0, 0, 0);
     mx_point sz(1000, 1000);
 
@@ -95,7 +97,7 @@ mx_ruler_bar::mx_ruler_bar(Widget parent, mx_wp_toolbar* notify)
     s = global_user_config->get_default_string(err, "units", "mm");
     MX_ERROR_CHECK(err);
 
-    units = mx_unit_type((char*)s);
+    units = mx_unit_type(s);
 
     XtVaSetValues(get_widget(),
         XmNleftAttachment, XmATTACH_FORM,

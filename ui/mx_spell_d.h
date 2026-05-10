@@ -48,7 +48,6 @@ public:
     Widget back_button, add_dict_button;
 
     void activate();
-    bool wrong_spelling(const char* word);
     int run_modal(const char* word);
     void handle_button(Widget w);
 
@@ -56,22 +55,14 @@ public:
     char replacement[100];
 
     void set_language(const char* s);
-    void spawn_ispell(const char* language);
-    void finish_ispell();
 
-    bool spawn_ispell_failed;
+    bool wrong_spelling(const char *);
 
 private:
     void set_language_menu(Widget w, const char* def);
     void fill_list();
 
-    int to_ispell_fd[2];
-    int from_ispell_fd[2];
-
-    pid_t child_pid;
-
     char current_language[100];
-    void ispell_fail();
 };
 
 #endif

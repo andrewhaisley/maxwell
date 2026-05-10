@@ -62,16 +62,14 @@ private:
     Widget page_sub_menu;
     Widget envelope_menu;
     Widget envelope_sub_menu;
-    Widget x_res_text;
-    Widget y_res_text;
 
     void create_menus();
 
-    void set_language_menu(char* current);
-    void set_unit_menu(char* current);
-    void set_page_menu(char* current);
-    void set_envelope_menu(char* current);
-    void set_printer_menu(char* current, int x_res, int y_res);
+    void set_language_menu(const char* current);
+    void set_unit_menu(const char* current);
+    void set_page_menu(const char* current);
+    void set_envelope_menu(const char* current);
+    void set_printer_menu(const char* current);
 
     int num_printer_buttons;
 
@@ -79,7 +77,7 @@ private:
     Widget unit_buttons[MX_NUM_UNIT_TYPES];
     Widget envelope_buttons[MX_NUM_ENVELOPE_SIZES];
     Widget paper_buttons[MX_NUM_PAPER_SIZES];
-    Widget language_buttons[MX_NUM_LANGUAGES];
+    Widget language_buttons[MX_MAX_LANGUAGES];
 };
 
 #endif

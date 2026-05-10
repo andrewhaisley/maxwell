@@ -226,15 +226,14 @@ abort:
 mx_wp_document* mx_wp_editor::open_derived_import_rtf(int& err, char* name)
 {
     mx_wp_document* res;
-    const char* s;
     mx_rtf_importer* i;
 
     mx_wp_cursor temp_cursor;
 
-    s = global_user_config->get_default_string(err, "page", "A4");
+    auto s = global_user_config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
 
-    res = mx_db_client_open_temporary_wp_doc(err, (char*)s);
+    res = mx_db_client_open_temporary_wp_doc(err, s.c_str());
     MX_ERROR_CHECK(err);
 
     temp_cursor.set_document(res);
@@ -278,15 +277,14 @@ abort:
 mx_wp_document* mx_wp_editor::open_derived_import_ascii(int& err, char* name)
 {
     mx_wp_document* res;
-    const char* s;
     mx_ascii_importer* i;
 
     mx_wp_cursor temp_cursor;
 
-    s = global_user_config->get_default_string(err, "page", "A4");
+    auto s = global_user_config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
 
-    res = mx_db_client_open_temporary_wp_doc(err, (char*)s);
+    res = mx_db_client_open_temporary_wp_doc(err, s.c_str());
     MX_ERROR_CHECK(err);
 
     temp_cursor.set_document(res);

@@ -29,6 +29,7 @@
 #ifndef MX_UNIT_H
 #define MX_UNIT_H
 
+#include <string>
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
@@ -92,7 +93,7 @@ const char* mx_unit_name(mx_unit_e u);
  *
  */
 
-mx_unit_e mx_unit_type(char* s);
+mx_unit_e mx_unit_type(const std::string &s);
 /*
  * PARAMS  :
  *   IN - u   a unit type

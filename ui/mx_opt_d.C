@@ -34,6 +34,7 @@
 
 #include <cups/cups.h>
 
+#include <iostream>
 #include <ctype.h>
 #include <dirent.h>
 #include <errno.h>
@@ -63,6 +64,8 @@
 
 #include "mx_opt_d.h"
 
+using namespace std;
+
 static void button_cb(
     Widget widget,
     XtPointer client_data,
@@ -81,7 +84,7 @@ static void button_cb(
 mx_opt_d::mx_opt_d(Widget parent)
     : mx_dialog("opt", parent, TRUE, FALSE)
 {
-    Widget label1, label2, label3, label4, label5, label6;
+    Widget label1, label2, label3, label4;
     Arg args[15];
     int n;
 
@@ -122,30 +125,12 @@ mx_opt_d::mx_opt_d(Widget parent)
         XmNleftAttachment, XmATTACH_FORM,
         NULL);
 
-    label5 = XtVaCreateManagedWidget(
-        "xresLabel",
-        xmLabelGadgetClass,
-        control_area,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, label4,
-        XmNleftAttachment, XmATTACH_FORM,
-        NULL);
-
-    label6 = XtVaCreateManagedWidget(
-        "yresLabel",
-        xmLabelGadgetClass,
-        control_area,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, label5,
-        XmNleftAttachment, XmATTACH_FORM,
-        NULL);
-
     (void)XtVaCreateManagedWidget(
         "languageLabel",
         xmLabelGadgetClass,
         control_area,
         XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, label6,
+        XmNtopWidget, label4,
         XmNleftAttachment, XmATTACH_FORM,
         NULL);
 
@@ -215,22 +200,6 @@ mx_opt_d::mx_opt_d(Widget parent)
 
     printer_menu = XmCreateOptionMenu(control_area, const_cast<char*>("printerMenu"), args, n);
 
-    x_res_text = XtVaCreateManagedWidget("xresText",
-        xmTextWidgetClass, control_area,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, label2,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, printer_menu,
-        NULL);
-
-    y_res_text = XtVaCreateManagedWidget("yresText",
-        xmTextWidgetClass, control_area,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, label2,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, x_res_text,
-        NULL);
-
     // language
     language_sub_menu = XmCreatePulldownMenu(control_area, const_cast<char*>("languagePulldown"), NULL, 0);
 
@@ -239,7 +208,7 @@ mx_opt_d::mx_opt_d(Widget parent)
     n++;
     XtSetArg(args[n], XmNtopAttachment, XmATTACH_WIDGET);
     n++;
-    XtSetArg(args[n], XmNtopWidget, y_res_text);
+    XtSetArg(args[n], XmNtopWidget, printer_menu);
     n++;
     XtSetArg(args[n], XmNleftAttachment, XmATTACH_WIDGET);
     n++;
@@ -297,36 +266,36 @@ mx_opt_d::mx_opt_d(Widget parent)
 
 void mx_opt_d::activate_d(mx_config* conf)
 {
-    int err, x_res, y_res;
-    const char* s;
+    int err;
+    string s;
 
     config = conf;
 
-    x_res = config->get_default_int(err, "printer_x_res", 300);
-    MX_ERROR_CHECK(err);
+    const char* def_printer = cupsGetDefault();
 
-    y_res = config->get_default_int(err, "printer_y_res", 300);
+    if (def_printer) {
+        s = config->get_default_string(err, "printer", def_printer);
+    } else {
+        s = config->get_default_string(err, "printer", MX_PRINT_TO_FILE);
+    }
     MX_ERROR_CHECK(err);
+    set_printer_menu(s.c_str());
 
-    s = config->get_default_string(err, "printer", "lp");
+    s = config->get_default_string(err, "language", "en_US");
     MX_ERROR_CHECK(err);
-    set_printer_menu((char*)s, x_res, y_res);
-
-    s = config->get_default_string(err, "language", "english");
-    MX_ERROR_CHECK(err);
-    set_language_menu((char*)s);
+    set_language_menu(s.c_str());
 
     s = config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
-    set_page_menu((char*)s);
+    set_page_menu(s.c_str());
 
     s = config->get_default_string(err, "envelope", "DL");
     MX_ERROR_CHECK(err);
-    set_envelope_menu((char*)s);
+    set_envelope_menu(s.c_str());
 
     s = config->get_default_string(err, "units", "millimetres");
     MX_ERROR_CHECK(err);
-    set_unit_menu((char*)s);
+    set_unit_menu(s.c_str());
 
     mx_dialog::activate();
 
@@ -338,18 +307,18 @@ abort:
 
 void mx_opt_d::create_menus()
 {
-    int i, n;
+    int i = 0, n;
 
     cups_dest_t *printers;
 
-    for (i = 0; i < MX_NUM_LANGUAGES; i++) {
-        language_buttons[i] = XtVaCreateManagedWidget(
-            mx_language_names[i],
+    for (auto l : mx_language::names) {
+        language_buttons[i++] = XtVaCreateManagedWidget(
+            l.c_str(),
             xmPushButtonGadgetClass,
             language_sub_menu,
             NULL);
     }
-
+    
     for (i = 0; i < MX_NUM_PAPER_SIZES; i++) {
         paper_buttons[i] = XtVaCreateManagedWidget(
             mx_paper_size_names[i],
@@ -376,26 +345,24 @@ void mx_opt_d::create_menus()
 
     n = cupsGetDests(&printers);
 
-    if (n == 0) {
-        printer_buttons[0] = XtVaCreateManagedWidget(
-            "lp",
+    num_printer_buttons = 0;
+
+    printer_buttons[num_printer_buttons++] = XtVaCreateManagedWidget(
+        MX_PRINT_TO_FILE,
+        xmPushButtonGadgetClass,
+        printer_sub_menu,
+        NULL);
+
+    for (i = 0; i < n; i++) {
+        printer_buttons[num_printer_buttons++] = XtVaCreateManagedWidget(
+            printers[i].name,
             xmPushButtonGadgetClass,
             printer_sub_menu,
             NULL);
-        num_printer_buttons = 1;
-    } else {
-        for (i = 0; i < n; i++) {
-            printer_buttons[i] = XtVaCreateManagedWidget(
-                printers[i].name,
-                xmPushButtonGadgetClass,
-                printer_sub_menu,
-                NULL);
-        }
-        num_printer_buttons = n;
     }
 }
 
-void mx_opt_d::set_unit_menu(char* current)
+void mx_opt_d::set_unit_menu(const char* current)
 {
     int i;
 
@@ -407,19 +374,20 @@ void mx_opt_d::set_unit_menu(char* current)
     }
 }
 
-void mx_opt_d::set_language_menu(char* current)
+void mx_opt_d::set_language_menu(const char* current)
 {
-    int i;
+    int i = 0;
 
-    for (i = 0; i < MX_NUM_LANGUAGES; i++) {
-        if (strcmp(current, XtName(language_buttons[i])) == 0) {
+    for (auto l : mx_language::names) {
+        if (l == current) {
             XtVaSetValues(language_menu, XmNmenuHistory, language_buttons[i], NULL);
             return;
         }
+        i++;
     }
 }
 
-void mx_opt_d::set_page_menu(char* current)
+void mx_opt_d::set_page_menu(const char* current)
 {
     int i;
 
@@ -431,7 +399,7 @@ void mx_opt_d::set_page_menu(char* current)
     }
 }
 
-void mx_opt_d::set_envelope_menu(char* current)
+void mx_opt_d::set_envelope_menu(const char* current)
 {
     int i;
 
@@ -443,22 +411,14 @@ void mx_opt_d::set_envelope_menu(char* current)
     }
 }
 
-void mx_opt_d::set_printer_menu(char* current, int x_res, int y_res)
+void mx_opt_d::set_printer_menu(const char* current)
 {
-    char s[20];
-    int i;
-
-    for (i = 0; i < num_printer_buttons; i++) {
+    for (int i = 0; i < num_printer_buttons; i++) {
         if (strcmp(current, XtName(printer_buttons[i])) == 0) {
             XtVaSetValues(printer_menu, XmNmenuHistory, printer_buttons[i], NULL);
             break;
         }
     }
-    sprintf(s, "%d dpi", x_res);
-    XmTextSetString(x_res_text, s);
-
-    sprintf(s, "%d dpi", y_res);
-    XmTextSetString(y_res_text, s);
 }
 
 void mx_opt_d::figure_options()
@@ -496,20 +456,6 @@ void mx_opt_d::figure_options()
 
     config->set_string(err, "envelope", s);
     MX_ERROR_CHECK(err);
-
-    s = XmTextGetString(x_res_text);
-    if (atoi(s) > 50) {
-        config->set_int(err, "printer_x_res", atoi(s));
-        MX_ERROR_CHECK(err);
-    }
-    XtFree(s);
-
-    s = XmTextGetString(y_res_text);
-    if (atoi(s) > 50) {
-        config->set_int(err, "printer_y_res", atoi(s));
-        MX_ERROR_CHECK(err);
-    }
-    XtFree(s);
 
     return;
 

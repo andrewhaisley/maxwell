@@ -47,6 +47,7 @@
 
 #include <maxwell.h>
 
+#include <mx_language.h>
 #include <mx_app.h>
 #include <mx_config.h>
 #include <mx_support_d.h>
@@ -242,13 +243,11 @@ static void open_config(int& err)
             error_exit();
         }
 
-        fprintf(f, "language:english\n");
+        fprintf(f, "language:en_US\n");
         fprintf(f, "units:inches\n");
         fprintf(f, "printer:EPSON_ET_2800_Series_USB\n");
         fprintf(f, "page:A4\n");
         fprintf(f, "envelope:DL\n");
-        fprintf(f, "printer_x_res:300\n");
-        fprintf(f, "printer_y_res:300\n");
 
         fclose(f);
 
@@ -413,6 +412,9 @@ int main(int argc, char* argv[])
     merge_resources();
 
     global_error_trace->init_exit_proc(error_exit);
+
+    // read list of supported languages
+    mx_language::init();
 
     // get the app ready to open files and stuff
     app = mx_app::init();

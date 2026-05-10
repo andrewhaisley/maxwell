@@ -30,54 +30,38 @@
  *
  */
 #include <mx.h>
-#include <mx_list.h>
-#include <stdio.h>
+#include <string>
+#include <map>
 
 #ifndef MX_CONFIG_H
 #define MX_CONFIG_H
 
-#define MX_CONFIG_MAX_NAME_LENGTH 128
-#define MX_CONFIG_MAX_VALUE_LENGTH 1024
+#define MX_PRINT_TO_FILE "Save to PDF file"
 
 class mx_config {
 
 public:
-    mx_config(int& err, const char* file_name);
+    mx_config(int& err, const std::string &file_name);
     ~mx_config();
 
-    int get_int(int& err, const char* name);
-    int get_default_int(int& err, const char* name, int def);
-    float get_float(int& err, const char* name);
+    int get_int(int& err, const std::string &name);
+    int get_default_int(int& err, const std::string &name, int def);
+    float get_float(int& err, const std::string &name);
 
-    // returns a statically allocated thingy -> don't free
-    const char* get_string(int& err, const char* name);
+    std::string get_string(int& err, const std::string &name);
+    std::string get_default_string(int& err, const std::string &name, const std::string &def);
 
-    // returns a statically allocated thingy -> don't free
-    const char* get_default_string(int& err, const char* name, const char* def);
-
-    // lists of things - in each case the pointer points to
-    // a statically allocated area
-    mx_list* get_int_list(int& err, const char* name);
-    mx_list* get_float_list(int& err, const char* name);
-    mx_list* get_string_list(int& err, const char* name);
-
-    void set_int(int& err, const char* name, int i);
-    void set_float(int& err, const char* name, float f);
-    void set_string(int& err, const char* name, const char* s);
-    void set_int_list(int& err, const char* name, mx_list* l);
-    void set_float_list(int& err, const char* name, mx_list* l);
-    void set_string_list(int& err, const char* name, mx_list* l);
+    void set_int(int& err, const std::string &name, int i);
+    void set_float(int& err, const std::string &name, float f);
+    void set_string(int& err, const std::string &name, const std::string &value);
 
 private:
-    FILE* file;
-    void get_string_value(int& err, const char* name, char* buf);
-    void get_line(char* name, char* value);
 
-    char buffer[MX_CONFIG_MAX_VALUE_LENGTH];
-    int int_buffer[100];
-    int float_buffer[100];
+    std::string m_file_name;
+    std::map<std::string, std::string> m_values;
 
-    char file_name[MAX_PATH_LEN];
+    void read_values();
+    void write_values();
 };
 
 #endif

@@ -254,16 +254,15 @@ void mx_app::start_wp_cb(Widget w, XtPointer client_data, XtPointer call_data)
 {
     int err = MX_ERROR_OK;
     mx_wp_document* doc;
-    const char* s;
 
     mx_app* app = (mx_app*)client_data;
 
     app->mx_ui_object::set_busy();
 
-    s = global_user_config->get_default_string(err, "page", "A4");
+    auto s = global_user_config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
 
-    doc = mx_db_client_open_temporary_wp_doc(err, (char*)s);
+    doc = mx_db_client_open_temporary_wp_doc(err, s.c_str());
     MX_ERROR_CHECK(err);
 
     app->new_wp_editor(err, doc);

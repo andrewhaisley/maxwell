@@ -27,16 +27,79 @@
  *
  */
 
+#include <cstring>
+#include <iostream>
+#include <unicode/uloc.h>
+#include <unicode/ustring.h>
+#include <enchant-2/enchant.h>
 #include <mx_language.h>
 
-char mx_language_names[MX_NUM_LANGUAGES][30] = {
-    "english",
-    "american",
-    "francais",
-    "deutsch",
-    "espanol",
-    "portugues",
-    "nederlands",
-    "dansk",
-    "svenska"
-};
+using namespace std;
+
+std::vector<std::string> mx_language::names;
+string mx_language::default_language;
+
+string language_name(string tag) {
+
+    const char *locale = uloc_getDefault();
+
+    if (strcmp(locale, "C") == 0) {
+        locale = "en_US";
+    }
+
+    UChar display_name[256];
+    char display_utf8[256];
+
+    UErrorCode status = U_ZERO_ERROR;
+
+    uloc_getDisplayName(tag.c_str(), locale, display_name, 256, &status);
+
+    if (U_FAILURE(status)) {
+        return u_errorName(status);
+    }
+
+    status = U_ZERO_ERROR;
+    u_strToUTF8(display_utf8, sizeof(display_utf8), NULL, display_name, -1, &status);
+
+    if (U_FAILURE(status)) {
+        return u_errorName(status);
+    }
+
+    return display_utf8;
+}
+
+
+void list_dicts_cb(const char * const lang_tag,
+                   const char * const provider_name,
+                   const char * const provider_desc,
+                   const char * const provider_file,
+                   void * user_data)
+{
+    mx_language::names.push_back(language_name(lang_tag));
+}
+
+
+void mx_language::init()
+{
+    EnchantBroker *broker = enchant_broker_init();
+
+    if (!broker) {
+        return;
+    }
+
+    enchant_broker_list_dicts(broker, list_dicts_cb, NULL);
+    enchant_broker_free(broker);
+
+    set_default_language("en_US");
+}
+
+
+string mx_language::get_default_language()
+{
+    return default_language;
+}
+
+void mx_language::set_default_language(string name)
+{
+    default_language = name;
+}

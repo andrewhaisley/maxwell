@@ -15,9 +15,9 @@ void mx_write_x_resources_needed(const std::string &file_name)
 
 R"(
 ##
-## default font is Nimbus Sans 14 point bold
+## default font is Helvetica 14 point bold
 ##
-*fontList:-urw-nimbus sans l-bold-r-normal--14-140-75-75-p-82-iso8859-1
+*fontList:-adobe-helvetica-bold-r-normal--14-140-75-75-p-82-iso8859-1
 
 *Text*fontList:-adobe-helvetica-*-r-normal-*-*-140-*-*-*-*-*-*
 *XmText*fontList:-adobe-helvetica-*-r-normal-*-*-140-*-*-*-*-*-*

@@ -43,6 +43,8 @@
 #include <mx_pr_device.h>
 #include <mx_print_d.h>
 
+using namespace std;
+
 std::map<Window, mx_editor *> mx_editor::m_editors;
 
 
@@ -286,7 +288,7 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
     num_pages = get_document()->get_num_sheets(err);
     MX_ERROR_CHECK(err);
 
-    if (d->run(num_pages, current_printer_name, true) == yes_e) {
+    if (d->run(num_pages, global_user_config, true) == yes_e) {
         if (d->to_file) {
             strcpy(out_file_name, d->selected_file);
         } else {
@@ -336,7 +338,7 @@ void mx_editor::file_print(int& err, int current_page, mx_print_frame* print_fra
         dev->endPrint();
 
         if (!d->to_file) {
-            print_copies(err, out_file_name, d->selected_printer, num_copies);
+            print_copies(err, out_file_name, d->selected_printer.c_str(), num_copies);
             MX_ERROR_CHECK(err);
         }
     }
@@ -377,7 +379,7 @@ void mx_editor::config_changed()
 
 void mx_editor::read_config()
 {
-    const char* s;
+    string s;
 
     int err = MX_ERROR_OK;
 
@@ -400,27 +402,27 @@ void mx_editor::read_config()
     s = global_user_config->get_default_string(err, "units", "mm");
     MX_ERROR_CHECK(err);
 
-    current_units = mx_unit_type((char*)s);
+    current_units = mx_unit_type(s.c_str());
 
     s = global_user_config->get_default_string(err, "printer", "lp");
     MX_ERROR_CHECK(err);
 
-    current_printer_name = mx_string_copy(s);
+    current_printer_name = mx_string_copy(s.c_str());
 
     s = global_user_config->get_default_string(err, "page", "A4");
     MX_ERROR_CHECK(err);
 
-    current_page_size = mx_string_copy(s);
+    current_page_size = mx_string_copy(s.c_str());
 
     s = global_user_config->get_default_string(err, "envelope", "DL");
     MX_ERROR_CHECK(err);
 
-    current_envelope_size = mx_string_copy(s);
+    current_envelope_size = mx_string_copy(s.c_str());
 
     s = global_user_config->get_default_string(err, "language", "english");
     MX_ERROR_CHECK(err);
 
-    current_language = mx_string_copy(s);
+    current_language = mx_string_copy(s.c_str());
 
     return;
 

@@ -34,6 +34,8 @@
  *
  */
 
+#include <string>
+
 #include "mx_dialog.h"
 #include "mx_save_d.h"
 #include <Xm/Xm.h>
@@ -47,7 +49,7 @@ public:
     mx_print_d(Widget parent);
 
     // which printer was selected
-    char selected_printer[MAX_PATH_LEN];
+    std::string selected_printer;
 
     // if to file, this is the name
     char selected_file[MAX_PATH_LEN];
@@ -87,15 +89,9 @@ public:
     // true -> print to file
     bool to_file;
 
-    void activate_d(
-        int num_pages,
-        char* default_printer,
-        bool options_sensitive = TRUE);
+    void activate_d(int num_pages, bool options_sensitive = true);
 
-    virtual int run(
-        int num_pages,
-        char* default_printer,
-        bool options_sensitive = TRUE);
+    virtual int run(int num_pages, mx_config *config, bool options_sensitive = true);
 
     Widget print_button, cancel_button;
     Widget print_range_radio, all_button, current_button;
@@ -120,7 +116,10 @@ private:
     void fill_res_list(Widget w);
     void get_print_list(char* s);
 
+    static void list_cb(Widget list, XtPointer client_data, XtPointer call_data);
+
     Widget list;
+    mx_config *m_config;
 };
 
 #endif

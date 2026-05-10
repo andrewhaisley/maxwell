@@ -175,8 +175,7 @@ int mx_wp_editor::tools_spell_check_range(
                 case cancel_e:
                     return cancel_e;
                 case replace_e:
-                    replace_text(err, chunk_doc_start, chunk_doc_end,
-                        d->replacement);
+                    replace_text(err, chunk_doc_start, chunk_doc_end, d->replacement);
                     MX_ERROR_CHECK(err);
 
                     replaced_something = TRUE;
@@ -222,9 +221,6 @@ void mx_wp_editor::tools_spelling(int& err)
     int res;
 
     d = dialog_man.get_spell_d(current_language);
-    d->spawn_ispell(current_language);
-    if (d->spawn_ispell_failed)
-        return;
 
     if (cursor.selection()) {
         start = *cursor.selection_start();
@@ -269,7 +265,6 @@ void mx_wp_editor::tools_spelling(int& err)
     MX_ERROR_CHECK(err);
 
 abort:
-    d->finish_ispell();
     d->deactivate();
 }
 

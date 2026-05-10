@@ -74,8 +74,7 @@ public:
     virtual void activate();
     virtual void activate_d(mx_file_class_t c, mx_file_type_t default_type);
 
-    virtual int run(mx_file_class_t c, mx_file_type_t default_type,
-        bool we_want_write);
+    virtual int run(mx_file_class_t c, mx_file_type_t default_type, bool we_want_write);
 
     Widget open_button, cancel_button, file_list;
     Widget type_menu, path_menu, path_sub_menu, file_text, perm_button;

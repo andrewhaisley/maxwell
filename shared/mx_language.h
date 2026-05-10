@@ -30,7 +30,22 @@
 #ifndef MX_LANGUAGE_H
 #define MX_LANGUAGE_H
 
-#define MX_NUM_LANGUAGES 9
-extern char mx_language_names[MX_NUM_LANGUAGES][30];
+#include <vector>
+#include <string>
+
+#define MX_MAX_LANGUAGES 100
+
+class mx_language
+{
+public:
+    static void init();
+    static std::vector<std::string> names;
+    static std::string get_default_language();
+    static void set_default_language(std::string name);
+
+private:
+    static std::string default_language;
+};
+
 
 #endif

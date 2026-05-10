@@ -105,10 +105,7 @@ static void range_cb(
     }
 }
 
-static void button_cb(
-    Widget widget,
-    XtPointer client_data,
-    XtPointer call_data)
+static void button_cb(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_print_d* d = (mx_print_d*)client_data;
 
@@ -129,8 +126,9 @@ static void button_cb(
     }
 }
 
-static void list_cb(Widget list, XtPointer client_data, XtPointer call_data)
+void mx_print_d::list_cb(Widget list, XtPointer client_data, XtPointer call_data)
 {
+    int err;
     mx_print_d* d = (mx_print_d*)client_data;
 
     char* choice;
@@ -138,12 +136,13 @@ static void list_cb(Widget list, XtPointer client_data, XtPointer call_data)
     XmListCallbackStruct* cbs = (XmListCallbackStruct*)call_data;
 
     XmStringGetLtoR(cbs->item, XmFONTLIST_DEFAULT_TAG, &choice);
-    strcpy(d->selected_printer, choice);
+    d->selected_printer = choice;
+    d->m_config->set_string(err, "printer", choice);
     XtFree(choice);
 }
 
 mx_print_d::mx_print_d(Widget parent)
-    : mx_dialog("print", parent, TRUE, FALSE)
+    : mx_dialog("print", parent, true, false)
 {
     Widget label1, label2, label3, label4, sep;
     Widget label5, label6;
@@ -374,14 +373,6 @@ mx_print_d::mx_print_d(Widget parent)
         XmNleftWidget, XtParent(list),
         NULL);
 
-    to_file_button = XtVaCreateManagedWidget("toFileButton", xmToggleButtonGadgetClass,
-        control_area,
-        XmNtopAttachment, XmATTACH_WIDGET,
-        XmNtopWidget, parity_radio,
-        XmNleftAttachment, XmATTACH_WIDGET,
-        XmNleftWidget, collate_button,
-        NULL);
-
     // now, the action buttons
     print_button = XtVaCreateManagedWidget(
         "print",
@@ -432,6 +423,8 @@ void mx_print_d::fill_list(Widget w)
 
     int n, i = 0, j, d = 0;
 
+    str[i++] = XmStringCreate(const_cast<char *>(MX_PRINT_TO_FILE), XmFONTLIST_DEFAULT_TAG);
+
     n = cupsGetDests(&printers);
 
     for (j = 0; j < n; j++) {
@@ -450,24 +443,21 @@ void mx_print_d::fill_list(Widget w)
     }
 }
 
-void mx_print_d::activate_d(
-    int num_pages,
-    char* default_printer,
-    bool options_sensitive)
+void mx_print_d::activate_d(int num_pages, bool options_sensitive)
 {
     char s[20];
     XmString str;
-    int i;
-    Widget w[14] = {
+    int i, err;
+    Widget w[13] = {
         print_range_radio, all_button, current_button,
         range_button, list_button,
         start_text, end_text, list_text,
-        to_file_button, collate_button,
+        collate_button,
         parity_radio, parity_all_button,
         parity_odd_button, parity_even_button,
     };
 
-    for (i = 0; i < 14; i++) {
+    for (i = 0; i < 13; i++) {
         XtVaSetValues(w[i], XmNsensitive, options_sensitive ? True : False, NULL);
     }
 
@@ -477,9 +467,10 @@ void mx_print_d::activate_d(
     XmTextSetString(end_text, s);
     XmTextSetString(list_text, const_cast<char*>(""));
 
-    str = XmStringCreate(default_printer, XmFONTLIST_DEFAULT_TAG);
+    selected_printer = m_config->get_default_string(err, "printer", MX_PRINT_TO_FILE);
+
+    str = XmStringCreate(const_cast<char *>(selected_printer.c_str()), XmFONTLIST_DEFAULT_TAG);
     XmListSelectItem(list, str, False);
-    strcpy(selected_printer, default_printer);
 
     XmStringFree(str);
 }
@@ -508,7 +499,7 @@ bool mx_print_d::find_options()
             bad_first_page_d->centre();
             bad_first_page_d->run_modal();
             bad_first_page_d->deactivate();
-            return FALSE;
+            return false;
         }
 
         sprintf(temp, "%d", first_page);
@@ -525,7 +516,7 @@ bool mx_print_d::find_options()
             bad_last_page_d->centre();
             bad_last_page_d->run_modal();
             bad_last_page_d->deactivate();
-            return FALSE;
+            return false;
         }
 
         sprintf(temp, "%d", last_page);
@@ -549,13 +540,13 @@ bool mx_print_d::find_options()
         bad_copies_d->centre();
         bad_copies_d->run_modal();
         bad_copies_d->deactivate();
-        return FALSE;
+        return false;
     } else {
         sprintf(temp, "%d", num_copies);
         XmTextSetString(num_copies_text, temp);
     }
 
-    to_file = XmToggleButtonGetState(to_file_button);
+    to_file = selected_printer == MX_PRINT_TO_FILE;
     collate = XmToggleButtonGetState(collate_button);
 
     if (XmToggleButtonGetState(parity_all_button)) {
@@ -567,7 +558,7 @@ bool mx_print_d::find_options()
     if (XmToggleButtonGetState(parity_even_button)) {
         parity = print_even_e;
     }
-    return TRUE;
+    return true;
 }
 
 bool mx_print_d::get_output_file()
@@ -581,10 +572,10 @@ bool mx_print_d::get_output_file()
     if (save_d->run_modal() == yes_e) {
         save_d->deactivate();
         strcpy(selected_file, save_d->selected_file_name);
-        return TRUE;
+        return true;
     } else {
         save_d->deactivate();
-        return FALSE;
+        return false;
     }
 }
 
@@ -644,15 +635,14 @@ void mx_print_d::fill_res_list(Widget w)
     }
 }
 
-int mx_print_d::run(
-    int num_pages,
-    char* default_printer,
-    bool options_sensitive)
+int mx_print_d::run(int num_pages, mx_config *config, bool options_sensitive)
 {
     int res;
 
+    m_config = config;
+
     centre();
-    activate_d(num_pages, default_printer, options_sensitive);
+    activate_d(num_pages, options_sensitive);
     res = run_modal();
     deactivate();
 

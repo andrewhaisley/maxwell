@@ -64,45 +64,7 @@
 
 extern char* global_maxhome;
 
-void dummy_sigproc()
-{
-}
-
-static void set_io_timeout()
-{
-    // set the timeout to be quite large, in case of a highly loaded or low
-    // performance machine
-    signal(SIGALRM, (sighandler_t)dummy_sigproc);
-    alarm(10);
-}
-
-static void clear_io_timeout()
-{
-    alarm(0);
-}
-
-static int read_with_timeout(int fd, char* buf, size_t count)
-{
-    int res;
-    set_io_timeout();
-    res = read(fd, buf, count);
-    clear_io_timeout();
-    return res;
-}
-
-static size_t write_with_timeout(int fd, const char* buf, size_t count)
-{
-    size_t res;
-    set_io_timeout();
-    res = write(fd, buf, count);
-    clear_io_timeout();
-    return res;
-}
-
-static void button_cb(
-    Widget widget,
-    XtPointer client_data,
-    XtPointer call_data)
+static void button_cb(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_spell_d* d = (mx_spell_d*)client_data;
 
@@ -137,20 +99,14 @@ static void list_cb(Widget list, XtPointer client_data, XtPointer call_data)
     }
 }
 
-static void text_return(
-    Widget widget,
-    XtPointer client_data,
-    XtPointer call_data)
+static void text_return(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_spell_d* d = (mx_spell_d*)client_data;
 
     d->handle_button(d->replace_button);
 }
 
-static void language_change(
-    Widget widget,
-    XtPointer client_data,
-    XtPointer call_data)
+static void language_change(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_spell_d* d = (mx_spell_d*)client_data;
     char s[30];
@@ -159,18 +115,16 @@ static void language_change(
     d->set_language(s);
 }
 
-mx_spell_d::mx_spell_d(Widget parent, const char* language)
-    : mx_dialog("spell", parent, TRUE, FALSE)
+mx_spell_d::mx_spell_d(Widget parent, const char* language) : mx_dialog("spell", parent, TRUE, FALSE)
 {
     Widget label1, label2, language_menu, language_sub_menu;
     Arg args[15];
     int n;
 
     if (language == NULL || mx_is_blank(language)) {
-        language = "english";
+        language = "EN_US";
     }
 
-    child_pid = 0;
     strcpy(current_language, language);
 
     XtVaSetValues(action_area, XmNfractionBase, 3, NULL);
@@ -351,23 +305,9 @@ mx_spell_d::mx_spell_d(Widget parent, const char* language)
     XtManageChild(pane);
 }
 
-void mx_spell_d::ispell_fail()
-{
-    static mx_inform_d* d = NULL;
-
-    if (d == NULL) {
-        d = new mx_inform_d("ispellFail", dialog, error_e);
-    }
-
-    d->centre();
-    d->run_modal();
-    d->deactivate();
-
-    return;
-}
-
 void mx_spell_d::fill_list()
 {
+#if 0
     int i = 0, j, n = 0;
     char buffer[1000], word[100];
     XmString str[100];
@@ -418,6 +358,7 @@ void mx_spell_d::fill_list()
     for (i = 0; i < n; i++) {
         XmStringFree(str[i]);
     }
+#endif
 }
 
 void mx_spell_d::handle_button(Widget w)
@@ -433,9 +374,7 @@ void mx_spell_d::handle_button(Widget w)
     }
 
     if (w == ignore_all_button) {
-        // tell ispell about it
         sprintf(buffer, "@%s\n", original_word);
-        write_with_timeout(to_ispell_fd[1], buffer, strlen(buffer));
 
         XtVaSetValues(back_button, XmNsensitive, False, NULL);
 
@@ -464,7 +403,6 @@ void mx_spell_d::handle_button(Widget w)
     if (w == add_dict_button) {
         // tell ispell about it
         sprintf(buffer, "*%s\n", original_word);
-        write_with_timeout(to_ispell_fd[1], buffer, strlen(buffer));
 
         XtVaSetValues(back_button, XmNsensitive, False, NULL);
 
@@ -484,21 +422,13 @@ int mx_spell_d::run_modal(const char* word)
     }
 
     sprintf(buffer, "^%s\n", word);
-    write_with_timeout(to_ispell_fd[1], buffer, strlen(buffer));
-
-    if (read_with_timeout(from_ispell_fd[0], buffer, 1) < 0) {
-        ispell_fail();
-        return none_e;
-    }
 
     if (buffer[0] == '*' || buffer[0] == '+' || buffer[0] == '-' || buffer[0] == '\n') {
         // Either 1 information line and a blank line
         // or just a blank line
 
         if (buffer[0] == '+') {
-            read_with_timeout(from_ispell_fd[0], tmpbuf, 100);
         } else if (buffer[0] != '\n') {
-            read_with_timeout(from_ispell_fd[0], tmpbuf, 2);
         }
         return correct_e;
     }
@@ -508,7 +438,6 @@ int mx_spell_d::run_modal(const char* word)
     } else {
         XmListDeleteAllItems(list);
         XmTextSetString(replacement_text, const_cast<char*>(""));
-        read_with_timeout(from_ispell_fd[0], tmpbuf, 999);
     }
 
     XmTextSetString(word_text, const_cast<char*>(word));
@@ -526,103 +455,14 @@ int mx_spell_d::run_modal(const char* word)
     return mx_dialog::run_modal();
 }
 
-void mx_spell_d::spawn_ispell(const char* language)
-{
-    int i;
-
-    static mx_inform_d* d = NULL;
-
-    char buffer[100], file_name[MAX_PATH_LEN];
-    char dict_file_name[MAX_PATH_LEN];
-
-    finish_ispell();
-
-    signal(SIGCHLD, SIG_IGN);
-
-    if (pipe(to_ispell_fd)) {
-        return;
-    }
-    if (pipe(from_ispell_fd)) {
-        return;
-    }
-
-    if ((child_pid = vfork()) == 0) {
-        /* child */
-        dup2(to_ispell_fd[0], fileno(stdin));
-        dup2(from_ispell_fd[1], fileno(stdout));
-        close(to_ispell_fd[1]);
-        close(from_ispell_fd[0]);
-
-        sprintf(file_name, "/usr/bin/ispell");
-        //sprintf(dict_file_name, "%s/dict/%s", global_maxhome, language);
-        //execl(file_name, "ispell", "-a", "-d", dict_file_name, NULL);
-        execl(file_name, "ispell", NULL);
-
-        // exec failed if we got here
-        exit(1);
-    } else {
-        close(to_ispell_fd[0]);
-        close(from_ispell_fd[1]);
-
-        i = read_with_timeout(from_ispell_fd[0], buffer, 100);
-
-        spawn_ispell_failed = (i < 0);
-        if (spawn_ispell_failed) {
-            finish_ispell();
-            if (d == NULL) {
-                d = new mx_inform_d("ispellStartFail", dialog, error_e);
-            }
-            d->centre();
-            d->run_modal();
-            d->deactivate();
-
-            buffer[0] = 0;
-        } else {
-            buffer[i] = 0;
-        }
-    }
-    return;
-}
-
-void mx_spell_d::finish_ispell()
-{
-    if (child_pid > 0) {
-        int res;
-        char tmpbuf[1000];
-        char buffer[] = "#\n\n\nburble burble\n\n";
-
-        // send a string to tell ispell to save its dictionary
-        res = write_with_timeout(to_ispell_fd[1], buffer, strlen(buffer));
-
-        if (res != -1) {
-            // read a string from ispell to make sure its saved its dictionary
-            read_with_timeout(from_ispell_fd[0], tmpbuf, 999);
-        }
-
-        // close the pipes we were writing to
-        close(to_ispell_fd[1]);
-        close(from_ispell_fd[0]);
-
-        // kill ispell
-        kill(child_pid, SIGTERM);
-
-        set_io_timeout();
-        waitpid(child_pid, NULL, 0);
-        clear_io_timeout();
-
-        child_pid = 0;
-    }
-}
-
 void mx_spell_d::activate()
 {
     mx_dialog::activate();
 }
 
-void mx_spell_d::set_language(const char* s)
+void mx_spell_d::set_language(const char* language)
 {
-    finish_ispell();
-    spawn_ispell(s);
+    strcpy(current_language, language);
 }
 
 void mx_spell_d::set_language_menu(Widget w, const char* def)
@@ -638,10 +478,10 @@ void mx_spell_d::set_language_menu(Widget w, const char* def)
 
     XtAddCallback(b, XmNactivateCallback, language_change, this);
 
-    for (i = 0; i < MX_NUM_LANGUAGES; i++) {
-        if (strcmp(mx_language_names[i], def) != 0) {
+    for (auto l : mx_language::names) {
+        if (l == def) {
             b = XtVaCreateManagedWidget(
-                mx_language_names[i],
+                l.c_str(),
                 xmPushButtonGadgetClass,
                 w,
                 NULL);
@@ -651,37 +491,8 @@ void mx_spell_d::set_language_menu(Widget w, const char* def)
     }
 }
 
-bool mx_spell_d::wrong_spelling(const char* word)
+bool mx_spell_d::wrong_spelling(const char *word) 
 {
-    char buffer[202], tmpbuf[1000];
-
-    // send the word to ispell
-    if (strlen(word) > 100) {
-        return FALSE;
-    }
-
-    sprintf(buffer, "^%s\n", word);
-    write_with_timeout(to_ispell_fd[1], buffer, strlen(buffer));
-
-    if (read_with_timeout(from_ispell_fd[0], buffer, 1) < 0) {
-        return FALSE;
-    }
-
-    if (buffer[0] == '*' || buffer[0] == '+' || buffer[0] == '-' || buffer[0] == '\n') {
-        // Either 1 information line and a blank line
-        // or just a blank line
-        if (buffer[0] == '+') {
-            read_with_timeout(from_ispell_fd[0], tmpbuf, 100);
-        } else {
-            if (buffer[0] != '\n') {
-                read_with_timeout(from_ispell_fd[0], tmpbuf, 2);
-            }
-        }
-        return FALSE;
-    }
-
-    // clear the input
-    read_with_timeout(from_ispell_fd[0], tmpbuf, 999);
-
-    return buffer[0] == '&' || buffer[0] == '?' || buffer[0] == '#';
+    printf("check spelling of %s\n", word);
+    return false;
 }

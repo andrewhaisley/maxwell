@@ -27,12 +27,15 @@
  *
  */
 
+#include <algorithm>
 #include <ctype.h>
 #include <errno.h>
 #include <mx.h>
 #include <mx_unit.h>
 #include <stdlib.h>
 #include <string.h>
+
+using namespace std;
 
 #define MX_NUM_UNIT_NAMES 10
 
@@ -122,7 +125,7 @@ const char* mx_unit_name(mx_unit_e u)
     }
 }
 
-mx_unit_e mx_unit_type(char* s)
+mx_unit_e mx_unit_type(const string &t)
 /*
  * PARAMS  :
  *   IN - u   a unit type
@@ -131,17 +134,21 @@ mx_unit_e mx_unit_type(char* s)
  *
  */
 {
-    if (strcasecmp(s, "mm") == 0)
+    string s = t;
+ 
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+
+    if (s == "mm")
         return mx_mm;
-    else if (strcasecmp(s, "millimetres") == 0)
+    else if (s == "millimetres")
         return mx_mm;
-    else if (strcasecmp(s, "in") == 0)
+    else if (s == "in")
         return mx_inches;
-    else if (strcasecmp(s, "inches") == 0)
+    else if (s == "inches")
         return mx_inches;
-    else if (strcasecmp(s, "points") == 0)
+    else if (s == "points")
         return mx_points;
-    else if (strcasecmp(s, "pts") == 0)
+    else if (s == "pts")
         return mx_points;
     else
         return mx_mm;
