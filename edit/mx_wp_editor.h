@@ -370,7 +370,7 @@ private:
         int& err,
         mx_wp_doc_pos& start,
         mx_wp_doc_pos& end,
-        char* s);
+        const char* s);
 
     void replace_highlight_text(int& err, char* s);
 

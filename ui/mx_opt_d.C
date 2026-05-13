@@ -66,10 +66,7 @@
 
 using namespace std;
 
-static void button_cb(
-    Widget widget,
-    XtPointer client_data,
-    XtPointer call_data)
+static void button_cb(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_opt_d* d = (mx_opt_d*)client_data;
 
@@ -81,8 +78,7 @@ static void button_cb(
     }
 }
 
-mx_opt_d::mx_opt_d(Widget parent)
-    : mx_dialog("opt", parent, TRUE, FALSE)
+mx_opt_d::mx_opt_d(Widget parent) : mx_dialog("opt", parent, TRUE, FALSE)
 {
     Widget label1, label2, label3, label4;
     Arg args[15];
@@ -281,7 +277,7 @@ void mx_opt_d::activate_d(mx_config* conf)
     MX_ERROR_CHECK(err);
     set_printer_menu(s.c_str());
 
-    s = config->get_default_string(err, "language", "en_US");
+    s = config->get_default_string(err, "language", MX_DEFAULT_LANGUAGE);
     MX_ERROR_CHECK(err);
     set_language_menu(s.c_str());
 
@@ -311,12 +307,17 @@ void mx_opt_d::create_menus()
 
     cups_dest_t *printers;
 
-    for (auto l : mx_language::names) {
+    for (auto l : mx_language::codes) {
+        XmString label = XmStringCreateLocalized(const_cast<char *>(mx_language::get_language_name(l).c_str()));
+
         language_buttons[i++] = XtVaCreateManagedWidget(
             l.c_str(),
             xmPushButtonGadgetClass,
             language_sub_menu,
+            XmNlabelString, label,
             NULL);
+
+        XmStringFree(label);
     }
     
     for (i = 0; i < MX_NUM_PAPER_SIZES; i++) {
@@ -378,7 +379,7 @@ void mx_opt_d::set_language_menu(const char* current)
 {
     int i = 0;
 
-    for (auto l : mx_language::names) {
+    for (auto l : mx_language::codes) {
         if (l == current) {
             XtVaSetValues(language_menu, XmNmenuHistory, language_buttons[i], NULL);
             return;

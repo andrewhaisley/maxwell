@@ -62,7 +62,7 @@
 
 #include "mx_spell_d.h"
 
-extern char* global_maxhome;
+using namespace std;
 
 static void button_cb(Widget widget, XtPointer client_data, XtPointer call_data)
 {
@@ -84,12 +84,12 @@ static void list_cb(Widget list, XtPointer client_data, XtPointer call_data)
     XmListCallbackStruct* cbs = (XmListCallbackStruct*)call_data;
 
     XmStringGetLtoR(cbs->item, XmFONTLIST_DEFAULT_TAG, &choice);
-    strncpy(d->replacement, choice, 99);
+    d->replacement = choice;
     XtFree(choice);
 
     if (cbs->reason == XmCR_BROWSE_SELECT) {
         // single clicked on a replacement word
-        XmTextSetString(d->replacement_text, d->replacement);
+        XmTextSetString(d->replacement_text, const_cast<char *>(d->replacement.c_str()));
         return;
     }
 
@@ -109,23 +109,27 @@ static void text_return(Widget widget, XtPointer client_data, XtPointer call_dat
 static void language_change(Widget widget, XtPointer client_data, XtPointer call_data)
 {
     mx_spell_d* d = (mx_spell_d*)client_data;
-    char s[30];
+    char s[100];
 
     strcpy(s, XtName(widget));
     d->set_language(s);
 }
 
-mx_spell_d::mx_spell_d(Widget parent, const char* language) : mx_dialog("spell", parent, TRUE, FALSE)
+mx_spell_d::~mx_spell_d()
 {
-    Widget label1, label2, language_menu, language_sub_menu;
+    for (const auto &[name, dict] : m_dictionaries) {
+        enchant_broker_free_dict(m_broker, dict);
+    }
+    enchant_broker_free(m_broker);
+}
+
+mx_spell_d::mx_spell_d(Widget parent) : mx_dialog("spell", parent, TRUE, FALSE)
+{
+    Widget label1, label2, language_sub_menu;
     Arg args[15];
     int n;
 
-    if (language == NULL || mx_is_blank(language)) {
-        language = "EN_US";
-    }
-
-    strcpy(current_language, language);
+    m_broker = enchant_broker_init();
 
     XtVaSetValues(action_area, XmNfractionBase, 3, NULL);
 
@@ -190,7 +194,7 @@ mx_spell_d::mx_spell_d(Widget parent, const char* language) : mx_dialog("spell",
 
     language_menu = XmCreateOptionMenu(control_area, const_cast<char*>("languageMenu"), args, n);
 
-    set_language_menu(language_sub_menu, language);
+    create_language_menu(language_sub_menu);
 
     replacement_text = XtVaCreateManagedWidget("replacementText",
         xmTextWidgetClass, control_area,
@@ -307,90 +311,47 @@ mx_spell_d::mx_spell_d(Widget parent, const char* language) : mx_dialog("spell",
 
 void mx_spell_d::fill_list()
 {
-#if 0
-    int i = 0, j, n = 0;
-    char buffer[1000], word[100];
+    int n = 0;
+
     XmString str[100];
 
-    i = read_with_timeout(from_ispell_fd[0], buffer, 999);
-    if (i < 0) {
-        ispell_fail();
-        return;
-    } else {
-        buffer[i] = 0;
-    }
-
-    i = 0;
-    while (buffer[i] != 0 && buffer[i] != ':') {
-        i++;
-    }
-
-    if (buffer[i] == 0) {
-        XmListDeleteAllItems(list);
-        XmTextSetString(replacement_text, const_cast<char*>(""));
-        return;
-    }
-
-    i += 2;
-
-    while (TRUE) {
-        j = 0;
-        while (buffer[i] != ',' && buffer[i] != 0 && buffer[i] != '\n') {
-            word[j++] = buffer[i++];
-        }
-        word[j] = 0;
-        if (n == 0) {
-            XmTextSetString(replacement_text, word);
-        }
-        str[n++] = XmStringCreate(word, XmFONTLIST_DEFAULT_TAG);
-        if (n == 100 || buffer[i] == 0 || buffer[i] == '\n') {
+    for (const auto &s : m_suggestions) {
+        if (n >= 100) {
             break;
         } else {
-            i += 2;
+            str[n++] = XmStringCreate(const_cast<char *>(s.c_str()), XmFONTLIST_DEFAULT_TAG);
         }
     }
+    
+    XtVaSetValues(list, XmNitemCount, n, XmNitems, str, NULL);
 
-    XtVaSetValues(list,
-        XmNitemCount, n,
-        XmNitems, str,
-        NULL);
-
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         XmStringFree(str[i]);
     }
-#endif
 }
 
 void mx_spell_d::handle_button(Widget w)
 {
     char* s;
-    char buffer[201];
 
     if (w == ignore_button) {
         XtVaSetValues(back_button, XmNsensitive, True, NULL);
-
         modal_result = ignore_e;
         return;
     }
 
     if (w == ignore_all_button) {
-        sprintf(buffer, "@%s\n", original_word);
-
         XtVaSetValues(back_button, XmNsensitive, False, NULL);
-
         modal_result = ignore_e;
         return;
     }
 
     if (w == replace_button) {
         modal_result = replace_e;
-
         s = XmTextGetString(replacement_text);
-        strcpy(replacement, s);
+        replacement = s;
         XtFree(s);
-
         XtVaSetValues(back_button, XmNsensitive, False, NULL);
-
         return;
     }
 
@@ -401,57 +362,24 @@ void mx_spell_d::handle_button(Widget w)
     }
 
     if (w == add_dict_button) {
-        // tell ispell about it
-        sprintf(buffer, "*%s\n", original_word);
-
+        enchant_dict_add(m_dictionaries[m_current_language], original_word.c_str(), -1);
         XtVaSetValues(back_button, XmNsensitive, False, NULL);
-
         modal_result = ignore_e;
         return;
     }
 }
 
-int mx_spell_d::run_modal(const char* word)
+int mx_spell_d::run_modal(mx_config *config, const string &word)
 {
-    char buffer[202], *s, tmpbuf[1000];
-    strcpy(original_word, word);
+    m_config = config;
+    original_word = word;
 
-    // send the word to ispell
-    if (strlen(word) > 100) {
-        return ignore_e;
-    }
+    XmTextSetString(word_text, const_cast<char *>(word.c_str()));
 
-    sprintf(buffer, "^%s\n", word);
+    XmListDeleteAllItems(list);
+    fill_list();
+    replacement = word;
 
-    if (buffer[0] == '*' || buffer[0] == '+' || buffer[0] == '-' || buffer[0] == '\n') {
-        // Either 1 information line and a blank line
-        // or just a blank line
-
-        if (buffer[0] == '+') {
-        } else if (buffer[0] != '\n') {
-        }
-        return correct_e;
-    }
-
-    if (buffer[0] == '&' || buffer[0] == '?') {
-        fill_list();
-    } else {
-        XmListDeleteAllItems(list);
-        XmTextSetString(replacement_text, const_cast<char*>(""));
-    }
-
-    XmTextSetString(word_text, const_cast<char*>(word));
-    s = XmTextGetString(replacement_text);
-    XmListSelectPos(list, 1, False);
-
-    strcpy(replacement, s);
-
-    XmProcessTraversal(replacement_text, XmTRAVERSE_CURRENT);
-    if (s[0] != 0) {
-        XmTextSetSelection(replacement_text, 0, strlen(s), CurrentTime);
-    }
-
-    XtFree(s);
     return mx_dialog::run_modal();
 }
 
@@ -460,39 +388,69 @@ void mx_spell_d::activate()
     mx_dialog::activate();
 }
 
-void mx_spell_d::set_language(const char* language)
+void mx_spell_d::set_language(const string &language)
 {
-    strcpy(current_language, language);
+    m_current_language = language;
+
+    if (m_dictionaries.find(language) == m_dictionaries.end()) {
+        auto d = enchant_broker_request_dict(m_broker, language.c_str());
+        if (d) {
+            m_dictionaries[language] = d;
+        } 
+    }
+
+    XtVaSetValues(language_menu, XmNmenuHistory, m_language_buttons[m_current_language], NULL);
 }
 
-void mx_spell_d::set_language_menu(Widget w, const char* def)
+void mx_spell_d::create_language_menu(Widget w)
 {
-    int i;
     Widget b;
 
-    b = XtVaCreateManagedWidget(
-        def,
-        xmPushButtonGadgetClass,
-        w,
-        NULL);
+    for (auto l : mx_language::codes) {
 
-    XtAddCallback(b, XmNactivateCallback, language_change, this);
+        XmString label = XmStringCreateLocalized(const_cast<char *>(mx_language::get_language_name(l).c_str()));
 
-    for (auto l : mx_language::names) {
-        if (l == def) {
-            b = XtVaCreateManagedWidget(
-                l.c_str(),
-                xmPushButtonGadgetClass,
-                w,
-                NULL);
+        b = XtVaCreateManagedWidget(
+            l.c_str(),
+            xmPushButtonGadgetClass,
+            w,
+            XmNlabelString, label,
+            NULL);
 
-            XtAddCallback(b, XmNactivateCallback, language_change, this);
-        }
+        XmStringFree(label);
+
+        XtAddCallback(b, XmNactivateCallback, language_change, this);
+
+        m_language_buttons[l] = b;
     }
 }
 
-bool mx_spell_d::wrong_spelling(const char *word) 
+bool mx_spell_d::wrong_spelling(mx_config *config, const string &word) 
 {
-    printf("check spelling of %s\n", word);
-    return false;
+    int err;
+    m_config = config;
+    m_suggestions.clear();
+    set_language(config->get_string(err, "language"));
+
+    if (m_dictionaries.find(m_current_language) == m_dictionaries.end()) {
+        return false;
+    }
+
+    int result = enchant_dict_check(m_dictionaries[m_current_language], word.c_str(), -1);
+
+    if (result == 0) {
+        return false;
+    } else {
+        size_t suggestion_count = 0;
+        char **suggestions = enchant_dict_suggest(m_dictionaries[m_current_language], word.c_str(), -1, &suggestion_count);
+
+        if (suggestion_count > 0) {
+            for (size_t i = 0; i < suggestion_count; i++) {
+                m_suggestions.push_back(suggestions[i]);
+            }
+
+            enchant_dict_free_string_list(m_dictionaries[m_current_language], suggestions);
+        }
+        return true;
+    }
 }

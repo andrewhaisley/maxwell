@@ -146,7 +146,6 @@ mx_print_d::mx_print_d(Widget parent)
 {
     Widget label1, label2, label3, label4, sep;
     Widget label5, label6;
-    //Widget res_rc;
 
     int n;
     Arg args[10];

@@ -203,7 +203,7 @@ public:
     // routines for inserting things.  these don't do any reformatting or
     // similar - reformat the document when you've finished inserting stuff
     void insert_char(int& err, char c);
-    void insert_text(int& err, char* s);
+    void insert_text(int& err, const char* s);
     void insert_space(int& err);
     void insert_tab(int& err);
 

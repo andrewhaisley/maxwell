@@ -36,15 +36,15 @@
 
 using namespace std;
 
-std::vector<std::string> mx_language::names;
+std::vector<std::string> mx_language::codes;
 string mx_language::default_language;
 
-string language_name(string tag) {
+string mx_language::get_language_name(string tag) {
 
     const char *locale = uloc_getDefault();
 
     if (strcmp(locale, "C") == 0) {
-        locale = "en_US";
+        locale = MX_DEFAULT_LANGUAGE;
     }
 
     UChar display_name[256];
@@ -68,16 +68,14 @@ string language_name(string tag) {
     return display_utf8;
 }
 
-
 void list_dicts_cb(const char * const lang_tag,
                    const char * const provider_name,
                    const char * const provider_desc,
                    const char * const provider_file,
                    void * user_data)
 {
-    mx_language::names.push_back(language_name(lang_tag));
+    mx_language::codes.push_back(lang_tag);
 }
-
 
 void mx_language::init()
 {
@@ -90,9 +88,8 @@ void mx_language::init()
     enchant_broker_list_dicts(broker, list_dicts_cb, NULL);
     enchant_broker_free(broker);
 
-    set_default_language("en_US");
+    set_default_language(MX_DEFAULT_LANGUAGE);
 }
-
 
 string mx_language::get_default_language()
 {

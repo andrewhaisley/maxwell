@@ -955,7 +955,7 @@ void mx_wp_cursor::insert_bullets(int& err)
 abort:;
 }
 
-void mx_wp_cursor::insert_text(int& err, char* string)
+void mx_wp_cursor::insert_text(int& err, const char* string)
 {
     remove_selection(err);
     MX_ERROR_CHECK(err);

@@ -34,6 +34,11 @@
  *
  */
 
+#include <map>
+#include <list>
+#include <string>
+
+#include <enchant-2/enchant.h>
 #include "mx_dialog.h"
 #include <Xm/Xm.h>
 #include <mx_ui_object.h>
@@ -41,28 +46,36 @@
 class mx_spell_d : public mx_dialog {
 
 public:
-    mx_spell_d(Widget parent, const char* language);
+    mx_spell_d(Widget parent);
+    virtual ~mx_spell_d();
 
     Widget quit_button, list, word_text, replacement_text;
     Widget ignore_button, ignore_all_button, replace_button;
     Widget back_button, add_dict_button;
 
     void activate();
-    int run_modal(const char* word);
+    int run_modal(mx_config *config, const std::string &word);
     void handle_button(Widget w);
 
-    char original_word[100];
-    char replacement[100];
+    std::string original_word;
+    std::string replacement;
 
-    void set_language(const char* s);
-
-    bool wrong_spelling(const char *);
+    void set_language(const std::string &language);
+    bool wrong_spelling(mx_config *config, const std::string &word);
 
 private:
-    void set_language_menu(Widget w, const char* def);
+    void create_language_menu(Widget w);
     void fill_list();
+    std::string m_current_language;
 
-    char current_language[100];
+    EnchantBroker *m_broker;
+    std::map<std::string, EnchantDict *> m_dictionaries;
+    Widget language_menu;
+
+    std::map<std::string, Widget> m_language_buttons;
+    std::list<std::string> m_suggestions;
+
+    mx_config *m_config;
 };
 
 #endif

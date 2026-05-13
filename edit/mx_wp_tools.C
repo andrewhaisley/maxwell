@@ -156,7 +156,7 @@ int mx_wp_editor::tools_spell_check_range(
             str[chunk_str_end] = 0;
             chunk_str = str + chunk_str_start;
 
-            if (d->wrong_spelling(chunk_str)) {
+            if (d->wrong_spelling(global_user_config, chunk_str)) {
                 if (!d->is_active()) {
                     d->centre();
                     d->activate();
@@ -171,11 +171,11 @@ int mx_wp_editor::tools_spell_check_range(
                 cursor.update_caret(err);
                 MX_ERROR_CHECK(err);
 
-                switch (d->run_modal(chunk_str)) {
+                switch (d->run_modal(global_user_config, chunk_str)) {
                 case cancel_e:
                     return cancel_e;
                 case replace_e:
-                    replace_text(err, chunk_doc_start, chunk_doc_end, d->replacement);
+                    replace_text(err, chunk_doc_start, chunk_doc_end, d->replacement.c_str());
                     MX_ERROR_CHECK(err);
 
                     replaced_something = TRUE;
@@ -220,7 +220,7 @@ void mx_wp_editor::tools_spelling(int& err)
 
     int res;
 
-    d = dialog_man.get_spell_d(current_language);
+    d = dialog_man.get_spell_d();
 
     if (cursor.selection()) {
         start = *cursor.selection_start();
@@ -496,7 +496,7 @@ void mx_wp_editor::replace_text(
     int& err,
     mx_wp_doc_pos& start,
     mx_wp_doc_pos& end,
-    char* s)
+    const char* s)
 {
     start.save(err, document);
     MX_ERROR_CHECK(err);

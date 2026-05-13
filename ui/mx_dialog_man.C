@@ -459,10 +459,10 @@ mx_cell_d* mx_dialog_manager::get_cell_d()
     return cell_d;
 }
 
-mx_spell_d* mx_dialog_manager::get_spell_d(const char* language)
+mx_spell_d* mx_dialog_manager::get_spell_d()
 {
     if (spell_d == NULL) {
-        spell_d = new mx_spell_d(parent, language);
+        spell_d = new mx_spell_d(parent);
     }
     return spell_d;
 }

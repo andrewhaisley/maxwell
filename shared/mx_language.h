@@ -33,14 +33,16 @@
 #include <vector>
 #include <string>
 
+#define MX_DEFAULT_LANGUAGE "en_US"
 #define MX_MAX_LANGUAGES 100
 
 class mx_language
 {
 public:
     static void init();
-    static std::vector<std::string> names;
+    static std::vector<std::string> codes;
     static std::string get_default_language();
+    static std::string get_language_name(std::string tag);
     static void set_default_language(std::string name);
 
 private:

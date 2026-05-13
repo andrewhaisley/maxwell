@@ -174,7 +174,7 @@ public:
     mx_cell_d* get_cell_d();
 
     // spell checker
-    mx_spell_d* get_spell_d(const char* language);
+    mx_spell_d* get_spell_d();
 
     // envelope formatter
     mx_env_d* get_env_d();
